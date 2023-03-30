@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>io.github.nate_xyz.Resonance.desktop</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>GPL-3.0-or-later</project_license>
+	<name>Resonance</name>
+	<summary>Harmonize your listening experience</summary>
+	<developer_name>nate-xyz</developer_name>
+	<description>
+	  <p>Harmonize your listening experience with Resonance. Resonance is an intuitive music player application written in Rust, with a clean user interface built using the GTK4 / Libadwaita framework. Resonance lets you effortlessly manage and play your music collection, with support for all the common music file formats such as MP3, FLAC, AAC, and many more.</p>
+	</description>
+	<provides>io.github.nate_xyz.Resonance.desktop</provides>
+  <launchable type="desktop-id">io.github.nate_xyz.Resonance.desktop</launchable>
+
+	<url type="homepage">https://github.com/nate-xyz/resonance</url>
+  <url type="bugtracker">https://github.com/nate-xyz/resonance/issues</url>
+  <url type="donation">https://ko-fi.com/natexyz</url>
+
+	<releases>
+    <release version="0.1.0" date="2023-03-30"/>
+  </releases>
+
+	<translation type="gettext">resonance</translation>
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+    <kudo>HiDpiIcon</kudo>
+  </kudos>
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+  </custom>
+  <content_rating type="oars-1.1"/>
+
+	<categories>
+    <category>Audio</category>
+		<category>Music</category>
+  </categories>
+
+	<screenshots>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/nate-xyz/resonance/main/data/screenshots/resonance0.png</image>
+    </screenshot>
+  </screenshots>
+
+
+</component>

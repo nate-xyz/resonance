@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="SavePlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Save Playlist?</property>
+
+    <property name="default-response">save</property>
+    <property name="close-response">cancel</property>
+
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="save" translatable="yes" appearance="suggested" enabled="true">_Save</response>
+    </responses>
+
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="width-request">375</property>
+        <property name="margin-top">18</property>
+
+        <child>
+          <object class="AdwEntryRow" id="title_adw_entry">
+            <property name="width-request">375</property>
+            <property name="title" translatable="yes">Playlist Title</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwEntryRow" id="desc_adw_entry">
+            <property name="width-request">375</property>
+            <property name="title" translatable="yes">Playlist Description (Optional)</property>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </template>
+</interface>

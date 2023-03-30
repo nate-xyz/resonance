@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="DuplicatePlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Confirm Duplication</property>
+    <property name="body" translatable="yes">Are you sure you want to duplicate this playlist?</property>
+    <property name="default-response">duplicate</property>
+    <property name="close-response">cancel</property>
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="duplicate" translatable="yes" appearance="suggested" enabled="true">_Duplicate</response>
+    </responses>
+  </template>
+</interface>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MainSidebar" parent="AdwBin">
+    <property name="child">
+      <object class="GtkRevealer" id="revealer">
+        <property name="reveal-child">false</property>
+        <property name="transition-type">GTK_REVEALER_TRANSITION_TYPE_SLIDE_LEFT</property>
+        <property name="child">
+          <object class="GtkBox" id="main_box">
+            <property name="visible">true</property>
+            <property name="hexpand">false</property>
+            <property name="vexpand">true</property>
+            <property name="orientation">vertical</property>
+
+            <style>
+              <class name="sidebar"/>
+              <class name="darken"/>
+            </style>
+
+            <!-- HEADER  -->
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">false</property>
+                <property name="margin-start">10</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">10</property>
+
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="label">Music Player</property>
+                        <property name="wrap">true</property>
+                        <attributes>
+                          <attribute name="weight" value="light"/>
+                          <attribute name="scale" value="1"/>
+                        </attributes>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <!-- OPTIONS -->
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="max-content-width">300</property>
+                <property name="min-content-width">250</property>
+
+                <child>
+                  <object class="GtkListBox" id="listbox">
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
+
+                    <style>
+                      <class name="darken-mas"/>
+                      <class name="navigation-sidebar"/>
+                    </style>
+
+                    <!-- HOME OPTION -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">0</property>
+                        <property name="name">Home</property>
+
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">music-home-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="home_label">
+                                <property name="halign">start</property>
+                                <property name="label">Home</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- QUEUE OPTION -->
+                    <child>
+                      <object class="MainSidebarRow" id="queue_row">
+                        <property name="option">1</property>
+                        <property name="name">Now Playing</property>
+                        <property name="visible">false</property>
+
+
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">music-queue-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="queue_label">
+                                <property name="halign">start</property>
+                                <property name="label">Now Playing</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- ALBUMS -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">2</property>
+                        <property name="name">Albums</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">library-music-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="album_label">
+                                <property name="halign">start</property>
+                                <property name="label">Albums</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- ARTISTS -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">3</property>
+                        <property name="name">Artists</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">library-artists-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="artists_label">
+                                <property name="halign">start</property>
+                                <property name="label">Artists</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- TRACKS -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">4</property>
+                        <property name="name">Tracks</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">music-note-single-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="tracks_label">
+                                <property name="halign">start</property>
+                                <property name="label">Tracks</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- GENRES -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">5</property>
+                        <property name="name">Genres</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">music-note-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="GtkLabel" id="genres_label">
+                                <property name="halign">start</property>
+                                <property name="label">Genres</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- PLAYLISTS -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">6</property>
+                        <property name="name">Playlists</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">playlist2-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="playlists_label">
+                                <property name="halign">start</property>
+                                <property name="label">Playlists</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                    <!-- SETTINGS -->
+                    <child>
+                      <object class="MainSidebarRow">
+                        <property name="option">7</property>
+                        <property name="name">Settings</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">10</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="icon_name">settings-symbolic</property>
+                                <property name="icon_size">2</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="settings_label">
+                                <property name="halign">start</property>
+                                <property name="label">Settings</property>
+                                <property name="use-markup">true</property>
+                                <attributes>
+                                  <attribute name="weight" value="book"/>
+                                  <attribute name="scale" value="2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
+              </object>
+            </child>
+
+          </object>
+        </property>
+      </object>
+    </property>
+
+
+
+
+
+
+
+
+
+
+  </template>
+</interface>

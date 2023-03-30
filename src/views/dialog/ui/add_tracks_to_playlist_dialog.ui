@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="AddToPlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Select Playlist</property>
+    <property name="default-response">select</property>
+    <property name="close-response">cancel</property>
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="add" translatable="yes" appearance="suggested" enabled="true">_Add</response>
+    </responses>
+    <child>
+      <object class="GtkListBox" id="list_box">
+        <property name="selection-mode">single</property>
+        <style>
+          <class name="boxed-list"/>
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

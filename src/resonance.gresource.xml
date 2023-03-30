@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/nate_xyz/Resonance/">
+    <!-- QUEUE -->
+    <file alias="queue_page.ui" preprocess="xml-stripblanks">views/pages/queue/ui/queue_page.ui</file>
+    <file alias="queue_sidebar.ui" preprocess="xml-stripblanks">views/pages/queue/ui/queue_sidebar.ui</file>
+    <file alias="queue_sidebar_track_entry.ui" preprocess="xml-stripblanks">views/pages/queue/ui/queue_sidebar_track_entry.ui</file>
+    
+    <!-- ALBUM GRID -->
+    <file alias="album_grid_page.ui" preprocess="xml-stripblanks">views/pages/albums/ui/album_grid_page.ui</file>
+    <file alias="album_detail_page.ui" preprocess="xml-stripblanks">views/pages/albums/ui/album_detail_page.ui</file>
+    <file alias="album_sidebar.ui" preprocess="xml-stripblanks">views/pages/albums/ui/album_sidebar.ui</file>
+    <file alias="album_track_entry.ui" preprocess="xml-stripblanks">views/ui/album_track_entry.ui</file>
+    <file alias="album_grid_child.ui" preprocess="xml-stripblanks">views/pages/albums/ui/album_grid_child.ui</file>
+    
+    <!-- ARTIST -->
+    <file alias="artist_detail_page.ui" preprocess="xml-stripblanks">views/pages/artists/ui/artist_detail_page.ui</file>
+    <file alias="artist_grid_page.ui" preprocess="xml-stripblanks">views/pages/artists/ui/artist_grid_page.ui</file>
+    
+    <!-- GENRE -->
+    <file alias="genre_detail_page.ui" preprocess="xml-stripblanks">views/pages/genres/ui/genre_detail_page.ui</file>
+    <file alias="genre_grid_page.ui" preprocess="xml-stripblanks">views/pages/genres/ui/genre_grid_page.ui</file>
+    
+    <!-- TRACK -->
+    <file alias="track_page.ui" preprocess="xml-stripblanks">views/pages/tracks/ui/track_page.ui</file>
+    <file alias="track_page_row.ui" preprocess="xml-stripblanks">views/pages/tracks/ui/track_page_row.ui</file>
+    
+    <!-- PLAYLIST -->
+    <file alias="playlist_detail_page.ui" preprocess="xml-stripblanks">views/pages/playlists/ui/playlist_detail_page.ui</file>
+    <file alias="playlist_detail_row.ui" preprocess="xml-stripblanks">views/pages/playlists/ui/playlist_detail_row.ui</file>
+    <file alias="playlist_grid_page.ui" preprocess="xml-stripblanks">views/pages/playlists/ui/playlist_grid_page.ui</file>
+    <file alias="playlist_grid_child.ui" preprocess="xml-stripblanks">views/pages/playlists/ui/playlist_grid_child.ui</file> 
+    
+    <!-- OTHER -->
+    <file alias="control_bar.ui" preprocess="xml-stripblanks">views/ui/control_bar.ui</file>
+    <file alias="example_page.ui" preprocess="xml-stripblanks">views/ui/example_page.ui</file>
+    
+    <file alias="album_card.ui" preprocess="xml-stripblanks">views/ui/album_card.ui</file>
+    <file alias="main_sidebar.ui" preprocess="xml-stripblanks">views/ui/main_sidebar.ui</file>
+    <file alias="generic_flowbox_child.ui" preprocess="xml-stripblanks">views/ui/generic_flowbox_child.ui</file>
+    
+    <!-- DIALOG -->
+    <file alias="add_tracks_to_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/add_tracks_to_playlist_dialog.ui</file>
+    <file alias="delete_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/delete_playlist_dialog.ui</file>
+    <file alias="duplicate_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/duplicate_playlist_dialog.ui</file>
+    <file alias="remove_directory_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/remove_directory_dialog.ui</file>
+    <file alias="rename_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/rename_playlist_dialog.ui</file>
+    <file alias="save_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/save_playlist_dialog.ui</file>
+    <file alias="confirm_rename_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/confirm_rename_playlist_dialog.ui</file>
+
+    <!-- MAIN -->
+    <file alias="window.ui" preprocess="xml-stripblanks">views/ui/window.ui</file>
+    <file alias="help-overlay.ui" preprocess="xml-stripblanks">views/ui/help-overlay.ui</file>    
+    <file alias="preferences_window.ui" preprocess="xml-stripblanks">views/ui/preferences_window.ui</file>    
+    
+    <file>style.css</file>
+  </gresource>
+  <gresource prefix="/io/github/nate_xyz/Resonance/icons/scalable/actions/">
+    <file alias="file-cabinet-symbolic.svg">assets/icons/file-cabinet-symbolic.svg</file>
+    <file alias="drag-handle-symbolic.svg">assets/icons/drag-handle-symbolic.svg</file>
+    <file alias="pan-down-symbolic.svg">assets/icons/pan-down-symbolic.svg</file>
+    <file alias="edit-symbolic.svg">assets/icons/edit-symbolic.svg</file>
+    <file alias="checkmark-symbolic.svg">assets/icons/checkmark-symbolic.svg</file>
+    <file alias="view-sort-descending-symbolic.svg">assets/icons/view-sort-descending-symbolic.svg</file>
+    <file alias="media-playlist-shuffle-symbolic.svg">assets/icons/media-playlist-shuffle-symbolic.svg</file>
+    <file alias="info-symbolic.svg">assets/icons/info-symbolic.svg</file>
+    <file alias="media-playback-start-symbolic.svg">assets/icons/media-playback-start-symbolic.svg</file>
+    <file alias="media-playlist-repeat-symbolic.svg">assets/icons/media-playlist-repeat-symbolic.svg</file>
+    <file alias="preferences-system-symbolic.svg">assets/icons/preferences-system-symbolic.svg</file>
+    <file alias="media-playlist-repeat-song-symbolic.svg">assets/icons/media-playlist-repeat-song-symbolic.svg</file>
+    <file alias="audio-only-symbolic.svg">assets/icons/audio-only-symbolic.svg</file>
+    <file alias="edit-clear-all-symbolic.svg">assets/icons/edit-clear-all-symbolic.svg</file>
+    <file alias="media-playback-pause.svg">assets/icons/media-playback-pause-symbolic.svg</file>
+    <file alias="media-playlist-shuffle.svg">assets/icons/media-playlist-shuffle-symbolic.svg</file>
+    <file alias="media-skip-backward-symbolic.svg">assets/icons/media-skip-backward-symbolic.svg</file>
+    <file alias="media-skip-forward-symbolic.svg">assets/icons/media-skip-forward-symbolic.svg</file>
+    <file alias="selection-mode-symbolic.svg">assets/icons/selection-mode-symbolic.svg</file>
+    <file alias="plus-large-symbolic.svg">assets/icons/plus-large-symbolic.svg</file>
+    <file alias="plus-symbolic.svg">assets/icons/plus-symbolic.svg</file>
+    <file alias="library-music-symbolic.svg">assets/icons/library-music-symbolic.svg</file>
+    <file alias="music-queue-symbolic.svg">assets/icons/music-queue-symbolic.svg</file>
+    <file alias="dock-left-symbolic.svg">assets/icons/dock-left-symbolic.svg</file>
+    <file alias="menu-symbolic.svg">assets/icons/menu-symbolic.svg</file>
+    <file alias="music-note-single-symbolic.svg">assets/icons/music-note-single-symbolic.svg</file>
+    <file alias="music-note-symbolic.svg">assets/icons/music-note-symbolic.svg</file>
+    <file alias="playlist2-symbolic.svg">assets/icons/playlist2-symbolic.svg</file>
+    <file alias="library-artists-symbolic.svg">assets/icons/library-artists-symbolic.svg</file>
+    <file alias="music-home-symbolic.svg">assets/icons/music-home-symbolic.svg</file>
+    <file alias="settings-symbolic.svg">assets/icons/settings-symbolic.svg</file>
+    <file alias="person2-symbolic.svg">assets/icons/person2-symbolic.svg</file>
+    <file alias="loupe-large-symbolic.svg">assets/icons/loupe-large-symbolic.svg</file>
+    <file alias="document-save-symbolic.svg">assets/icons/document-save-symbolic.svg</file>
+    <file alias="play-queue-symbolic.svg">assets/icons/play-queue-symbolic.svg</file>
+    <file alias="cross-filled-symbolic.svg">assets/icons/cross-filled-symbolic.svg</file>
+    <file alias="arrow-into-box-symbolic.svg">assets/icons/arrow-into-box-symbolic.svg</file>
+    <file alias="check-round-outline-symbolic.svg">assets/icons/check-round-outline-symbolic.svg</file>
+    <file alias="copy-symbolic.svg">assets/icons/copy-symbolic.svg</file>
+    <file alias="left-large-symbolic.svg">assets/icons/left-large-symbolic.svg</file>
+    <file alias="right-large-symbolic.svg">assets/icons/right-large-symbolic.svg</file>
+  </gresource>
+</gresources>

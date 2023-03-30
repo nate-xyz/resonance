@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="AlbumGridPage" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="vexpand">true</property>
+    <child>
+      <object class="AdwFlap" id="adwflap">
+        <property name="reveal-flap">false</property>
+        <property name="locked">true</property>
+        <property name="flap-position">end</property>
+        <property name="transition-type">over</property>
+        <property name="fold_duration">250</property>
+        <property name="flap">
+          <object class="AlbumFlap" id="album_sidebar">
+            <style>
+              <class name="background"/>
+            </style>
+          </object>
+        </property>
+
+        <property name="content">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+
+            <child>
+              <object class="GtkSearchBar" id="search_bar">
+                <style>
+                  <class name="inline"/>
+                </style>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">10</property>
+                    <child>
+                      <object class="GtkDropDown" id="drop_down">
+                        <property name="model">
+                          <object class="GtkStringList">
+                            <items>
+                              <item translatable="yes">Title &amp; Artist</item>
+                              <item translatable="yes">Album Title</item>
+                              <item translatable="yes">Artist</item>
+                              <item translatable="yes">Genre</item>
+                              <item translatable="yes">Release Date</item>
+                            </items>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSearchEntry" id="search_entry">
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwClamp">
+                <property name="maximum-size">2200</property>
+                <property name="child">
+                  <object class="GtkScrolledWindow" id="scrolled_window">
+                    <property name="vexpand">true</property>
+                    <property name="hexpand">true</property>
+                    <property name="halign">fill</property>
+                    <property name="valign">fill</property>
+                    <property name="has-frame">false</property>
+
+                    <property name="hscrollbar-policy">never</property>
+
+                    <child>
+                      <object class="GtkFlowBox" id="flow_box">
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
+                        <property name="valign">center</property>
+                        <property name="halign">center</property>
+                        
+                        <property name="activate-on-single-click">true</property>
+                        <property name="column-spacing">0</property>
+                        <property name="row-spacing">0</property>
+                        <property name="min-children-per-line">2</property>
+                        <property name="max-children-per-line">5</property>
+                      </object>
+                    </child>
+
+
+                  </object>
+
+                </property>
+
+              </object>
+
+
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+  </template>
+
+  <menu id='sort-menu'>
+    <section>
+      <attribute name="label" translatable="yes">Sort Album Grid</attribute>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Album Title</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>0</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Artist Name</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>1</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Genre</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>2</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Release Date</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>3</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Total Duration</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>4</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Track Count</attribute>
+        <attribute name='action'>win.album-grid-sort</attribute>
+        <attribute name='target' type='q'>5</attribute>
+      </item>
+    </section>
+  </menu>
+  
+</interface>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="PlaylistGridChild" parent="GtkFlowBoxChild">
+    <property name="halign">start</property>
+    <property name="valign">start</property>
+    <property name="hexpand">false</property>
+    <property name="vexpand">false</property>
+
+    <property name="margin-start">3</property>
+    <property name="margin-end">3</property>
+    <property name="margin-top">3</property>
+    <property name="margin-bottom">3</property>
+
+    <style>
+      <class name="transparent-flowboxchild"/>
+    </style>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkOverlay" id="overlay">
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
+    
+            <child type="overlay">
+              <object class="GtkBox" id="overlay_box">
+                <property name="visible">false</property>
+
+                <property name="hexpand">false</property>
+                <property name="vexpand">false</property>
+                <property name="halign">center</property>
+                <property name="valign">end</property>
+    
+                <style>
+                  <class name="linked"/>
+                </style>
+    
+                <child>
+                  <object class="GtkButton" id="play_button">
+                    <property name="valign">center</property>
+    
+                    <style>
+                      <class name="suggested-action"/>
+                      <class name="opaque"/>
+                    </style>
+    
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon_name">media-playback-start-symbolic</property>
+                        <property name="icon_size">2</property>
+                      </object>
+                    </child>
+    
+                    <property name="tooltip-text" translatable="yes">Play Album</property>
+    
+                  </object>
+                </child>
+    
+                <child>
+                  <object class="GtkButton" id="add_button">
+                    <property name="valign">center</property>
+    
+                    <style>
+                      <class name="opaque"/>
+                    </style>
+    
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon_name">plus-large-symbolic</property>
+                        <property name="icon_size">2</property>
+                      </object>
+                    </child>
+    
+                    <property name="tooltip-text" translatable="yes">Add Album to Queue</property>    
+                  </object>
+                </child>
+    
+              </object>
+            </child>
+    
+            <child>
+              <object class="GtkOverlay">
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+                <property name="valign">fill</property>
+                <property name="halign">fill</property>
+                
+                <property name="margin-bottom">5</property>
+
+                <child type="overlay">
+                  <object class="GtkButton" id="main_button">
+                    <property name="visible">false</property>
+                    <style>
+                      <class name="card"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwBin" id="art_bin"></object>
+                </child>
+              </object>
+            </child>
+    
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="info_box">
+            <property name="visible">true</property>
+            <property name="hexpand">false</property>
+            <property name="vexpand">false</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="orientation">vertical</property>
+    
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="ellipsize">end</property>
+                <property name="max-width-chars">30</property>
+                <property name="label"></property>
+    
+                <attributes>
+                  <attribute name="style" value="oblique"/>
+                  <attribute name="weight" value="PANGO_WEIGHT_MEDIUM"/>
+                  <attribute name="scale" value="1"/>
+                </attributes>
+              </object>
+    
+            </child>
+    
+            <child>
+              <object class="GtkLabel" id="modify_time_label">
+                <property name="visible">false</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="ellipsize">end</property>
+                <property name="max-width-chars">25</property>
+                <property name="label"></property>
+                <attributes>
+                  <attribute name="weight" value="PANGO_WEIGHT_ULTRALIGHT"/>
+                  <attribute name="scale" value="1"/>
+                </attributes>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkLabel" id="track_count_label">
+                <property name="visible">false</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="ellipsize">end</property>
+                <property name="max-width-chars">25</property>
+                <property name="label"></property>
+                <attributes>
+                  <attribute name="weight" value="PANGO_WEIGHT_ULTRALIGHT"/>
+                  <attribute name="scale" value="1"/>
+                </attributes>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkLabel" id="duration_label">
+                <property name="visible">false</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="wrap">true</property>
+                <property name="max-width-chars">25</property>
+                <property name="label"></property>
+                <attributes>
+                  <attribute name="weight" value="PANGO_WEIGHT_ULTRALIGHT"/>
+                  <attribute name="scale" value="1"/>
+                </attributes>
+              </object>
+            </child>
+
+          </object>
+    
+    
+    
+        </child>
+      </object>
+    </child>
+
+
+  </template>
+
+
+  <object class="GtkPopoverMenu" id="popover">
+    <property name="has-arrow">false</property>
+  </object>
+  
+</interface>

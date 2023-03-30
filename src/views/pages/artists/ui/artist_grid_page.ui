@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="ArtistGridPage" parent="GtkBox">
+    <property name="orientation">vertical</property>
+
+    <child>
+      <object class="GtkSearchBar" id="search_bar">
+        <style>
+          <class name="inline"/>
+        </style>
+        <property name="child">
+          <object class="GtkSearchEntry" id="search_entry">
+          </object>
+        </property>
+      </object>
+    </child>
+
+    <child>
+      <object class="GtkScrolledWindow" id="scrolled_window">
+        <property name="vexpand">true</property>
+        <property name="hexpand">true</property>
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="has-frame">false</property>
+
+        <property name="hscrollbar-policy">never</property>
+
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="vexpand">true</property>
+            <property name="hexpand">true</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+
+            <child>
+              <object class="GtkFlowBox" id="flow_box">
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+
+                <property name="selection-mode">none</property>
+                <property name="column-spacing">0</property>
+                <property name="row-spacing">0</property>
+                <property name="min-children-per-line">2</property>
+                <property name="max-children-per-line">5</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+
+    
+
+  </template>
+
+  <menu id='sort-menu'>
+    <section>
+      <attribute name="label" translatable="yes">Sort Artist Grid</attribute>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Artist Name</attribute>
+        <attribute name='action'>win.artist-grid-sort</attribute>
+        <attribute name='target' type='q'>0</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Album Count</attribute>
+        <attribute name='action'>win.artist-grid-sort</attribute>
+        <attribute name='target' type='q'>1</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Sort by Track Count</attribute>
+        <attribute name='action'>win.artist-grid-sort</attribute>
+        <attribute name='target' type='q'>2</attribute>
+      </item>
+    </section>
+  </menu>
+
+</interface>

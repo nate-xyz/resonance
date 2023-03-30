@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Resonance
+GenericName=Music Player
+Exec=resonance
+Icon=io.github.nate_xyz.Resonance
+Terminal=false
+Type=Application
+Categories=GTK;Music;Audio;AudioVideo;
+StartupNotify=true
+# Translators: Search terms to find this application. Do not translate or localize the semicolons! The list must also end with a semicolon.
+Keywords=music;sound;player;media;audio;playlist;

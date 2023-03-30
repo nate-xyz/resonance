@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0"/>
+  <template class="PreferencesWindow" parent="AdwPreferencesWindow">
+    <property name="default-height">800</property>
+    <property name="destroy-with-parent">true</property>
+
+
+    <!-- USER INTERFACE PAGE -->
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">UI</property>
+        <property name="icon-name">preferences-system-symbolic</property>
+
+        <style>
+          <class name="content-box"/>
+        </style>
+
+        <!-- ALL -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">All</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_all">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Full Page Back Buttons</property>
+                <property name="activatable-widget">switch_full_page_back</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_full_page_back">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+
+          </object>
+        </child>
+
+        <!-- QUEUE -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Queue</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_queue">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Queue Opens By Default</property>
+                <property name="activatable-widget">switch_queue_open_default</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_queue_open_default">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+ 
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+
+          </object>
+        </child>
+
+        <!-- ALBUMS -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Album Grid Page</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_album">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Default sort</property>
+                <property name="activatable-widget">album_grid_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="album_grid_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Album Title</item>
+                      <item translatable="yes" id="1">Sort by Artist Name</item>
+                      <item translatable="yes" id="2">Sort by Genre</item>
+                      <item translatable="yes" id="3">Sort by Release Date</item>
+                      <item translatable="yes" id="4">Sort by Total Duration</item>
+                      <item translatable="yes" id="5">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Display Album Name and Artist Labels by Default</property>
+                <property name="subtitle" translatable="yes">If disabled, these labels are only shown when searching on the album grid page.</property>
+                <property name="activatable-widget">switch_display_labels</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_display_labels">
+                    <property name="valign">center</property>
+                    <property name="active">false</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Disable Album Flap</property>
+                <property name="subtitle" translatable="yes">Selecting an album will take you straight to the album detail page.</property>
+
+                <property name="activatable-widget">switch_disable_album_flap</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_disable_album_flap">
+                    <property name="valign">center</property>
+                    <property name="active">false</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+
+
+          </object>
+        </child>
+
+        <!-- TRACKS -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Track Page</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_track">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Default sort</property>
+                <property name="activatable-widget">track_page_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="track_page_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Track Title</item>
+                      <item translatable="yes" id="1">Sort by Album Title</item>
+                      <item translatable="yes" id="2">Sort by Artist Name</item>
+                      <item translatable="yes" id="3">Sort by Release Date</item>
+                      <item translatable="yes" id="4">Sort by Genre</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Search Bar Open by Default</property>
+                <property name="activatable-widget">switch_disable_track_page_searchbar</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_disable_track_page_searchbar">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Display Additional Labels by Default</property>
+                <property name="subtitle" translatable="yes">If disabled, track entries only display genre and date labels when searching</property>
+                <property name="activatable-widget">switch_track_page_additional_labels</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_track_page_additional_labels">
+                    <property name="valign">center</property>
+                    <property name="active">false</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+
+
+          </object>
+        </child>
+
+        <!-- ARTISTS -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Playlists</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_playlists">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Playlist Grid Default Sort</property>
+                <property name="activatable-widget">playlist_grid_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="playlist_grid_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Playlist Title</item>
+                      <item translatable="yes" id="1">Sort by Last Modified</item>
+                      <item translatable="yes" id="2">Sort by Duration</item>
+                      <item translatable="yes" id="3">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+        <!-- ARTISTS -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Artists</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_artists">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Artist Grid Default Sort</property>
+                <property name="activatable-widget">artist_grid_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="artist_grid_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Artist Name</item>
+                      <item translatable="yes" id="1">Sort by Album Count</item>
+                      <item translatable="yes" id="2">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Artist Detail Default Sort</property>
+                <property name="activatable-widget">artist_detail_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="artist_detail_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Album Title</item>
+                      <item translatable="yes" id="1">Sort by Release Date</item>
+                      <item translatable="yes" id="2">Sort by Total Duration</item>
+                      <item translatable="yes" id="3">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+        <!-- GENRES -->
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Genres</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_genres">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Genre Grid Default Sort</property>
+                <property name="activatable-widget">genre_grid_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="genre_grid_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Genre Name</item>
+                      <item translatable="yes" id="1">Sort by Album Count</item>
+                      <item translatable="yes" id="2">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Genre Detail Default Sort</property>
+                <property name="activatable-widget">genre_detail_sort</property>
+                <child>
+                  <object class="GtkComboBoxText" id="genre_detail_sort">
+                    <property name="valign">center</property>
+                    <items>
+                      <item translatable="yes" id="0">Sort by Album Title</item>
+                      <item translatable="yes" id="1">Sort by Artist Name</item>
+                      <item translatable="yes" id="2">Sort by Release Date</item>
+                      <item translatable="yes" id="3">Sort by Total Duration</item>
+                      <item translatable="yes" id="4">Sort by Track Count</item>
+                    </items>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+        <!-- <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Home Page</property>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Display Welcome Message</property>
+
+                <property name="activatable-widget">switch_home_display_welcome</property>
+
+                <child>
+                  <object class="GtkSwitch" id="switch_home_display_welcome">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Display Recent Album Card</property>
+                <property name="activatable-widget">switch_display_recent_card</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_display_recent_card">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Display Random Album Card</property>
+                <property name="activatable-widget">switch_display_random_card</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_display_random_card">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+          </object>
+        </child> -->
+      </object>
+    </child>
+
+
+    <!-- PLAYBACK PAGE -->
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Playback</property>
+        <property name="icon-name">audio-only-symbolic</property>
+
+        <style>
+          <class name="content-box"/>
+        </style>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Playback Settings</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_playback">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+
+            <!-- <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Threshold for Play Commit</property>
+                <property name="subtitle" translatable="yes">The percentage of the song that must play before recorded as a play in the internal database (for the home page)</property>
+                <property name="activatable-widget">spin_play_threshold</property>
+                <child>
+                  <object class="GtkSpinButton" id="spin_play_threshold">
+                    <property name="digits">2</property>
+                    <property name="valign">center</property>
+                    <property name="adjustment">play_threshold_adjustment</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child> -->
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Default Volume</property>
+                <property name="activatable-widget">spin_volume_default</property>
+                <child>
+                  <object class="GtkSpinButton" id="spin_volume_default">
+                    <property name="digits">2</property>
+                    <property name="valign">center</property>
+                    <property name="adjustment">volume_adjustment</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Shuffle Mode Loops at End</property>
+                <property name="subtitle" translatable="yes">If disabled, shuffle mode will end after last song, like the normal playback mode</property>
+
+                <property name="activatable-widget">switch_loop_shuffle</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_loop_shuffle">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Discord</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reset_default_discord">
+                <property name="valign">center</property>
+                <property name="label">Reset</property>
+              </object>
+            </property>
+
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Discord Rich Presence</property>
+                <!-- <property name="subtitle" translatable="yes"></property> -->
+
+                <property name="activatable-widget">switch_discord</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_discord">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+
+      </object>
+    </child>
+
+    <!-- FOLDER PAGE -->
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Folder(s)</property>
+        <property name="icon-name">file-cabinet-symbolic</property>
+
+
+        <style>
+          <class name="content-box"/>
+        </style>
+
+        <child>
+          <object class="AdwPreferencesGroup">
+
+
+            <child>
+              <object class="AdwActionRow">
+                <property translatable="yes" name="title">Add Folder</property>
+                <property name="activatable-widget">add_folder_button</property>
+                <child>
+                  <object class="GtkButton" id="add_folder_button">
+                    <property name="valign">center</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon_name">plus-large-symbolic</property>
+                        <property name="icon_size">1</property>
+                      </object>
+                    </child>
+
+                    <property name="tooltip-text" translatable="yes">Add Music Directory</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+
+        <child>
+          <object class="AdwPreferencesGroup" id="dir-list">
+            <property name="title" translatable="yes">Music Folders</property>
+            <property name="header-suffix">
+              <object class="GtkButton" id="reload_all_folders">
+                <property name="valign">center</property>
+                <property name="label">Reload All</property>
+              </object>
+            </property>
+
+
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </template>
+
+  <object class="GtkAdjustment" id="play_threshold_adjustment">
+    <property name="value">0.75</property>
+    <property name="lower">0.50</property>
+    <property name="upper">0.99</property>
+    <property name="step_increment">0.05</property>
+  </object>
+
+  <object class="GtkAdjustment" id="volume_adjustment">
+    <property name="value">0.5</property>
+    <property name="lower">0.0</property>
+    <property name="upper">1</property>
+    <property name="step_increment">0.1</property>
+  </object>
+
+</interface>

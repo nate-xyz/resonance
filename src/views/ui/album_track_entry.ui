@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TrackEntry" parent="GtkBox">
+    <property name="width-request">340</property>
+    <property name="hexpand">true</property>
+    <property name="halign">fill</property>
+    <property name="vexpand">false</property>
+    <property name="margin-start">5</property>
+    <property name="margin-top">5</property>
+    <property name="margin-bottom">5</property>
+
+    <child>
+      <object class="GtkBox" id="content_box">
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="hexpand">true</property>
+        <property name="halign">fill</property>
+
+        <style>
+          <class name="linked"/>
+        </style>
+
+        <child>
+          <object class="GtkButton" id="track_button">
+            <!-- <property name="hexpand">true</property>
+            <property name="halign">fill</property> -->
+
+            <property name="tooltip-text" translatable="yes">Play Track</property>
+
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">true</property>
+                <property name="halign">fill</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="hexpand">true</property>
+                    <property name="halign">start</property>
+    
+                    <child>
+                      <object class="GtkImage" id="play_icon">
+                        <property name="visible">false</property>
+                        <property name="margin-end">5</property>
+                        <property name="icon_name">media-playback-start-symbolic</property>
+                        <property name="icon_size">1</property>
+                      </object>
+                    </child>
+    
+                    <child>
+                      <object class="GtkLabel" id="number_label">
+                        <property name="halign">start</property>
+                        <property name="valign">center</property>
+                        <property name="label"></property>
+                        <attributes>
+                          <attribute name="weight" value="thin"/>
+                          <attribute name="scale" value="1"/>
+                        </attributes>
+                      </object>
+                    </child>
+    
+                    <child>
+    
+                      <object class="GtkLabel" id="track_name_label">
+                        <property name="hexpand">true</property>
+                        <property name="halign">start</property>
+                        <property name="valign">center</property>
+                        <!-- <property name="max-width-chars">27</property> -->
+                        <property name="ellipsize">end</property>
+                        
+                        <!-- <property name="wrap">true</property> -->
+                        <property name="label"></property>
+                        <attributes>
+                          <attribute name="weight" value="PANGO_WEIGHT_BOOK"/>
+                          <attribute name="scale" value="0.9"/>
+                        </attributes>
+                      </object>
+    
+                    </child>
+                  </object>
+                </child>
+    
+    
+                <child>
+                  <object class="GtkBox">
+                    <property name="halign">end</property>
+    
+                    <child>
+                      <object class="GtkLabel" id="time_label">
+                        <property name="halign">end</property>
+                        <property name="valign">center</property>
+                        <!-- <property name="wrap">true</property> -->
+                        <property name="label"></property>
+                        <attributes>
+                          <attribute name="weight" value="PANGO_WEIGHT_ULTRALIGHT"/>
+                          <attribute name="scale" value="1"/>
+                        </attributes>
+                      </object>
+    
+                    </child>
+                  </object>
+                </child>
+
+              </object>
+            </child>
+
+
+
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkButton" id="add_button">
+            <property name="visible">false</property>
+            <child>
+              <object class="GtkImage">
+                <property name="icon_name">plus-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </template>
+
+  <object class="GtkPopoverMenu" id="popover">
+    <property name="has-arrow">false</property>
+  </object>
+  
+</interface>

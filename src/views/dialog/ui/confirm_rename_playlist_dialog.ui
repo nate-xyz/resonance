@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="ConfirmRenamePlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Modify Playlist?</property>
+    <property name="body" translatable="yes">Confirm these changes.</property>
+    <property name="default-response">change</property>
+    <property name="close-response">cancel</property>
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="change" translatable="yes" appearance="suggested" enabled="true">_Change</response>
+    </responses>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+
+        <child>
+          <object class="GtkBox" id="rename_title_box">
+            <property name="orientation">vertical</property>
+            <property name="spacing">5</property>
+    
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label">Modified Title</property>
+                <property name="wrap">true</property>
+
+                <style>
+                  <class name="heading"/>
+                </style>
+
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <property name="halign">start</property>
+                <property name="label"></property>
+                <property name="wrap">true</property>
+                <!-- <attributes>
+                  <attribute name="style" value="oblique"/>
+                  <attribute name="weight" value="PANGO_WEIGHT_BOOK"/>
+                  <attribute name="scale" value="1"/>
+                </attributes> -->
+
+                <style>
+                  <class name="body"/>
+                </style>
+
+              </object>
+            </child>
+    
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkBox" id="rename_desc_box">
+            <property name="orientation">vertical</property>
+            <property name="spacing">5</property>
+
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label">Modified Description</property>
+                <property name="wrap">true</property>
+
+                <style>
+                  <class name="heading"/>
+                </style>
+
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkLabel" id="desc_label">
+                <property name="halign">start</property>
+                <property name="label"></property>
+                <property name="wrap">true</property>
+                <!-- <attributes>
+                  <attribute name="style" value="oblique"/>
+                  <attribute name="weight" value="PANGO_WEIGHT_BOOK"/>
+                  <attribute name="scale" value="1"/>
+                </attributes> -->
+                <style>
+                  <class name="body"/>
+                </style>
+                
+              </object>
+            </child>
+
+    
+          </object>
+        </child>
+
+
+      </object>
+    </child>
+
+  </template>
+</interface>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="RenamePlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Rename Playlist?</property>
+    <property name="destroy-with-parent">true</property>
+    <property name="close-response">cancel</property>
+    <property name="default-response">rename</property>
+
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="rename" translatable="yes" appearance="suggested" enabled="true">_Rename</response>
+    </responses>
+
+    <property name="extra-child">
+      <object class="AdwPreferencesGroup">
+        <property name="width-request">375</property>
+        <property name="margin-top">18</property>
+        <child>
+          <object class="AdwEntryRow" id="adw_entry_row">
+            <property name="title" translatable="yes">Playlist</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

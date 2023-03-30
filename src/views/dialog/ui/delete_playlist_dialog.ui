@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="DeletePlaylistDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Delete Playlist?</property>
+    <property name="body" translatable="yes">Are you sure you want to permanently delete this playlist? You will be unable to access it again after deletion.</property>    
+    <property name="default-response">delete</property>
+    <property name="close-response">cancel</property>
+    <responses>
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <response id="delete" translatable="yes" appearance="destructive" enabled="true">_Delete</response>
+    </responses>
+  </template>
+</interface>

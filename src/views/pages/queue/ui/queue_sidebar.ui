@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="QueueSidebar" parent="AdwBin">
+    <property name="child">
+      <object class="AdwClamp">
+        <property name="maximum-size">400</property>
+        <property name="child">      <object class="GtkBox" id="queue_box">
+          <property name="hexpand">false</property>
+          <property name="vexpand">true</property>
+          <property name="orientation">vertical</property>
+          <property name="width-request">400</property>
+  
+          <style>
+            <class name="content-box"/>
+            <class name="sidebar"/>
+          </style>
+  
+          <child>
+            <object class="GtkBox" id="top_box">
+              <property name="hexpand">true</property>
+              <property name="halign">fill</property>
+              <property name="margin-start">10</property>
+              <property name="margin-top">5</property>
+              <property name="margin-bottom">10</property>
+  
+              <child type="start">
+                <object class="GtkBox">
+                  <property name="hexpand">true</property>
+                  <property name="orientation">vertical</property>
+                  <child>
+                    <object class="GtkLabel" id="playlist_title_label">
+                      <property name="halign">start</property>
+                      <property name="label">Playlist</property>
+                      <property name="wrap">true</property>
+  
+                      <attributes>
+                        <attribute name="weight" value="PANGO_WEIGHT_LIGHT"/>
+                        <attribute name="scale" value="1.5"/>
+                      </attributes>
+                    </object>
+                  </child>
+  
+                  <child>
+                    <object class="GtkLabel" id="time_left_label">
+                      <property name="halign">start</property>
+                      <property name="label">time remaining</property>
+                      <property name="wrap">true</property>
+  
+                      <attributes>
+                        <attribute name="weight" value="PANGO_WEIGHT_ULTRALIGHT"/>
+                        <attribute name="scale" value="1"/>
+                      </attributes>
+                    </object>
+                  </child>
+                </object>
+              </child>
+  
+              <child type="end">
+                <object class="GtkBox">
+                  <property name="margin-end">5</property>
+                  <property name="valign">start</property>
+                  <property name="halign">end</property>
+
+                  <child>
+                    <object class="GtkButton" id="clear_queue_button">
+                      <property name="visible">false</property>
+                      <property name="valign">center</property>
+                      <property name="icon-name">edit-clear-all-symbolic</property>
+                      <property name="tooltip-text" translatable="yes">Clear Queue</property>
+                      <style>
+                        <class name="flat"/>
+                      </style>
+                    </object>
+                  </child>
+
+                  <child>
+                    <object class="GtkToggleButton" id="edit_button">
+                      <property name="valign">center</property>
+                      <property name="halign">end</property>
+                      <style>
+                        <class name="flat"/>
+                      </style>
+                      <child>
+                        <object class="GtkImage">
+                          <property name="icon_name">edit-symbolic</property>
+                          <property name="icon_size">1</property>
+                        </object>
+                      </child>
+                      <property name="tooltip-text" translatable="yes">Edit Queue</property>
+                    </object>
+                  </child>
+  
+                  <child>
+                    <object class="GtkButton" id="toggle_playlist_save_button">
+                      <property name="valign">center</property>
+                      <property name="icon-name">document-save-symbolic</property>
+                      <property name="tooltip-text" translatable="yes">Save</property>
+                      <style>
+                        <class name="flat"/>
+                      </style>
+                    </object>
+                  </child>
+  
+                  <child>
+                    <object class="GtkButton" id="toggle_search_button">
+                      <property name="valign">center</property>
+                      <property name="icon-name">loupe-large-symbolic</property>
+                      <property name="tooltip-text" translatable="yes">Search</property>
+                      <style>
+                        <class name="flat"/>
+                      </style>
+                    </object>
+                  </child>
+  
+                </object>
+              </child>
+  
+  
+  
+            </object>
+          </child>
+  
+          <child>
+            <object class="GtkSearchBar" id="search_bar">
+              <style>
+                <class name="inline"/>
+              </style>
+              <property name="child">
+                <object class="GtkSearchEntry" id="search_entry">
+                </object>
+              </property>
+            </object>
+          </child>
+  
+          <child>
+            <object class="GtkSeparator">
+              <property name="orientation">horizontal</property>
+            </object>
+          </child>
+          
+          <child>
+            <object class="GtkScrolledWindow" id="scrolled_window">
+              <property name="min-content-width">250</property>
+  
+              <property name="vexpand">true</property>
+              <property name="hexpand">true</property>
+              <property name="halign">fill</property>
+              <property name="valign">fill</property>
+              <property name="has-frame">false</property>
+  
+              <property name="hscrollbar-policy">never</property>
+  
+              <child>
+                <object class="GtkListBox" id="list_box">
+                  <property name="hexpand">true</property>
+                  <property name="vexpand">true</property>
+                  <style>
+                    <!-- <class name="background"/> -->
+                    <class name="navigation-sidebar"/>
+                  </style>
+  
+                </object>
+              </child>
+            </object>
+          </child>
+        </object></property>
+      </object>
+
+    </property>
+  </template>
+
+  <object class="GtkPopoverMenu" id="popover">
+    <property name="has-arrow">false</property>
+  </object>
+
+</interface>

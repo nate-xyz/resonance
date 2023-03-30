@@ -1,0 +1,4 @@
+data/org.example.App.desktop.in
+data/org.example.App.appdata.xml.in
+data/org.example.App.gschema.xml
+src/window.ui

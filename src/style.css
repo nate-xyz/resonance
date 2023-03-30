@@ -1,0 +1,104 @@
+.main-art {
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.5);
+}
+
+.hover-art {
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.8);
+}
+
+
+.style-test {
+    background: rgba(182, 59, 43, 0.7);
+}
+
+.content-box {
+    transition-property: background;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    border-color:  alpha(@background_color_0, .55);
+    background: linear-gradient(127deg, alpha(@background_color_0, .75), alpha(@background_color_1, .25) 70.71%),
+        linear-gradient(217deg, alpha(@background_color_1, .55), alpha(@background_color_2, .25) 70.71%),
+        linear-gradient(336deg, alpha(@background_color_2, .55), alpha(@background_color_3, .25) 70.71%);
+
+    
+}
+
+.control-bar {
+    background: linear-gradient(to right, alpha(@control_bar_0, .5), alpha(@control_bar_1, .25)),
+        linear-gradient(200deg, alpha(@control_bar_1, .55), alpha(@control_bar_0, .25) 69.69%),
+        linear-gradient(340deg, alpha(@control_bar_0, .55), alpha(@control_bar_1, .25) 70.71%);
+
+    color: white;
+    box-shadow: none;
+    transition-property: background;
+    transition-duration: 50ms;
+    transition-timing-function: ease;
+}
+
+.control-bar>revealer>box {
+    background: transparent;
+    box-shadow: none;
+    outline-color: transparent;
+    border-color: transparent;
+}
+
+.album-flap {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.transparent-button {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    outline-color: transparent;
+}
+
+viewswitcherbar actionbar > revealer > box {
+    background-color: transparent;
+    outline-color: transparent;
+    border-color: transparent;
+}
+
+.transparent-flowboxchild {
+    background: transparent;
+    outline-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.placeholder-album-background {
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.darken-mas {
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.darken-mas-mas {
+    background-color: rgba(0, 0, 0, 0.48);
+}
+
+.green-info-button {
+    background-color: rgba(39,161,104,255);
+}
+
+.playback-button {
+    min-width: 60px;
+    min-height: 60px;
+}
+
+progressbar.playback-progress trough {
+    border-radius: 0;
+}
+
+progressbar.playback-progress trough progress {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+}
