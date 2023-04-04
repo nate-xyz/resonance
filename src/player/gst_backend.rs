@@ -117,7 +117,9 @@ impl GstPlayer {
 
     // URI
     pub fn set_uri(&self, uri: String) {
-        self.pipeline.set_property("uri", format!("file:{}", uri).to_value());
+        let uri_encoded = urlencoding::encode(&uri);
+        let replaced = uri_encoded.replace("%2F", "/");
+        self.pipeline.set_property("uri", format!("file:{}", replaced).to_value());
     }
 
     //VOLUME
