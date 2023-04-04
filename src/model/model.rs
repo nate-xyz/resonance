@@ -337,7 +337,13 @@ impl Model {
             ));
             track.add_artist_id(artist_id);
             track.add_album_id(album_id);
-            track.add_cover_art_option(cover_art_option);
+
+            if cover_art_option.is_none() {
+                track.add_cover_art_option(album.cover_art_option());
+            } else {
+                track.add_cover_art_option(cover_art_option);
+            }
+
             album.add_track(track.clone());
             track_map.insert(id, track);
         }
