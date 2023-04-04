@@ -92,37 +92,32 @@
             </child>
 
             <child>
-              <object class="AdwClamp">
-                <property name="maximum-size">1000</property>
-                <property name="child">
-                  <object class="GtkScrolledWindow" id="scrolled_window">
-                    <property name="vexpand">true</property>
-                    <property name="hexpand">true</property>
-                    <property name="halign">fill</property>
-                    <property name="valign">fill</property>
-                    <property name="has-frame">false</property>
+              <object class="GtkScrolledWindow" id="scrolled_window">
+                <property name="vexpand">true</property>
+                <property name="hexpand">true</property>
+                <property name="halign">fill</property>
+                <property name="valign">fill</property>
+                <property name="has-frame">false</property>
+                <property name="hscrollbar-policy">never</property>
+                
+                <child>
+                  <object class="AdwClampScrollable" id="adw_scrollable">
+                    <property name="maximum-size">800</property>
+                    <property name="child">
+                      <object class="GtkListView" id="list_view">
+                        <property name="hexpand">true</property>
+                        <property name="halign">fill</property>
 
-                    <property name="hscrollbar-policy">never</property>
-                    <child>
-                      <object class="AdwClampScrollable" id="adw_scrollable">
-                        <property name="maximum-size">800</property>
-                        <property name="child">
-                          <object class="GtkListView" id="list_view">
-                            <property name="hexpand">true</property>
-                            <property name="halign">fill</property>
-
-                            <property name="show-separators">true</property>
-                            <property name="single-click-activate">true</property>
-                            <style>
-                              <class name="darken-mas-mas"/>
-                              <class name="rich-list"/>
-                            </style>
-                          </object>
-                        </property>
+                        <property name="show-separators">true</property>
+                        <property name="single-click-activate">true</property>
+                        <style>
+                          <class name="darken-mas-mas"/>
+                          <class name="rich-list"/>
+                        </style>
                       </object>
-                    </child>
+                    </property>
                   </object>
-                </property>
+                </child>
               </object>
             </child>
           </object>

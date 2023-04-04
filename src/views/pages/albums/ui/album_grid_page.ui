@@ -56,19 +56,19 @@
             </child>
 
             <child>
-              <object class="AdwClamp">
-                <property name="maximum-size">2200</property>
-                <property name="child">
-                  <object class="GtkScrolledWindow" id="scrolled_window">
-                    <property name="vexpand">true</property>
-                    <property name="hexpand">true</property>
-                    <property name="halign">fill</property>
-                    <property name="valign">fill</property>
-                    <property name="has-frame">false</property>
+              <object class="GtkScrolledWindow" id="scrolled_window">
+                <property name="vexpand">true</property>
+                <property name="hexpand">true</property>
+                <property name="halign">fill</property>
+                <property name="valign">fill</property>
+                <property name="has-frame">false</property>
 
-                    <property name="hscrollbar-policy">never</property>
+                <property name="hscrollbar-policy">never</property>
 
-                    <child>
+                <child>
+                  <object class="AdwClamp">
+                    <property name="maximum-size">2200</property>
+                    <property name="child">
                       <object class="GtkFlowBox" id="flow_box">
                         <property name="hexpand">true</property>
                         <property name="vexpand">true</property>
@@ -81,14 +81,16 @@
                         <property name="min-children-per-line">2</property>
                         <property name="max-children-per-line">5</property>
                       </object>
-                    </child>
-
-
+    
+                    </property>
+    
                   </object>
 
-                </property>
+                </child>
+
 
               </object>
+
 
 
             </child>
