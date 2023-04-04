@@ -17,6 +17,15 @@
   <url type="donation">https://ko-fi.com/natexyz</url>
 
 	<releases>
+    <release version="0.1.1" date="2023-04-04">
+      <description>
+        <ul>
+          <li>Use album cover art if track cover art empty</li>
+          <li>URI encoding for player pipeline bugfix</li>
+          <li>UI improvements</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.0" date="2023-03-30"/>
   </releases>
 
