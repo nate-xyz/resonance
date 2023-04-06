@@ -1,7 +1,7 @@
 {
     "app-id" : "io.github.nate_xyz.Resonance",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "43",
+    "runtime-version" : "44",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -17,7 +17,8 @@
         "--filesystem=xdg-download:ro",
         "--filesystem=xdg-music:ro",
         "--filesystem=xdg-run/app/com.discordapp.Discord:create",
-        "--filesystem=xdg-run/discord-ipc-0"
+        "--filesystem=xdg-run/discord-ipc-0",
+        "--talk-name=org.freedesktop.portal.OpenURI"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
