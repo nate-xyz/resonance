@@ -10,7 +10,7 @@ Resonance lets you effortlessly manage and play your music collection, with supp
 
 <br><br>
 
-<img src="/data/screenshots/resonance0.png" align="right" height="500px">
+<img src="/data/screenshots/resonance2.png" align="right" height="500px">
 
 Features:
 
@@ -18,12 +18,12 @@ Features:
  - Playlist creation & modification
  - Control the player through [MPRIS](https://specifications.freedesktop.org/mpris-spec/latest/)
  - Discord Rich Presence integration
+ - Last.fm scrobbling
  - Import tags with the [Mutagen library](https://github.com/quodlibet/mutagen)
  - No tag editing (intentionally out of scope to keep Resonance a music player only)
 
 <br><br>
-<!-- 
-![Screenshot 0](./data/screenshots/resonance0.png) -->
+
 
 Flatpak
 --------------
@@ -36,6 +36,16 @@ by using this command:
 
 <a href="https://beta.flathub.org/apps/io.github.nate_xyz.Resonance"><img src="https://flathub.org/assets/badges/flathub-badge-en.png" width="200"/></a>
 
+
+Screenshots
+--------------
+![Screenshot 1](./data/screenshots/resonance3.png)
+![Screenshot 2](./data/screenshots/resonance4.png)
+![Screenshot 3](./data/screenshots/resonance5.png)
+![Screenshot 4](./data/screenshots/resonance6.png)
+![Screenshot 5](./data/screenshots/resonance7.png)
+![Screenshot 6](./data/screenshots/resonance8.png)
+![Screenshot 7](./data/screenshots/resonance9.png)
 
 
 
