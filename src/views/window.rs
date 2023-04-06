@@ -17,6 +17,7 @@ use crate::util::{model, player, database, get_child_by_index, settings_manager}
 use crate::toasts::add_error_toast;
 use crate::database::DatabaseAction;
 use crate::web::discord::DiscordAction;
+use crate::web::last_fm::LastFmAction;
 use crate::sort::SortMethod;
 use crate::i18n::i18n;
 use crate::app::App;
@@ -1600,6 +1601,7 @@ impl Window {
     pub fn setup_settings(&self) {
         let imp = self.imp();
 
+
         imp.settings.connect_changed(
             Some("album-grid-sort"),
             clone!(@strong imp.album_grid_page as this => move |settings, _name| {
@@ -1859,6 +1861,26 @@ impl Window {
                 } else {
                     send!(sender, DiscordAction::Close);
                 }              
+            },
+        );
+
+        imp.settings.connect_changed(
+            Some("last-fm-enabled"),
+            move |settings, _name| {
+                let enabled = settings.boolean("last-fm-enabled");
+                let player = player();
+                player.lastfm_enabled.set(enabled);
+                let sender = player.lastfm_sender.clone();
+                send!(sender, LastFmAction::Enabled(enabled));            
+            },
+        );
+
+        imp.settings.connect_changed(
+            Some("play-commit-threshold"),
+            move |settings, _name| {
+                let threshold = settings.double("play-commit-threshold");
+                let player = player();
+                player.commit_threshold.set(threshold);         
             },
         );
     }

@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+use adw::prelude::*;
+
 use gst::prelude::ObjectExt;
 use gtk::{glib, glib::{clone, Receiver, Sender}};
 
@@ -14,7 +16,8 @@ use gtk_macros::send;
 use crate::model::track::Track;
 use crate::web::music_brainz::ResonanceMusicBrainz;
 use crate::web::discord::{ResonanceDiscord, DiscordAction};
-use crate::util::database;
+use crate::web::last_fm::{ResonanceLastFM, LastFmAction};
+use crate::util::{database, settings_manager};
 
 use super::gst_backend::GstPlayer;
 use super::gst_backend::BackendPlaybackState;
@@ -47,12 +50,16 @@ pub struct Player {
     pub playback_receiver: RefCell<Option<Receiver<PlaybackAction>>>,
     pub queue_receiver: RefCell<Option<Receiver<QueueAction>>>,
     pub state: PlayerState,
+    pub committed: Cell<bool>,
+    pub commit_threshold: Cell<f64>,
     pub mpris: Rc<MprisController>,
     pub music_brainz: Rc<ResonanceMusicBrainz>,
     pub discord: Rc<ResonanceDiscord>,
-    pub committed: Cell<bool>,
     pub discord_enabled: Cell<bool>,
     pub discord_sender: Sender<DiscordAction>,
+    pub lastfm: Rc<ResonanceLastFM>,
+    pub lastfm_enabled: Cell<bool>,
+    pub lastfm_sender: Sender<LastFmAction>,
 }
 
 impl Player {
@@ -75,20 +82,28 @@ impl Player {
         let (discord_sender, discord_receiver) = glib::MainContext::channel(glib::PRIORITY_LOW);
         let discord = ResonanceDiscord::new(discord_receiver, music_brainz_sender, rec_mb_discord);
 
-        let player =  Rc::new(Self {
+        let (lastfm_sender, lastfm_receiver) = glib::MainContext::channel(glib::PRIORITY_LOW);
+        let lastfm = ResonanceLastFM::new(lastfm_receiver);
+
+        let p = Self {
             backend,
             queue: Queue::new(queue_sender),
             playback_receiver,
             queue_receiver,
             state,
+            committed: Cell::new(false),
+            commit_threshold: Cell::new(0.95),
             mpris,
             music_brainz,
             discord,
-            committed: Cell::new(false),
-            discord_enabled: Cell::new(true),
+            discord_enabled: Cell::new(false),
             discord_sender,
-        });
-
+            lastfm,
+            lastfm_enabled: Cell::new(false),
+            lastfm_sender,
+        };
+        
+        let player = Rc::new(p);
         player.clone().setup();
         player
     }
@@ -96,7 +111,18 @@ impl Player {
     fn setup(self: Rc<Self>) {
         self.clone().setup_channels();
         self.clone().state_connections();
+        self.clone().connect_settings();
     }
+
+    fn connect_settings(self: Rc<Self>) {
+        let settings = settings_manager();
+
+        self.discord_enabled.set(settings.boolean("discord-rich-presence"));
+        self.lastfm_enabled.set(settings.boolean("last-fm-enabled"));
+        self.commit_threshold.set(settings.double("play-commit-threshold"));
+    }
+
+
 
     fn setup_channels(self: Rc<Self>) {
         let receiver = self.playback_receiver.borrow_mut().take().unwrap();
@@ -205,6 +231,10 @@ impl Player {
         glib::Continue(true)
     }
 
+    pub fn lastfm(&self) -> &ResonanceLastFM {
+        &self.lastfm
+    }
+
     pub fn discord(&self) -> &ResonanceDiscord {
         &self.discord
     }
@@ -243,7 +273,7 @@ impl Player {
         }
 
         let progress = tick as f64 / self.state().duration();
-        if progress > 0.95 && !self.committed.get() {
+        if progress > self.commit_threshold.get() && !self.committed.get() {
             self.record_play();
         }
     }
@@ -529,7 +559,8 @@ impl Player {
     //     self._commited_already = True
 
     fn record_play(&self) {
-        if let  Some(track) = self.state().current_track() {
+        if let Some(track) = self.state().current_track() {
+            send!(self.lastfm_sender, LastFmAction::Scrobble(track.clone()));
             match database().add_play(track, chrono::offset::Utc::now()) {
                 Ok(_) => self.committed.set(true),
                 Err(e) => error!("An error occurred adding track to playlist: {}", e),
@@ -559,9 +590,18 @@ impl Player {
     pub fn set_current_track(&self, track: Option<Rc<Track>>) {
         self.state.set_current_track(track.clone());
         if self.discord_enabled.get() {
-            if let Some(track) = track {
+            if let Some(track) = track.clone() {
                 send!(self.discord_sender, DiscordAction::SetPlaying(track));
             }
+        }
+        if self.lastfm_enabled.get() {
+            debug!("last fm enabled, sending track");
+            if let Some(track) = track {
+                send!(self.lastfm_sender, LastFmAction::SetNowPlaying(track));
+            }
+
+        } else {
+            debug!("last fm disabled");
         }
     }
 

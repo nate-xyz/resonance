@@ -24,6 +24,15 @@ mod imp {
     #[derive(Debug, gtk::CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/preferences_window.ui")]
     pub struct PreferencesWindow {
+        #[template_child(id = "spin_play_threshold")]
+        pub spin_play_threshold: TemplateChild<gtk::SpinButton>,
+
+        #[template_child(id = "action_row_lastfm")]
+        pub action_row_lastfm: TemplateChild<adw::ActionRow>,
+
+        #[template_child(id = "switch_enable_lastfm")]
+        pub switch_enable_lastfm: TemplateChild<gtk::Switch>,
+
         #[template_child(id = "switch_discord")]
         pub switch_discord: TemplateChild<gtk::Switch>,
 
@@ -133,6 +142,9 @@ mod imp {
 
         fn new() -> Self {
             Self {
+                spin_play_threshold: TemplateChild::default(),
+                action_row_lastfm: TemplateChild::default(),
+                switch_enable_lastfm: TemplateChild::default(),
                 switch_discord: TemplateChild::default(),
                 switch_queue_open_default: TemplateChild::default(),
                 playlist_grid_sort: TemplateChild::default(),
@@ -214,6 +226,26 @@ impl PreferencesWindow {
                 this.load_folders();
             }),
         );
+
+        //LASTFM
+
+        imp.settings
+        .bind(
+            "last-fm-enabled",
+            &*imp.switch_enable_lastfm,
+            "active",
+        )
+        .flags(SettingsBindFlags::DEFAULT)
+        .build();
+
+        imp.settings
+        .bind(
+            "play-commit-threshold",
+            &imp.spin_play_threshold.adjustment(),
+            "value",
+        )
+        .flags(SettingsBindFlags::DEFAULT)
+        .build();
 
         imp.settings.bind("discord-rich-presence",&*imp.switch_discord, "active")
             .flags(SettingsBindFlags::DEFAULT)

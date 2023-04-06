@@ -461,23 +461,7 @@
             </property>
 
 
-            <!-- <child>
-              <object class="AdwActionRow">
-                <property name="title" translatable="yes">Threshold for Play Commit</property>
-                <property name="subtitle" translatable="yes">The percentage of the song that must play before recorded as a play in the internal database (for the home page)</property>
-                <property name="activatable-widget">spin_play_threshold</property>
-                <child>
-                  <object class="GtkSpinButton" id="spin_play_threshold">
-                    <property name="digits">2</property>
-                    <property name="valign">center</property>
-                    <property name="adjustment">play_threshold_adjustment</property>
-                  </object>
-                </child>
-                <style>
-                  <class name="darken-mas-mas"/>
-                </style>
-              </object>
-            </child> -->
+
             <child>
               <object class="AdwActionRow">
                 <property name="title" translatable="yes">Default Volume</property>
@@ -517,7 +501,49 @@
 
         <child>
           <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Last.fm</property>
+
+            <child>
+              <object class="AdwActionRow" id="action_row_lastfm">
+                <property name="title" translatable="yes">Last.fm Enabled</property>
+                <property name="icon-name">lastfm-symbolic</property>
+                <property name="activatable-widget">switch_enable_lastfm</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_enable_lastfm">
+                    <property name="valign">center</property>
+                    <property name="active">false</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
+              <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Threshold for Scrobble</property>
+                <property name="subtitle" translatable="yes">The percentage of the song that must play before scrobbled</property>
+                <property name="activatable-widget">spin_play_threshold</property>
+                <child>
+                  <object class="GtkSpinButton" id="spin_play_threshold">
+                    <property name="digits">2</property>
+                    <property name="valign">center</property>
+                    <property name="adjustment">play_threshold_adjustment</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">Discord</property>
+            
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_discord">
                 <property name="valign">center</property>
@@ -528,7 +554,7 @@
 
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Discord Rich Presence</property>
+                <property name="title" translatable="yes">Discord Rich Presence Enabled</property>
                 <!-- <property name="subtitle" translatable="yes"></property> -->
 
                 <property name="activatable-widget">switch_discord</property>
@@ -545,6 +571,7 @@
             </child>
           </object>
         </child>
+
 
       </object>
     </child>
@@ -597,12 +624,6 @@
         <child>
           <object class="AdwPreferencesGroup" id="dir-list">
             <property name="title" translatable="yes">Music Folders</property>
-            <property name="header-suffix">
-              <object class="GtkButton" id="reload_all_folders">
-                <property name="valign">center</property>
-                <property name="label">Reload All</property>
-              </object>
-            </property>
 
 
           </object>

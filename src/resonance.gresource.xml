@@ -97,5 +97,6 @@
     <file alias="copy-symbolic.svg">assets/icons/copy-symbolic.svg</file>
     <file alias="left-large-symbolic.svg">assets/icons/left-large-symbolic.svg</file>
     <file alias="right-large-symbolic.svg">assets/icons/right-large-symbolic.svg</file>
+    <file alias="lastfm-symbolic.svg">assets/icons/lastfm-symbolic.svg</file>
   </gresource>
 </gresources>

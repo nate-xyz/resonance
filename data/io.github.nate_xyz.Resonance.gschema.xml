@@ -7,6 +7,14 @@
       <description>Music Folders</description>
     </key>
 
+    <key name="last-fm-enabled" type="b">
+      <default>false</default>
+    </key>
+
+    <key name="last-fm-session-key" type="s">
+      <default>""</default>
+    </key>
+
     <key name="discord-rich-presence" type="b">
       <default>true</default>
     </key>
@@ -65,7 +73,7 @@
 
 		<key name="play-commit-threshold" type="d">
       <range min="0.0" max="1.0"/>
-      <default>0.75</default>
+      <default>0.95</default>
     </key>
 
 		<key name="default-volume" type="d">
