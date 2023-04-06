@@ -17,6 +17,13 @@
   <url type="donation">https://ko-fi.com/natexyz</url>
 
 	<releases>
+    <release version="0.1.2" date="2023-04-06">
+      <description>
+        <ul>
+          <li>Add Last.fm support</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.1" date="2023-04-04">
       <description>
         <ul>
