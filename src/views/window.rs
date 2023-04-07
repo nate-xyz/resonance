@@ -254,6 +254,8 @@ impl Window {
     }
 
     fn setup(&self) {
+        adw::StyleManager::default().set_color_scheme(adw::ColorScheme::ForceDark);
+
         let imp = self.imp();
         self.setup_gactions();
         self.setup_settings();
