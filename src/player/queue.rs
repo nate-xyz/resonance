@@ -153,6 +153,14 @@ impl Queue {
 
     pub fn remove_track(&self, position_to_remove: usize) {
         let q_len = self.queue.borrow().len();
+
+        if q_len <= 1 {
+            self.current_position.set(0);
+            self.current_track.replace(None);
+            self.end_queue();
+            return;
+        }
+
         let mut current_position = self.position() as usize;
 
         if current_position < position_to_remove {
