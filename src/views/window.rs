@@ -812,7 +812,7 @@ impl Window {
         let imp = self.imp();
         imp.album_stack.set_visible_child_full(
             "album-grid-stack-page",
-            gtk::StackTransitionType::SlideRight,
+            gtk::StackTransitionType::Crossfade,
         );
         self.set_window_page(WindowPage::Albums);
         self.set_search_sort_visibility(true);
@@ -823,7 +823,7 @@ impl Window {
         let imp = self.imp();
         imp.artist_stack.set_visible_child_full(
             "artists-grid-stack-page",
-            gtk::StackTransitionType::SlideRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.toggle_sort_button.set_menu_model(Some(imp.artist_grid_page.sort_menu()));
         self.set_window_page(WindowPage::Artists);
@@ -835,7 +835,7 @@ impl Window {
         let imp = self.imp();
         imp.genre_stack.set_visible_child_full(
             "genre-grid-stack-page",
-            gtk::StackTransitionType::SlideRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.toggle_sort_button.set_menu_model(Some(imp.artist_grid_page.sort_menu()));
         self.set_window_page(WindowPage::Genres);
@@ -847,7 +847,7 @@ impl Window {
         let imp = self.imp();
         imp.playlist_stack.set_visible_child_full(
             "playlists-grid-stack-page",
-            gtk::StackTransitionType::SlideRight,
+            gtk::StackTransitionType::Crossfade,
         );
         self.set_window_page(WindowPage::Playlists);
         self.set_search_sort_visibility(true);
@@ -859,7 +859,7 @@ impl Window {
 
         imp.album_stack.set_visible_child_full(
             "album-detail-stack-page",
-            gtk::StackTransitionType::SlideLeftRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.album_detail_page.load_album(album_id);
         self.set_search_sort_visibility(false);
@@ -872,7 +872,7 @@ impl Window {
         let imp = self.imp();
         imp.artist_stack.set_visible_child_full(
             "artist-detail-stack-page",
-            gtk::StackTransitionType::SlideLeftRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.toggle_sort_button.set_menu_model(Some(imp.artist_detail_page.sort_menu()));
         imp.artist_detail_page.update_artist(artist_id);
@@ -886,7 +886,7 @@ impl Window {
         let imp = self.imp();
         imp.genre_stack.set_visible_child_full(
             "genre-detail-stack-page",
-            gtk::StackTransitionType::SlideLeftRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.toggle_sort_button.set_menu_model(Some(imp.genre_detail_page.sort_menu()));
         imp.genre_detail_page.update_genre(genre_id);
@@ -900,7 +900,7 @@ impl Window {
         let imp = self.imp();
         imp.playlist_stack.set_visible_child_full(
             "playlist-detail-stack-page",
-            gtk::StackTransitionType::SlideLeftRight,
+            gtk::StackTransitionType::Crossfade,
         );
         imp.playlist_detail_page.load_playlist(playlist_id);
         imp.toggle_search_button.set_visible(true);
