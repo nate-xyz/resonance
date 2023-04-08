@@ -32,9 +32,7 @@
     <file alias="playlist_grid_child.ui" preprocess="xml-stripblanks">views/pages/playlists/ui/playlist_grid_child.ui</file> 
     
     <!-- OTHER -->
-    <file alias="control_bar.ui" preprocess="xml-stripblanks">views/ui/control_bar.ui</file>
-    <file alias="example_page.ui" preprocess="xml-stripblanks">views/ui/example_page.ui</file>
-    
+    <file alias="control_bar.ui" preprocess="xml-stripblanks">views/ui/control_bar.ui</file>    
     <file alias="album_card.ui" preprocess="xml-stripblanks">views/ui/album_card.ui</file>
     <file alias="main_sidebar.ui" preprocess="xml-stripblanks">views/ui/main_sidebar.ui</file>
     <file alias="generic_flowbox_child.ui" preprocess="xml-stripblanks">views/ui/generic_flowbox_child.ui</file>

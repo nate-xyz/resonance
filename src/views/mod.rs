@@ -6,7 +6,6 @@ mod dialog;
 mod album_card;
 mod control_bar;
 mod disc_button;
-mod example_page;
 mod generic_flowbox_child;
 mod scale;
 mod track_entry;
