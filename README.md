@@ -8,6 +8,8 @@ Harmonize your listening experience with Resonance.
 Resonance is an intuitive music player application written in Rust & Python, with a clean user interface built using GTK4 / Libadwaita. 
 Resonance lets you effortlessly manage and play your music collection, with support for all the common music file formats such as MP3, FLAC, AAC, and many more.
 
+⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE OPEN ISSUES) ⚠️
+
 <br><br>
 
 <img src="/data/screenshots/resonance2.png" align="right" height="500px">
