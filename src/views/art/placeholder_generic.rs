@@ -10,6 +10,8 @@ use adw::subclass::prelude::*;
 use gtk::glib;
 
 use html_escape;
+use unicode_truncate::UnicodeTruncateStr;
+use unicode_width::UnicodeWidthStr;
 
 use crate::util::model;
 
@@ -79,9 +81,30 @@ impl PlaceHolderGeneric {
             let label = gtk::Label::new(None);
             label.set_use_markup(true);
             label.set_hexpand(true);
+            label.set_justify(gtk::Justification::Center);
             label.set_wrap(true);
-            label.set_label(&format!("<span weight=\"light\" size=\"x-large\">{}</span>", html_escape::encode_text_minimal(name.as_str())));
             
+            let text = name.as_str();
+            let width = UnicodeWidthStr::width(text);
+            let text = if width >= 61 {
+                let (truncated, _size) = text.unicode_truncate(60);
+                let ellipsized = format!("{}…", truncated);
+                let text = html_escape::encode_text_minimal(&ellipsized);
+                text.to_string()
+            } else {
+                name
+            };        
+            label.set_label(&format!("<span weight=\"book\" size=\"large\">{}</span>", text));
+    
+
+            box_.set_margin_top(12);
+            box_.set_margin_end(12);
+            box_.set_margin_start(12);
+            box_.set_margin_bottom(12);
+            
+            self.set_overflow(gtk::Overflow::Hidden);
+    
+
             box_.append(&icon);
             box_.append(&label);
     

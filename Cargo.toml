@@ -29,6 +29,8 @@ urlencoding = "2.1.2"
 rustfm-scrobble = "1.1.1"
 open = "4.0.1"
 md5 = "0.7.0"
+unicode-truncate = "0.2.0"
+unicode-width = "0.1.10"
 
 [dependencies.gtk]
 package = "gtk4"
