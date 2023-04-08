@@ -46,7 +46,7 @@ version = "0.20.2"
 
 [dependencies.gst-audio]
 package = "gstreamer-audio"
-version = "0.19"
+version = "0.20"
 
 [dependencies.pyo3]
 version = "0.17.3"
