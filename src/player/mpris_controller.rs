@@ -74,18 +74,14 @@ impl MprisController {
     fn setup_signals(&self) {
         self.mpris.connect_play_pause(
             clone!(@weak self.mpris as mpris, @strong self.sender as sender => move || {
-                match mpris.get_playback_status().unwrap().as_ref() {
-                    "Paused" => send!(sender, PlaybackAction::Play),
-                    "Stopped" => send!(sender, PlaybackAction::Play),
-                    _ => send!(sender, PlaybackAction::Pause),
-                };
+                send!(sender, PlaybackAction::TogglePlayPause)
             }),
         );
 
 
         self.mpris.connect_play(
             clone!(@strong self.sender as sender => move || {
-                send!(sender, PlaybackAction::Play);
+                send!(sender, PlaybackAction::TogglePlayPause);
             })
         );
 

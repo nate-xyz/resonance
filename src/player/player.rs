@@ -30,6 +30,7 @@ use super::mpris_controller::MprisController;
 pub enum PlaybackAction {
     Play,
     Pause,
+    TogglePlayPause,
     Stop,
     Tick(u64),
     EOS,
@@ -177,6 +178,7 @@ impl Player {
         match action {
             PlaybackAction::Play => self.play(),
             PlaybackAction::Pause => self.pause(),
+            PlaybackAction::TogglePlayPause => self.toggle_play_pause(),
             PlaybackAction::Stop => self.stop(),
             PlaybackAction::Tick(tick) => self.update_tick(tick),
             PlaybackAction::EOS => self.next(),
