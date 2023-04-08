@@ -266,9 +266,6 @@
                                         <property name="visible">false</property>
                                         <property name="icon-name">view-sort-descending-symbolic</property>
                                         <property name="tooltip-text" translatable="yes">Sort</property>
-                                        <style>
-                                          <class name="circular"/>
-                                        </style>
                                       </object>
                                     </child>
     
@@ -278,9 +275,6 @@
                                         <property name="visible">false</property>
                                         <property name="icon-name">loupe-large-symbolic</property>
                                         <property name="tooltip-text" translatable="yes">Search</property>
-                                        <style>
-                                          <class name="circular"/>
-                                        </style>
                                       </object>
                                     </child>
     
