@@ -66,6 +66,10 @@ fn main() -> glib::ExitCode  {
 
     gio::resources_register(&resources);
 
+    //Set application name
+    glib::set_application_name("Resonance");
+    glib::set_program_name(Some("resonance"));
+
     //Start GStreamer
     gst::init().expect("Unable to init GStreamer");
 
