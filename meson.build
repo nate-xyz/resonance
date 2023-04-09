@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 project('resonance', 'rust', 
-          version: '0.1.2',
+          version: '0.1.3',
     meson_version: '>= 0.59.0',
   default_options: [ 'warning_level=3',
                      'werror=false',

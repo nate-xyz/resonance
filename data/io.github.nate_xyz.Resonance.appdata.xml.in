@@ -7,8 +7,20 @@
 	<summary>Harmonize your listening experience</summary>
 	<developer_name>nate-xyz</developer_name>
 	<description>
-	  <p>Harmonize your listening experience with Resonance. Resonance is an intuitive music player application written in Rust, with a clean user interface built using the GTK4 / Libadwaita framework. Resonance lets you effortlessly manage and play your music collection, with support for all the common music file formats such as MP3, FLAC, AAC, and many more.</p>
-	</description>
+	  <p>Resonance is an intuitive music player application written in Rust and Python, with a clean user interface built using the GTK4 / Libadwaita framework. Resonance lets you effortlessly manage and play your music collection, with support for all the common music file formats.</p>
+    <p>Features:</p>
+    <ul>
+      <li>UI updates to reflect currently playing track's cover art colors</li>
+      <li>Playlist creation and modification</li>
+      <li>Control the player through MPRIS</li>
+      <li>Discord Rich Presence integration</li>
+      <li>Last.fm scrobbling</li>
+      <li>Import tags with the Mutagen library</li>
+      <li>No tag editing (intentionally out of scope to keep Resonance a music player only)</li>
+    </ul>
+    <p>⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE OPEN ISSUES) ⚠️</p>
+
+  </description>
 	<provides>io.github.nate_xyz.Resonance.desktop</provides>
   <launchable type="desktop-id">io.github.nate_xyz.Resonance.desktop</launchable>
 
@@ -17,6 +29,15 @@
   <url type="donation">https://ko-fi.com/natexyz</url>
 
 	<releases>
+    <release version="0.1.3" date="2023-04-09">
+      <description>
+        <ul>
+          <li>MPRIS bugfix</li>
+          <li>Dark mode by default</li>
+          <li>Various UI improvements</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.2" date="2023-04-06">
       <description>
         <ul>
