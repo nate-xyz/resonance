@@ -164,6 +164,7 @@ mod imp {
         
         pub open_queue: Cell<bool>,
         pub show_back_nav_button: Cell<bool>,
+        pub current_css_cover_art_id: Cell<i64>,
         pub window_page: Cell<WindowPage>,
         pub provider: gtk::CssProvider,
         pub folder_dialog: RefCell<Option<gtk::FileChooserNative>>,
@@ -228,6 +229,7 @@ mod imp {
                 provider: gtk::CssProvider::new(),
                 folder_dialog: RefCell::new(None),
                 settings: settings_manager(),
+                current_css_cover_art_id: Cell::new(-1),
             }
         }
     }
@@ -739,6 +741,9 @@ impl Window {
         if is_queue {
             imp.queue_page.update_view();
         } 
+
+     
+
         imp.queue_flap.set_reveal_flap(is_queue && imp.open_queue.get());
         imp.control_bar.set_revealed(!is_queue);
     }
@@ -976,35 +981,30 @@ impl Window {
     }
 
     fn update_colors_from_cover(&self) {
+        let imp = self.imp();
         let player = player();
         let state = player.state();
         let model = model();
+
         if let Some(cover_art_id) = state.cover() {
-            match model.cover_art(cover_art_id) {
-                Ok(cover_art) => {
-                    match cover_art.palette() {
-                        Ok(palette) => match palette {
-                            Some(palette) => {
-                                self.update_color_rgb(palette);
-                            }
-                            None => {
-                                self.update_color_hex();
-                            }
-                        },
-                        Err(msg) => {
-                            debug!("error is {}", msg);
-                            self.update_color_hex();
-                        }
-                    };
+
+            if imp.current_css_cover_art_id.get() == cover_art_id {
+                return;
+            }
+
+            if let Ok(cover_art) = model.cover_art(cover_art_id)  {
+                if let Ok(palette) = cover_art.palette() {
+                    if let Some(palette) = palette {
+                        self.update_color_rgb(palette);
+                        imp.current_css_cover_art_id.set(cover_art_id);
+                        return;
+                    }
                 }
-                Err(msg) => {
-                    debug!("error is {}", msg);
-                    self.update_color_hex();
-                }
-            };
-        } else {
-            self.update_color_hex();
+            }
         }
+
+        imp.current_css_cover_art_id.set(-1);
+        self.update_color_hex();
     }
 
     fn update_color_rgb(&self, bg_colors: Vec<gdk::RGBA>) {
@@ -1152,19 +1152,6 @@ impl Window {
         };
 
         match page_enum {
-            WindowPage::Queue => {
-                button.connect_clicked(
-                    clone!(@strong self as this => @default-panic, move |_button| {
-                        let imp = this.imp();
-                        if imp.window_page.get() == WindowPage::Queue && imp.stack.visible_child().as_ref() == Some(imp.queue_page.upcast_ref()) {
-                            debug!("SETTING QUEUE PAGE");
-                            let open = !imp.queue_flap.reveals_flap();
-                            imp.queue_flap.set_reveal_flap(open);
-                            // imp.open_queue.set(open);
-                        }
-                    })
-                );
-            },
             WindowPage::Albums => {
                 button.connect_clicked(
                     clone!(@strong self as this => @default-panic, move |_button| {
