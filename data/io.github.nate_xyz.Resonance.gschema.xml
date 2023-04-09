@@ -85,5 +85,9 @@
       <default>true</default>
     </key>
 
+    <key name="show-alpha" type="b">
+      <default>true</default>
+    </key>
+
 	</schema>
 </schemalist>

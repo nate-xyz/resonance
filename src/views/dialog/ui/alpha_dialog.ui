@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adw" version="1.0" />
+  <template class="AlphaDialog" parent="AdwMessageDialog">
+    <property name="heading" translatable="yes">Early Software Warning ⚠️</property>
+    <property name="default-response">ok</property>
+    <property name="close-response">dontshow</property>
+    <responses>
+      <response id="dontshow" translatable="yes">Don't Show Again</response>
+      <response id="ok" translatable="yes" appearance="suggested" enabled="true">Ok!</response>
+    </responses>
+    <child>
+      <object class="GtkBox" id="message_box">
+        <property name="hexpand">true</property>
+        <property name="vexpand">true</property>
+        <property name="halign">center</property>
+        <property name="valign">start</property>
+
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
+
+      </object>
+    </child>
+  </template>
+</interface>

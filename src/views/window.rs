@@ -24,6 +24,7 @@ use crate::app::App;
 
 use super::dialog::delete_playlist_dialog::DeletePlaylistDialog;
 use super::dialog::duplicate_playlist_dialog::DuplicatePlaylistDialog;
+use super::dialog::alpha_dialog::AlphaDialog;
 use super::pages::albums::album_detail_page::AlbumDetailPage;
 use super::pages::albums::album_grid_page::AlbumGridPage;
 use super::pages::artists::artist_detail_page::ArtistDetailPage;
@@ -107,9 +108,6 @@ mod imp {
 
         #[template_child(id = "stack")]
         pub stack: TemplateChild<adw::ViewStack>,
-
-        // #[template_child(id = "home_page")]
-        // pub home_page: TemplateChild<HomePage>,
 
         #[template_child(id = "queue_page")]
         pub queue_page: TemplateChild<QueuePage>,
@@ -279,6 +277,18 @@ impl Window {
         self.search_sort_visibility(imp.window_page.get());
     }
 
+    fn show_alpha_message(&self) {
+        let imp = self.imp();
+        let alpha = imp.settings.boolean("show-alpha");
+
+        if alpha {
+            let dialog = AlphaDialog::new();
+            dialog.set_transient_for(Some(self));
+            dialog.show();
+        }
+
+    }
+
     fn add_dialog(&self) {
         let imp = self.imp();
 
@@ -445,16 +455,18 @@ impl Window {
                             this.set_default_height(1150);
                             this.set_default_width(1400);
                             this.set_resizable(true);
+                            this.show_alpha_message();
                         },
                         "welcome-stack-page" => {
                             this.set_default_height(600);
                             this.set_default_width(500);
-                            this.set_resizable(false);
+                            this.set_resizable(true);
+                            
                         },
                         _ => {
                             this.set_default_height(300);
                             this.set_default_width(300);
-                            this.set_resizable(false);
+                            this.set_resizable(true);
                         },
                     }
                 }

@@ -45,6 +45,7 @@
     <file alias="rename_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/rename_playlist_dialog.ui</file>
     <file alias="save_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/save_playlist_dialog.ui</file>
     <file alias="confirm_rename_playlist_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/confirm_rename_playlist_dialog.ui</file>
+    <file alias="alpha_dialog.ui" preprocess="xml-stripblanks">views/dialog/ui/alpha_dialog.ui</file>
 
     <!-- MAIN -->
     <file alias="window.ui" preprocess="xml-stripblanks">views/ui/window.ui</file>
