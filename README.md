@@ -57,8 +57,8 @@ To uninstall run ```sudo ninja -C build uninstall```.
 ## Arch Linux
 Initial PKGBUILD script provided for 0.1.3.
 
+Manually download PKGBUILD file and run:
 ```
-$ git clone https://github.com/nate-xyz/resonance && cd resonance
 $ makepkg 
 $ sudo pacman -U resonance-0.1.3-1-x86_64.pkg.tar.zst 
 ```
