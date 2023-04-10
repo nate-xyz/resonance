@@ -147,7 +147,7 @@ glib::wrapper! {
 impl GenreGridPage {
     pub fn new() -> GenreGridPage {
         let genre_grid: GenreGridPage = glib::Object::builder::<GenreGridPage>().build();
-          genre_grid
+        genre_grid
     }
 
     pub fn initialize(&self) {
@@ -254,6 +254,7 @@ impl GenreGridPage {
         debug!("genre grid update view");
         let list_store = self.list_store();
         list_store.remove_all();
+        debug!("retrieved genre list_store");
 
         if let Some(map) = model().genres() {
             if !map.is_empty() {

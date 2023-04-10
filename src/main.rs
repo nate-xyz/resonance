@@ -27,6 +27,8 @@ use gtk::{gio, glib, prelude::*};
 
 use std::{env, process};
 use log::{debug, error, LevelFilter};
+use std::io::Write;
+
 
 fn main() -> glib::ExitCode  {
     pretty_env_logger::formatted_builder()
@@ -35,6 +37,17 @@ fn main() -> glib::ExitCode  {
         .filter_module("selectors", LevelFilter::Off)
         .filter_module("html5ever", LevelFilter::Off)
         .filter_module("reqwest", LevelFilter::Info)
+        .format(|buf, record| {
+            writeln!(
+                buf,
+                "{}:{} {} [{}] - {}",
+                record.file().unwrap_or("unknown"),
+                record.line().unwrap_or(0),
+                chrono::Local::now().format("%Y-%m-%dT%H:%M:%S"),
+                record.level(),
+                record.args()
+            )
+        })
         .init();
 
     env::set_var("RUST_BACKTRACE", "1");
