@@ -59,8 +59,7 @@ Initial script provided for 0.1.3.
 
 Manually download `PKGBUILD` file and run:
 ```
-$ makepkg 
-$ sudo pacman -U resonance-0.1.3-1-x86_64.pkg.tar.zst 
+$ makepkg -sic
 ```
 
 
