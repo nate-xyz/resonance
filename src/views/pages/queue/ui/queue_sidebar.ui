@@ -31,7 +31,7 @@
                   <child>
                     <object class="GtkLabel" id="playlist_title_label">
                       <property name="halign">start</property>
-                      <property name="label">Playlist</property>
+                      <property name="label" translatable="yes">Playlist</property>
                       <property name="wrap">true</property>
   
                       <attributes>
@@ -44,7 +44,7 @@
                   <child>
                     <object class="GtkLabel" id="time_left_label">
                       <property name="halign">start</property>
-                      <property name="label">time remaining</property>
+                      <property name="label" translatable="yes">time remaining</property>
                       <property name="wrap">true</property>
   
                       <attributes>

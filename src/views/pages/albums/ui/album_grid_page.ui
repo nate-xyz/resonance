@@ -10,7 +10,6 @@
         <property name="locked">true</property>
         <property name="flap-position">end</property>
         <property name="transition-type">over</property>
-        <property name="fold_duration">250</property>
         <property name="flap">
           <object class="AlbumFlap" id="album_sidebar">
             <style>
