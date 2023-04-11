@@ -13,11 +13,11 @@ use gtk_macros::send;
 use std::{cell::RefCell, rc::Rc};
 use log::error;
 
-
 use crate::model::playlist::Playlist;
 use crate::database::DatabaseAction;
 use crate::util::database;
 use crate::toasts::add_error_toast;
+use crate::i18n::i18n;
 
 mod imp {
     use super::*;
@@ -102,7 +102,7 @@ impl RenamePlaylistDialog {
         if response == "rename" {
             let new_title = imp.adw_entry_row.text().to_string();
             if new_title.is_empty() {
-                add_error_toast("Cannot rename, no name entered".to_string());
+                add_error_toast(i18n("Cannot rename playlist, no name entered."));
                 return;
             }
             send!(imp.db_sender, DatabaseAction::RenamePlaylist((playlist.id(), playlist.title(), new_title)));

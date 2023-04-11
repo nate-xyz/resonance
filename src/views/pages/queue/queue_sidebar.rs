@@ -9,13 +9,13 @@ use adw::subclass::prelude::*;
 
 use gtk::{gio, gio::ListStore, glib, glib::clone, CompositeTemplate};
 
-use std::{cell::Cell, cell::RefCell, rc::Rc};
-use std::time::Duration;
+use std::{cell::Cell, cell::RefCell, rc::Rc, time::Duration};
 
 use crate::model::track::Track;
 use crate::views::dialog::save_playlist_dialog::SavePlaylistDialog;
 use crate::search::{FuzzyFilter, SearchSortObject};
-use crate::util::{self, player, seconds_to_string_longform};
+use crate::i18n::i18n_k;
+use crate::util::{self, win, player, seconds_to_string_longform};
 
 use super::track_item::TrackItem;
 use super::queue_track::QueueTrack;
@@ -67,7 +67,6 @@ mod imp {
         pub popover: TemplateChild<gtk::PopoverMenu>,
 
         pub track: RefCell<Option<Rc<Track>>>,
-
         pub list_store: RefCell<Option<Rc<ListStore>>>,
         pub playlist_position: RefCell<Option<u64>>,
         pub edit_mode: Cell<bool>,
@@ -132,7 +131,6 @@ glib::wrapper! {
     @extends gtk::Widget, adw::Bin;
 }
 
-
 impl QueueSidebar {
     pub fn new() -> QueueSidebar {
         let queue_sidebar: QueueSidebar = glib::Object::builder::<QueueSidebar>().build();
@@ -195,7 +193,7 @@ impl QueueSidebar {
             clone!(@strong self as this => @default-panic, move |_button| {
                 let track_ids = player().track_ids();
                 let save_dialog = SavePlaylistDialog::new(track_ids);
-                save_dialog.set_transient_for(Some(&util::win(this.upcast_ref())));
+                save_dialog.set_transient_for(Some(&win(this.upcast_ref())));
                 save_dialog.show();
             })
         );
@@ -263,7 +261,7 @@ impl QueueSidebar {
                     if !imp.time_left_label.is_visible() {
                         imp.time_left_label.show();
                     }
-                    imp.time_left_label.set_label(&format!("{} remaining", seconds_to_string_longform(queue_time_remaining as f64)));
+                    imp.time_left_label.set_label(&i18n_k("{time_remaining} remaining", &[("time_remaining", &seconds_to_string_longform(queue_time_remaining as f64))]));
                 } else {
                     imp.time_left_label.hide();
                 }
@@ -279,7 +277,6 @@ impl QueueSidebar {
             }),
         );
 
-
         player.state().connect_local(
             "queue-position", false,
             clone!(@strong self as this => move |value| {
@@ -289,7 +286,6 @@ impl QueueSidebar {
             }),
         );
     }
-
 
     fn set_edit_mode(&self, edit: bool) {
         let imp = self.imp();
@@ -307,8 +303,6 @@ impl QueueSidebar {
             self.list_store().append(&track_item);
         }
     }
-
-
 
     fn update_current_position_playing_icon(&self, position: u64) {
         let imp = self.imp();

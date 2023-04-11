@@ -14,6 +14,7 @@ use std::cell::RefCell;
 use log::error;
 
 use crate::database::DatabaseAction;
+use crate::i18n::i18n_k;
 use crate::util::database;
 
 mod imp {
@@ -106,8 +107,7 @@ impl SavePlaylistDialog {
 
         match database().query_n_playlists(None) {
             Ok(count) => {
-                let id = count+1;
-                let name = format!("Playlist #{id}");
+                let name = i18n_k("Playlist #{new_playlist_number}", &[("new_playlist_number", &format!("{}", count+1))]);
                 self.reset_name(name);
             }
             Err(e) => error!("An error occurred: {}", e),
@@ -129,19 +129,8 @@ impl SavePlaylistDialog {
                     playlist_title = imp.name.borrow().clone();
                 } 
                 let playlist_desc = imp.desc_adw_entry.text().to_string();
-                //let database =  database();
 
                 send!(imp.db_sender, DatabaseAction::CreatePlaylist((playlist_title.clone(), playlist_desc, track_ids)));
-
-                // match database.create_playlist(playlist_title.clone(), playlist_desc, track_ids) {
-                //     Ok(_) => {
-                //         add_success_toast("Added", &format!("Playlist «{}» has been created!", playlist_title))
-                //     },
-                //     Err(e) => {
-                //         error!("{}", e);
-                //         add_error_toast("Unable to add playlist.".to_string());
-                //     },
-                // }
             }
         }
     }

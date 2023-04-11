@@ -18,6 +18,7 @@ use crate::views::volume_widget::VolumeWidget;
 use crate::model::track::Track;
 use crate::player::queue::RepeatMode;
 use crate::util::{player, model, seconds_to_string};
+use crate::i18n::i18n;
 
 mod imp {
     use super::*;
@@ -244,11 +245,11 @@ impl QueuePage {
         if player().state().playing() {
             debug!("playing");
             imp.play_pause_image.set_icon_name(Some("media-playback-pause-symbolic"));
-            imp.play_button.set_tooltip_text(Some("Pause"));
+            imp.play_button.set_tooltip_text(Some(&i18n("Pause")));
         } else {
             debug!("paused");
             imp.play_pause_image.set_icon_name(Some("media-playback-start-symbolic"));
-            imp.play_button.set_tooltip_text(Some("Play"));
+            imp.play_button.set_tooltip_text(Some(&i18n("Play")));
 
         }
     }
@@ -307,7 +308,7 @@ impl QueuePage {
 
     fn update_position(&self) {
         let position = player().state().position() as f64;
-        self.imp().spent_time_label.set_label(&format!("{}", seconds_to_string(position)));
+        self.imp().spent_time_label.set_label(&seconds_to_string(position));
     }
 
     pub fn update_view(&self) {
@@ -318,10 +319,10 @@ impl QueuePage {
 
         match imp.track.borrow().as_ref() {
             Some(track) => {
-                imp.track_name_label.set_label(track.title().as_str());
-                imp.album_name_label.set_label(track.album().as_str());
-                imp.artist_name_label.set_label(track.artist().as_str());
-                imp.duration_label.set_label(&format!("{}", seconds_to_string(track.duration())));
+                imp.track_name_label.set_label(&track.title());
+                imp.album_name_label.set_label(&track.album());
+                imp.artist_name_label.set_label(&track.artist());
+                imp.duration_label.set_label(&seconds_to_string(track.duration()));
 
                 imp.play_button.set_sensitive(true);
                 

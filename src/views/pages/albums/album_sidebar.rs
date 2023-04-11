@@ -284,8 +284,8 @@ impl AlbumFlap {
 
                 debug!("album sidebar set labels");
 
-                imp.title_label.set_label(album.title().as_str());
-                imp.artist_label.set_label(album.artist().as_str());
+                imp.title_label.set_label(&album.title());
+                imp.artist_label.set_label(&album.artist());
                 imp.track_bin.set_child(Some(&track_box));
 
                 debug!("set cover art");
@@ -326,13 +326,11 @@ impl AlbumFlap {
                     Ok(pixbuf) => {
                         art.load(pixbuf);
                         return Ok(art);
-                        //this is where i should add the connection closure if i was multithreading
                     }
                     Err(msg) => return Err(msg),
                 };
             }
             Err(msg) => return Err(msg),
-            //Err(msg) => error!("error is {}", msg),
         };
     }
 

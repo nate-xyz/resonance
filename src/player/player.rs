@@ -280,8 +280,6 @@ impl Player {
         }
     }
 
-
-
     // #RESET PLAYLIST AND PLAY TRACK
     // def clear_play_track(self, track, title=None):
     //     if title != None:

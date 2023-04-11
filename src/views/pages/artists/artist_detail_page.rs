@@ -294,7 +294,7 @@ impl ArtistDetailPage {
     pub fn update_view(&self) {
         let imp = self.imp();
         if let Some(artist) = imp.artist.borrow().as_ref() {
-            imp.name_label.set_label(html_escape::encode_text_minimal(artist.name().as_str()).to_string().as_str());
+            imp.name_label.set_label(&html_escape::encode_text_minimal(&artist.name()).to_string());
         }
     }
 

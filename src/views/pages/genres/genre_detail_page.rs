@@ -289,7 +289,7 @@ impl GenreDetailPage {
     pub fn update_view(&self) {
         let imp = self.imp();
         if let Some(genre) = imp.genre.borrow().as_ref() {
-            imp.name_label.set_label(html_escape::encode_text_minimal(genre.name().as_str()).to_string().as_str());
+            imp.name_label.set_label(&html_escape::encode_text_minimal(&genre.name()).to_string());
         }
     }
 

@@ -27,6 +27,7 @@ use crate::views::art::{
 };
 use crate::util::{model, player, seconds_to_string_longform, win, settings_manager};
 use crate::search::{FuzzyFilter, SearchSortObject};
+use crate::i18n::{i18n, i18n_k};
 
 use super::track_item::PlaylistDetailTrackItem;
 use super::playlist_detail_row::PlaylistDetailRow;
@@ -122,7 +123,6 @@ mod imp {
 
         #[template_child(id = "duplicate_button")]
         pub duplicate_button: TemplateChild<gtk::Button>,
-
 
         #[template_child(id = "popover")]
         pub popover: TemplateChild<gtk::PopoverMenu>,
@@ -590,11 +590,10 @@ impl PlaylistDetailPage {
 
         let n_tracks = playlist.n_tracks();
         if n_tracks <= 1 {
-            imp.track_amount_label.set_label("1 track");
+            imp.track_amount_label.set_label(&i18n("1 track"));
         } else {
-            imp.track_amount_label.set_label(&format!("{} tracks", n_tracks));
+            imp.track_amount_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", n_tracks))]));
         }
-
 
         let duration = playlist.duration();
         if duration > 0.0 {
@@ -709,7 +708,7 @@ impl PlaylistDetailPage {
                 b.remove_css_class("opaque");
                 b.remove_css_class("suggested-action");
                 b.add_css_class("flat");
-                b.set_tooltip_markup(Some("Edit Playlist"));
+                b.set_tooltip_markup(Some(&i18n("Edit Playlist")));
             }
 
             for i in [&imp.edit_icon] {
@@ -721,7 +720,7 @@ impl PlaylistDetailPage {
                 b.remove_css_class("flat");
                 b.add_css_class("opaque");
                 b.add_css_class("suggested-action");
-                b.set_tooltip_markup(Some("Finish Edit Playlist"));
+                b.set_tooltip_markup(Some(&i18n("Finish Edit Playlist")));
             }
 
             for i in [&imp.edit_icon] {

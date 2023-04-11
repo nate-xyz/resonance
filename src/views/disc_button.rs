@@ -10,16 +10,13 @@ use adw::subclass::prelude::*;
 
 use gtk::{glib, glib::clone};
 
-use std::collections::HashMap;
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{collections::HashMap, cell::RefCell, rc::Rc};
+use log::debug;
 
 use crate::model::track::Track;
 use crate::model::album::Album;
-
-use log::debug;
-
 use crate::util::player;
+use crate::i18n::i18n_k;
 
 mod imp {
     use super::*;
@@ -67,7 +64,7 @@ impl DiscButton {
         let imp = self.imp();
         let album_title = album.title();
 
-        imp.title.replace(format!("{}, Disc {}", album_title, disc_n+1));
+        imp.title.replace(i18n_k("{album_title}, Disc {disc_number}", &[("disc_number", &format!("{}", disc_n + 1)), ("album_title", &album_title)]));
 
         match album.disc(disc_n) {
             Ok(disc) => {
@@ -91,11 +88,14 @@ impl DiscButton {
         let play_button = gtk::Button::new();
         play_button.set_has_frame(false);
         play_button.set_css_classes(&[&"background", &"frame"]);
-        play_button.set_tooltip_text(Some(format!("Play Disc {} of {}", disc_n + 1, album_title).as_str()));
-        
+
+        play_button.set_tooltip_text(Some(&i18n_k("Play Disc {disc_number} of {album_title}", &[("disc_number", &format!("{}", disc_n + 1)), ("album_title", &album_title)])));
+
         let label = gtk::Label::new(None);
         label.set_use_markup(true);
-        label.set_label(format!("<span weight=\"ultralight\">Disc {}</span>", disc_n + 1).as_str());
+
+        //Translators: only replace "Disc "
+        label.set_label(&i18n_k("<span weight=\"ultralight\">Disc {disc_number}</span>", &[("disc_number", &format!("{}", disc_n + 1))]));
         label.set_halign(gtk::Align::Start);
 
         let play_icon = gtk::Image::from_icon_name("media-playback-start-symbolic");

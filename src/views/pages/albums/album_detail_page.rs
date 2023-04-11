@@ -8,18 +8,21 @@ use adw::prelude::*;
 use adw::subclass::prelude::*;
 
 use gtk::{gio, glib, glib::clone, CompositeTemplate};
+
 use std::collections::HashMap;
 use std::{cell::RefCell, rc::Rc, error::Error};
-
-use crate::util::{model, player, seconds_to_string_longform, load_cover_art_pixbuf, settings_manager};
-
-use crate::model::album::Album;
-use crate::model::track::Track;
-
-use crate::views::disc_button::DiscButton;
-use crate::views::track_entry::TrackEntry;
-
 use log::{debug, error};
+
+use crate::model::{
+    album::Album,
+    track::Track,
+};
+use crate::views::{
+    disc_button::DiscButton,
+    track_entry::TrackEntry,
+};
+use crate::util::{model, player, seconds_to_string_longform, load_cover_art_pixbuf, settings_manager};
+use crate::i18n::{i18n, i18n_k};
 
 mod imp {
     use super::*;
@@ -245,14 +248,12 @@ impl AlbumDetailPage {
 
         match imp.album.borrow().as_ref() {
             Some(album) => {
-                
+
                 if !imp.track_box.borrow().as_ref().is_none() {
                     debug!("removing previous track box");
                     imp.track_bin.set_child(gtk::Widget::NONE);
                     imp.track_box.borrow().as_ref().unwrap().unparent();
                 }
-                
-                
                 
                 let track_box = gtk::Box::new(gtk::Orientation::Vertical, 0);
                 let disc_map = album.discs();
@@ -271,7 +272,7 @@ impl AlbumDetailPage {
                         // add_button.connect_clicked(clone!(@weak self.on_disc_add_button));
                         box_.append(&disc_button);
 
-                        // self.track_children.add(&box_);
+
                         track_box.append(&box_);
                     }
 
@@ -291,20 +292,19 @@ impl AlbumDetailPage {
                 imp.track_box.replace(Some(track_box));
                 
                 //SET LABELS
-                imp.artist_label.set_label(album.artist().as_str());
-                imp.title_label.set_label(album.title().as_str());
+                imp.artist_label.set_label(&album.artist());
+                imp.title_label.set_label(&album.title());
 
                 let date = album.date();
                 if !date.is_empty() {
-                    imp.date_label.set_label(date.as_str())
+                    imp.date_label.set_label(&date)
                 }
 
                 let n_tracks = album.n_tracks();
                 if n_tracks <= 1 {
-                    imp.track_amount_label.set_label("1 track");
+                    imp.track_amount_label.set_label(&i18n("1 track"));
                 } else {
-                    imp.track_amount_label
-                        .set_label(&format!("{} tracks", n_tracks));
+                    imp.track_amount_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", n_tracks))]));
                 }
 
                 let duration = album.duration();

@@ -6,6 +6,7 @@
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
+
 use gtk::{glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, rc::Rc};
@@ -17,6 +18,7 @@ use crate::model::{
     track::Track,
 };
 use crate::util::{model, player, seconds_to_string_longform};
+use crate::i18n::{i18n, i18n_k};
 
 use super::art::rounded_album_art::RoundedAlbumArt;
 use super::disc_button::DiscButton;
@@ -278,23 +280,21 @@ impl AlbumCard {
                 }
 
                 //SET LABELS
-                imp.title_label.set_label(album.title().as_str());
-                imp.artist_label.set_label(album.artist().as_str());
+                imp.title_label.set_label(&album.title());
+                imp.artist_label.set_label(&album.artist());
 
                 let date = album.date();
                 if !date.is_empty() {
-                    imp.date_label.set_label(date.as_str());
+                    imp.date_label.set_label(&date);
                 } else {
                     imp.date_label.hide();
                 }
 
                 let n_tracks = album.n_tracks();
                 if n_tracks <= 1 {
-                    imp.track_amount_label.set_label("1 track");
-                } else if n_tracks == 0 {
-                    imp.track_amount_label.hide();
+                    imp.track_amount_label.set_label(&i18n("1 track"));
                 } else {
-                    imp.track_amount_label.set_label(&format!("{} tracks", n_tracks));
+                    imp.track_amount_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", n_tracks))]));
                 }
 
                 let duration = album.duration();

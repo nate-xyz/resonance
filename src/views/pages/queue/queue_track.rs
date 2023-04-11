@@ -307,7 +307,6 @@ impl QueueTrack {
                     Ok(pixbuf) => {
                         art.load(pixbuf);
                         return Ok(art);
-                        //this is where i should add the connection closure if i was multithreading
                     }
                     Err(msg) => return Err(msg),
                 };

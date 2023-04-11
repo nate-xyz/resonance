@@ -13,7 +13,7 @@ use gtk_macros::send;
 use std::{cell::RefCell, rc::Rc, sync::Arc, time::Duration};
 use log::{debug, error};
 
-use mpris_player::{LoopStatus, Metadata, MprisPlayer, OrgMprisMediaPlayer2Player, PlaybackStatus};
+use mpris_player::{LoopStatus, Metadata, MprisPlayer, PlaybackStatus};
 
 use crate::model::track::Track;
 use crate::web::music_brainz::MusicBrainzAction;

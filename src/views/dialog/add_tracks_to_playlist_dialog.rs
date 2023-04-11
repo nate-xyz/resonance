@@ -17,6 +17,7 @@ use crate::database::DatabaseAction;
 use crate::model::playlist::Playlist;
 use crate::util::{model, database};
 use crate::toasts::add_error_toast;
+use crate::i18n::i18n;
 
 mod imp {
     use super::*;
@@ -129,7 +130,7 @@ impl AddToPlaylistDialog {
                 }
             } else {
                 error!("Unable to add tracks to playlist, no playlist selected");
-                add_error_toast("Unable to add tracks to playlist, no playlist selected".to_string());
+                add_error_toast(i18n("Unable to add tracks to playlist, no playlist selected"));
             }
         }
     }

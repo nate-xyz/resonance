@@ -10,6 +10,7 @@ use adw::subclass::prelude::*;
 use gtk::{glib, glib::clone, CompositeTemplate};
 
 use crate::util::settings_manager;
+use crate::i18n::i18n;
 
 mod imp {
     use super::*;
@@ -66,7 +67,7 @@ impl AlphaDialog {
         let imp = self.imp();
         self.set_destroy_with_parent(true);
 
-        let msg = "Resonance is early alpha stage software, there will be bugs.\nIf you find a bug or would like to request a feature, please open an issue on the github repo:\n<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/resonance/issues</a>";
+        let msg = &i18n("Resonance is early alpha stage software, there will be bugs.\nIf you find a bug or would like to request a feature, please open an issue on the github repo:\n<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/resonance/issues</a>");
 
         let label = gtk::Label::new(Some(msg));
         label.set_use_markup(true);
@@ -75,7 +76,6 @@ impl AlphaDialog {
         label.set_justify(gtk::Justification::Center);
 
         imp.message_box.append(&label);
-
 
         self.connect_response(
             None,

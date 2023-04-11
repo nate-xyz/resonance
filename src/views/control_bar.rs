@@ -10,29 +10,20 @@ use adw::subclass::prelude::*;
 use gtk::{gio, gdk, glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, cell::Cell, rc::Rc};
-
-use crate::model::track::Track;
-
-//use crate::views::art::album_art::AlbumArt;
-use crate::views::art::rounded_album_art::RoundedAlbumArt;
-
-use super::scale::Scale;
-use super::window::WindowPage;
-
-use crate::util::seconds_to_string;
 use log::{debug, error};
 
-use crate::util::{player, model};
-
-use super::volume_widget::VolumeWidget;
-
+use crate::views::art::rounded_album_art::RoundedAlbumArt;
 use crate::player::queue::RepeatMode;
+use crate::model::track::Track;
+use crate::util::{player, model, seconds_to_string};
+use crate::i18n::i18n;
 
+use super::window::WindowPage;
+use super::scale::Scale;
+use super::volume_widget::VolumeWidget;
 
 mod imp {
     use super::*;
-    use glib::subclass::Signal;
-    use once_cell::sync::Lazy;
 
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/control_bar.ui")]
@@ -144,14 +135,6 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             self.obj().initialize();
-        }
-        
-        fn signals() -> &'static [Signal] {
-            static SIGNALS: Lazy<Vec<Signal>> = Lazy::new(|| {
-                vec![Signal::builder("example-signal").build()]
-            });
-
-            SIGNALS.as_ref()
         }
     }
 
@@ -297,11 +280,11 @@ impl ControlBar {
         if player().state().playing() {
             debug!("playing");
             imp.play_pause_image.set_icon_name(Some("media-playback-pause-symbolic"));
-            imp.play_button.set_tooltip_text(Some("Pause"));
+            imp.play_button.set_tooltip_text(Some(&i18n("Pause")));
         } else {
             debug!("paused");
             imp.play_pause_image.set_icon_name(Some("media-playback-start-symbolic"));
-            imp.play_button.set_tooltip_text(Some("Play"));
+            imp.play_button.set_tooltip_text(Some(&i18n("Play")));
 
         }
     }
@@ -369,7 +352,7 @@ impl ControlBar {
     fn update_time_position(&self) { 
         let imp = self.imp();
         let position = self.scale().time_position() as f64;
-        imp.spent_time_label.set_label(&format!("{}", seconds_to_string(position)));
+        imp.spent_time_label.set_label(&seconds_to_string(position));
 
     }
 
@@ -380,15 +363,15 @@ impl ControlBar {
 
         match imp.track.borrow().as_ref() {
             Some(track) => {
-                imp.track_name_label.set_label(track.title().as_str());
-                imp.album_name_label.set_label(track.album().as_str());
-                imp.artist_name_label.set_label(track.artist().as_str());
-                imp.track_name_label_small.set_label(track.title().as_str());
-                imp.album_name_label_small.set_label(track.album().as_str());
-                imp.artist_name_label_small.set_label(track.artist().as_str());
-                imp.track_name_label_big.set_label(track.title().as_str());
-                imp.album_name_label_big.set_label(track.album().as_str());
-                imp.artist_name_label_big.set_label(track.artist().as_str());
+                imp.track_name_label.set_label(&track.title());
+                imp.album_name_label.set_label(&track.album());
+                imp.artist_name_label.set_label(&track.artist());
+                imp.track_name_label_small.set_label(&track.title());
+                imp.album_name_label_small.set_label(&track.album());
+                imp.artist_name_label_small.set_label(&track.artist());
+                imp.track_name_label_big.set_label(&track.title());
+                imp.album_name_label_big.set_label(&track.album());
+                imp.artist_name_label_big.set_label(&track.artist());
                 imp.duration_label.set_label(&format!(" / {}", seconds_to_string(track.duration())));
 
                 //self.play_button.set_sensitive(true);
@@ -518,33 +501,33 @@ impl ControlBar {
         let main = gio::Menu::new();
         let menu = gio::Menu::new();
     
-        let menu_item = gio::MenuItem::new(Some(&format!("Toggle Play Pause")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Toggle Play Pause")), None);
         menu_item.set_action_and_target_value(Some("win.toggle-play-pause"), None);
         menu.append_item(&menu_item);
     
-        let menu_item = gio::MenuItem::new(Some(&format!("Prev")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Prev")), None);
         menu_item.set_action_and_target_value(Some("win.prev"), None);
         menu.append_item(&menu_item);
 
-        let menu_item = gio::MenuItem::new(Some(&format!("Next")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Next")), None);
         menu_item.set_action_and_target_value(Some("win.next"), None);
         menu.append_item(&menu_item);
 
-        let menu_item = gio::MenuItem::new(Some(&format!("End Queue")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("End Queue")), None);
         menu_item.set_action_and_target_value(Some("win.end-queue"), None);
         menu.append_item(&menu_item);
 
     
-        main.append_section(Some("Playback"), &menu);
+        main.append_section(Some(&i18n("Playback")), &menu);
     
     
         let menu = gio::Menu::new();
     
-        let menu_item = gio::MenuItem::new(Some(&format!("Go to Queue")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Go to Queue")), None);
         menu_item.set_action_and_target_value(Some("win.go-to-queue"), None);
         menu.append_item(&menu_item);
       
-        main.append_section(Some("Navigate"), &menu);
+        main.append_section(Some(&i18n("Navigate")), &menu);
 
         imp.popover.set_menu_model(Some(&main));
     }

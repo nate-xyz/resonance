@@ -113,11 +113,11 @@ impl GridArt {
             array_size = 9;
         }
 
-        debug!("load_multiple_pixbuf {} {} {}", two_by_two, scaled_size, array_size);
+        //debug!("load_multiple_pixbuf {} {} {}", two_by_two, scaled_size, array_size);
 
         //fill extra
         if pixbuf_array.len() == 2 {
-            debug!("EXTENDING ARRAY");
+            //debug!("EXTENDING ARRAY");
             let mut reverse = pixbuf_array.clone();
             reverse.reverse();
             pixbuf_array = [pixbuf_array.clone(), reverse].concat();

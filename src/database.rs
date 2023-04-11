@@ -9,21 +9,29 @@ use adw::subclass::prelude::*;
 use gtk::{gio, glib, glib::{clone, Sender, Receiver}, prelude::*};
 use gtk_macros::send;
 
-use std::{cell::{Cell, RefCell}, collections::{HashMap, HashSet}};
-use std::{env, fs, error::Error, path::PathBuf, rc::Rc, fmt, thread};
-use log::{debug, error};
-use rusqlite::{params, Connection, Result, Transaction, OptionalExtension};
+use std::{
+    cell::{Cell, RefCell}, 
+    collections::{HashMap, HashSet}, 
+    time::Duration, 
+    error::Error, 
+    path::PathBuf, 
+    rc::Rc, 
+    env, 
+    fs, 
+    fmt, 
+    thread,
+};
+use rusqlite::{Connection, Result, Transaction, OptionalExtension, params};
 use chrono::{DateTime, Utc};
 use directories_next::BaseDirs; 
+use log::{debug, error};
 
 use crate::model::{track::Track, model::ModelAction};
 
+use super::importer::{Importer, MapVal};
 use super::toasts::{add_error_toast, add_success_toast};
-use super::importer::Importer;
+use super::i18n::{i18n, i18n_k};
 use super::util;
-
-use std::time::Duration;
-use super::importer::MapVal;
 
 #[derive(Clone, Debug)]
 pub enum DatabaseAction {
@@ -187,11 +195,11 @@ impl Database {
             DatabaseAction::TryAddMusicFolder(folder) => {
                 match self.try_add_music_folder(folder.clone()) {
                     Ok(_) => {
-                        add_success_toast("Added Folder", &format!("{:?}", folder));
+                        add_success_toast(&i18n("Added Folder:"), &format!("{:?}", folder));
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to add music folder".to_string());
+                        add_error_toast(i18n("Unable to add music folder."));
                     },
                 } 
             }
@@ -199,7 +207,8 @@ impl Database {
                 let n_amount = payload.len();
                 match self.add_artist_image_bulk(payload) {
                     Ok(_) => {
-                        add_success_toast("Added Images!", &format!("Added {} Artist Images.", n_amount));
+                        // Translators: do not replace {number_of_artists}
+                        add_success_toast(&i18n("Added Images!"), &i18n_k("Added {number_of_artists} Artist Images.", &[("number_of_artists", &format!("{}", n_amount))]));
 
                     },
                     Err(e) => error!("Unable to add artist images: {}", e),
@@ -208,44 +217,47 @@ impl Database {
             DatabaseAction::CreatePlaylist((playlist_title, playlist_desc, track_ids)) => {
                 match self.create_playlist(playlist_title.clone(), playlist_desc, track_ids) {
                     Ok(_) => {
-                        add_success_toast("Added Playlist", &format!("Playlist «{}» has been created!", playlist_title))
+                        // Translators: do not replace {playlist_title}
+                        add_success_toast(&i18n("Added Playlist!"), &i18n_k("Playlist «{playlist_title}» has been created!", &[("playlist_title", &playlist_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to add playlist.".to_string());
+                        add_error_toast(i18n("Unable to add playlist."));
                     },
                 }
             },
             DatabaseAction::DuplicatePlaylist((playlist_title, playlist_desc, track_ids)) => {
                 match self.create_playlist(playlist_title, playlist_desc, track_ids) {
                     Ok(_) => {
-                        add_success_toast("Duplicated!", &format!("Copied playlist successfully."))
+                        add_success_toast(&i18n("Duplicated!"), &i18n("Copied playlist successfully."))
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to duplicate playlist.".to_string());
+                        add_error_toast(i18n("Unable to duplicate playlist."));
                     },
                 }
             },
             DatabaseAction::RenamePlaylist((playlist_id, old_title, new_title)) => {
                 match self.rename_playlist(playlist_id, new_title.clone()) {
                     Ok(_) => {
-                        add_success_toast("Renamed", &format!("Playlist has been renamed from {} to {}!", old_title, new_title))
+                        // Translators: do not replace {old_title} or {new_title}
+                        add_success_toast(&i18n("Renamed!"), &i18n_k("Playlist has been renamed from {old_title} to {new_title}!", &[("old_title", &old_title), ("new_title", &new_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to rename playlist.".to_string());
+                        add_error_toast(i18n("Unable to rename playlist."));
                     },
                 }
             },
             DatabaseAction::RemoveDirectory(dir_to_remove) => {
                 match self.try_remove_folder(dir_to_remove.clone()) {
                     Ok(_) => {
-                        add_success_toast("Removed", &format!("{} has been removed from the database.", dir_to_remove))
+                        // Translators: do not replace {removed_directory}
+                        add_success_toast(&i18n("Removed:"), &i18n_k("{removed_directory} has been removed from the database.", &[("removed_directory", &dir_to_remove)]))
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to remove directory.".to_string());
+                        add_error_toast(i18n("Unable to remove directory."));
                     },
                 }
             },
@@ -253,11 +265,11 @@ impl Database {
                 match self.delete_playlist(playlist_id) {
                     Ok(_) => {
                         debug!("Deleted playlist {}", playlist_id);
-                        add_success_toast("Deleted.", &format!("Removed playlist successfully!"))
+                        add_success_toast(&i18n("Deleted."), &i18n("Removed playlist successfully!"))
                     },
                     Err(e) => {
                         error!("Removing playlist error: {}", e);
-                        add_error_toast("Unable to remove playlist.".to_string());
+                        add_error_toast(i18n("Unable to remove playlist."));
                     },
                 }
             },
@@ -265,34 +277,34 @@ impl Database {
                 match self.change_playlist_title_and_or_description(playlist_id, title_option, description_option) {
                     Ok(_) => {
                         debug!("Deleted playlist {}",playlist_id);
-                        add_success_toast("Modified.", &format!("Changed playlist successfully!"));
+                        add_success_toast(&i18n("Modified."), &i18n("Changed playlist successfully!"));
                     },
                     Err(e) => {
                         error!("Modifying playlist error: {}", e);
-                        add_error_toast("Unable to modify playlist.".to_string());
+                        add_error_toast(i18n("Unable to modify playlist."));
                     },
                 }
             },
             DatabaseAction::AddTracksToPlaylist((playlist_id, playlist_title, tracks)) => {
                 match self.add_tracks_to_playlist(playlist_id, tracks) {
                     Ok(_) => {
-                        add_success_toast("Added", &format!("Added tracks to {}!", playlist_title))
+                        add_success_toast(&i18n("Added"), &i18n_k(" tracks to {playlist_title}!", &[("playlist_title", &playlist_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to add track to playlist.".to_string());
+                        add_error_toast(i18n("Unable to add track to playlist."));
                     },
                 }
             },
             DatabaseAction::RemoveTrackFromPlaylist(playlist_entry_id) => {
                 match self.remove_track_from_playlist(playlist_entry_id) {
                     Ok(_) => {
-                        add_success_toast("Removed", &format!(" track from playlist."));
+                        add_success_toast(&i18n("Removed"), &i18n(" track from playlist."));
                         debug!("removed playlist_entry from playlist");
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to remove track from playlist.".to_string());
+                        add_error_toast(i18n("Unable to remove track from playlist."));
                     },
                 }
             },
@@ -303,7 +315,7 @@ impl Database {
                     },
                     Err(e) => {
                         error!("{}", e);
-                        add_error_toast("Unable to reorder playlist.".to_string());
+                        add_error_toast(i18n("Unable to reorder playlist."));
                     },
                 }
             },
@@ -377,7 +389,7 @@ impl Database {
                     },
                     Err(e) => {
                         error!("Unable to load music folders ... {}", e);
-                        add_error_toast("Unable to load music folders".to_string());
+                        add_error_toast(i18n("Unable to load music folders."));
                     },
                 }
 
@@ -770,7 +782,6 @@ impl Database {
 
 
     // ADD PLAYLIST
-
     fn create_playlist(&self, title: String, description: String, tracks: Vec<i64>) -> Result<(), Box<dyn Error>> {       
         let mut conn = self.imp().conn.borrow_mut();
         let conn = conn.as_mut().ok_or("Connection not established")?;
@@ -825,7 +836,7 @@ impl Database {
         let tx = conn.transaction()?;
 
         if !self.check_if_playlist_exists(&tx, playlist_id)? {
-            add_error_toast("Tried to add track(s) to playlist that does not exist.".to_string());
+            add_error_toast(i18n("Tried to add track(s) to playlist that does not exist."));
             return Ok(());
         }
 
