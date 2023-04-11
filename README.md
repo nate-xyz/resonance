@@ -54,6 +54,16 @@ ninja -C build && sudo ninja -C build install
 ```
 To uninstall run ```sudo ninja -C build uninstall```.
 
+## Arch Linux
+Initial script provided for 0.1.3.
+
+Available in the [AUR.](https://aur.archlinux.org/packages/resonance)
+
+Or manually download `PKGBUILD` file and run:
+```
+$ makepkg -sic
+```
+
 
 Screenshots
 --------------
