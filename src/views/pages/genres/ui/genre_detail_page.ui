@@ -112,7 +112,12 @@
               </object>
             </child>
 
-
+            <child>
+              <object class="GtkSeparator" id="separator">
+                <property name="orientation">horizontal</property>
+                <property name="visible">false</property>
+              </object>
+            </child>
 
             <child>
               <object class="GtkBox" id="scroll-box">

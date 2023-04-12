@@ -32,6 +32,9 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/artist_detail_page.ui")]
     pub struct ArtistDetailPagePriv {
+        #[template_child(id = "separator")]
+        pub separator: TemplateChild<gtk::Separator>,
+
         #[template_child(id = "search_bar")]
         pub search_bar: TemplateChild<gtk::SearchBar>,
 
@@ -50,6 +53,9 @@ mod imp {
         #[template_child(id = "back_button")]
         pub back_button: TemplateChild<gtk::Button>,
 
+        #[template_child(id = "scrolled_window")]
+        pub scrolled_window: TemplateChild<gtk::ScrolledWindow>,
+        
         #[template_child(id = "grid_view")]
         pub grid_view: TemplateChild<gtk::GridView>,
         
@@ -207,6 +213,21 @@ impl ArtistDetailPage {
 
         imp.grid_view.set_factory(Some(&list_item_factory));
 
+        imp.scrolled_window.vadjustment().connect_notify_local(
+            Some("value"),
+            clone!(@weak self as this => move |adj, _| {
+                let imp = this.imp();
+                if adj.value() > 15.0 {
+                    if !imp.separator.is_visible() {
+                        imp.separator.show();
+                    }
+                } else {
+                    if imp.separator.is_visible() {
+                        imp.separator.hide();
+                    }
+                }
+            }),
+        );
     }
 
     pub fn update_artist(&self, artist_id: i64) {

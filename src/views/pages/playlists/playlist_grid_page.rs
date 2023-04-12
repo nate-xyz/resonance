@@ -33,6 +33,9 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/playlist_grid_page.ui")]
     pub struct PlaylistGridPagePriv {
+        #[template_child(id = "separator")]
+        pub separator: TemplateChild<gtk::Separator>,
+
         #[template_child(id = "flow_box")]
         pub flow_box: TemplateChild<gtk::FlowBox>,
 
@@ -238,6 +241,22 @@ impl PlaylistGridPage {
 
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
+
+        imp.scrolled_window.vadjustment().connect_notify_local(
+            Some("value"),
+            clone!(@weak self as this => move |adj, _| {
+                let imp = this.imp();
+                if adj.value() > 15.0 {
+                    if !imp.separator.is_visible() {
+                        imp.separator.show();
+                    }
+                } else {
+                    if imp.separator.is_visible() {
+                        imp.separator.hide();
+                    }
+                }
+            }),
+        );
     }
 
     pub fn update_view(&self) {

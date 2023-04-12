@@ -30,6 +30,9 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/artist_grid_page.ui")]
     pub struct ArtistGridPagePriv {
+        #[template_child(id = "separator")]
+        pub separator: TemplateChild<gtk::Separator>,
+
         #[template_child(id = "search_bar")]
         pub search_bar: TemplateChild<gtk::SearchBar>,
 
@@ -141,9 +144,10 @@ impl ArtistGridPage {
 
         model().connect_local("refresh-artists", false, 
         clone!(@weak self as this => @default-return None, move |_args| {
-            this.update_view();
-            None
-        }));
+                this.update_view();
+                None
+            })
+        );
 
         
         let list_store = gio::ListStore::new(Artist::static_type());
@@ -235,6 +239,22 @@ impl ArtistGridPage {
 
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
+
+        imp.scrolled_window.vadjustment().connect_notify_local(
+            Some("value"),
+            clone!(@weak self as this => move |adj, _| {
+                let imp = this.imp();
+                if adj.value() > 10.0 {
+                    if !imp.separator.is_visible() {
+                        imp.separator.show();
+                    }
+                } else {
+                    if imp.separator.is_visible() {
+                        imp.separator.hide();
+                    }
+                }
+            }),
+        );
     }
 
     pub fn update_view(&self) {

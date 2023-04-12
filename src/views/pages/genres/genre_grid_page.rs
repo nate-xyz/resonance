@@ -32,11 +32,17 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/genre_grid_page.ui")]
     pub struct GenreGridPagePriv {
+        #[template_child(id = "separator")]
+        pub separator: TemplateChild<gtk::Separator>,
+
         #[template_child(id = "search_bar")]
         pub search_bar: TemplateChild<gtk::SearchBar>,
 
         #[template_child(id = "search_entry")]
         pub search_entry: TemplateChild<gtk::SearchEntry>,
+
+        #[template_child(id = "scrolled_window")]
+        pub scrolled_window: TemplateChild<gtk::ScrolledWindow>,
 
         #[template_child(id = "grid_box")]
         pub grid_box: TemplateChild<gtk::Box>,
@@ -147,7 +153,7 @@ glib::wrapper! {
 impl GenreGridPage {
     pub fn new() -> GenreGridPage {
         let genre_grid: GenreGridPage = glib::Object::builder::<GenreGridPage>().build();
-          genre_grid
+        genre_grid
     }
 
     pub fn initialize(&self) {
@@ -155,9 +161,10 @@ impl GenreGridPage {
 
         model().connect_local("refresh-genres", false, 
         clone!(@weak self as this => @default-return None, move |_args| {
-            this.update_view();
-            None
-        }));
+                this.update_view();
+                None
+            })
+        );
 
         let list_store = gio::ListStore::new(Genre::static_type());
         let filter = FuzzyFilter::new(SearchSortObject::Genre);
@@ -248,6 +255,22 @@ impl GenreGridPage {
 
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
+
+        imp.scrolled_window.vadjustment().connect_notify_local(
+            Some("value"),
+            clone!(@weak self as this => move |adj, _| {
+                let imp = this.imp();
+                if adj.value() > 10.0 {
+                    if !imp.separator.is_visible() {
+                        imp.separator.show();
+                    }
+                } else {
+                    if imp.separator.is_visible() {
+                        imp.separator.hide();
+                    }
+                }
+            }),
+        );
     }
 
     fn update_view(&self) {

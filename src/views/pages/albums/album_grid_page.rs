@@ -31,6 +31,9 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/album_grid_page.ui")]
     pub struct AlbumGridPagePriv {
+        #[template_child(id = "separator")]
+        pub separator: TemplateChild<gtk::Separator>,
+
         #[template_child(id = "flow_box")]
         pub flow_box: TemplateChild<gtk::FlowBox>,
 
@@ -307,6 +310,22 @@ impl AlbumGridPage {
                 this.imp().adwflap.set_reveal_flap(false);
                 None
             })
+        );
+
+        imp.scrolled_window.vadjustment().connect_notify_local(
+            Some("value"),
+            clone!(@weak self as this => move |adj, _| {
+                let imp = this.imp();
+                if adj.value() > 15.0 {
+                    if !imp.separator.is_visible() {
+                        imp.separator.show();
+                    }
+                } else {
+                    if imp.separator.is_visible() {
+                        imp.separator.hide();
+                    }
+                }
+            }),
         );
     }
 
