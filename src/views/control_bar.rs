@@ -494,7 +494,7 @@ impl ControlBar {
     pub fn track_info_button(&self) -> &gtk::Button {
         &self.imp().track_info_button
     }
-
+    
     fn create_menu(&self) {
         let imp = self.imp();
     
@@ -505,7 +505,7 @@ impl ControlBar {
         menu_item.set_action_and_target_value(Some("win.toggle-play-pause"), None);
         menu.append_item(&menu_item);
     
-        let menu_item = gio::MenuItem::new(Some(&i18n("Prev")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Previous")), None);
         menu_item.set_action_and_target_value(Some("win.prev"), None);
         menu.append_item(&menu_item);
 

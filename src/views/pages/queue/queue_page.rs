@@ -10,7 +10,7 @@ use adw::subclass::prelude::*;
 use gtk::{gio, gdk, glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, cell::Cell, rc::Rc};
-use log::{debug, error};
+use log::debug;
 
 use crate::model::track::Track;
 use crate::views::{
@@ -395,19 +395,19 @@ impl QueuePage {
     
         let menu = gio::Menu::new();
     
-        let menu_item = gio::MenuItem::new(Some(&format!("Toggle Play Pause")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Toggle Play Pause")), None);
         menu_item.set_action_and_target_value(Some("win.toggle-play-pause"), None);
         menu.append_item(&menu_item);
 
-        let menu_item = gio::MenuItem::new(Some(&format!("Prev")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Previous")), None);
         menu_item.set_action_and_target_value(Some("win.prev"), None);
         menu.append_item(&menu_item);
 
-        let menu_item = gio::MenuItem::new(Some(&format!("Next")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("Next")), None);
         menu_item.set_action_and_target_value(Some("win.next"), None);
         menu.append_item(&menu_item);
 
-        let menu_item = gio::MenuItem::new(Some(&format!("End Queue")), None);
+        let menu_item = gio::MenuItem::new(Some(&i18n("End Queue")), None);
         menu_item.set_action_and_target_value(Some("win.end-queue"), None);
         menu.append_item(&menu_item);
 

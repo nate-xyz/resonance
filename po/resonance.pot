@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: resonance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 17:02-0400\n"
+"POT-Creation-Date: 2023-04-12 11:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,29 +156,29 @@ msgstr ""
 msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
 msgstr ""
 
-#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:248
+#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
 msgid "Pause"
 msgstr ""
 
 #: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328
-#: src/views/pages/queue/queue_page.rs:252
-#: src/views/pages/queue/ui/queue_page.ui:171
+#: src/views/pages/queue/queue_page.rs:247
+#: src/views/pages/queue/ui/queue_page.ui:167
 msgid "Play"
 msgstr ""
 
-#: src/views/control_bar.rs:504
+#: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
 msgid "Toggle Play Pause"
 msgstr ""
 
-#: src/views/control_bar.rs:508
-msgid "Prev"
+#: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
+msgid "Previous"
 msgstr ""
 
-#: src/views/control_bar.rs:512
+#: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
 msgid "Next"
 msgstr ""
 
-#: src/views/control_bar.rs:516
+#: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
 msgid "End Queue"
 msgstr ""
 
@@ -285,11 +285,11 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr ""
 
-#: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:153
+#: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:149
 msgid "Previous Track"
 msgstr ""
 
-#: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:183
+#: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:179
 msgid "Next Track"
 msgstr ""
 
@@ -297,26 +297,12 @@ msgstr ""
 msgid "Loop Queue"
 msgstr ""
 
-#: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:234
+#: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:230
 msgid "Loop Current Track"
 msgstr ""
 
 #: src/views/ui/control_bar.ui:474
 msgid "Shuffle Queue"
-msgstr ""
-
-#: src/views/ui/main_sidebar.ui:232 src/views/ui/main_sidebar.ui:246
-#: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
-msgid "Genres"
-msgstr ""
-
-#: src/views/ui/main_sidebar.ui:264 src/views/ui/main_sidebar.ui:277
-#: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
-msgid "Playlists"
-msgstr ""
-
-#: src/views/ui/main_sidebar.ui:308
-msgid "Settings"
 msgstr ""
 
 #: src/views/ui/album_card.ui:96
@@ -493,6 +479,10 @@ msgid ""
 "If disabled, track entries only display genre and date labels when searching"
 msgstr ""
 
+#: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
+msgid "Playlists"
+msgstr ""
+
 #: src/views/ui/preferences_window.ui:247
 msgid "Playlist Grid Default Sort"
 msgstr ""
@@ -530,6 +520,10 @@ msgstr ""
 
 #: src/views/ui/preferences_window.ui:302
 msgid "Artist Detail Default Sort"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
+msgid "Genres"
 msgstr ""
 
 #: src/views/ui/preferences_window.ui:337
@@ -777,15 +771,15 @@ msgstr ""
 msgid "{time_remaining} remaining"
 msgstr ""
 
-#: src/views/pages/queue/ui/queue_page.ui:205
+#: src/views/pages/queue/ui/queue_page.ui:201
 msgid "Toggle Playlist Sidebar"
 msgstr ""
 
-#: src/views/pages/queue/ui/queue_page.ui:222
+#: src/views/pages/queue/ui/queue_page.ui:218
 msgid "Loop Playlist"
 msgstr ""
 
-#: src/views/pages/queue/ui/queue_page.ui:246
+#: src/views/pages/queue/ui/queue_page.ui:242
 msgid "Shuffle Playlist"
 msgstr ""
 
