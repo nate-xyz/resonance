@@ -6,25 +6,19 @@
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
-
 use gtk::{glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, cell::Cell, rc::Rc};
+use log::error;
 
-// use crate::player::player::Player;
-// use crate::model::model::Model;
 use crate::model::track::Track;
-
-// use crate::views::art::album_art::AlbumArt;
-use crate::views::art::rounded_album_art::RoundedAlbumArt;
-use crate::views::art::icon_with_background::IconWithBackground;
-
+use crate::views::{
+    art::rounded_album_art::RoundedAlbumArt,
+    art::icon_with_background::IconWithBackground,
+};
 use crate::search::SearchMethod;
 use crate::sort::SortMethod;
-
 use crate::util::{player, model, seconds_to_string};
-
-use log::error;
 
 mod imp {
     use super::*;
@@ -244,15 +238,15 @@ impl TrackPageRow {
         let imp = self.imp();
         match imp.track.borrow().as_ref() {
             Some(track) => {
-                imp.track_title_label.set_label(track.title().as_str());
-                imp.album_name_label.set_label(track.album().as_str());
-                imp.album_artist_label.set_label(track.artist().as_str());
-                imp.date_label.set_label(track.date().as_str());
-                imp.genre_label.set_label(track.genre().as_str());
+                imp.track_title_label.set_label(&track.title());
+                imp.album_name_label.set_label(&track.album());
+                imp.album_artist_label.set_label(&track.artist());
+                imp.date_label.set_label(&track.date());
+                imp.genre_label.set_label(&track.genre());
 
                 let duration = track.duration();
                 if duration > 0.0 {
-                    imp.duration_label.set_label(seconds_to_string(duration).as_str());
+                    imp.duration_label.set_label(&seconds_to_string(duration));
                 }
 
                 match track.cover_art_option() {
@@ -296,7 +290,6 @@ impl TrackPageRow {
                     Ok(pixbuf) => {
                         art.load(pixbuf);
                         return Ok(art);
-                        //this is where i should add the connection closure if i was multithreading
                     }
                     Err(msg) => return Err(msg),
                 };

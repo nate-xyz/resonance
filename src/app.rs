@@ -85,7 +85,6 @@ mod imp {
 
     impl GtkApplicationImpl for AppPriv {}
     impl AdwApplicationImpl for AppPriv {}
-
     impl AppPriv {}
 }
 
@@ -135,7 +134,6 @@ impl App {
         // Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL. 
         // One name per line, please do not remove previous names.
         about.set_translator_credits(&i18n("translator-credits"));
-
 
         about.present();
     }

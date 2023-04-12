@@ -12,6 +12,7 @@ use std::{cell::RefCell, rc::Rc};
 
 use crate::model::track::Track;
 use crate::util::{player, seconds_to_string};
+use crate::i18n::i18n_k;
 
 mod imp {
     use super::*;
@@ -39,7 +40,6 @@ mod imp {
 
         #[template_child(id = "popover")]
         pub popover: TemplateChild<gtk::PopoverMenu>,
-
 
         #[template_child(id = "add_button")]
         pub add_button: TemplateChild<gtk::Button>,
@@ -70,13 +70,8 @@ mod imp {
     }
 
     impl WidgetImpl for TrackEntryPriv {}
-
     impl BoxImpl for TrackEntryPriv {}
-
-    //internal impl can go here with internal methods
-    impl TrackEntryPriv {
-
-    }
+    impl TrackEntryPriv {}
 }
 
 glib::wrapper! {
@@ -88,64 +83,55 @@ glib::wrapper! {
 impl TrackEntry {
     pub fn new(track: Rc<Track>, track_n: i32, disc_n: i32, char_width: i32) -> TrackEntry {
         let track_button: TrackEntry = glib::Object::builder::<TrackEntry>().build();
-          track_button.construct(track, track_n, disc_n, char_width);
-          track_button
+        track_button.construct(track, track_n, disc_n, char_width);
+        track_button
     }
 
     fn construct(&self, track: Rc<Track>, track_n: i32, disc_n: i32, char_width: i32) {
         let imp = self.imp();
 
-        imp.popover.set_parent(self);
+        //imp.popover.set_parent(self);
 
         imp.track_name_label.set_max_width_chars(char_width);
 
-        imp.track_button.connect_clicked(glib::clone!(@strong self as this => @default-panic, move |_button| {
+        imp.track_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().clear_play_track(this.track());
             })
         );
 
-        // let add_button = gtk::Button::new();
-        //add_button.set_child(Some(&gtk::Image::from_icon_name("plus-symbolic")));
-        imp.add_button.set_tooltip_text(Some(format!("Add {} to Playlist", track.title()).as_str()));
-        // add_button.set_visible(false);
-        
-        imp.add_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
-            player().add_track(this.track());
-        }));
+        imp.add_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
+                player().add_track(this.track());
+            })
+        );
    
-        // imp.content_box.append(&add_button);
+        imp.track_button.set_tooltip_text(Some(&i18n_k("Play {track_title}", &[("track_title", &track.title())])));
+        imp.add_button.set_tooltip_text(Some(&i18n_k("Add {track_title} to Playlist", &[("track_title", &track.title())])));
         
-        imp.track_button.set_tooltip_text(Some(format!("Play {}", track.title()).as_str()));
+        imp.track_name_label.set_label(&track.title());
+        imp.time_label.set_label(&seconds_to_string(track.duration()));
+        
         if disc_n <= 1 {
-            imp.number_label.set_label(format!("{:02} - ", track_n).as_str());
+            imp.number_label.set_label(&format!("{:02} - ", track_n));
         } else {
-            imp.number_label.set_label(format!("{:02}:{:02} - ", disc_n+1, track_n).as_str());
+            imp.number_label.set_label(&format!("{:02}:{:02} - ", disc_n+1, track_n));
         }
-        
-        imp.track_name_label.set_label(track.title().as_str());
-        imp.time_label.set_label(seconds_to_string(track.duration()).as_str());
-        
+
         //imp.popover.set_menu_model(Some(track.menu_model()));
         
         imp.track.replace(Some(track));
-        
-        //self.append(&add_button);
-        
-        // imp.add_button.replace(add_button);
-
+                
         let ctrl = gtk::EventControllerMotion::new();
         ctrl.connect_enter(clone!(@strong self as this => move |_controller, _x, _y| {
                 let imp = this.imp();
                 imp.add_button.show();
-
-                // imp.revealer.set_reveal_child(true);
                 imp.play_icon.show();
             })
         );
         ctrl.connect_leave(clone!(@strong self as this => move |_controller| {
                 let imp = this.imp();
                 imp.add_button.hide();
-                //imp.revealer.set_reveal_child(false);
                 imp.play_icon.hide();
             })
         );
@@ -166,7 +152,5 @@ impl TrackEntry {
     fn track(&self) -> Rc<Track> {
         self.imp().track.borrow().as_ref().unwrap().clone()
     }
-
-
 }
     

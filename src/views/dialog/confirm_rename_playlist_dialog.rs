@@ -121,12 +121,12 @@ impl ConfirmRenamePlaylistDialog {
         imp.playlist_id.set(playlist_id);
 
         match new_title.clone() {
-            Some(title) => imp.title_label.set_label(title.as_str()),
+            Some(title) => imp.title_label.set_label(&title),
             None => imp.rename_title_box.hide(),
         }
 
         match new_description.clone() {
-            Some(desc) => imp.desc_label.set_label(desc.as_str()),
+            Some(desc) => imp.desc_label.set_label(&desc),
             None => imp.rename_desc_box.hide(),
         }
 

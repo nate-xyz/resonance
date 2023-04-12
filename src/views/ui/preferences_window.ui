@@ -24,7 +24,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_all">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -56,7 +56,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_queue">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -88,7 +88,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_album">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -165,7 +165,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_track">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -238,7 +238,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_playlists">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -273,7 +273,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_artists">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -328,7 +328,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_genres">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -456,7 +456,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_playback">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 
@@ -547,7 +547,7 @@
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_discord">
                 <property name="valign">center</property>
-                <property name="label">Reset</property>
+                <property name="label" translatable="yes">Reset</property>
               </object>
             </property>
 

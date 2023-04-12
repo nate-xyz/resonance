@@ -6,18 +6,20 @@
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
+
 use gtk::{ glib, glib::clone, CompositeTemplate};
 
 use std::{cell::{Cell, RefCell}, rc::Rc};
 use log::debug;
 
 use crate::model::playlist::Playlist;
-use crate::util::{model, player, seconds_to_string_longform};
-
-use crate::views::art::grid_art::GridArt;
-use crate::views::art::placeholder_art::PlaceHolderArt;
-
+use crate::views::art::{
+    grid_art::GridArt,
+    placeholder_art::PlaceHolderArt,
+};
 use crate::sort::SortMethod;
+use crate::util::{model, player, seconds_to_string_longform};
+use crate::i18n::i18n_k;
 
 mod imp {
 
@@ -226,10 +228,11 @@ impl PlaylistGridChild {
         let imp = self.imp();
         match imp.playlist.borrow().as_ref() {
             Some(playlist) => {
-                imp.main_button.set_property("tooltip_text", &format!("{}", playlist.title()));
-                imp.title_label.set_label(playlist.title().as_str());
+                imp.main_button.set_tooltip_text(Some(&playlist.title()));
+                
+                imp.title_label.set_label(&playlist.title());
                 imp.modify_time_label.set_label(&format!("{}", playlist.modify_time()));
-                imp.track_count_label.set_label(&format!("{} tracks", playlist.n_tracks()));
+                imp.track_count_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", playlist.n_tracks()))]));
                 imp.duration_label.set_label(&seconds_to_string_longform(playlist.duration()));
 
 

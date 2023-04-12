@@ -315,15 +315,7 @@ impl PlaylistDetailRow {
                     clone!(@strong this => move |value| {
                         let imp = this.imp();
                         let old_position = value.unwrap().get::<i64>().ok().unwrap();
-                        debug!("playlist_position {}", old_position);
 
-                        //player().queue().reorder_track(old_position as usize, this.playlist_position() as usize);
-
-                        //TODO: database call to reorder tracks? or just reorder in UI and do call on confirmation dialog
-
-                        // this.imp().playlist_detail_track_item.borrow().as_ref().unwrap().set_position(old_position);
-                        // this.emit_by_name::<()>("reorder", &[&old_position, &this.playlist_position()]);
-                        
                         send!(imp.db_sender, DatabaseAction::ReorderPlaylist((imp.playlist_id.get(), old_position as usize, imp.playlist_position.get() as usize)));                        
                     })
                 );
@@ -333,8 +325,6 @@ impl PlaylistDetailRow {
                 true 
             }),
         );
-
-
 
         self.add_controller(drop_target);
 
@@ -365,9 +355,9 @@ impl PlaylistDetailRow {
         let imp = self.imp();
         match imp.track.borrow().as_ref() {
             Some(track) => {
-                imp.track_title_label.set_label(track.title().as_str());
+                imp.track_title_label.set_label(&track.title());
                 imp.album_name_label.set_label(&format!(" - {} - ", track.album()));
-                imp.album_artist_label.set_label(track.artist().as_str());
+                imp.album_artist_label.set_label(&track.artist());
                 imp.number_label.set_label(&format!("{:02}", imp.playlist_position.get()+1));
 
                 let duration = track.duration();

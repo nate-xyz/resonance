@@ -12,30 +12,34 @@ use std::cell::{Cell, RefCell};
 use rand::{thread_rng, Rng};
 use log::{debug, error};
 
-use crate::views::dialog::{save_playlist_dialog::SavePlaylistDialog, add_tracks_to_playlist_dialog::AddToPlaylistDialog};
-use crate::util::{model, player, database, get_child_by_index, settings_manager};
-use crate::toasts::add_error_toast;
-use crate::database::DatabaseAction;
-use crate::web::discord::DiscordAction;
-use crate::web::last_fm::LastFmAction;
-use crate::sort::SortMethod;
-use crate::i18n::i18n;
 use crate::app::App;
+use crate::database::DatabaseAction;
+use crate::web::{discord::DiscordAction, last_fm::LastFmAction};
+use crate::sort::SortMethod;
+use crate::toasts::add_error_toast;
+use crate::util::{model, player, database, get_child_by_index, settings_manager};
+use crate::i18n::i18n;
 
-use super::dialog::delete_playlist_dialog::DeletePlaylistDialog;
-use super::dialog::duplicate_playlist_dialog::DuplicatePlaylistDialog;
-use super::dialog::alpha_dialog::AlphaDialog;
-use super::pages::albums::album_detail_page::AlbumDetailPage;
-use super::pages::albums::album_grid_page::AlbumGridPage;
-use super::pages::artists::artist_detail_page::ArtistDetailPage;
-use super::pages::artists::artist_grid_page::ArtistGridPage;
-use super::pages::genres::genre_detail_page::GenreDetailPage;
-use super::pages::genres::genre_grid_page::GenreGridPage;
-use super::pages::playlists::playlist_detail_page::PlaylistDetailPage;
-use super::pages::playlists::playlist_grid_page::PlaylistGridPage;
-use super::pages::queue::queue_page::QueuePage;
-use super::pages::queue::queue_sidebar::QueueSidebar;
-use super::pages::tracks::track_page::TrackPage;
+use super::dialog::{
+    save_playlist_dialog::SavePlaylistDialog, 
+    add_tracks_to_playlist_dialog::AddToPlaylistDialog,
+    delete_playlist_dialog::DeletePlaylistDialog,
+    duplicate_playlist_dialog::DuplicatePlaylistDialog,
+    alpha_dialog::AlphaDialog,
+};
+use super::pages::{
+    albums::album_detail_page::AlbumDetailPage,
+    albums::album_grid_page::AlbumGridPage,
+    artists::artist_detail_page::ArtistDetailPage,
+    artists::artist_grid_page::ArtistGridPage,
+    genres::genre_detail_page::GenreDetailPage,
+    genres::genre_grid_page::GenreGridPage,
+    playlists::playlist_detail_page::PlaylistDetailPage,
+    playlists::playlist_grid_page::PlaylistGridPage,
+    queue::queue_page::QueuePage,
+    queue::queue_sidebar::QueueSidebar,
+    tracks::track_page::TrackPage,
+};
 use super::control_bar::ControlBar;
 
 #[derive(Debug, Clone, Copy, PartialEq, glib::Enum)]
@@ -241,8 +245,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct Window(ObjectSubclass<imp::WindowPriv>)
-        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow,
-        @implements gio::ActionGroup, gio::ActionMap;
+    @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow,
+    @implements gio::ActionGroup, gio::ActionMap;
 }
 
 impl Window {
@@ -286,7 +290,6 @@ impl Window {
             dialog.set_transient_for(Some(self));
             dialog.show();
         }
-
     }
 
     fn add_dialog(&self) {
@@ -315,7 +318,7 @@ impl Window {
                     let folder = dialog.file().unwrap().path().unwrap();
                     
                     if !folder.is_dir() {
-                        add_error_toast("Unable to add music folder, not a valid directory".to_string());
+                        add_error_toast(i18n("Unable to add music folder, not a valid directory."));
                     }
                     
                     let path_str = folder.clone().into_os_string().into_string().ok().unwrap();
@@ -324,7 +327,7 @@ impl Window {
                     imp.spinner.start();
                     imp.add_library_button.hide();
 
-                    imp.welcome_status.set_title("Importing Music Folder...");
+                    imp.welcome_status.set_title(&i18n("Importing Music Folder..."));
                     imp.welcome_status.set_description(Some(&path_str));
                     
                     debug!("DIALOG FOLDER RECEIVED: {:?}", path_str);
@@ -363,8 +366,8 @@ impl Window {
                 imp.spinner.stop();
                 imp.add_library_button.show();
 
-                imp.welcome_status.set_title("Welcome to Resonance");
-                imp.welcome_status.set_description(Some("Add your music library to get started!"));
+                imp.welcome_status.set_title(&i18n("Welcome to Resonance"));
+                imp.welcome_status.set_description(Some(&i18n("Add your music library to get started!")));
 
                 if database.imp().loaded.get() {
                     imp.meta_stack.set_visible_child_full(

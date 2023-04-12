@@ -6,19 +6,21 @@
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
+
 use gtk::{gdk, glib, glib::clone, CompositeTemplate};
 
 use std::{cell::{Cell, RefCell}, rc::Rc};
 use log::{debug, error};
 
 use crate::model::album::Album;
-use crate::util::{model, player, seconds_to_string_longform};
-
-use crate::views::art::placeholder_art::PlaceHolderArt;
-use crate::views::art::rounded_album_art::RoundedAlbumArt;
-
+use crate::views::art::{
+    placeholder_art::PlaceHolderArt,
+    rounded_album_art::RoundedAlbumArt,
+};
 use crate::search::SearchMethod;
 use crate::sort::SortMethod;
+use crate::util::{model, player, seconds_to_string_longform};
+use crate::i18n::i18n_k;
 
 mod imp {
     use super::*;
@@ -244,20 +246,18 @@ impl AlbumGridChild {
         let imp = self.imp();
         match imp.album.borrow().as_ref() {
             Some(album) => {
-                //self.main_button.set_property("tooltip_text", &format!("{} - {}", album.title(), album.artist()));
-
-                imp.title_label.set_label(album.title().as_str());
-                imp.artist_label.set_label(album.artist().as_str());
-                imp.date_label.set_label(album.date().as_str());
-                imp.genre_label.set_label(album.genre().as_str());
+                imp.main_button.set_tooltip_text(Some(&format!("{} - {}", album.title(), album.artist())));
+                imp.title_label.set_label(&album.title());
+                imp.artist_label.set_label(&album.artist());
+                imp.date_label.set_label(&album.date());
+                imp.genre_label.set_label(&album.genre());
 
                 let duration = album.duration();
                 if duration > 0.0 {
-                    imp.duration_label
-                        .set_label(seconds_to_string_longform(duration).as_str());
+                    imp.duration_label.set_label(&seconds_to_string_longform(duration));
                 }
-                imp.track_count_label
-                    .set_label(&format!("{} tracks", album.n_tracks()));
+
+                imp.track_count_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", album.n_tracks()))]));
 
                 match album.cover_art_id() {
                     Some(id) => match self.load_image(id) {
@@ -310,13 +310,11 @@ impl AlbumGridChild {
                     Ok(pixbuf) => {
                         art.load(pixbuf);
                         return Ok(art);
-                        //this is where i should add the connection closure if i was multithreading
                     }
                     Err(msg) => return Err(msg),
                 };
             }
             Err(msg) => return Err(msg),
-            //Err(msg) => error!("error is {}", msg),
         };
     }
 

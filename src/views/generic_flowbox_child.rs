@@ -8,6 +8,7 @@ use adw::prelude::*;
 use adw::subclass::prelude::*;
 
 use gtk::{glib, glib::clone, CompositeTemplate};
+
 use std::{cell::Cell, rc::Rc};
 
 use crate::model::{
@@ -15,6 +16,7 @@ use crate::model::{
     genre::Genre,
 };
 use crate::sort::SortMethod;
+use crate::i18n::i18n_k;
 
 use super::art::placeholder_generic::PlaceHolderGeneric;
 
@@ -144,15 +146,13 @@ impl GenericFlowboxChild {
     pub fn construct(&self, child_type: GenericChild, artist: Option<Rc<Artist>>, genre: Option<Rc<Genre>>) {
         let imp = self.imp();
 
-
-
         let bg = match child_type {
             GenericChild::Artist => {
                 let artist = artist.unwrap();
 
                 imp.id.set(artist.id());
-                imp.album_count_label.set_label(&format!("{} albums", artist.n_albums()));
-                imp.track_count_label.set_label(&format!("{} tracks", artist.n_tracks()));
+                imp.album_count_label.set_label(&i18n_k("{number_of_albums} albums", &[("number_of_albums", &format!("{}", artist.n_albums()))]));
+                imp.track_count_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", artist.n_tracks()))]));
 
                 if !artist.image_id().is_none() {
                     imp.name_label.set_label(&artist.name());
@@ -177,26 +177,24 @@ impl GenericFlowboxChild {
                     imp.main_button.show();
                 }
                 
-
-                PlaceHolderGeneric::new(artist.name(), "person2-symbolic", 200, artist.image_id())
-                
-            
+                PlaceHolderGeneric::new(artist.name(), "person2-symbolic", 200, artist.image_id()) 
             },
             GenericChild::Genre => {
                 let genre = genre.unwrap();
 
                 imp.id.set(genre.id());
-                imp.album_count_label.set_label(&format!("{} albums", genre.n_albums()));
-                imp.track_count_label.set_label(&format!("{} tracks", genre.n_tracks()));
+                imp.album_count_label.set_label(&i18n_k("{number_of_albums} albums", &[("number_of_albums", &format!("{}", genre.n_albums()))]));
+                imp.track_count_label.set_label(&i18n_k("{number_of_tracks} tracks", &[("number_of_tracks", &format!("{}", genre.n_tracks()))]));
                 //imp.name_label.set_label(&genre.name());
+
                 imp.name_label.hide();
                 imp.main_button.show();
+
                 PlaceHolderGeneric::new(genre.name(), "music-note-symbolic", 200, None)
             },
         };
 
-        self.imp().art_bin.set_child(Some(&bg));
-
+        imp.art_bin.set_child(Some(&bg));
     }
 
     pub fn initialize(&self) {

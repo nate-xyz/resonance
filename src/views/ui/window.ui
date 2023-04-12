@@ -305,25 +305,12 @@
                               <object class="AdwViewStack" id="stack">
     
                                 <property name="visible-child">album-stack</property>
-    
-    
-                                <!-- HOME STACK PAGE -->
-                                <!-- <child>
-                                  <object class="AdwViewStackPage">
-                                    <property name="name">home-stack-page</property>
-                                    <property name="title">Home</property>
-                                    <property name="icon-name">music-home-symbolic</property>
-                                    <property name="child">
-                                      <object class="HomePage" id="home_page"></object>
-                                    </property>
-                                  </object>
-                                </child> -->
-    
+        
                                 <!-- CURRENT QUEUE  -->
                                 <child>
                                   <object class="AdwViewStackPage" id="queue_stack_page">
                                     <property name="name">queue-stack-page</property>
-                                    <property name="title">Queue</property>
+                                    <property translatable="yes" name="title">Queue</property>
                                     <property name="icon-name">music-queue-symbolic</property>
                                     <property name="child">
                                       <object class="QueuePage" id="queue_page"></object>
@@ -335,7 +322,7 @@
                                 <child>
                                   <object class="AdwViewStackPage">
                                     <property name="name">album-stack-page</property>
-                                    <property name="title">Albums</property>
+                                    <property translatable="yes" name="title">Albums</property>
                                     <property name="icon-name">library-music-symbolic</property>
                                     <property name="child">
                                       <object class="GtkStack" id="album-stack">
@@ -368,7 +355,7 @@
                                 <child>
                                   <object class="AdwViewStackPage">
                                     <property name="name">tracks-stack-page</property>
-                                    <property name="title">Tracks</property>
+                                    <property translatable="yes" name="title">Tracks</property>
                                     <property name="icon-name">music-note-single-symbolic</property>
                                     <property name="child">
                                       <object class="TrackPage" id="track_page"></object>
@@ -381,7 +368,7 @@
                                 <child>
                                   <object class="AdwViewStackPage">
                                     <property name="name">playlists-stack-page</property>
-                                    <property name="title">Playlists</property>
+                                    <property translatable="yes" name="title">Playlists</property>
                                     <property name="icon-name">playlist2-symbolic</property>
                                     <property name="child">
                                       <object class="GtkStack" id="playlist-stack">
@@ -415,7 +402,7 @@
                                 <child>
                                   <object class="AdwViewStackPage">
                                     <property name="name">artists-stack-page</property>
-                                    <property name="title">Artists</property>
+                                    <property translatable="yes" name="title">Artists</property>
                                     <property name="icon-name">library-artists-symbolic</property>
                                     <property name="child">
                                       <object class="GtkStack" id="artist-stack">
@@ -450,7 +437,7 @@
                                 <child>
                                   <object class="AdwViewStackPage">
                                     <property name="name">genre-stack-page</property>
-                                    <property name="title">Genres</property>
+                                    <property translatable="yes" name="title">Genres</property>
                                     <property name="icon-name">music-note-symbolic</property>
                                     <property name="child">
                                       <object class="GtkStack" id="genre-stack">
