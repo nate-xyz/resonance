@@ -12,22 +12,28 @@ use gtk::{gio, gdk, glib, glib::clone, CompositeTemplate};
 use std::{cell::RefCell, cell::Cell, rc::Rc};
 use log::{debug, error};
 
-use crate::views::scale::Scale;
-use crate::views::window::WindowPage;
-use crate::views::volume_widget::VolumeWidget;
 use crate::model::track::Track;
+use crate::views::{
+    scale::Scale,
+    window::WindowPage,
+    volume_widget::VolumeWidget,
+};
 use crate::player::queue::RepeatMode;
 use crate::util::{player, model, seconds_to_string};
 use crate::i18n::i18n;
 
 mod imp {
     use super::*;
-    use glib::subclass::Signal;
-    use once_cell::sync::Lazy;
     
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/queue_page.ui")]
     pub struct QueuePagePriv {
+        #[template_child(id = "track_info_box")]
+        pub track_info_box: TemplateChild<gtk::Box>,
+
+        #[template_child(id = "scale_clamp")]
+        pub scale_clamp: TemplateChild<adw::Clamp>,
+
         #[template_child(id = "volume_widget")]
         pub volume_widget: TemplateChild<VolumeWidget>,
 
@@ -106,17 +112,6 @@ mod imp {
             self.parent_constructed();
             self.obj().initialize();
         }
-
-        fn signals() -> &'static [Signal] {
-            static SIGNALS: Lazy<Vec<Signal>> = Lazy::new(|| {
-                vec![
-                    Signal::builder("done").build(),
-                ]
-            });
-
-            SIGNALS.as_ref()
-        }
-
     }
 
     impl WidgetImpl for QueuePagePriv {}
@@ -243,46 +238,50 @@ impl QueuePage {
     fn sync_playing(&self) {
         let imp = self.imp();
         if player().state().playing() {
-            debug!("playing");
+            debug!("playing, setting button to pause");
             imp.play_pause_image.set_icon_name(Some("media-playback-pause-symbolic"));
             imp.play_button.set_tooltip_text(Some(&i18n("Pause")));
         } else {
-            debug!("paused");
+            debug!("not playing, setting button to play");
             imp.play_pause_image.set_icon_name(Some("media-playback-start-symbolic"));
             imp.play_button.set_tooltip_text(Some(&i18n("Play")));
-
         }
     }
 
-
     fn button_connections(&self) {
         let imp = self.imp();
-        imp.play_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
-            player().toggle_play_pause();
+        imp.play_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
+                player().toggle_play_pause();
             })
         );
 
-        imp.previous_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
+        imp.previous_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().prev();
             })
         );
 
-        imp.next_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
+        imp.next_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().next();
             })
         );
 
-        imp.loop_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
+        imp.loop_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().queue().on_repeat_change(RepeatMode::Loop);
             })
         );
 
-        imp.repeat_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
+        imp.repeat_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().queue().on_repeat_change(RepeatMode::LoopSong);
             })
         );
 
-        imp.shuffle_button.connect_clicked(clone!(@strong self as this => @default-panic, move |_button| {
+        imp.shuffle_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
                 player().queue().on_repeat_change(RepeatMode::Shuffle);
             })
         );
@@ -294,71 +293,47 @@ impl QueuePage {
         let player = player();
         let state = player.state();
         imp.track.replace(state.current_track());
-        match state.current_track() {
-            Some(track) => {
-                imp.track.replace(Some(track));
-                self.update_view();
-            },
-            None => {
-                imp.track.replace(None);
-                self.emit_by_name::<()>("done", &[]);
-            }
-        };
-    }
-
-    fn update_position(&self) {
-        let position = player().state().position() as f64;
-        self.imp().spent_time_label.set_label(&seconds_to_string(position));
+        self.update_view();
     }
 
     pub fn update_view(&self) {
         let imp = self.imp();
 
-        imp.spent_time_label.set_label("0:00");
-        imp.duration_label.set_label("0:00");
-
-        match imp.track.borrow().as_ref() {
-            Some(track) => {
-                imp.track_name_label.set_label(&track.title());
-                imp.album_name_label.set_label(&track.album());
-                imp.artist_name_label.set_label(&track.artist());
-                imp.duration_label.set_label(&seconds_to_string(track.duration()));
-
-                imp.play_button.set_sensitive(true);
-                
-                self.sync_prev_next();
-
-                //LOAD COVER ART
-                self.load_art(track.cover_art_option());
-
-            }
-            None => {
-                imp.art_bin.set_child(gtk::Widget::NONE);
-                imp.previous_button.set_sensitive(false);
-                imp.play_button.set_sensitive(false);
-                imp.next_button.set_sensitive(false);
-                self.emit_by_name::<()>("done", &[]);
-                return;
-            },
+        if let Some(track) = imp.track.borrow().as_ref() {
+            imp.track_info_box.show();
+            imp.scale_clamp.show();
+            
+            imp.spent_time_label.set_label("0:00");
+            imp.track_name_label.set_label(&track.title());
+            imp.album_name_label.set_label(&track.album());
+            imp.artist_name_label.set_label(&track.artist());
+            imp.duration_label.set_label(&seconds_to_string(track.duration()));
+            
+            self.sync_prev_next();
+            self.load_art(track.cover_art_option());
+        } else {
+            imp.track_info_box.hide();
+            imp.scale_clamp.hide();
+            imp.art_bin.hide();
+            //imp.art_bin.set_child(gtk::Widget::NONE);
+            imp.previous_button.set_sensitive(false);
+            imp.next_button.set_sensitive(false);
         }
     }
 
     fn load_art(&self, art: Option<i64>) {
         let imp = self.imp();
-        match art {
-            Some(id) => match self.add_art(id, 425) {
-                Ok(art) => {
-                    imp.art_bin.set_child(Some(&art));
-                }
-                Err(msg) => {
-                    error!("Tried to set art, but: {}", msg);
-                    imp.art_bin.set_child(gtk::Widget::NONE);
-                }
-            },
-            None => {
-                imp.art_bin.set_child(gtk::Widget::NONE);
+
+        if let Some(id) = art {
+            if let Ok(art) = self.add_art(id, 425) {
+                imp.art_bin.set_child(Some(&art));
+                imp.art_bin.show();
+                return;
             }
         }
+
+        //imp.art_bin.set_child(gtk::Widget::NONE);
+        imp.art_bin.hide();
     }
 
     fn add_art(&self, cover_art_id: i64, _size: i32) -> Result<gtk::Picture, String> {
@@ -381,29 +356,8 @@ impl QueuePage {
         picture.set_height_request(300);
 
         picture.set_content_fit(gtk::ContentFit::Cover);
-
-        // picture.connect_notify_local(Some("paintable"),             
-        // clone!(@strong self as this => move |picture, paintable| {
-        //     let paintable = picture.paintable().unwrap();
-        //     let height = paintable.intrinsic_height();
-        //     let width = paintable.intrinsic_width();
-        //     debug!("hieght {} {}", height, width);
-        // }));
-
-        // picture.paintable().unwrap().connect_local("invalidate-size", false,             
-        // clone!(@strong self as this => move |_| {
-        //     let paintable = this.imp().picture.borrow().as_ref().unwrap().paintable().unwrap();
-        //     let height = paintable.intrinsic_height();
-        //     let width = paintable.intrinsic_width();
-        //     debug!("hieght {} {}", height, width);
-        //     None
-        // }));
-
-        // let art = RoundedAlbumArt::new(size);
-        // art.load(pixbuf);
         Ok(picture)
     }
-
 
     fn sync_prev_next(&self) {
         let imp = self.imp();
@@ -413,6 +367,11 @@ impl QueuePage {
         imp.play_button.set_sensitive(has_next);
         imp.previous_button.set_sensitive(has_previous);
         imp.next_button.set_sensitive(has_next);
+    }
+
+    fn update_position(&self) {
+        let position = player().state().position() as f64;
+        self.imp().spent_time_label.set_label(&seconds_to_string(position));
     }
 
     pub fn show_queue_button(&self) -> &gtk::Button {

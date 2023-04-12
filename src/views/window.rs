@@ -396,13 +396,17 @@ impl Window {
             clone!(@weak self as win => move |_, _| {
                 win.update_colors_from_cover();
             }),
-        );
+    );
 
         player.state().connect_local(
             "queue-empty",
             false,
             clone!(@strong self as this => @default-return None, move |_| {
                 this.view_stack_page_visible(WindowPage::Queue, false);
+                //DO SWITCH HERE INSTEAD OF QUEUE PAGE
+                if this.window_page() == WindowPage::Queue {
+                    this.switch_stack_page(WindowPage::Albums, true);
+                }
                 None
             }),
         );
@@ -544,18 +548,6 @@ impl Window {
             }),
         );
 
-        imp.queue_page.connect_local(
-            "done",
-            false,
-            clone!(@strong self as this => @default-return None, move |_args| {
-                if this.window_page() == WindowPage::Queue {
-                    this.switch_stack_page(WindowPage::Albums, true);
-                }
-                None
-            }),
-        );
-
-        // self.queue_page.show_queue_button.connect('clicked', self.show_queue_sidebar)
         imp.queue_page.show_queue_button().connect_clicked(
             clone!(@strong self as this => @default-panic, move |_button| {
                 let imp = this.imp();
@@ -565,7 +557,6 @@ impl Window {
             }),
         );
 
-        // self.album_grid_page.connect('album_selected', self.album_selected_go_to_detail)
         imp.album_grid_page.connect_local(
             "album-selected",
             false,
@@ -577,7 +568,6 @@ impl Window {
             }),
         );
 
-        // self.album_grid_page.album_sidebar.connect('album_selected', self.album_selected_go_to_detail)
         imp.album_grid_page.album_sidebar().connect_local(
             "album-selected",
             false,
@@ -589,7 +579,6 @@ impl Window {
             }),
         );
 
-        // self.album_detail_page.connect('back', self._go_back_to_albums)
         imp.album_detail_page.connect_local(
             "back",
             false,
@@ -599,7 +588,6 @@ impl Window {
             }),
         );
 
-        // self.artists_grid_page.connect('artist_selected', self.artist_selected_go_to_detail)
         imp.artist_grid_page.connect_local(
             "artist-selected",
             false,
@@ -611,7 +599,6 @@ impl Window {
             }),
         );
 
-        // self.artist_detail_page.connect('back', self._go_back_to_artists)
         imp.artist_detail_page.connect_local(
             "back",
             false,
@@ -621,7 +608,6 @@ impl Window {
             }),
         );
 
-        // self.genre_grid_page.connect('genre_selected', self.genre_selected_go_to_detail)
         imp.genre_grid_page.connect_local(
             "genre-selected",
             false,
@@ -632,7 +618,6 @@ impl Window {
             }),
         );
 
-        // self.genre_detail_page.connect('back', self._go_back_to_genres)
         imp.genre_detail_page.connect_local(
             "back",
             false,
@@ -642,7 +627,6 @@ impl Window {
             }),
         );
 
-        // self.playlists_grid_page.connect('playlist_selected', self.playlist_selected_go_to_detail)
         imp.playlist_grid_page.connect_local(
             "playlist-selected",
             false,
@@ -654,7 +638,6 @@ impl Window {
             }),
         );
 
-        // self.playlist_detail_page.connect('back', self._go_back_to_playlists)
         imp.playlist_detail_page.connect_local(
             "back",
             false,
@@ -663,7 +646,6 @@ impl Window {
                 None
             }),
         );
-        // self.toggle_search_button.connect('clicked', self.on_toggle_search_button)
 
         imp.toggle_search_button.connect_clicked(
             clone!(@strong self as this => @default-panic, move |_button| {
@@ -732,10 +714,9 @@ impl Window {
     NAVIGATION
     */
 
-
     fn switch_stack_page(&self, page_option: WindowPage, switch: bool) {
         let imp = self.imp();
-        debug!("switching to: {:?}", page_option);
+        debug!("switching to: {:?} (switch: {})", page_option, switch);
 
         if switch {
             match page_option {
@@ -757,14 +738,13 @@ impl Window {
             imp.queue_page.update_view();
         } 
 
-     
-
         imp.queue_flap.set_reveal_flap(is_queue && imp.open_queue.get());
         imp.control_bar.set_revealed(!is_queue);
     }
 
     fn search_sort_visibility(&self, page_option: WindowPage) {
         let imp = self.imp();
+        
         //imp.toggle_sort_button.set_menu_model();
         imp.navigate_back_button.hide();
         match page_option {
@@ -1128,7 +1108,6 @@ impl Window {
 
     fn setup_view_stack_button_connection(&self) {
         let imp = self.imp();
-
 
         //SET VIEW SWITCHER TITLE BUTTON CONNECTION
         let squeezer = get_child_by_index::<ViewSwitcherTitle, Squeezer>(&imp.view_switcher_title, 0);

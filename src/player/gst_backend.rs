@@ -79,17 +79,18 @@ impl GstPlayer {
 
     // STATE
     pub fn set_state(&self, state: BackendPlaybackState) {
-        let result = self.set_pipeline_state(state);
-        match result {
-            Ok(()) =>{
+        if let Err(e) = self.set_pipeline_gst_state(state) {
+            error!("setting backend state error: {}", e)
+        } else {
+            // Have to send manually bc NULL flushes the pipeline
+            if state == BackendPlaybackState::Stopped {
                 self.state.set(state);
-                //send!(self.sender, PlaybackAction::PlaybackState(self.state.get()));
-            },
-            Err(e) => error!("{}", e),
+                send!(self.sender, PlaybackAction::PlaybackState(state));
+            }
         }
     }
 
-    pub fn set_pipeline_state(&self, state: BackendPlaybackState) -> Result<(), gst::StateChangeError> {
+    pub fn set_pipeline_gst_state(&self, state: BackendPlaybackState) -> Result<(), gst::StateChangeError> {
         match state {
             BackendPlaybackState::Paused => {
                 self.pipeline.set_state(gst::State::Paused)?;
@@ -256,7 +257,7 @@ impl GstPlayer {
         match message.view() {
             MessageView::Error(ref message) => self.on_bus_error(message),
             MessageView::Eos(_) => self.on_bus_eos(),
-            MessageView::StateChanged(ref message) => self.on_state_changed(message),
+            MessageView::StateChanged(ref message) => self.on_gst_state_changed(message),
             MessageView::NewClock(ref message) => self.on_new_clock(message),
             // MessageView::Element(ref message) => self.on_bus_element(message),
             MessageView::StreamStart(_) => self.on_stream_start(),
@@ -277,7 +278,6 @@ impl GstPlayer {
     }
 
     //CLOCK STUFF
-
     fn on_new_clock(&self, message: &gst::message::NewClock) {
         //debug!("on new clock");
         self.clock_id.replace(None);
@@ -335,17 +335,16 @@ impl GstPlayer {
         //self.emit_by_name::<()>("eos", &[]);
     }
 
-    fn on_state_changed(&self, message: &gst::message::StateChanged) {
+    fn on_gst_state_changed(&self, message: &gst::message::StateChanged) {
         if message.src() != Some(self.pipeline.upcast_ref::<gst::Object>()) {
             return;
         }
 
+        let gst_state = message.current();
 
-        let new_state = message.current();
+        debug!("BACKEND gst state changed: `{:?}` -> `{:?}`", message.old(), gst_state);
 
-        debug!("BACKEND state changed: `{:?}` -> `{:?}`", message.old(), new_state);
-
-        let state = match new_state {
+        let backend_state = match gst_state {
             gst::State::Null => BackendPlaybackState::Stopped,
             gst::State::Ready => BackendPlaybackState::Loading,
             gst::State::Paused => BackendPlaybackState::Paused,
@@ -353,17 +352,17 @@ impl GstPlayer {
             _ => return,
         };
 
-        self.state.set(state);
-
-        //pipeline will change volume sometimes?
-        if state == BackendPlaybackState::Playing && self.volume() != self.volume.get() {
-            debug!("RESET VOLUME {:?}, {:?}", self.volume.get(), self.volume());
-            self.set_volume_internal();
-            //self.set_volume(self.volume.get())
+        if self.state.get() != backend_state {
+            self.state.set(backend_state);
+            send!(self.sender, PlaybackAction::PlaybackState(backend_state));
         }
 
-        send!(self.sender, PlaybackAction::PlaybackState(self.state.get()));
-
+        //pipeline will change volume sometimes?
+        if backend_state == BackendPlaybackState::Playing && self.volume() != self.volume.get() {
+            //debug!("RESET VOLUME {:?}, {:?}", self.volume.get(), self.volume());
+            self.set_volume_internal();
+            //self.set_volume(self.volume.get())
+        }        
     }
 
     pub fn seek(&self, seconds: u64) {

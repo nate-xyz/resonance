@@ -4,18 +4,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-use gtk::prelude::SettingsExt;
-use gtk::{glib, glib::Sender};
-use std::{cell::Cell, cell::RefCell, rc::Rc};
+use gtk::{prelude::SettingsExt, glib, glib::Sender};
 use gtk_macros::send;
-use log::error;
-use rand::seq::SliceRandom;
-use rand::thread_rng;
+
+use std::{cell::Cell, cell::RefCell, rc::Rc};
+use rand::{seq::SliceRandom, thread_rng};
+use log::{error, debug};
 
 use crate::model::track::Track;
 use crate::util::settings_manager;
-
-use log::debug;
 
 #[derive(Clone, Debug)]
 pub enum QueueAction {
@@ -59,7 +56,6 @@ impl Queue {
         let settings = settings_manager();
         let shuffle_loop = settings.boolean("shuffle-mode-loop");
 
-
         let queue = Self {
             sender: queue_sender,
             queue: RefCell::new(Vec::new()),
@@ -81,7 +77,6 @@ impl Queue {
     }
 
     pub fn set_song(&self, track: Rc<Track>) {
-        self.current_position.set(0);
         self.clear_queue();
         self.add_track(track.clone());
         send!(self.sender, QueueAction::QueuePositionUpdate(0));
@@ -91,6 +86,8 @@ impl Queue {
     fn clear_queue(&self) {
         self.queue.replace(Vec::new());
         self.sequential_queue.replace(Vec::new());
+        self.current_position.set(0);
+        self.current_track.replace(None);
     }
 
     pub fn add_track(&self, track: Rc<Track>) {
@@ -100,6 +97,14 @@ impl Queue {
         send!(self.sender, QueueAction::QueueUpdate);
         self.current_song_update();
 
+    }
+
+    pub fn update_from_first(&self) {
+        if self.queue.borrow().len() > 0 {
+            self.current_position.set(0);
+            self.current_song_update();
+            self.calculate_time_remaining();
+        }
     }
 
     fn current_song_update(&self) {
@@ -112,7 +117,6 @@ impl Queue {
     }
 
     pub fn set_album(&self, tracks: Vec<Rc<Track>>) {
-        self.current_position.set(0);
         self.clear_queue();
         self.add_tracks(tracks);
         send!(self.sender, QueueAction::QueuePositionUpdate(0));
@@ -136,7 +140,7 @@ impl Queue {
             return;
         }
         if self.position() >= queue_length {
-            self.current_track.replace(None);
+           
             self.end_queue();
             //self.clear_queue();
             return;
@@ -198,16 +202,6 @@ impl Queue {
         match mode {
             RepeatMode::Shuffle => {
                 self.shuffle_tracks();
-                // debug!("Shuffling songs");
-                // let remaining_songs = self.queue_len() as i64 - self.current_position.get() as i64 - 1;
-                // if remaining_songs <= 0 {
-                //     debug!("Nothing left to shuffle");
-                //     return;
-                // }
-                // let mut remaining_songs: Vec<Rc<Track>> = self.queue.borrow_mut().drain((self.current_position.get()+1) as usize..).collect();
-                // let mut rng = thread_rng();
-                // remaining_songs.shuffle(&mut rng);
-                // self.queue.borrow_mut().append(&mut remaining_songs);
             },
             _ => {
                 debug!("Restoring queue from sequential");
@@ -331,20 +325,10 @@ impl Queue {
         }
     }
 
-    // def end_queue(self):
-    //     self.queue.clear()
-    //     self.emit('empty')
-    //     self.emit('playlist-update')
-
     pub fn end_queue(&self) {
         self.clear_queue();
         send!(self.sender, QueueAction::QueueEmpty);
     }
-    // def calculate_time_remaining(self, playlist, position):
-    //     total_seconds = 0.0
-    //     for track in list(self.queue)[position:]:
-    //         total_seconds += track.duration
-    //     self.emit('time-remaining', int(total_seconds//60))
 
     fn calculate_time_remaining(&self) {
         let pos = self.position() as usize;
@@ -355,9 +339,6 @@ impl Queue {
         }
         send!(self.sender, QueueAction::QueueDuration(total_duration));
     }
-
-    // def get_all_current_tracks(self) -> list:
-    //     return [track.id for track in self.queue]
 
     pub fn tracks(&self) -> Vec<Rc<Track>> {
         self.queue.borrow().clone()
@@ -371,27 +352,9 @@ impl Queue {
         ret
     }
 
-
-    // @GObject.Property(type=int, default=0, flags=GObject.ParamFlags.READABLE)
-    // def position(self):
-    //     return self._current_position
-
     fn position(&self) -> u64 {
         self.current_position.get()
     }
-
-    // @GObject.Property(type=Track, default=None, flags=GObject.ParamFlags.READABLE)
-    // def current_song(self):
-    //     return self._current_song
-
-    // # REPEAT MODE PROPERTY
-    // @GObject.Property(type=int, flags=GObject.ParamFlags.READWRITE)
-    // def repeat(self):
-    //     return self._repeat
-
-    // @repeat.setter  # type: ignore
-    // def repeat(self, _repeat):
-    //     self._repeat = _repeat
 
     pub fn repeat_mode(&self) -> RepeatMode {
         self.repeat_mode.get()
@@ -404,9 +367,5 @@ impl Queue {
     fn queue_len(&self) -> usize {
         self.queue.borrow().len()
     }
-
-
-
-
 }
     

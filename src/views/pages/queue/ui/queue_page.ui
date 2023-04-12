@@ -50,7 +50,6 @@
                 <child>
                   <object class="GtkLabel" id="track_name_label">
                     <property name="halign">center</property>
-                    <property name="label">TRACK NAME</property>
                     <property name="wrap">true</property>
 
                     <attributes>
@@ -62,7 +61,6 @@
 
                 <child>
                   <object class="GtkLabel" id="album_name_label">
-                    <property name="label">ALBUM</property>
                     <property name="valign">center</property>
                     <property name="halign">center</property>
                     <property name="ellipsize">end</property>
@@ -76,9 +74,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="artist_name_label">
-
                     <property name="halign">center</property>
-                    <property name="label">ARTIST</property>
                     <property name="ellipsize">end</property>
                     <attributes>
                       <attribute name="weight" value="thin"/>
@@ -92,13 +88,13 @@
             </child>
 
             <child>
-              <object class="AdwClamp">
+              <object class="AdwClamp" id="scale_clamp">
                 <property name="maximum-size">580</property>
                 <property name="child">
                   <object class="GtkBox">
                     <child>
                       <object class="GtkLabel" id="spent_time_label">
-                        <property name="label">0:00</property>
+                        <!-- <property name="label">0:00</property> -->
                         <property name="valign">center</property>
                         <property name="halign">end</property>
                         <attributes>
@@ -118,7 +114,7 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="duration_label">
-                        <property name="label">0:00</property>
+                        <!-- <property name="label">0:00</property> -->
                         <property name="valign">center</property>
                         <property name="halign">start</property>
                         <attributes>
