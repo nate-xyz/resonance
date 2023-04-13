@@ -1049,11 +1049,10 @@ impl Window {
         };
 
         //SET VIEW SWITCHER TITLE BUTTON VISIBLE
-
         let squeezer = get_child_by_index::<ViewSwitcherTitle, Squeezer>(&imp.view_switcher_title, 0);
+        
+        //wide
         let view_switcher = get_child_by_index::<Squeezer, ViewSwitcher>(&squeezer, 0);
-
-
         for child in view_switcher.observe_children().snapshot().iter() {
             let name = child.property::<String>("label");
             if name.as_str() == label {
@@ -1062,9 +1061,17 @@ impl Window {
             }
         }
 
+        //narrow
+        let view_switcher = get_child_by_index::<Squeezer, ViewSwitcher>(&squeezer, 1);
+        for child in view_switcher.observe_children().snapshot().iter() {
+            let name = child.property::<String>("label");
+            if name.as_str() == label {
+                child.set_property("visible", visible.to_value());
+                break
+            }
+        }
 
         //SET VIEW SWITCHER BAR BUTTON VISIBLE
-
         let action_bar = get_child_by_index::<adw::ViewSwitcherBar, gtk::ActionBar>(&imp.view_switcher_bar, 0);
         let revealer = get_child_by_index::<gtk::ActionBar, gtk::Revealer>(&action_bar, 0);
         let center_box = get_child_by_index::<gtk::Revealer, gtk::CenterBox>(&revealer, 0);
@@ -1079,11 +1086,7 @@ impl Window {
         }
 
         //SET VIEW STACK PAGE VISIBLE
-
         match page_enum {
-            // WindowPage::Home => {
-            //     imp.home_page.set_visible(visible);
-            // },
             WindowPage::Queue => {
                 imp.queue_page.set_visible(visible);
             },
@@ -1111,8 +1114,18 @@ impl Window {
 
         //SET VIEW SWITCHER TITLE BUTTON CONNECTION
         let squeezer = get_child_by_index::<ViewSwitcherTitle, Squeezer>(&imp.view_switcher_title, 0);
+        
+        //wide
         let view_switcher = get_child_by_index::<Squeezer, ViewSwitcher>(&squeezer, 0);
+        for child in view_switcher.observe_children().snapshot().iter() {
+            let name = child.property::<String>("label");
+            if let Some(button) =  child.downcast_ref::<gtk::Button>() {
+                self.view_stack_button_connection(name, button);
+            }
+        }
 
+        //narrow
+        let view_switcher = get_child_by_index::<Squeezer, ViewSwitcher>(&squeezer, 1);
         for child in view_switcher.observe_children().snapshot().iter() {
             let name = child.property::<String>("label");
             if let Some(button) =  child.downcast_ref::<gtk::Button>() {
