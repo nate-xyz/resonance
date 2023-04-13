@@ -140,8 +140,8 @@ impl Model {
     fn reset_all(&self) {
         let imp = self.imp();
         imp.art.replace(Some(HashMap::new()));
-        imp.genres.replace(Some(HashMap::new()));
         imp.artists.replace(Some(HashMap::new()));
+        imp.genres.replace(Some(HashMap::new()));
         imp.albums.replace(Some(HashMap::new()));
         imp.tracks.replace(Some(HashMap::new()));
         imp.playlists.replace(Some(HashMap::new()));
@@ -197,9 +197,12 @@ impl Model {
 
 
     fn populate_art(&self) -> Result<(), Box<dyn Error>> {
+        let imp = self.imp();
+        
         debug!("populate art");
         let list = self.database().query_art()?;
         if list.is_empty() {
+            imp.art.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Art Query Empty".into())));
         }
         let mut art_map = HashMap::new();
@@ -207,14 +210,17 @@ impl Model {
             let art = Rc::new(CoverArt::new(id, data));
             art_map.insert(id, art);
         }
-        self.imp().art.replace(Some(art_map));
+        imp.art.replace(Some(art_map));
         Ok(())
     }
 
     fn populate_artists_images(&self) -> Result<(), Box<dyn Error>> {
+        let imp = self.imp();
+
         debug!("populate artist_images");
         let list = self.database().query_artist_images()?;
         if list.is_empty() {
+            imp.artists.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Artist Query Empty".into())));
         }
         let mut image_map = HashMap::new();
@@ -222,14 +228,17 @@ impl Model {
             let image = Rc::new(ArtistImage::new(id, url, data));
             image_map.insert(id, image);
         }
-        self.imp().artist_images.replace(Some(image_map));
+        imp.artist_images.replace(Some(image_map));
         Ok(())
     }
 
     fn populate_genres(&self) -> Result<(), Box<dyn Error>> {
+        let imp = self.imp();
+
         debug!("populate genres");
         let list = self.database().query_genres()?;
         if list.is_empty() {
+            imp.genres.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Genre Query Empty".into())));
         }
         let mut genre_map = HashMap::new();
@@ -247,15 +256,18 @@ impl Model {
 
             genre_map.insert(id, genre);
         }
-        self.imp().genres.replace(Some(genre_map));
+
+        imp.genres.replace(Some(genre_map));
         Ok(())
     }
 
     fn populate_artists(&self) -> Result<(), Box<dyn Error>> {
         debug!("populate artists");
         let imp = self.imp();
+
         let list = self.database().query_artists()?;
         if list.is_empty() {
+            imp.artists.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Artists Query Empty".into())));
         }
         let mut artist_map = HashMap::new();
@@ -273,6 +285,7 @@ impl Model {
 
             artist_map.insert(id, artist);
         }
+        
         imp.artists.replace(Some(artist_map));
         Ok(())
     }
@@ -280,9 +293,11 @@ impl Model {
     
 
     fn populate_albums(&self) -> Result<(), Box<dyn Error>> {
+        let imp = self.imp();
         debug!("populate albums");
         let list = self.database().query_albums()?;
         if list.is_empty() {
+            imp.albums.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Album Query Empty".into())));
         }
         let mut album_map = HashMap::new();
@@ -292,16 +307,18 @@ impl Model {
             album.add_cover_art_id(cover_art_option);
             album_map.insert(id, album);
         }
-        self.imp().albums.replace(Some(album_map));
+        imp.albums.replace(Some(album_map));
         Ok(())
     }
 
    
 
     fn populate_tracks(&self) -> Result<(), Box<dyn Error>> {
+        let imp = self.imp();
         debug!("populate tracks");
         let list = self.database().query_tracks()?;
         if list.is_empty() {
+            imp.tracks.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Track Query Empty".into())));
         }
         let mut track_map = HashMap::new();
@@ -347,17 +364,19 @@ impl Model {
             album.add_track(track.clone());
             track_map.insert(id, track);
         }
-        self.imp().tracks.replace(Some(track_map));
+        imp.tracks.replace(Some(track_map));
         Ok(())
     }
 
     fn populate_playlists(&self) -> Result<(), Box<dyn Error>> {
         let imp = self.imp();
+        
         debug!("populate playlists");
         let database = self.database();
         
         let list = database.query_playlists()?;
         if list.is_empty() {
+            imp.playlists.replace(Some(HashMap::new()));
             return Err(Box::new(ModelError("Playlist Query Empty".into())));
         }
 
