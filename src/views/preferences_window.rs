@@ -207,8 +207,8 @@ glib::wrapper! {
 
 impl PreferencesWindow {
     pub fn new() -> PreferencesWindow {
-        let prefences: PreferencesWindow = glib::Object::builder::<PreferencesWindow>().build();
-        prefences
+        let preferences: PreferencesWindow = glib::Object::builder::<PreferencesWindow>().build();
+        preferences
     }
 
     fn setup_settings(&self) -> Result<(), Box<dyn Error>> {
