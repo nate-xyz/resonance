@@ -57,7 +57,6 @@ mod imp {
                 radius: Cell::new(46.0),
             }
         }
-
     }
 
     impl ObjectImpl for ScalePriv {
@@ -209,54 +208,59 @@ impl Scale {
         imp.suggest_pos.set(0.0);
 
         let ctrl_click = gtk::GestureClick::new();
-        ctrl_click.connect_pressed(clone!(@strong self as this => move |_gesture, _n_press, _x, _y| {
-            this.remove_timeout();
-            this.imp().old_scale_value.set(this.imp().white_width.get() as f64);
-            this.imp().scrub_mode.set(true);
-        }));
-
-        ctrl_click.connect_released(clone!(@strong self as this => move |_gesture, _n_press, x, _y| {
-            if  x > 0.0 && x < this.width() as f64 {
-                let player = player();
-                let scale_ratio = x / this.width() as f64;
-                let time_position = player.state().duration() * scale_ratio;
-                this.set_position(time_position as f64);
-                player.set_track_position(time_position);
-                this.imp().old_scale_value.set(x);
+        ctrl_click.connect_pressed(
+            clone!(@strong self as this => move |_gesture, _n_press, _x, _y| {
+                this.remove_timeout();
+                this.imp().old_scale_value.set(this.imp().white_width.get() as f64);
+                this.imp().scrub_mode.set(true);
+            })
+        );
+        ctrl_click.connect_released(
+            clone!(@strong self as this => move |_gesture, _n_press, x, _y| {
+                if  x > 0.0 && x < this.width() as f64 {
+                    let player = player();
+                    let scale_ratio = x / this.width() as f64;
+                    let time_position = player.state().duration() * scale_ratio;
+                    this.set_position(time_position as f64);
+                    player.set_track_position(time_position);
+                    this.imp().old_scale_value.set(x);
+                    
+                    // if player.state().playback_state() !=    BackendPlaybackState::Playing {
+                    //     this.set_position(time_position as f64);
+                    // }
+                    
+                    this.update_timeout();
                 
-                // if player.state().playback_state() !=    BackendPlaybackState::Playing {
-                //     this.set_position(time_position as f64);
-                // }
-                
-                this.update_timeout();
-               
-            }
-            this.imp().scrub_mode.set(false);
-        }));
+                }
+                this.imp().scrub_mode.set(false);
+            })
+        );
         self.add_controller(ctrl_click);
 
         let ctrl = gtk::EventControllerMotion::new();
-        ctrl.connect_enter(clone!(@strong self as this => move |_controller, _x, _y| {
-            this.imp().suggested_visible.set(true);
-            this.queue_draw()
-        }));
-
-        ctrl.connect_leave(clone!(@strong self as this => move |_controller| {
-            this.imp().suggested_visible.set(false);
-            this.queue_draw()
-
-        }));
-
-        ctrl.connect_motion(clone!(@strong self as this => move |_controller, x, _y| {
-            if x > 0.0 {
-                if this.imp().scrub_mode.get() {
-                    this.scrub_time_position(x)
-                }
-                this.imp().suggest_pos.set(x as f32);
+        ctrl.connect_enter(
+            clone!(@strong self as this => move |_controller, _x, _y| {
+                this.imp().suggested_visible.set(true);
                 this.queue_draw()
-            }
-        }));
-
+            })
+        );
+        ctrl.connect_leave(
+            clone!(@strong self as this => move |_controller| {
+                this.imp().suggested_visible.set(false);
+                this.queue_draw()
+            })
+        );
+        ctrl.connect_motion(
+            clone!(@strong self as this => move |_controller, x, _y| {
+                if x > 0.0 {
+                    if this.imp().scrub_mode.get() {
+                        this.scrub_time_position(x)
+                    }
+                    this.imp().suggest_pos.set(x as f32);
+                    this.queue_draw()
+                }
+            })
+        );
         self.add_controller(ctrl);
     }
 
@@ -277,7 +281,6 @@ impl Scale {
                 this.update_time_position();
             }),
         );
-
 
         player.state().connect_notify_local(
             Some("state"),
@@ -301,9 +304,8 @@ impl Scale {
         let state = player.state().playback_state();
         //debug!("SCALE {:?} {}", state, self.imp().id.borrow());
         match state {
-            
             BackendPlaybackState::Stopped | BackendPlaybackState::Loading => {
-                self.set_position(0.0);
+                //self.set_position(0.0);
                 self.set_sensitive(false);
                 self.remove_timeout();
             }
@@ -395,11 +397,9 @@ impl Scale {
         let time_ratio = position / player().state().duration();
         let white_width = self.width() as f64 * time_ratio;
 
-
         imp.white_width.replace(white_width as f32);
 
         self.notify("position");
-
         self.queue_draw();
     }
 
