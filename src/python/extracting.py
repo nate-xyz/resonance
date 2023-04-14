@@ -1,4 +1,4 @@
-# extracing.py
+# extracting.py
 # SPDX-FileCopyrightText: 2023 nate-xyz
 # SPDX-License-Identifier: GPL-3.0-or-later
 
