@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-use gtk::{prelude::SettingsExt, glib, glib::Sender};
+use gtk::{prelude::SettingsExt, glib, glib::Sender, gio};
 use gtk_macros::send;
 
 use std::{cell::Cell, cell::RefCell, rc::Rc};
@@ -40,6 +40,19 @@ impl Default for RepeatMode {
     }
 }
 
+impl RepeatMode {
+    fn new_from_settings(mode: i32) -> Self {
+        let repeat_mode = match mode {
+            0 => RepeatMode::Normal,
+            1 => RepeatMode::Loop,
+            2 => RepeatMode::LoopSong,
+            3 => RepeatMode::Shuffle,
+            _ => RepeatMode::Normal,
+        };
+        repeat_mode
+    }
+}
+
 #[derive(Debug)]
 pub struct Queue {
     pub sender: Sender<QueueAction>,
@@ -49,12 +62,14 @@ pub struct Queue {
     pub current_track: RefCell<Option<Rc<Track>>>,
     pub repeat_mode: Cell<RepeatMode>,
     pub shuffle_loop: Cell<bool>,
+    pub settings: gio::Settings,
 }
 
 impl Queue {
     pub fn new(queue_sender: Sender<QueueAction>) -> Queue {
         let settings = settings_manager();
         let shuffle_loop = settings.boolean("shuffle-mode-loop");
+        let repeat_mode = settings.int("repeat-mode");
 
         let queue = Self {
             sender: queue_sender,
@@ -62,8 +77,9 @@ impl Queue {
             sequential_queue: RefCell::new(Vec::new()),
             current_position: Cell::new(0),
             current_track: RefCell::new(None),
-            repeat_mode: Cell::new(RepeatMode::default()),
+            repeat_mode: Cell::new(RepeatMode::new_from_settings(repeat_mode)),
             shuffle_loop: Cell::new(shuffle_loop),
+            settings,
         };
         queue
     }
@@ -154,7 +170,6 @@ impl Queue {
 
     }
 
-
     pub fn remove_track(&self, position_to_remove: usize) {
         let q_len = self.queue.borrow().len();
 
@@ -190,7 +205,6 @@ impl Queue {
         self.current_position.set(new_position as u64);
         send!(self.sender, QueueAction::QueueUpdate);
         self.current_song_update();
-
     }
 
     pub fn on_repeat_change(&self, mode: RepeatMode) {
@@ -208,11 +222,20 @@ impl Queue {
                 self.queue.replace(self.sequential_queue.borrow().clone());
             },
         }
+
         self.repeat_mode.set(mode);
+
+        let mode_int = match mode {
+            RepeatMode::Normal => 0,
+            RepeatMode::Loop => 1,
+            RepeatMode::LoopSong => 2,
+            RepeatMode::Shuffle => 3,
+        };
+        _ = self.settings.set_int("repeat-mode", mode_int);
+
         if mode == RepeatMode::Shuffle {
             send!(self.sender, QueueAction::QueueUpdate);
         }
-        //self.current_song_update();
         send!(self.sender, QueueAction::QueueRepeatMode(mode));
     }
 

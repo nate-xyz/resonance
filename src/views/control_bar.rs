@@ -10,12 +10,12 @@ use adw::subclass::prelude::*;
 use gtk::{gio, gdk, glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, cell::Cell, rc::Rc};
-use log::{debug, error};
+use log::debug;
 
 use crate::views::art::rounded_album_art::RoundedAlbumArt;
 use crate::player::queue::RepeatMode;
 use crate::model::track::Track;
-use crate::util::{player, model, seconds_to_string};
+use crate::util::{player, model, seconds_to_string, settings_manager};
 use crate::i18n::i18n;
 
 use super::window::WindowPage;
@@ -164,6 +164,18 @@ impl ControlBar {
         self.button_connections();
         self.create_menu();
 
+        let settings = settings_manager();
+        let initial_repeat_mode_int = settings.int("repeat-mode");
+        let repeat_mode = match initial_repeat_mode_int {
+            0 => RepeatMode::Normal,
+            1 => RepeatMode::Loop,
+            2 => RepeatMode::LoopSong,
+            3 => RepeatMode::Shuffle,
+            _ => RepeatMode::Normal,
+        };
+        debug!("REPEAT MODE CONTROL BAR {:?}", repeat_mode);
+        self.set_repeat_mode_ui(repeat_mode);
+
         imp.popover.set_parent(self);
 
         imp.leaflet.connect_notify_local(
@@ -172,8 +184,6 @@ impl ControlBar {
                 let imp = this.imp();
                 let folded = imp.leaflet.is_folded();
                 imp.prog_bar.set_visible(folded);
-
-                //debug!("Leaflet is folded: {}", folded);
             }),
         );    
 
@@ -245,34 +255,37 @@ impl ControlBar {
             "queue-repeat-mode",
             false,
             clone!(@strong self as this => move |value| {
-                let imp = this.imp();
                 let mode = value.get(1).unwrap().get::<RepeatMode>().ok().unwrap();
-                debug!("repeat mode {:?}", mode);
-                match mode {
-                    RepeatMode::Normal => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                    RepeatMode::Loop => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.add_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                    RepeatMode::LoopSong => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.add_css_class("suggested-action");
-                    },
-                    RepeatMode::Shuffle => {
-                        imp.shuffle_button.add_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                }
+                this.set_repeat_mode_ui(mode);
                 None
             }),
         );
+    }
+
+    fn set_repeat_mode_ui(&self, mode: RepeatMode) {
+        let imp = self.imp();
+        match mode {
+            RepeatMode::Normal => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+            RepeatMode::Loop => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.add_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+            RepeatMode::LoopSong => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.add_css_class("suggested-action");
+            },
+            RepeatMode::Shuffle => {
+                imp.shuffle_button.add_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+        }
     }
 
     fn sync_playing(&self) {
@@ -327,16 +340,59 @@ impl ControlBar {
     fn update_current_track(&self) {
         self.imp().track.replace(player().state().current_track());
         self.update_view();
+    }
 
-        // match state.current_track() {
-        //     Some(track) => {
-        //         self.imp().track.replace(Some(track));
-        //         self.update_view();
-        //     },
-        //     None => {
-        //         self.imp().track.replace(None);
-        //     }
-        // };
+    pub fn update_view(&self) {
+        let imp = self.imp();
+        imp.spent_time_label.set_label("0:00");
+        
+        if let Some(track) = imp.track.borrow().as_ref() {
+            imp.track_name_label.set_label(&track.title());
+            imp.album_name_label.set_label(&track.album());
+            imp.artist_name_label.set_label(&track.artist());
+            imp.track_name_label_small.set_label(&track.title());
+            imp.album_name_label_small.set_label(&track.album());
+            imp.artist_name_label_small.set_label(&track.artist());
+            imp.track_name_label_big.set_label(&track.title());
+            imp.album_name_label_big.set_label(&track.album());
+            imp.artist_name_label_big.set_label(&track.artist());
+            imp.duration_label.set_label(&format!(" / {}", seconds_to_string(track.duration())));
+            
+            self.sync_prev_next();
+            self.load_art(track.cover_art_option());
+            self.set_revealed(true);
+        } else {
+            imp.duration_label.set_label(" / 0:00");
+            //imp.art_bin.set_child(gtk::Widget::NONE);
+            imp.art_bin.hide();
+            imp.previous_button.set_sensitive(false);
+            imp.next_button.set_sensitive(false);
+            self.set_revealed(false);
+        }
+    }
+
+    fn load_art(&self, art: Option<i64>) {
+        let imp = self.imp();
+
+        if let Some(id) = art {
+            if let Ok(art) = self.load_image(id) {
+                imp.art_bin.set_child(Some(&art));
+                imp.art_bin.show();
+                return;
+            }
+        }
+
+        //imp.art_bin.set_child(gtk::Widget::NONE);
+        imp.art_bin.hide();
+    }
+
+    fn load_image(&self, cover_art_id: i64) -> Result<RoundedAlbumArt, String> {
+        let cover_art = model().cover_art(cover_art_id)?;
+        let pixbuf = cover_art.pixbuf()?;
+
+        let art = RoundedAlbumArt::new(90);
+        art.load(pixbuf);
+        Ok(art)
     }
 
     fn update_position(&self) {
@@ -353,74 +409,7 @@ impl ControlBar {
         let imp = self.imp();
         let position = self.scale().time_position() as f64;
         imp.spent_time_label.set_label(&seconds_to_string(position));
-
     }
-
-    pub fn update_view(&self) {
-        let imp = self.imp();
-        imp.spent_time_label.set_label("0:00");
-        imp.duration_label.set_label(" / 0:00");
-
-        match imp.track.borrow().as_ref() {
-            Some(track) => {
-                imp.track_name_label.set_label(&track.title());
-                imp.album_name_label.set_label(&track.album());
-                imp.artist_name_label.set_label(&track.artist());
-                imp.track_name_label_small.set_label(&track.title());
-                imp.album_name_label_small.set_label(&track.album());
-                imp.artist_name_label_small.set_label(&track.artist());
-                imp.track_name_label_big.set_label(&track.title());
-                imp.album_name_label_big.set_label(&track.album());
-                imp.artist_name_label_big.set_label(&track.artist());
-                imp.duration_label.set_label(&format!(" / {}", seconds_to_string(track.duration())));
-
-                //self.play_button.set_sensitive(true);
-                self.sync_prev_next();
-
-                //LOAD COVER ART
-                match track.cover_art_option() {
-                    Some(id) => match self.load_image(id) {
-                        Ok(art) => {
-                            imp.art_bin.set_child(Some(&art));
-                        }
-                        Err(msg) => {
-                            error!("Tried to set art, but: {}", msg);
-                            imp.art_bin.set_child(gtk::Widget::NONE);
-
-                            //let art = PlaceHolderArt::new(album.title(), album.artist(), 425);
-                            //self.art_bin.set_child(Some(&art));
-                        }
-                    },
-                    None => {
-                        imp.art_bin.set_child(gtk::Widget::NONE);
-
-                        //let art = PlaceHolderArt::new(album.title(), album.artist(), 425);
-                        //self.art_bin.set_child(Some(&art));
-                    }
-                }
-
-                self.set_revealed(true);
-            }
-            None => {
-                imp.art_bin.set_child(gtk::Widget::NONE);
-                imp.previous_button.set_sensitive(false);
-                imp.play_button.set_sensitive(false);
-                imp.next_button.set_sensitive(false);
-                self.set_revealed(false);
-                return;
-            },
-        }
-    }
-
-    fn load_image(&self, cover_art_id: i64) -> Result<RoundedAlbumArt, String> {
-        let cover_art = model().cover_art(cover_art_id)?;
-        let pixbuf = cover_art.pixbuf()?;
-
-        let art = RoundedAlbumArt::new(90);
-        art.load(pixbuf);
-        Ok(art)
-    }
-
 
     fn sync_prev_next(&self) {
         let imp = self.imp();
@@ -447,18 +436,15 @@ impl ControlBar {
         let imp = self.imp();
         let playing = player().state().playing();
         
-        
-
         if self.empty() || self.window_page() == WindowPage::Queue {
             debug!("CONTROL BAR HIDE");
             if self.revealed() {
                 imp.action_bar.set_revealed(false);
                 imp.prog_bar.set_visible(false);
             }
-            return; 
+            return;
         }
 
-  
         if (reveal == playing || reveal == !self.empty()) && reveal != self.revealed() {
             imp.action_bar.set_revealed(reveal);
 
@@ -466,8 +452,6 @@ impl ControlBar {
             if reveal && folded {
                 imp.prog_bar.set_visible(folded);
             }
-
-           
         }        
     }
     
@@ -500,7 +484,7 @@ impl ControlBar {
     
         let main = gio::Menu::new();
         let menu = gio::Menu::new();
-    
+        
         let menu_item = gio::MenuItem::new(Some(&i18n("Toggle Play Pause")), None);
         menu_item.set_action_and_target_value(Some("win.toggle-play-pause"), None);
         menu.append_item(&menu_item);
@@ -517,12 +501,10 @@ impl ControlBar {
         menu_item.set_action_and_target_value(Some("win.end-queue"), None);
         menu.append_item(&menu_item);
 
-    
         main.append_section(Some(&i18n("Playback")), &menu);
     
-    
         let menu = gio::Menu::new();
-    
+        
         let menu_item = gio::MenuItem::new(Some(&i18n("Go to Queue")), None);
         menu_item.set_action_and_target_value(Some("win.go-to-queue"), None);
         menu.append_item(&menu_item);

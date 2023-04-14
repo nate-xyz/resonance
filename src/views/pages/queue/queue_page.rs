@@ -19,7 +19,7 @@ use crate::views::{
     volume_widget::VolumeWidget,
 };
 use crate::player::queue::RepeatMode;
-use crate::util::{player, model, seconds_to_string};
+use crate::util::{player, model, seconds_to_string, settings_manager};
 use crate::i18n::i18n;
 
 mod imp {
@@ -139,6 +139,17 @@ impl QueuePage {
         self.bind_state();
         self.create_menu();
 
+        let settings = settings_manager();
+        let initial_repeat_mode_int = settings.int("repeat-mode");
+        let repeat_mode = match initial_repeat_mode_int {
+            0 => RepeatMode::Normal,
+            1 => RepeatMode::Loop,
+            2 => RepeatMode::LoopSong,
+            3 => RepeatMode::Shuffle,
+            _ => RepeatMode::Normal,
+        };
+        self.set_repeat_mode_ui(repeat_mode);
+
         self.imp().popover.set_parent(self);
 
         let ctrl = gtk::GestureClick::new();
@@ -151,14 +162,7 @@ impl QueuePage {
                     let y = y as i32;
                     let x = x as i32;
 
-                    //let offset = imp.popover.offset();
-                    //debug!("{} {} {:?}", width, x, offset);
-
                     imp.popover.set_offset(x - width, y - height);
-
-                    //let offset = imp.popover.offset();
-                    //debug!("{} {} {:?}", width, x, offset);
-
                     imp.popover.popup();
                 }
             })
@@ -204,35 +208,37 @@ impl QueuePage {
             "queue-repeat-mode",
             false,
             clone!(@strong self as this => move |value| {
-                let imp = this.imp();
                 let mode = value.get(1).unwrap().get::<RepeatMode>().ok().unwrap();
-                debug!("repeat mode {:?}", mode);
-                match mode {
-                    RepeatMode::Normal => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                    RepeatMode::Loop => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.add_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                    RepeatMode::LoopSong => {
-                        imp.shuffle_button.remove_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.add_css_class("suggested-action");
-                    },
-                    RepeatMode::Shuffle => {
-                        imp.shuffle_button.add_css_class("suggested-action");
-                        imp.loop_button.remove_css_class("suggested-action");
-                        imp.repeat_button.remove_css_class("suggested-action");
-                    },
-                }
+                this.set_repeat_mode_ui(mode);
                 None
             }),
         );
+    }
 
+    fn set_repeat_mode_ui(&self, mode: RepeatMode) {
+        let imp = self.imp();
+        match mode {
+            RepeatMode::Normal => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+            RepeatMode::Loop => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.add_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+            RepeatMode::LoopSong => {
+                imp.shuffle_button.remove_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.add_css_class("suggested-action");
+            },
+            RepeatMode::Shuffle => {
+                imp.shuffle_button.add_css_class("suggested-action");
+                imp.loop_button.remove_css_class("suggested-action");
+                imp.repeat_button.remove_css_class("suggested-action");
+            },
+        }
     }
 
     fn sync_playing(&self) {
