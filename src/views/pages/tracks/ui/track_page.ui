@@ -58,37 +58,92 @@
             <property name="valign">fill</property>
             
             <child>
-              <object class="GtkSearchBar" id="search_bar">
-                <property name="search-mode-enabled">true</property>
-                <style>
-                  <class name="inline"/>
-                </style>
-                <property name="child">
+              <object class="GtkBox">
+                <property name="hexpand">true</property>
+                <property name="halign">center</property>
+                <property name="spacing">5</property>
+                <property name="margin-bottom">10</property>
+
+                <child>
+                  <object class="GtkSearchBar" id="search_bar">
+                    <property name="search-mode-enabled">true</property>
+                    <property name="visible" bind-source="search_bar" bind-property="search-mode-enabled" bind-flags="sync-create"/>
+                    <style>
+                      <class name="inline"/>
+                    </style>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="spacing">10</property>
+                        <child>
+                          <object class="GtkDropDown" id="drop_down">
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Title, Album, &amp; Artist</item>
+                                  <item translatable="yes">Track Title</item>
+                                  <item translatable="yes">Album Title</item>
+                                  <item translatable="yes">Artist</item>
+                                  <item translatable="yes">Genre</item>
+                                  <item translatable="yes">Release Date</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSearchEntry" id="search_entry">
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+
+                <child>
                   <object class="GtkBox">
-                    <property name="spacing">10</property>
+                    <!-- <property name="halign">start</property> -->
+                    <style>
+                      <class name="linked"/>
+                    </style>
+
                     <child>
-                      <object class="GtkDropDown" id="drop_down">
-                        <property name="model">
-                          <object class="GtkStringList">
-                            <items>
-                              <item translatable="yes">Title, Album, &amp; Artist</item>
-                              <item translatable="yes">Track Title</item>
-                              <item translatable="yes">Album Title</item>
-                              <item translatable="yes">Artist</item>
-                              <item translatable="yes">Genre</item>
-                              <item translatable="yes">Release Date</item>
-                            </items>
+                      <object class="GtkButton" id="play_all_button">
+                        <!-- <property name="label">Play All</property> -->
+                        <property name="valign">center</property>
+                        <!-- <style>
+                          <class name="pill"/>
+                        </style> -->
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">music-queue-symbolic</property>
+                            <property name="label" translatable="yes">Play All</property>
                           </object>
                         </property>
+                        <property name="tooltip-text" translatable="yes">Play All</property>
                       </object>
                     </child>
+
                     <child>
-                      <object class="GtkSearchEntry" id="search_entry">
+                      <object class="GtkButton" id="shuffle_all_button">
+                        <!-- <property name="label">Shuffle All</property> -->
+                        <property name="valign">center</property>
+                        <!-- <style>
+                          <class name="pill"/>
+                        </style> -->
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">media-playlist-shuffle-symbolic</property>
+                            <property name="label" translatable="yes">Shuffle All</property>
+                          </object>
+                        </property>
+                        <property name="tooltip-text" translatable="yes">Shuffle All</property>
                       </object>
                     </child>
+
                   </object>
-                </property>
+                </child>
               </object>
+
             </child>
 
             <child>

@@ -8,22 +8,22 @@ use adw::prelude::*;
 
 use gst::prelude::ObjectExt;
 use gtk::{glib, glib::{clone, Receiver, Sender}};
+use gtk_macros::send;
 
 use std::{cell::Cell, cell::RefCell, rc::Rc};
 use log::{debug, error};
-use gtk_macros::send;
 
 use crate::model::track::Track;
-use crate::web::music_brainz::ResonanceMusicBrainz;
-use crate::web::discord::{ResonanceDiscord, DiscordAction};
-use crate::web::last_fm::{ResonanceLastFM, LastFmAction};
+use crate::web::{
+    music_brainz::ResonanceMusicBrainz,
+    discord::{ResonanceDiscord, DiscordAction},
+    last_fm::{ResonanceLastFM, LastFmAction},
+};
 use crate::util::{database, settings_manager};
 
-use super::gst_backend::GstPlayer;
-use super::gst_backend::BackendPlaybackState;
-use super::queue::{Queue, QueueAction};
+use super::gst_backend::{GstPlayer, BackendPlaybackState};
+use super::queue::{Queue, QueueAction, RepeatMode};
 use super::state::PlayerState;
-use super::queue::RepeatMode;
 use super::mpris_controller::MprisController;
 
 #[derive(Clone, Debug)]

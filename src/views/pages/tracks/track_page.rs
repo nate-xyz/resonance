@@ -16,6 +16,7 @@ use log::{debug, error};
 use crate::model::track::Track;
 use crate::search::{FuzzyFilter, SearchSortObject, SearchMethod};
 use crate::sort::{FuzzySorter, SortMethod};
+use crate::player::queue::RepeatMode;
 use crate::util::{player, model};
 
 use super::track_page_row::TrackPageRow;
@@ -30,6 +31,12 @@ mod imp {
     #[derive(Debug, Default, CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/track_page.ui")]
     pub struct TrackPagePriv {
+        #[template_child(id = "play_all_button")]
+        pub play_all_button: TemplateChild<gtk::Button>,
+        
+        #[template_child(id = "shuffle_all_button")]
+        pub shuffle_all_button: TemplateChild<gtk::Button>,
+
         #[template_child(id = "list_view")]
         pub list_view: TemplateChild<gtk::ListView>,
 
@@ -63,6 +70,7 @@ mod imp {
 
         pub last_frame_counter: RefCell<i64>,
         pub list_store: RefCell<Option<Rc<ListStore>>>,
+        pub sort_model: RefCell<Option<Rc<gtk::SortListModel>>>,
         pub hidden: Cell<bool>,
         pub display_labels_default: Cell<bool>,
         pub search_mode_default: Cell<bool>,
@@ -162,14 +170,36 @@ impl TrackPage {
     }
 
     fn initialize(&self) {
-        let imp = self.imp();
-
         model().connect_local(
             "refresh-tracks", 
             false, 
         clone!(@weak self as this => @default-return None, move |_args| {
                 this.update_view();
                 None
+            })
+        );
+
+        let imp = self.imp();
+
+        imp.play_all_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
+                debug!("PLAY ALL");
+                let tracks = this.currently_displayed_tracks();
+                debug!("PLAY ALL {}", tracks.len());
+                if tracks.len() > 0 {
+                    player().clear_play_album(tracks, None);
+                }
+            })
+        );
+
+        imp.shuffle_all_button.connect_clicked(
+            clone!(@strong self as this => @default-panic, move |_button| {
+                let tracks = this.currently_displayed_tracks();
+                if tracks.len() > 0 {
+                    let player = player();
+                    player.queue().on_repeat_change(RepeatMode::Shuffle);
+                    player.clear_play_album(tracks, None);
+                }
             })
         );
 
@@ -210,9 +240,9 @@ impl TrackPage {
         
         imp.list_view.set_factory(Some(&list_item_factory));
         imp.list_store.replace(Some(Rc::new(list_store)));
+        
 
         let controller = gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
-        
         controller.connect_scroll(
             clone!(@strong self as this => @default-return gtk::Inhibit(false), move |_, _, _| {
                 let mut last_frame_counter = this.imp().last_frame_counter.borrow_mut();
@@ -225,8 +255,6 @@ impl TrackPage {
                 }
             })
         );
-        
-
         imp.scrolled_window.add_controller(controller);
     }
 
@@ -249,7 +277,8 @@ impl TrackPage {
         sorter_model.set_model(Some(&filter_model));
         sorter_model.set_sorter(Some(&sorter));
 
-        let selection_model = gtk::SingleSelection::new(Some(sorter_model));
+        let selection_model = gtk::SingleSelection::new(None::<gio::ListStore>);
+        selection_model.set_model(Some(&sorter_model));
 
         imp.list_view.set_model(Some(&selection_model));
         imp.list_view.connect_activate(
@@ -258,6 +287,8 @@ impl TrackPage {
                 player().clear_play_track(Rc::new(track));
             })
         );
+
+        imp.sort_model.replace(Some(Rc::new(sorter_model)));
 
         // imp.search_entry.bind_property("text", &filter, "search")
         //     .flags(glib::BindingFlags::SYNC_CREATE)
@@ -293,25 +324,26 @@ impl TrackPage {
             }),  
         );
 
-        imp.drop_down.connect_notify_local(Some("selected"),
+        imp.drop_down.connect_notify_local(
+            Some("selected"),
         clone!(@strong self as this => move |_, _| {
-            let imp = this.imp();
-            let selected = imp.drop_down.selected();
-            let search_method = match selected {
-                0 => SearchMethod::Full,
-                1 => SearchMethod::Track,
-                2 => SearchMethod::Album,
-                3 => SearchMethod::Artist,
-                4 => SearchMethod::Genre,
-                5 => SearchMethod::ReleaseDate,
-                _ => SearchMethod::Full,
-            };
-            if let Some(filter) = imp.filter.borrow().as_ref() {
-                filter.set_method(search_method);
-            }
-            imp.search_method.set(search_method);
-        }),
-    );
+                let imp = this.imp();
+                let selected = imp.drop_down.selected();
+                let search_method = match selected {
+                    0 => SearchMethod::Full,
+                    1 => SearchMethod::Track,
+                    2 => SearchMethod::Album,
+                    3 => SearchMethod::Artist,
+                    4 => SearchMethod::Genre,
+                    5 => SearchMethod::ReleaseDate,
+                    _ => SearchMethod::Full,
+                };
+                if let Some(filter) = imp.filter.borrow().as_ref() {
+                    filter.set_method(search_method);
+                }
+                imp.search_method.set(search_method);
+            }),
+        );
 
         self.connect_notify_local(
         Some("sort-method"),
@@ -325,6 +357,19 @@ impl TrackPage {
         );
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
+    }
+
+    fn currently_displayed_tracks(&self) -> Vec<Rc<Track>> {
+        let imp = self.imp();
+        let mut tracks = Vec::new();
+        if let Some(sorter_model) = imp.sort_model.borrow().as_ref() {
+            for track in sorter_model.snapshot().iter() {
+                if let Ok(t) = track.clone().downcast::<Track>() {
+                    tracks.push(Rc::new(t));
+                }
+            }
+        }
+        tracks
     }
 
     fn update_list_store(&self) {
