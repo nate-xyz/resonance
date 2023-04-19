@@ -24,6 +24,9 @@ mod imp {
     #[derive(Debug, gtk::CompositeTemplate)]
     #[template(resource = "/io/github/nate_xyz/Resonance/preferences_window.ui")]
     pub struct PreferencesWindow {
+        #[template_child(id = "switch_album_from_track")]
+        pub switch_album_from_track: TemplateChild<gtk::Switch>,
+
         #[template_child(id = "spin_play_threshold")]
         pub spin_play_threshold: TemplateChild<gtk::SpinButton>,
 
@@ -142,6 +145,7 @@ mod imp {
 
         fn new() -> Self {
             Self {
+                switch_album_from_track: TemplateChild::default(),
                 spin_play_threshold: TemplateChild::default(),
                 action_row_lastfm: TemplateChild::default(),
                 switch_enable_lastfm: TemplateChild::default(),
@@ -227,8 +231,11 @@ impl PreferencesWindow {
             }),
         );
 
-        //LASTFM
+        imp.settings.bind("album-from-track",&*imp.switch_album_from_track, "active")
+            .flags(SettingsBindFlags::DEFAULT)
+            .build();
 
+        //LASTFM
         imp.settings
         .bind(
             "last-fm-enabled",

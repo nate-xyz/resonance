@@ -280,7 +280,7 @@ impl AlbumDetailPage {
                     album_vec.sort_by(|a, b| a.0.cmp(b.0));
                     for (track_n, track) in album_vec {
                         let track = track.clone();
-                        let entry = TrackEntry::new(track, *track_n as i32, *disc_n as i32, 300);
+                        let entry = TrackEntry::new(album.clone(), track, *track_n as i32, *disc_n as i32, 300);
                         // entry.set_player(self.player.borrow().as_ref().unwrap().clone());
 
                         track_box.append(&entry);

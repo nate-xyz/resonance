@@ -70,7 +70,7 @@
                     <property name="active">true</property>
                   </object>
                 </child>
- 
+
                 <style>
                   <class name="darken-mas-mas"/>
                 </style>
@@ -479,6 +479,7 @@
               </object>
 
             </child>
+
             <child>
               <object class="AdwActionRow">
                 <property name="title" translatable="yes">Shuffle Mode Loops at End</property>
@@ -496,6 +497,25 @@
                 </style>
               </object>
             </child>
+
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Album from Track</property>
+                <property name="subtitle" translatable="yes">If enabled, playing a track within the album sidebar, detail, or card UI will play or add the album from the selected track. Otherwise, only the selected track will be played.</property>
+
+                <property name="activatable-widget">switch_album_from_track</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_album_from_track">
+                    <property name="valign">center</property>
+                    <property name="active">true</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="darken-mas-mas"/>
+                </style>
+              </object>
+            </child>
+
           </object>
         </child>
 
@@ -520,7 +540,7 @@
               </object>
             </child>
 
-              <child>
+            <child>
               <object class="AdwActionRow">
                 <property name="title" translatable="yes">Threshold for Scrobble</property>
                 <property name="subtitle" translatable="yes">The percentage of the song that must play before scrobbled</property>
@@ -543,7 +563,7 @@
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">Discord</property>
-            
+
             <property name="header-suffix">
               <object class="GtkButton" id="reset_default_discord">
                 <property name="valign">center</property>

@@ -164,6 +164,16 @@ impl Album {
         self.imp().track_ids.borrow().contains(&track.id())
     }
 
+    pub fn track_index(&self, track_number: i64, disc_number: i64) -> usize {
+        let disc_map = self.discs();
+        let mut index = 0;
+        for i in 0..disc_number-1 {
+            index += disc_map[&i].len();
+        }
+        index += track_number as usize - 1; 
+        index
+    }
+
     pub fn n_tracks(&self) -> usize {
         self.imp().track_ids.borrow().len()
     }

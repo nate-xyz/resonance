@@ -250,7 +250,7 @@ impl AlbumCard {
                         album_vec.sort_by(|a, b| a.0.cmp(b.0));
                         for (track_n, track) in album_vec {
                             let track = track.clone();
-                            let entry = TrackEntry::new(track, *track_n as i32, *disc_n as i32, 27);
+                            let entry = TrackEntry::new(album.clone(), track, *track_n as i32, *disc_n as i32, 27);
                             // entry.set_player(self.player.borrow().as_ref().unwrap().clone());
 
                             if *track_n <= first_box_amount as i64  {
@@ -269,7 +269,7 @@ impl AlbumCard {
                         album_vec.sort_by(|a, b| a.0.cmp(b.0));
                         for (track_n, track) in album_vec {
                             let track = track.clone();
-                            let entry = TrackEntry::new(track, *track_n as i32, *disc_n as i32, 27);                            
+                            let entry = TrackEntry::new(album.clone(), track, *track_n as i32, *disc_n as i32, 27);                            
                             first_box.append(&entry);
                             //self.track_children.add(&entry);
                         }

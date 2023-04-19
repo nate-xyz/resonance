@@ -123,8 +123,8 @@
     </child>
   </template>
 
-  <object class="GtkPopoverMenu" id="popover">
+  <!-- <object class="GtkPopoverMenu" id="popover">
     <property name="has-arrow">false</property>
-  </object>
+  </object> -->
   
 </interface>
