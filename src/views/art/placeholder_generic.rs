@@ -89,12 +89,11 @@ impl PlaceHolderGeneric {
             let text = if width >= 61 {
                 let (truncated, _size) = text.unicode_truncate(60);
                 let ellipsized = format!("{}…", truncated);
-                let text = html_escape::encode_text_minimal(&ellipsized);
-                text.to_string()
+                ellipsized
             } else {
                 name
             };        
-            label.set_label(&format!("<span weight=\"book\" size=\"large\">{}</span>", text));
+            label.set_label(&format!("<span weight=\"book\" size=\"large\">{}</span>", html_escape::encode_text_minimal(&text)));
     
 
             box_.set_margin_top(12);

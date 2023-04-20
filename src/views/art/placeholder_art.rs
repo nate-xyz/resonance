@@ -73,12 +73,11 @@ impl PlaceHolderArt {
         let text = if width >= 91 {
             let (truncated, _size) = album_str.unicode_truncate(90);
             let ellipsized = format!("{}…", truncated);
-            let text = html_escape::encode_text_minimal(&ellipsized);
-            text.to_string()
+            ellipsized
         } else {
             album
         };        
-        album_label.set_label(&format!("<span style=\"oblique\" weight=\"bold\" size=\"large\">{}</span>", text));
+        album_label.set_label(&format!("<span style=\"oblique\" weight=\"bold\" size=\"large\">{}</span>", html_escape::encode_text_minimal(&text)));
 
         let artist_label = gtk::Label::new(None);
         artist_label.set_use_markup(true);
@@ -92,12 +91,11 @@ impl PlaceHolderArt {
         let text = if width >= 61 {
             let (truncated, _size) = artist_str.unicode_truncate(60);
             let ellipsized = format!("{}…", truncated);
-            let text = html_escape::encode_text_minimal(&ellipsized);
-            text.to_string()
+            ellipsized
         } else {
             artist
         };
-        artist_label.set_label(&format!("<span weight=\"book\" size=\"medium\">{}</span>", text));
+        artist_label.set_label(&format!("<span weight=\"book\" size=\"medium\">{}</span>", html_escape::encode_text_minimal(&text)));
 
 
         box_.append(&album_label);
