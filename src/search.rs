@@ -19,8 +19,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-use gtk::{glib, prelude::*, subclass::prelude::*};
 
+use gtk::{glib, prelude::*, subclass::prelude::*};
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum SearchSortObject {
@@ -54,8 +54,6 @@ impl Default for SearchMethod {
         Self::Full
     }
 }
-
-
 
 mod imp {
     use super::*;
@@ -176,8 +174,7 @@ mod imp {
 
 glib::wrapper! {
     pub struct FuzzyFilter(ObjectSubclass<imp::FuzzyFilter>)
-        @extends gtk::Filter;
-
+    @extends gtk::Filter;
 }
 
 impl FuzzyFilter {

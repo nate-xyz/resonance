@@ -5,11 +5,11 @@
  */
 
 use adw::subclass::prelude::*;
+use gtk::{glib, gio};
 use glib::prelude::ToVariant;
 
-use gtk::{glib, gio};
-
 use std::{cell::Cell, cell::RefCell};
+use regex::Regex;
 
 mod imp {
     use super::*;
@@ -21,6 +21,10 @@ mod imp {
         pub album_name: RefCell<String>,
         pub album_artist: RefCell<String>,
         pub search_string: RefCell<String>,
+        pub sort_string: RefCell<String>,
+        pub sort_title: RefCell<String>,
+        pub sort_album: RefCell<String>,
+        pub sort_artist: RefCell<String>,
         pub filetype: RefCell<String>,
         pub uri: RefCell<String>,
         pub date: RefCell<String>,
@@ -51,9 +55,7 @@ mod imp {
         }
     }
 
-    impl TrackPriv {
-
-    }
+    impl TrackPriv {}
 }
 
 glib::wrapper! {
@@ -75,7 +77,25 @@ impl Track {
 
     pub fn load_info(&self, id: i64, title: String, album_name: String, album_artist: String, filetype: String, uri: String, date: String, genre: String, duration: f64, track_number: i64, disc_number: i64) {
         let imp = self.imp();
+        
+        let re = Regex::new(r"^(the|a|an)\s+").unwrap();
+        
+        let lowercase_title = title.to_lowercase();
+        let stripped_title = re.replace(&lowercase_title, "");
+
+        let lowercase_artist= album_artist.to_lowercase();
+        let stripped_artist = re.replace(&lowercase_artist, "");
+
+        let lowercase_album= album_name.to_lowercase();
+        let stripped_album = re.replace(&lowercase_album, "");
+        
+        imp.sort_title.replace(format!("{}", stripped_title));
+        imp.sort_artist.replace(format!("{}", stripped_artist));
+        imp.sort_album.replace(format!("{}", stripped_album));
+
+        imp.sort_string.replace(format!("{} {} {}", stripped_title, stripped_album, stripped_artist));
         imp.search_string.replace(format!("{} {} {}", title, album_name, album_artist));
+
         imp.id.set(id);
         imp.title.replace(title);
         imp.album_name.replace(album_name);
@@ -134,6 +154,10 @@ impl Track {
         self.imp().title.borrow().clone()
     }
 
+    pub fn sort_title(&self) -> String {
+        self.imp().sort_title.borrow().clone()
+    }
+
     pub fn uri(&self) -> String {
         self.imp().uri.borrow().clone()
     }
@@ -150,8 +174,16 @@ impl Track {
         self.imp().album_artist.borrow().clone()
     }
 
+    pub fn sort_artist(&self) -> String {
+        self.imp().sort_artist.borrow().clone()
+    }
+
     pub fn album(&self) -> String {
         self.imp().album_name.borrow().clone()
+    }
+
+    pub fn sort_album(&self) -> String {
+        self.imp().sort_album.borrow().clone()
     }
 
     pub fn duration(&self) -> f64 {
@@ -160,6 +192,10 @@ impl Track {
 
     pub fn search_string(&self) -> String {
         self.imp().search_string.borrow().clone()
+    }
+
+    pub fn sort_string(&self) -> String {
+        self.imp().sort_string.borrow().clone()
     }
     
     #[allow(dead_code)]
@@ -180,9 +216,7 @@ impl Track {
         // menu_item.set_action_and_target_value(Some("win.play-album-from-track"), Some(&imp.id.get().to_variant()));
         // menu.append_item(&menu_item);
 
-    
         imp.menu.append_section(Some("Play"), &menu);
-    
     
         let menu = gio::Menu::new();
     

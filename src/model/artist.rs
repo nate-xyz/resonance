@@ -7,6 +7,7 @@
 use gtk::{subclass::prelude::*, glib};
 
 use std::{cell::Cell, cell::RefCell, rc::Rc};
+use regex::Regex;
 
 use super::album::Album;
 
@@ -16,6 +17,7 @@ mod imp {
     #[derive(Debug, Default)]
     pub struct ArtistPriv {
         pub name: RefCell<String>,
+        pub sort_name: RefCell<String>,
         pub id: Cell<i64>,
         pub image_id: Cell<Option<i64>>,
         pub albums: RefCell<Option<Vec<Rc<Album>>>>,
@@ -52,9 +54,17 @@ impl Artist {
 
     fn load(&self, name: String, id: i64, image_optional: Option<i64>) {
         let imp = self.imp();
-        imp.name.replace(name);
+        
         imp.id.set(id);
         imp.image_id.set(image_optional);
+
+        let re = Regex::new(r"^(the|a|an)\s+").unwrap();
+        
+        let lowercase_name = name.to_lowercase();
+        let stripped_name: std::borrow::Cow<str> = re.replace(&lowercase_name, "");
+        imp.sort_name.replace(format!("{}", stripped_name));
+        
+        imp.name.replace(name);
     }
 
     pub fn add_album(&self, album: Rc<Album>) {
@@ -69,7 +79,6 @@ impl Artist {
             albums.push(album);
             return;
         }
-
     }
 
     pub fn id(&self) -> i64 {
@@ -78,6 +87,10 @@ impl Artist {
 
     pub fn name(&self) -> String {
         self.imp().name.borrow().to_string()
+    }
+
+    pub fn sort_name(&self) -> String {
+        self.imp().sort_name.borrow().to_string()
     }
 
     pub fn image_id(&self) -> Option<i64> {
@@ -108,6 +121,5 @@ impl Artist {
         } 
         n_tracks
     }
-
 }
     

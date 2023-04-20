@@ -8,6 +8,7 @@ use adw::subclass::prelude::*;
 use gtk::glib;
 
 use std::{cell::Cell, cell::RefCell, rc::Rc};
+use regex::Regex;
 
 use super::album::Album;
 
@@ -17,6 +18,7 @@ mod imp {
     #[derive(Debug, Default)]
     pub struct GenrePriv {
         pub name: RefCell<String>,
+        pub sort_name: RefCell<String>,
         pub id: Cell<i64>,
         pub albums: RefCell<Option<Vec<Rc<Album>>>>,
     }
@@ -34,15 +36,7 @@ mod imp {
         }
     }
 
-    impl GenrePriv {
-        pub fn set_name(&self, name: String) {
-            self.name.replace(name);
-        }
-
-        pub fn set_id(&self, id: i64) {
-            self.id.set(id);
-        }
-    }
+    impl GenrePriv {}
 }
 
 glib::wrapper! {
@@ -58,16 +52,27 @@ impl Genre {
 
     fn load(&self, name: String, id: i64) {
         let imp = self.imp();
-        imp.set_name(name);
-        imp.set_id(id);
+
+        imp.id.replace(id);
+
+        let re = Regex::new(r"^(the|a|an)\s+").unwrap();
+        let lowercase_name = name.to_lowercase();
+        let stripped_name: std::borrow::Cow<str> = re.replace(&lowercase_name, "");
+        imp.sort_name.replace(format!("{}", stripped_name));
+
+        imp.name.replace(name);
+    }
+    
+    pub fn id(&self) -> i64 {
+        self.imp().id.get().clone()
     }
 
     pub fn name(&self) -> String {
         self.imp().name.borrow().to_string().clone()
     }
 
-    pub fn id(&self) -> i64 {
-        self.imp().id.get().clone()
+    pub fn sort_name(&self) -> String {
+        self.imp().sort_name.borrow().to_string()
     }
 
     pub fn add_album(&self, album: Rc<Album>) {

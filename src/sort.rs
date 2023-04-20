@@ -45,7 +45,6 @@ impl Default for SortMethod {
     }
 }
 
-
 mod imp {
     use super::*;
     use gtk::glib::{self, ParamSpec, ParamSpecString, Value};
@@ -98,7 +97,6 @@ mod imp {
 
     impl SorterImpl for FuzzySorter {
         fn compare(&self, item1: &glib::Object, item2: &glib::Object) -> gtk::Ordering {
-            // debug!("cmp");
             match self.method.get() {
                 SortMethod::Duration => {
                     let (item1_key, item2_key) = match self.type_.get() {
@@ -223,11 +221,11 @@ mod imp {
                             let item2 = item2.downcast_ref::<Album>().unwrap();
         
                             match self.method.get() {
-                                SortMethod::Album => (item1.title(), item2.title()),
-                                SortMethod::Artist => (item1.artist(), item2.artist()),
+                                SortMethod::Album => (item1.sort_title(), item2.sort_title()),
+                                SortMethod::Artist => (item1.sort_artist(), item2.sort_artist()),
                                 SortMethod::Genre => (item1.genre(), item2.genre()),
                                 SortMethod::ReleaseDate => (item1.date(), item2.date()),
-                                _ => (item1.title(), item2.title()),
+                                _ => (item1.sort_string(), item2.sort_string()),
                             }
                         },
                         SearchSortObject::Track => {
@@ -235,12 +233,12 @@ mod imp {
                             let item2 = item2.downcast_ref::<Track>().unwrap();
         
                             match self.method.get() {
-                                SortMethod::Track => (item1.title(), item2.title()),
-                                SortMethod::Album => (item1.album(), item2.album()),
-                                SortMethod::Artist => (item1.artist(), item2.artist()),
+                                SortMethod::Track => (item1.sort_title(), item2.sort_title()),
+                                SortMethod::Album => (item1.sort_album(), item2.sort_album()),
+                                SortMethod::Artist => (item1.sort_artist(), item2.sort_artist()),
                                 SortMethod::Genre => (item1.genre(), item2.genre()),
                                 SortMethod::ReleaseDate => (item1.date(), item2.date()),
-                                _ => (item1.title(), item2.title()),
+                                _ => (item1.sort_string(), item2.sort_string()),
                             }
                         },
                         SearchSortObject::Playlist => {
@@ -253,13 +251,13 @@ mod imp {
                             let item1 = item1.downcast_ref::<Artist>().unwrap();
                             let item2 = item2.downcast_ref::<Artist>().unwrap();
         
-                            (item1.name(), item2.name())
+                            (item1.sort_name(), item2.sort_name())
                         },
                         SearchSortObject::Genre => {
                             let item1 = item1.downcast_ref::<Genre>().unwrap();
                             let item2 = item2.downcast_ref::<Genre>().unwrap();
         
-                            (item1.name(), item2.name())
+                            (item1.sort_name(), item2.sort_name())
                         },
                         _ => unimplemented!("no sorting for")
         
@@ -307,8 +305,7 @@ mod imp {
 
 glib::wrapper! {
     pub struct FuzzySorter(ObjectSubclass<imp::FuzzySorter>)
-        @extends gtk::Sorter;
-
+    @extends gtk::Sorter;
 }
 
 impl FuzzySorter {
