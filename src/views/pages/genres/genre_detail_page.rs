@@ -225,6 +225,16 @@ impl GenreDetailPage {
                 }
             }),
         );
+
+        self.connect_notify_local(Some("sort-method"),
+        clone!(@strong self as this => move |_, _| {
+            let imp = this.imp();
+            let sort_method = imp.sort_method.get();
+            if let Some(sorter) = imp.sorter.borrow().as_ref() {
+                sorter.set_method(sort_method);
+            }
+        }),
+    );
     }
 
     pub fn update_genre(&self, genre_id: i64) {
@@ -252,6 +262,7 @@ impl GenreDetailPage {
         filter_model.set_filter(Some(&filter));
 
         let sorter = FuzzySorter::new(SearchSortObject::Album);
+        sorter.set_method(imp.sort_method.get());
         let sorter_model = gtk::SortListModel::new(None::<gio::ListStore>, None::<FuzzySorter>);
         sorter_model.set_model(Some(&filter_model));
         sorter_model.set_sorter(Some(&sorter));
@@ -293,16 +304,6 @@ impl GenreDetailPage {
             }),  
         );
         
-        self.connect_notify_local(Some("sort-method"),
-            clone!(@strong self as this => move |_, _| {
-                let imp = this.imp();
-                let sort_method = imp.sort_method.get();
-                if let Some(sorter) = imp.sorter.borrow().as_ref() {
-                    sorter.set_method(sort_method);
-                }
-            }),
-        );
-
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
     }

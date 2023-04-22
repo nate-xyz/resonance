@@ -241,7 +241,6 @@ impl TrackPage {
         imp.list_view.set_factory(Some(&list_item_factory));
         imp.list_store.replace(Some(Rc::new(list_store)));
         
-
         let controller = gtk::EventControllerScroll::new(gtk::EventControllerScrollFlags::VERTICAL);
         controller.connect_scroll(
             clone!(@strong self as this => @default-return gtk::Inhibit(false), move |_, _, _| {
@@ -256,6 +255,16 @@ impl TrackPage {
             })
         );
         imp.scrolled_window.add_controller(controller);
+
+        self.connect_notify_local(Some("sort-method"),
+        clone!(@strong self as this => move |_, _| {
+                let imp = this.imp();
+                let sort_method = imp.sort_method.get();
+                if let Some(sorter) = imp.sorter.borrow().as_ref() {
+                    sorter.set_method(sort_method);
+                }
+            }),
+        );
     }
 
     pub fn update_view(&self) {
@@ -273,6 +282,7 @@ impl TrackPage {
         filter_model.set_filter(Some(&filter));
 
         let sorter = FuzzySorter::new(SearchSortObject::Track);
+        sorter.set_method(imp.sort_method.get());
         let sorter_model = gtk::SortListModel::new(None::<gio::ListStore>, None::<FuzzySorter>);
         sorter_model.set_model(Some(&filter_model));
         sorter_model.set_sorter(Some(&sorter));
@@ -345,16 +355,7 @@ impl TrackPage {
             }),
         );
 
-        self.connect_notify_local(
-        Some("sort-method"),
-        clone!(@strong self as this => move |_, _| {
-                let imp = this.imp();
-                let sort_method = imp.sort_method.get();
-                if let Some(sorter) = imp.sorter.borrow().as_ref() {
-                    sorter.set_method(sort_method);
-                }
-            }),
-        );
+
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
     }

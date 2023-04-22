@@ -6,13 +6,11 @@
 
 use adw::prelude::*;
 use adw::subclass::prelude::*;
-
 use gtk::{gio, glib, glib::clone, CompositeTemplate};
 
 use std::{cell::RefCell, cell::Cell, rc::Rc};
 use std::time::Duration;
 use log::debug;
-use html_escape;
 
 use crate::model::artist::Artist;
 use crate::model::album::Album;
@@ -228,6 +226,16 @@ impl ArtistDetailPage {
                 }
             }),
         );
+
+        self.connect_notify_local(Some("sort-method"),
+         clone!(@strong self as this => move |_, _| {
+                let imp = this.imp();
+                let sort_method = imp.sort_method.get();
+                if let Some(sorter) = imp.sorter.borrow().as_ref() {
+                    sorter.set_method(sort_method);
+                }
+            }),
+        );
     }
 
     pub fn update_artist(&self, artist_id: i64) {
@@ -256,6 +264,7 @@ impl ArtistDetailPage {
         filter_model.set_filter(Some(&filter));
 
         let sorter = FuzzySorter::new(SearchSortObject::Album);
+        sorter.set_method(imp.sort_method.get());
         let sorter_model = gtk::SortListModel::new(None::<gio::ListStore>, None::<FuzzySorter>);
         sorter_model.set_model(Some(&filter_model));
         sorter_model.set_sorter(Some(&sorter));
@@ -297,16 +306,6 @@ impl ArtistDetailPage {
             }),  
         );
 
-        self.connect_notify_local(
-        Some("sort-method"),
-        clone!(@strong self as this => move |_, _| {
-                let imp = this.imp();
-                let sort_method = imp.sort_method.get();
-                if let Some(sorter) = imp.sorter.borrow().as_ref() {
-                    sorter.set_method(sort_method);
-                }
-            }),
-        );
 
         imp.filter.replace(Some(filter));
         imp.sorter.replace(Some(sorter));
