@@ -447,6 +447,17 @@ impl Window {
 
     fn bind_signals(&self) {
         debug!("bind signals");
+
+        self.connect_local(
+            "unrealize",
+            false,
+            clone!(@strong self as this => @default-return None, move |_value| {
+                this.save_window_props();
+                None
+            }),
+        );
+
+
         let imp = self.imp();
 
         imp.meta_stack.connect_notify_local(Some("visible-child"),         
@@ -457,24 +468,8 @@ impl Window {
                     imp.welcome_percentage_label.hide();
                 }
                 if let Some(name) = stack.visible_child_name() {
-                    match name.as_str() {
-                        "main-stack-page" => {
-                            this.set_default_height(1150);
-                            this.set_default_width(1400);
-                            this.set_resizable(true);
-                            this.show_alpha_message();
-                        },
-                        "welcome-stack-page" => {
-                            this.set_default_height(600);
-                            this.set_default_width(500);
-                            this.set_resizable(true);
-                            
-                        },
-                        _ => {
-                            this.set_default_height(300);
-                            this.set_default_width(300);
-                            this.set_resizable(true);
-                        },
+                    if name.as_str() == "main-stack-page" {
+                        this.show_alpha_message();
                     }
                 }
             }
@@ -1597,6 +1592,7 @@ impl Window {
     pub fn setup_settings(&self) {
         let imp = self.imp();
 
+        self.set_window_size();
 
         imp.settings.connect_changed(
             Some("album-grid-sort"),
@@ -1879,6 +1875,28 @@ impl Window {
                 player.commit_threshold.set(threshold);         
             },
         );
+    }
+
+    fn set_window_size(&self) {
+        let imp = self.imp();
+
+        let width = imp.settings.int("window-width");
+        let height = imp.settings.int("window-height");
+        let maximized = imp.settings.boolean("window-maximized");
+
+        self.set_default_size(width, height);
+        self.set_maximized(maximized);
+    }
+
+    fn save_window_props(&self) {
+        let imp = self.imp();
+
+        let (width, height) = self.default_size();
+        let maximized = self.is_maximized();
+
+        _ = imp.settings.set_int("window-width", width);
+        _ = imp.settings.set_int("window-height", height);
+        _ = imp.settings.set_boolean("window-maximized", maximized);
     }
 }
 
