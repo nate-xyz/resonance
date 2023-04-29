@@ -2,7 +2,6 @@ src/main.rs
 src/util.rs
 src/app.rs
 src/database.rs
-src/config.rs
 src/toasts.rs
 src/importer.rs
 src/sort.rs
