@@ -208,7 +208,7 @@ impl Database {
                 match self.add_artist_image_bulk(payload) {
                     Ok(_) => {
                         // Translators: do not replace {number_of_artists}
-                        add_success_toast(&i18n("Added Images!"), &i18n_k("Added {number_of_artists} Artist Images.", &[("number_of_artists", &format!("{}", n_amount))]));
+                        add_success_toast(&i18n("Added Images:"), &i18n_k("Added {number_of_artists} artist images.", &[("number_of_artists", &format!("{}", n_amount))]));
 
                     },
                     Err(e) => error!("Unable to add artist images: {}", e),
@@ -218,7 +218,7 @@ impl Database {
                 match self.create_playlist(playlist_title.clone(), playlist_desc, track_ids) {
                     Ok(_) => {
                         // Translators: do not replace {playlist_title}
-                        add_success_toast(&i18n("Added Playlist!"), &i18n_k("Playlist «{playlist_title}» has been created!", &[("playlist_title", &playlist_title)]))
+                        add_success_toast(&i18n("Added Playlist:"), &i18n_k("Playlist «{playlist_title}» has been created.", &[("playlist_title", &playlist_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
@@ -229,7 +229,7 @@ impl Database {
             DatabaseAction::DuplicatePlaylist((playlist_title, playlist_desc, track_ids)) => {
                 match self.create_playlist(playlist_title, playlist_desc, track_ids) {
                     Ok(_) => {
-                        add_success_toast(&i18n("Duplicated!"), &i18n("Copied playlist successfully."))
+                        add_success_toast(&i18n("Duplicated:"), &i18n("Duplicated playlist successfully."))
                     },
                     Err(e) => {
                         error!("{}", e);
@@ -241,7 +241,7 @@ impl Database {
                 match self.rename_playlist(playlist_id, new_title.clone()) {
                     Ok(_) => {
                         // Translators: do not replace {old_title} or {new_title}
-                        add_success_toast(&i18n("Renamed!"), &i18n_k("Playlist has been renamed from {old_title} to {new_title}!", &[("old_title", &old_title), ("new_title", &new_title)]))
+                        add_success_toast(&i18n("Renamed:"), &i18n_k("Playlist has been renamed from {old_title} to {new_title}.", &[("old_title", &old_title), ("new_title", &new_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
@@ -265,7 +265,7 @@ impl Database {
                 match self.delete_playlist(playlist_id) {
                     Ok(_) => {
                         debug!("Deleted playlist {}", playlist_id);
-                        add_success_toast(&i18n("Deleted."), &i18n("Removed playlist successfully!"))
+                        add_success_toast(&i18n("Deleted:"), &i18n("Removed playlist successfully."))
                     },
                     Err(e) => {
                         error!("Removing playlist error: {}", e);
@@ -277,7 +277,7 @@ impl Database {
                 match self.change_playlist_title_and_or_description(playlist_id, title_option, description_option) {
                     Ok(_) => {
                         debug!("Deleted playlist {}",playlist_id);
-                        add_success_toast(&i18n("Modified."), &i18n("Changed playlist successfully!"));
+                        add_success_toast(&i18n("Modified:"), &i18n("Changed playlist successfully."));
                     },
                     Err(e) => {
                         error!("Modifying playlist error: {}", e);
@@ -288,7 +288,7 @@ impl Database {
             DatabaseAction::AddTracksToPlaylist((playlist_id, playlist_title, tracks)) => {
                 match self.add_tracks_to_playlist(playlist_id, tracks) {
                     Ok(_) => {
-                        add_success_toast(&i18n("Added"), &i18n_k(" tracks to {playlist_title}!", &[("playlist_title", &playlist_title)]))
+                        add_success_toast(&i18n("Added:"), &i18n_k("Added tracks to {playlist_title}.", &[("playlist_title", &playlist_title)]))
                     },
                     Err(e) => {
                         error!("{}", e);
@@ -299,8 +299,8 @@ impl Database {
             DatabaseAction::RemoveTrackFromPlaylist(playlist_entry_id) => {
                 match self.remove_track_from_playlist(playlist_entry_id) {
                     Ok(_) => {
-                        add_success_toast(&i18n("Removed"), &i18n(" track from playlist."));
                         debug!("removed playlist_entry from playlist");
+                        add_success_toast(&i18n("Removed:"), &i18n("Removed track from playlist."));
                     },
                     Err(e) => {
                         error!("{}", e);
