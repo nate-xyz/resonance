@@ -1,0 +1,1051 @@
+# Indonesian translation for resonance.
+# Copyright (C) 2023 resonance's COPYRIGHT HOLDER
+# This file is distributed under the same license as the resonance package.
+#
+# Iqbal Rifai <yukifag@proton.me>, 2023.
+#
+# -------------------------------------------------
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resonance\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-12 11:49-0400\n"
+"PO-Revision-Date: 2023-04-30 15:42+0000\n"
+"Last-Translator: Iqbal Rifai <yukifag@proton.me>\n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
+#. One name per line, please do not remove previous names.
+#: src/app.rs:136
+msgid "translator-credits"
+msgstr ""
+
+#: src/database.rs:198
+msgid "Added Folder:"
+msgstr "Menambah Folder:"
+
+#: src/database.rs:202
+msgid "Unable to add music folder."
+msgstr "Tidak dapat menambah musik ke folder."
+
+#. Translators: do not replace {number_of_artists}
+#: src/database.rs:211
+msgid "Added Images!"
+msgstr "Ditambahkan Gambar!"
+
+#: src/database.rs:211
+msgid "Added {number_of_artists} Artist Images."
+msgstr "Menambah {number_of_artist} Gambar Artis."
+
+#. Translators: do not replace {playlist_title}
+#: src/database.rs:221
+msgid "Added Playlist!"
+msgstr "Ditambahkan Playlist!"
+
+#: src/database.rs:221
+msgid "Playlist «{playlist_title}» has been created!"
+msgstr "Playlist «{playlist_title}» telah di buat!"
+
+#: src/database.rs:225
+msgid "Unable to add playlist."
+msgstr "Tidak dapat menambah playlist."
+
+#: src/database.rs:232
+msgid "Duplicated!"
+msgstr "Terduplikasi!"
+
+#: src/database.rs:232
+msgid "Copied playlist successfully."
+msgstr "Berhasil menyalin playlist."
+
+#: src/database.rs:236
+msgid "Unable to duplicate playlist."
+msgstr "Tidak dapat menduplikasi playlist."
+
+#. Translators: do not replace {old_title} or {new_title}
+#: src/database.rs:244
+msgid "Renamed!"
+msgstr "Diubah Namanya!"
+
+#: src/database.rs:244
+msgid "Playlist has been renamed from {old_title} to {new_title}!"
+msgstr "Playlist telah di ubah nama dari {old_title} ke {new_title}!"
+
+#: src/database.rs:248
+msgid "Unable to rename playlist."
+msgstr "Tidak dapat mengubah nama playlist."
+
+#. Translators: do not replace {removed_directory}
+#: src/database.rs:256
+msgid "Removed:"
+msgstr "Dihapus:"
+
+#: src/database.rs:256
+msgid "{removed_directory} has been removed from the database."
+msgstr "{removed_directory} telah di hapus dari database."
+
+#: src/database.rs:260
+msgid "Unable to remove directory."
+msgstr "Tidak dapat menghapus direktori."
+
+#: src/database.rs:268
+msgid "Deleted."
+msgstr "Terhapus."
+
+#: src/database.rs:268
+msgid "Removed playlist successfully!"
+msgstr "Berhasil menghapus playlist!"
+
+#: src/database.rs:272
+msgid "Unable to remove playlist."
+msgstr "Tidak dapat menghapus playlist."
+
+#: src/database.rs:280
+msgid "Modified."
+msgstr "Modifikasi."
+
+#: src/database.rs:280
+msgid "Changed playlist successfully!"
+msgstr "Berhasil mengubah playlist!"
+
+#: src/database.rs:284
+msgid "Unable to modify playlist."
+msgstr "Tidak dapat memodifikasi playlist."
+
+#: src/database.rs:291
+msgid "Added"
+msgstr "Ditambah"
+
+#: src/database.rs:291
+msgid " tracks to {playlist_title}!"
+msgstr "trek ke"
+
+#: src/database.rs:295
+msgid "Unable to add track to playlist."
+msgstr "Tidak dapat menambah trek ke playlist."
+
+#: src/database.rs:302
+msgid "Removed"
+msgstr "Terhapus"
+
+#: src/database.rs:302
+msgid " track from playlist."
+msgstr "trek dari playlist"
+
+#: src/database.rs:307
+msgid "Unable to remove track from playlist."
+msgstr "Tidak dapat menghapus trek pada playlist."
+
+#: src/database.rs:318
+msgid "Unable to reorder playlist."
+msgstr "Tidak dapat menyusun ulang playlist."
+
+#: src/database.rs:392
+msgid "Unable to load music folders."
+msgstr "Tidak dapat memuat folder musik."
+
+#: src/database.rs:839
+msgid "Tried to add track(s) to playlist that does not exist."
+msgstr "Mencoba menambahkan trek ke daftar putar yang tidak ada."
+
+#. Translators: Only replace "Error!". Reorder if necessary
+#: src/toasts.rs:67
+msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
+msgstr ""
+
+#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
+msgid "Pause"
+msgstr "Jeda"
+
+#: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328 
+#: src/views/pages/queue/queue_page.rs:247 
+#: src/views/pages/queue/ui/queue_page.ui:167
+msgid "Play"
+msgstr "Putar"
+
+#: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
+msgid "Toggle Play Pause"
+msgstr "Beralih Putar Jeda"
+
+#: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
+msgid "Previous"
+msgstr "Sebelum"
+
+#: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
+msgid "Next"
+msgstr "Berikutnya"
+
+#: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
+msgid "End Queue"
+msgstr "Akhiri Antrian"
+
+#: src/views/control_bar.rs:521 src/views/ui/preferences_window.ui:446
+msgid "Playback"
+msgstr "Pemutaran"
+
+#: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
+msgid "Go to Queue"
+msgstr "Pergi ke Antrian"
+
+#: src/views/control_bar.rs:530
+msgid "Navigate"
+msgstr "Navigasi"
+
+#: src/views/generic_flowbox_child.rs:154 
+#: src/views/generic_flowbox_child.rs:186
+msgid "{number_of_albums} albums"
+msgstr ""
+
+#: src/views/generic_flowbox_child.rs:155 
+#: src/views/generic_flowbox_child.rs:187 src/views/album_card.rs:297 
+#: src/views/pages/playlists/playlist_grid_child.rs:235 
+#: src/views/pages/playlists/playlist_detail_page.rs:595 
+#: src/views/pages/albums/album_grid_child.rs:260 
+#: src/views/pages/albums/album_detail_page.rs:307
+msgid "{number_of_tracks} tracks"
+msgstr ""
+
+#: src/views/disc_button.rs:67
+msgid "{album_title}, Disc {disc_number}"
+msgstr ""
+
+#: src/views/disc_button.rs:92
+msgid "Play Disc {disc_number} of {album_title}"
+msgstr "Putar Disc {disc_number} ke {album_title}"
+
+#. Translators: only replace "Disc "
+#: src/views/disc_button.rs:98
+msgid "<span weight=\"ultralight\">Disc {disc_number}</span>"
+msgstr ""
+
+#: src/views/album_card.rs:295 
+#: src/views/pages/playlists/playlist_detail_page.rs:593 
+#: src/views/pages/albums/album_detail_page.rs:305
+msgid "1 track"
+msgstr ""
+
+#: src/views/preferences_window.rs:430 src/views/window.rs:299
+msgid "_Add Music"
+msgstr "_Tambah Musik"
+
+#: src/views/preferences_window.rs:431 src/views/window.rs:300 
+#: src/views/dialog/ui/remove_directory_dialog.ui:25 
+#: src/views/dialog/ui/delete_playlist_dialog.ui:11 
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:11 
+#: src/views/dialog/ui/rename_playlist_dialog.ui:12 
+#: src/views/dialog/ui/save_playlist_dialog.ui:12 
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:10 
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:11
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: src/views/preferences_window.rs:433 src/views/window.rs:302
+msgid "Select Music Library"
+msgstr "Pilih Pustaka Musik"
+
+#: src/views/window.rs:321
+msgid "Unable to add music folder, not a valid directory."
+msgstr "Tidak dapat menambahkan folder musik, bukan direktori yang valid."
+
+#: src/views/window.rs:330
+msgid "Importing Music Folder..."
+msgstr "Mengimpor Folder Musik..."
+
+#: src/views/window.rs:369 src/views/ui/window.ui:94
+msgid "Welcome to Resonance"
+msgstr "Selamat datang di Resonance"
+
+#: src/views/window.rs:370 src/views/ui/window.ui:95
+msgid "Add your music library to get started!"
+msgstr "Tambah pustaka musik kamu untuk memulai!"
+
+#: src/views/track_entry.rs:109
+msgid "Play {track_title}"
+msgstr "Putar {track_title}"
+
+#: src/views/track_entry.rs:110
+msgid "Add {track_title} to Playlist"
+msgstr "Tambah {track_title} ke Playlist"
+
+#: src/views/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/views/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tampilkan Pintasan"
+
+#: src/views/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Keluar"
+
+#: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:149
+msgid "Previous Track"
+msgstr "Trek Sebelumnya"
+
+#: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:179
+msgid "Next Track"
+msgstr "Trek Berikutnya"
+
+#: src/views/ui/control_bar.ui:452
+msgid "Loop Queue"
+msgstr "Ulangi Antrian"
+
+#: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:230
+msgid "Loop Current Track"
+msgstr "Ulangi Trek saat ini"
+
+#: src/views/ui/control_bar.ui:474
+msgid "Shuffle Queue"
+msgstr "Acak Antrian"
+
+#: src/views/ui/album_card.ui:96 
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:56 
+#: src/views/pages/albums/ui/album_grid_child.ui:56 
+#: src/views/pages/albums/ui/album_sidebar.ui:98
+msgid "Play Album"
+msgstr "Putar Album"
+
+#: src/views/ui/album_card.ui:116 
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:76 
+#: src/views/pages/albums/ui/album_grid_child.ui:76 
+#: src/views/pages/albums/ui/album_sidebar.ui:116
+msgid "Add Album to Queue"
+msgstr "Tambah Album ke Antrian"
+
+#: src/views/ui/album_card.ui:227 
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:109 
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:298 
+#: src/views/pages/albums/ui/album_detail_page.ui:110 
+#: src/views/pages/albums/ui/album_detail_page.ui:245 
+#: src/views/pages/albums/ui/album_sidebar.ui:254
+msgid "Play Playlist"
+msgstr "Putar Playlist"
+
+#: src/views/ui/album_card.ui:244 
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:129 
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:315 
+#: src/views/pages/albums/ui/album_detail_page.ui:127 
+#: src/views/pages/albums/ui/album_detail_page.ui:262 
+#: src/views/pages/albums/ui/album_sidebar.ui:271
+msgid "Add Playlist to Queue"
+msgstr "Tambah Playlist ke Antrian"
+
+#: src/views/ui/preferences_window.ui:13
+msgid "UI"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:23
+msgid "All"
+msgstr "Semua"
+
+#: src/views/ui/preferences_window.ui:27 src/views/ui/preferences_window.ui:59 
+#: src/views/ui/preferences_window.ui:91 
+#: src/views/ui/preferences_window.ui:168 
+#: src/views/ui/preferences_window.ui:241 
+#: src/views/ui/preferences_window.ui:276 
+#: src/views/ui/preferences_window.ui:331 
+#: src/views/ui/preferences_window.ui:459 
+#: src/views/ui/preferences_window.ui:550
+msgid "Reset"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:33
+msgid "Full Page Back Buttons"
+msgstr "Tombol Kembali Halaman Penuh"
+
+#: src/views/ui/preferences_window.ui:55 src/views/ui/window.ui:313
+msgid "Queue"
+msgstr "Antrian"
+
+#: src/views/ui/preferences_window.ui:65
+msgid "Queue Opens By Default"
+msgstr "Buka Antrian secara Bawaan"
+
+#: src/views/ui/preferences_window.ui:87
+msgid "Album Grid Page"
+msgstr "Halaman Kisi Album"
+
+#: src/views/ui/preferences_window.ui:97 src/views/ui/preferences_window.ui:174
+msgid "Default sort"
+msgstr "Urut Bawaan"
+
+#: src/views/ui/preferences_window.ui:103 
+#: src/views/ui/preferences_window.ui:181 
+#: src/views/ui/preferences_window.ui:308 
+#: src/views/ui/preferences_window.ui:363 
+#: src/views/pages/tracks/ui/track_page.ui:139 
+#: src/views/pages/artists/ui/artist_detail_page.ui:164 
+#: src/views/pages/albums/ui/album_grid_page.ui:106 
+#: src/views/pages/genres/ui/genre_detail_page.ui:164
+msgid "Sort by Album Title"
+msgstr "Urutkan Album bedasarkan Judul"
+
+#: src/views/ui/preferences_window.ui:104 
+#: src/views/ui/preferences_window.ui:182 
+#: src/views/ui/preferences_window.ui:288 
+#: src/views/ui/preferences_window.ui:364 
+#: src/views/pages/tracks/ui/track_page.ui:145 
+#: src/views/pages/artists/ui/artist_grid_page.ui:64 
+#: src/views/pages/albums/ui/album_grid_page.ui:111 
+#: src/views/pages/genres/ui/genre_detail_page.ui:169
+msgid "Sort by Artist Name"
+msgstr "Urutkan Artis bedasarkan Nama"
+
+#: src/views/ui/preferences_window.ui:105 
+#: src/views/ui/preferences_window.ui:184 
+#: src/views/pages/tracks/ui/track_page.ui:151 
+#: src/views/pages/albums/ui/album_grid_page.ui:116
+msgid "Sort by Genre"
+msgstr "Urutkan bedasarkan Genre"
+
+#: src/views/ui/preferences_window.ui:106 
+#: src/views/ui/preferences_window.ui:183 
+#: src/views/ui/preferences_window.ui:309 
+#: src/views/ui/preferences_window.ui:365 
+#: src/views/pages/tracks/ui/track_page.ui:157 
+#: src/views/pages/artists/ui/artist_detail_page.ui:170 
+#: src/views/pages/albums/ui/album_grid_page.ui:121 
+#: src/views/pages/genres/ui/genre_detail_page.ui:174
+msgid "Sort by Release Date"
+msgstr "Urutkan bedasarkan Tanggal Rilis"
+
+#: src/views/ui/preferences_window.ui:107 
+#: src/views/ui/preferences_window.ui:310 
+#: src/views/ui/preferences_window.ui:366 
+#: src/views/pages/artists/ui/artist_detail_page.ui:176 
+#: src/views/pages/albums/ui/album_grid_page.ui:126 
+#: src/views/pages/genres/ui/genre_detail_page.ui:179
+msgid "Sort by Total Duration"
+msgstr "Urutkan bedasarkan Total Durasi"
+
+#: src/views/ui/preferences_window.ui:108 
+#: src/views/ui/preferences_window.ui:256 
+#: src/views/ui/preferences_window.ui:290 
+#: src/views/ui/preferences_window.ui:311 
+#: src/views/ui/preferences_window.ui:345 
+#: src/views/ui/preferences_window.ui:367 
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:76 
+#: src/views/pages/artists/ui/artist_grid_page.ui:74 
+#: src/views/pages/artists/ui/artist_detail_page.ui:182 
+#: src/views/pages/albums/ui/album_grid_page.ui:131 
+#: src/views/pages/genres/ui/genre_grid_page.ui:145 
+#: src/views/pages/genres/ui/genre_detail_page.ui:184
+msgid "Sort by Track Count"
+msgstr "Urutkan bedasarkan Jumlah Trek"
+
+#: src/views/ui/preferences_window.ui:121
+msgid "Display Album Name and Artist Labels by Default"
+msgstr "Menampilkan Nama Album dan Label Artis secara Bawaan"
+
+#: src/views/ui/preferences_window.ui:122
+msgid ""
+"If disabled, these labels are only shown when searching on the album grid "
+"page."
+msgstr ""
+"Jika dinonaktifkan, label ini hanya ditampilkan saat mencari di halaman "
+"petak album."
+
+#: src/views/ui/preferences_window.ui:139
+msgid "Disable Album Flap"
+msgstr "Nonaktifkan Penutup Album"
+
+#: src/views/ui/preferences_window.ui:140
+msgid "Selecting an album will take you straight to the album detail page."
+msgstr "Memilih album akan membawa Kamu langsung ke halaman detail album."
+
+#: src/views/ui/preferences_window.ui:164
+msgid "Track Page"
+msgstr "Halaman Trek"
+
+#: src/views/ui/preferences_window.ui:180 
+#: src/views/pages/tracks/ui/track_page.ui:133
+msgid "Sort by Track Title"
+msgstr "Urutkan bedasarkan Judul Trek"
+
+#: src/views/ui/preferences_window.ui:197
+msgid "Search Bar Open by Default"
+msgstr "Bilah Pencarian Terbuka secara Bawaan"
+
+#: src/views/ui/preferences_window.ui:214
+msgid "Display Additional Labels by Default"
+msgstr "Menampilkan Label Tambahan Secara Bawaan"
+
+#: src/views/ui/preferences_window.ui:215
+msgid ""
+"If disabled, track entries only display genre and date labels when searching"
+msgstr ""
+"Jika dinonaktifkan, entri lacak hanya menampilkan label genre dan tanggal "
+"saat menelusuri"
+
+#: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
+msgid "Playlists"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:247
+msgid "Playlist Grid Default Sort"
+msgstr "Urutan Kisi Bawaan Playlist"
+
+#: src/views/ui/preferences_window.ui:253 
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:61
+msgid "Sort by Playlist Title"
+msgstr "Urutkan bedasarkan Judul Playlist"
+
+#: src/views/ui/preferences_window.ui:254 
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:66
+msgid "Sort by Last Modified"
+msgstr "Urutkan bedasarkan Terakhir Dimodifikasi"
+
+#: src/views/ui/preferences_window.ui:255 
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:71 
+#: src/views/pages/tracks/ui/track_page.ui:163
+msgid "Sort by Duration"
+msgstr "Urutkan bedasarkan Durasi"
+
+#: src/views/ui/preferences_window.ui:272 src/views/ui/window.ui:405
+msgid "Artists"
+msgstr "Artis"
+
+#: src/views/ui/preferences_window.ui:282
+msgid "Artist Grid Default Sort"
+msgstr "Susunan Bawaan Kisi Artis"
+
+#: src/views/ui/preferences_window.ui:289 
+#: src/views/ui/preferences_window.ui:344 
+#: src/views/pages/artists/ui/artist_grid_page.ui:69 
+#: src/views/pages/genres/ui/genre_grid_page.ui:140
+msgid "Sort by Album Count"
+msgstr "Urutkan berdasarkan Jumlah Album"
+
+#: src/views/ui/preferences_window.ui:302
+msgid "Artist Detail Default Sort"
+msgstr "Susunan Bawaan Detail Artis"
+
+#: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
+msgid "Genres"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:337
+msgid "Genre Grid Default Sort"
+msgstr "Urutkan Bawaan Kisi"
+
+#: src/views/ui/preferences_window.ui:343 
+#: src/views/pages/genres/ui/genre_grid_page.ui:135
+msgid "Sort by Genre Name"
+msgstr "Urutkan bedasarkan Nama Genre"
+
+#: src/views/ui/preferences_window.ui:357
+msgid "Genre Detail Default Sort"
+msgstr "Urutkan Detil Bawaan Genre"
+
+#: src/views/ui/preferences_window.ui:455
+msgid "Playback Settings"
+msgstr "Pengaturan Pemutaran"
+
+#: src/views/ui/preferences_window.ui:467
+msgid "Default Volume"
+msgstr "Volume Bawaan"
+
+#: src/views/ui/preferences_window.ui:484
+msgid "Shuffle Mode Loops at End"
+msgstr "Mode Acak Loop di Akhir"
+
+#: src/views/ui/preferences_window.ui:485
+msgid ""
+"If disabled, shuffle mode will end after last song, like the normal playback "
+"mode"
+msgstr ""
+"Jika dinonaktifkan, mode acak akan berakhir setelah lagu terakhir, seperti "
+"mode pemutaran normal"
+
+#: src/views/ui/preferences_window.ui:504
+msgid "Last.fm"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:508
+msgid "Last.fm Enabled"
+msgstr "Last.fm Diaktifkan"
+
+#: src/views/ui/preferences_window.ui:525
+msgid "Threshold for Scrobble"
+msgstr "Batas untuk Scrobble"
+
+#: src/views/ui/preferences_window.ui:526
+msgid "The percentage of the song that must play before scrobbled"
+msgstr "Persentase lagu yang harus diputar sebelum di-scrobble"
+
+#: src/views/ui/preferences_window.ui:545
+msgid "Discord"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:557
+msgid "Discord Rich Presence Enabled"
+msgstr "Discord Rich Presence Diaktifkan"
+
+#: src/views/ui/preferences_window.ui:582
+msgid "Folder(s)"
+msgstr ""
+
+#: src/views/ui/preferences_window.ui:596
+msgid "Add Folder"
+msgstr "Tambah Folder"
+
+#: src/views/ui/preferences_window.ui:611
+msgid "Add Music Directory"
+msgstr "Tambah Musik Direktori"
+
+#: src/views/ui/preferences_window.ui:626 
+#: data/io.github.nate_xyz.Resonance.gschema.xml:6 
+#: data/io.github.nate_xyz.Resonance.gschema.xml:7
+msgid "Music Folders"
+msgstr "Folder Musik"
+
+#: src/views/ui/window.ui:170
+msgid "Add Music"
+msgstr "Tambah Musik"
+
+#: src/views/ui/window.ui:257
+msgid "Go Back"
+msgstr "Kembali"
+
+#: src/views/ui/window.ui:268
+msgid "Sort"
+msgstr "Urutan"
+
+#: src/views/ui/window.ui:277 src/views/pages/queue/ui/queue_sidebar.ui:109
+msgid "Search"
+msgstr "Cari"
+
+#: src/views/ui/window.ui:325
+msgid "Albums"
+msgstr ""
+
+#: src/views/ui/window.ui:358
+msgid "Tracks"
+msgstr "Trek"
+
+#: src/views/ui/window.ui:509
+msgid "_Preferences"
+msgstr "_Preferensi"
+
+#: src/views/ui/window.ui:517
+msgid "_About Resonance"
+msgstr "_Tentang Resonance"
+
+#. <property name="hexpand">true</property>
+#. <property name="halign">fill</property>
+#: src/views/ui/album_track_entry.ui:29
+msgid "Play Track"
+msgstr "Putar Trek"
+
+#: src/views/dialog/rename_playlist_dialog.rs:105
+msgid "Cannot rename playlist, no name entered."
+msgstr "Tidak dapat mengubah nama playlist, nama tidak dimasukan."
+
+#: src/views/dialog/save_playlist_dialog.rs:110
+msgid "Playlist #{new_playlist_number}"
+msgstr ""
+
+#: src/views/dialog/add_tracks_to_playlist_dialog.rs:133
+msgid "Unable to add tracks to playlist, no playlist selected"
+msgstr "Tidak dapat menambah trek ke playlist, tidak ada playlist yang dipilih"
+
+#: src/views/dialog/alpha_dialog.rs:70
+msgid ""
+"Resonance is early alpha stage software, there will be bugs.\n"
+"If you find a bug or would like to request a feature, please open an issue "
+"on the github repo:\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-"
+"xyz/resonance/issues</a>"
+msgstr ""
+"Resonansi adalah perangkat lunak tahap alfa awal, akan ada bug.\n"
+"Jika Anda menemukan bug atau ingin meminta fitur, buka masalah di repo "
+"github:\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-"
+"xyz/resonance/issues</a>"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:6
+msgid "Remove Music Folder?"
+msgstr "Hapus Folder Musik?"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:14
+msgid ""
+"Are you sure you want to remove this music folder from your database? You "
+"will be unable to access the music within the folder unless you add it again."
+msgstr ""
+"Apakah kamu yakin akan menghapus folder musik ini dari database? Kamu tidak "
+"akan dapat mengakses musik di dalam folder kecuali Kamu menambahkannya lagi."
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:26
+msgid "_Remove"
+msgstr "_Hapus"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:6
+msgid "Delete Playlist?"
+msgstr "Hapus Playlist?"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:7
+msgid ""
+"Are you sure you want to permanently delete this playlist? You will be "
+"unable to access it again after deletion."
+msgstr ""
+"Apakah kamu yakin akan menghapus secara permanen playlist ini? Kamu tidak "
+"akan dapat mengaksesnya lagi setelah dihapus."
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:12
+msgid "_Delete"
+msgstr "_Hapus"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:6
+msgid "Confirm Duplication"
+msgstr "Konfirmasi Duplikasi"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:7
+msgid "Are you sure you want to duplicate this playlist?"
+msgstr "Apakah kamu yakin akan menduplikasi album ini?"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:12
+msgid "_Duplicate"
+msgstr "_Duplikasi"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:6
+msgid "Rename Playlist?"
+msgstr "Ubah nama Playlist?"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:13
+msgid "_Rename"
+msgstr "_Ubah Nama"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:22 
+#: src/views/pages/queue/ui/queue_sidebar.ui:34
+msgid "Playlist"
+msgstr "Playlist"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:6
+msgid "Save Playlist?"
+msgstr "Simpan Playlist?"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:13
+msgid "_Save"
+msgstr "_Simpan"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:24
+msgid "Playlist Title"
+msgstr "Judul Playlist"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:31
+msgid "Playlist Description (Optional)"
+msgstr "Playlist Deksripsi (Opsional)"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:6
+msgid "Select Playlist"
+msgstr "Pilih Playlist"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:11
+msgid "_Add"
+msgstr "_Tambah"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:6
+msgid "Modify Playlist?"
+msgstr "Modifikasi Playlist?"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:7
+msgid "Confirm these changes."
+msgstr "Konfirmasi perubahan ini."
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:12
+msgid "_Change"
+msgstr "_Ubah"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:28
+msgid "Modified Title"
+msgstr "Modifikasi Judul"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:67
+msgid "Modified Description"
+msgstr "Modifikasi Deskripsi"
+
+#: src/views/dialog/ui/alpha_dialog.ui:6
+msgid "Early Software Warning ⚠️"
+msgstr "Warning Perangkat lunak Awal ⚠️"
+
+#: src/views/dialog/ui/alpha_dialog.ui:10
+msgid "Don't Show Again"
+msgstr "Jangan Tampilkan Lagi"
+
+#: src/views/dialog/ui/alpha_dialog.ui:11
+msgid "Ok!"
+msgstr ""
+
+#: src/views/pages/queue/queue_sidebar.rs:264
+msgid "{time_remaining} remaining"
+msgstr "{time_remaining} tersisa"
+
+#: src/views/pages/queue/ui/queue_page.ui:201
+msgid "Toggle Playlist Sidebar"
+msgstr "Beralih bilah samping Playlist"
+
+#: src/views/pages/queue/ui/queue_page.ui:218
+msgid "Loop Playlist"
+msgstr "Ulangi Playlist"
+
+#: src/views/pages/queue/ui/queue_page.ui:242
+msgid "Shuffle Playlist"
+msgstr "Acak Playlist"
+
+#: src/views/pages/queue/ui/queue_sidebar_track_entry.ui:105
+msgid "Remove Track From Queue"
+msgstr "Hapus Trek dari Antrian"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:47
+msgid "time remaining"
+msgstr "waktu tersisa"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:70
+msgid "Clear Queue"
+msgstr "Bershikan Antrian"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:90
+msgid "Edit Queue"
+msgstr "Ubah Antrian"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:98
+msgid "Save"
+msgstr "Simpan"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:711 
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:442
+msgid "Edit Playlist"
+msgstr "Ubah Playlist"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:723
+msgid "Finish Edit Playlist"
+msgstr "Selesai Ubah Playlist"
+
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:59
+msgid "Sort Playlist Grid"
+msgstr "Urutkan Kisi Playlist"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:183 
+#: src/views/pages/tracks/ui/track_page_row.ui:165
+msgid "Add Track to Queue"
+msgstr "Tambah Trek ke Antrian"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:208
+msgid "Remove Track From Playlist"
+msgstr "Hapus Trek dari Playlist"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:408
+msgid "Delete Playlist"
+msgstr "Hapus Playlist"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:425
+msgid "Duplicate Playlist"
+msgstr "Duplikasi Playlist"
+
+#: src/views/pages/tracks/ui/track_page.ui:31
+msgid "Scroll to Top"
+msgstr "Gulir ke Atas"
+
+#: src/views/pages/tracks/ui/track_page.ui:43
+msgid "Scroll to Bottom"
+msgstr "Gulir ke Bawah"
+
+#: src/views/pages/tracks/ui/track_page.ui:74
+msgid "Title, Album, & Artist"
+msgstr "Judul, Album, & Artis"
+
+#: src/views/pages/tracks/ui/track_page.ui:75
+msgid "Track Title"
+msgstr "Judul Trek"
+
+#: src/views/pages/tracks/ui/track_page.ui:76 
+#: src/views/pages/albums/ui/album_grid_page.ui:39
+msgid "Album Title"
+msgstr "Judul Album"
+
+#: src/views/pages/tracks/ui/track_page.ui:77 
+#: src/views/pages/albums/ui/album_grid_page.ui:40
+msgid "Artist"
+msgstr "Artis"
+
+#: src/views/pages/tracks/ui/track_page.ui:78 
+#: src/views/pages/albums/ui/album_grid_page.ui:41
+msgid "Genre"
+msgstr ""
+
+#: src/views/pages/tracks/ui/track_page.ui:79 
+#: src/views/pages/albums/ui/album_grid_page.ui:42
+msgid "Release Date"
+msgstr "Tanggal Rilis"
+
+#: src/views/pages/tracks/ui/track_page.ui:131
+msgid "Sort Track List"
+msgstr "Urutkan List Trek"
+
+#: src/views/pages/artists/ui/artist_grid_page.ui:62
+msgid "Sort Artist Grid"
+msgstr "Urutan Kisi Artis"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:97
+msgid "Play all Artist Albums"
+msgstr "Putar semua Album Artis"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:109
+msgid "Add all Artist Albums to Queue"
+msgstr "Tambah semua Artis Album ke Antrian"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:162
+msgid "Sort Artist Albums"
+msgstr "Urutan Album Artis"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:33
+msgid "Close Album Sidebar"
+msgstr "Tutup Bilah Samping Album"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:135 
+#: src/views/pages/albums/ui/album_sidebar.ui:289
+msgid "View Album Page"
+msgstr "Lihat Halaman Album"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:38
+msgid "Title & Artist"
+msgstr "Judul & Artis"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:104
+msgid "Sort Album Grid"
+msgstr "Urutan Kisi Album"
+
+#: src/views/pages/genres/ui/genre_grid_page.ui:133
+msgid "Sort Genre Grid"
+msgstr "Ururtkan Kisi Genre"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:95
+msgid "Play all Genre Albums"
+msgstr "Putar semua Album Genre"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:107
+msgid "Add all Genre Albums to Queue"
+msgstr "Tambah semua Genre Album ke Antrian"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:162
+msgid "Sort Genre Albums"
+msgstr "Urutkan bedasarkan Album Genre"
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:3 
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:6
+msgid "Resonance"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:4
+msgid "Music Player"
+msgstr "Player Musik"
+
+#. Translators: Search terms to find this application. Do not translate or localize the semicolons! The list must also end with a semicolon.
+#: data/io.github.nate_xyz.Resonance.desktop.in:11
+msgid "music;sound;player;media;audio;playlist;"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:7
+msgid "Harmonize your listening experience"
+msgstr "Selaraskan pengalaman mendengarkan Kamu"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:8
+msgid "nate-xyz"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:10
+msgid ""
+"Resonance is an intuitive music player application written in Rust and "
+"Python, with a clean user interface built using the GTK4 / Libadwaita "
+"framework. Resonance lets you effortlessly manage and play your music "
+"collection, with support for all the common music file formats."
+msgstr ""
+"Resonance adalah aplikasi pemutar musik intuitif yang ditulis dalam Rust dan "
+"Python, dengan antarmuka pengguna bersih yang dibangun menggunakan kerangka "
+"kerja GTK4 / Libadwaita. Resonansi memungkinkan Anda mengelola dan memutar "
+"koleksi musik Anda dengan mudah, dengan dukungan untuk semua format file "
+"musik umum."
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:11
+msgid "Features:"
+msgstr "Fitur:"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:13
+msgid "UI updates to reflect currently playing track's cover art colors"
+msgstr ""
+"Pembaruan UI untuk mencerminkan warna seni sampul trek yang sedang diputar"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:14
+msgid "Playlist creation and modification"
+msgstr "Playlist pembuatan dan modifikasi"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:15
+msgid "Control the player through MPRIS"
+msgstr "Kontrol player melalui MPRIS"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:16
+msgid "Discord Rich Presence integration"
+msgstr "Intergasi Discord Rich Presence"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:17
+msgid "Last.fm scrobbling"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:18
+msgid "Import tags with the Mutagen library"
+msgstr "Impor tag dengan pustaka Mutagen"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:19
+msgid ""
+"No tag editing (intentionally out of scope to keep Resonance a music player "
+"only)"
+msgstr ""
+"Tidak ada pengeditan tag (sengaja di luar ruang lingkup untuk menjaga "
+"Resonansi sebagai pemutar musik saja)"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:21
+msgid ""
+"⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE "
+"OPEN ISSUES) ⚠️"
+msgstr ""
+"⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE "
+"OPEN ISSUES) ⚠️"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:35
+msgid "MPRIS bugfix"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:36
+msgid "Dark mode by default"
+msgstr "Mode gelap secara bawaan."
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:37
+msgid "Various UI improvements"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:44
+msgid "Add Last.fm support"
+msgstr "Tambah dukungan Last.fm "
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:51
+msgid "Use album cover art if track cover art empty"
+msgstr "Gunakan gambar sampul album jika gambar sampul lagu kosong"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:52
+msgid "URI encoding for player pipeline bugfix"
+msgstr ""
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:53
+msgid "UI improvements"
+msgstr ""
