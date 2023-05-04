@@ -1,0 +1,1058 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the resonance package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resonance\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-12 11:49-0400\n"
+"PO-Revision-Date: 2023-05-04 18:33+0200\n"
+"Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
+#. One name per line, please do not remove previous names.
+#: src/app.rs:136
+msgid "translator-credits"
+msgstr "Irénée Thirion"
+
+#: src/database.rs:198
+msgid "Added Folder:"
+msgstr "Dossier ajouté :"
+
+#: src/database.rs:202
+msgid "Unable to add music folder."
+msgstr "Impossible d’ajouter le dossier de musique."
+
+#. Translators: do not replace {number_of_artists}
+#: src/database.rs:211
+msgid "Added Images!"
+msgstr "Images ajoutées !"
+
+#: src/database.rs:211
+msgid "Added {number_of_artists} Artist Images."
+msgstr "{number_of_artists} images d’artistes ont été ajoutées."
+
+#. Translators: do not replace {playlist_title}
+#: src/database.rs:221
+msgid "Added Playlist!"
+msgstr "Liste de lecture ajoutée !"
+
+#: src/database.rs:221
+msgid "Playlist «{playlist_title}» has been created!"
+msgstr "La liste de lecture « {playlist_title} » a été créée !"
+
+#: src/database.rs:225
+msgid "Unable to add playlist."
+msgstr "Impossible d’ajouter la liste de lecture."
+
+#: src/database.rs:232
+msgid "Duplicated!"
+msgstr "Dupliquée !"
+
+#: src/database.rs:232
+msgid "Copied playlist successfully."
+msgstr "Liste de lecture copiée."
+
+#: src/database.rs:236
+msgid "Unable to duplicate playlist."
+msgstr "Impossible de dupliquer la liste de lecture."
+
+#. Translators: do not replace {old_title} or {new_title}
+#: src/database.rs:244
+msgid "Renamed!"
+msgstr "Renommée !"
+
+#: src/database.rs:244
+msgid "Playlist has been renamed from {old_title} to {new_title}!"
+msgstr "La liste de lecture {old_title} a été renommée {new_title} !"
+
+#: src/database.rs:248
+msgid "Unable to rename playlist."
+msgstr "Impossible de renommer la liste de lecture"
+
+#. Translators: do not replace {removed_directory}
+#: src/database.rs:256
+msgid "Removed:"
+msgstr "Supprimé :"
+
+#: src/database.rs:256
+msgid "{removed_directory} has been removed from the database."
+msgstr "{removed_directory} a été supprimé de la base de données."
+
+#: src/database.rs:260
+msgid "Unable to remove directory."
+msgstr "Impossible de supprimer le répertoire."
+
+#: src/database.rs:268
+msgid "Deleted."
+msgstr "Supprimée."
+
+#: src/database.rs:268
+msgid "Removed playlist successfully!"
+msgstr "Liste de lecture supprimée !"
+
+#: src/database.rs:272
+msgid "Unable to remove playlist."
+msgstr "Impossible de supprimer la liste de lecture."
+
+#: src/database.rs:280
+msgid "Modified."
+msgstr "Modifiée."
+
+#: src/database.rs:280
+msgid "Changed playlist successfully!"
+msgstr "La liste de lecture a été modifiée !"
+
+#: src/database.rs:284
+msgid "Unable to modify playlist."
+msgstr "Impossible de modifier la liste de lecture."
+
+#: src/database.rs:291
+msgid "Added"
+msgstr "Ajoutées"
+
+#: src/database.rs:291
+msgid " tracks to {playlist_title}!"
+msgstr "Pistes à la liste de lecture"
+
+#: src/database.rs:295
+msgid "Unable to add track to playlist."
+msgstr "Impossible d’ajouter la piste à la liste de lecture."
+
+#: src/database.rs:302
+msgid "Removed"
+msgstr "Supprimée"
+
+#: src/database.rs:302
+msgid " track from playlist."
+msgstr "de la liste de lecture."
+
+#: src/database.rs:307
+msgid "Unable to remove track from playlist."
+msgstr "Impossible de retirer la piste de la liste de lecture."
+
+#: src/database.rs:318
+msgid "Unable to reorder playlist."
+msgstr "Impossible de réordonner la liste de lecture."
+
+#: src/database.rs:392
+msgid "Unable to load music folders."
+msgstr "Impossible de charger les répertoires de musique."
+
+#: src/database.rs:839
+msgid "Tried to add track(s) to playlist that does not exist."
+msgstr ""
+"Tentative d’ajouter une ou plusieurs piste(s) à une liste de lecture "
+"inexistante."
+
+#. Translators: Only replace "Error!". Reorder if necessary
+#: src/toasts.rs:67
+msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
+msgstr "<span foreground={ERROR_RED}>Erreur !</span> {error_msg}"
+
+#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
+msgid "Pause"
+msgstr "Pause"
+
+#: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328
+#: src/views/pages/queue/queue_page.rs:247
+#: src/views/pages/queue/ui/queue_page.ui:167
+msgid "Play"
+msgstr "Lecture"
+
+#: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
+msgid "Toggle Play Pause"
+msgstr "Lecture / Pause"
+
+#: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
+msgid "Previous"
+msgstr "Précédent"
+
+#: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
+msgid "Next"
+msgstr "Suivant"
+
+#: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
+msgid "End Queue"
+msgstr "Fin de la file d’attente"
+
+#: src/views/control_bar.rs:521 src/views/ui/preferences_window.ui:446
+msgid "Playback"
+msgstr "Lecture"
+
+#: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
+msgid "Go to Queue"
+msgstr "Aller vers la file d’attente"
+
+#: src/views/control_bar.rs:530
+msgid "Navigate"
+msgstr "Parcourir"
+
+#: src/views/generic_flowbox_child.rs:154
+#: src/views/generic_flowbox_child.rs:186
+msgid "{number_of_albums} albums"
+msgstr "{number_of_albums} albums"
+
+#: src/views/generic_flowbox_child.rs:155
+#: src/views/generic_flowbox_child.rs:187 src/views/album_card.rs:297
+#: src/views/pages/playlists/playlist_grid_child.rs:235
+#: src/views/pages/playlists/playlist_detail_page.rs:595
+#: src/views/pages/albums/album_grid_child.rs:260
+#: src/views/pages/albums/album_detail_page.rs:307
+msgid "{number_of_tracks} tracks"
+msgstr "{number_of_tracks} pistes"
+
+#: src/views/disc_button.rs:67
+msgid "{album_title}, Disc {disc_number}"
+msgstr "{album_title}, Disque {disc_number}"
+
+#: src/views/disc_button.rs:92
+msgid "Play Disc {disc_number} of {album_title}"
+msgstr "Lire le disque {disc_number} de {album_title}"
+
+#. Translators: only replace "Disc "
+#: src/views/disc_button.rs:98
+msgid "<span weight=\"ultralight\">Disc {disc_number}</span>"
+msgstr "<span weight=\"ultralight\">Disque {disc_number}</span>"
+
+#: src/views/album_card.rs:295
+#: src/views/pages/playlists/playlist_detail_page.rs:593
+#: src/views/pages/albums/album_detail_page.rs:305
+msgid "1 track"
+msgstr "1 piste"
+
+#: src/views/preferences_window.rs:430 src/views/window.rs:299
+msgid "_Add Music"
+msgstr "_Ajouter la musique"
+
+#: src/views/preferences_window.rs:431 src/views/window.rs:300
+#: src/views/dialog/ui/remove_directory_dialog.ui:25
+#: src/views/dialog/ui/delete_playlist_dialog.ui:11
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:11
+#: src/views/dialog/ui/rename_playlist_dialog.ui:12
+#: src/views/dialog/ui/save_playlist_dialog.ui:12
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:10
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:11
+msgid "_Cancel"
+msgstr "A_nnuler"
+
+#: src/views/preferences_window.rs:433 src/views/window.rs:302
+msgid "Select Music Library"
+msgstr "Sélectionnez un répertoire de musique"
+
+#: src/views/window.rs:321
+msgid "Unable to add music folder, not a valid directory."
+msgstr "Impossible de rajouter le répertoire de musique, dossier invalide."
+
+#: src/views/window.rs:330
+msgid "Importing Music Folder..."
+msgstr "Importation du répertoire de musique…"
+
+#: src/views/window.rs:369 src/views/ui/window.ui:94
+msgid "Welcome to Resonance"
+msgstr "Bienvenue dans Résonance"
+
+#: src/views/window.rs:370 src/views/ui/window.ui:95
+msgid "Add your music library to get started!"
+msgstr "Ajouter votre bibliothèque musicale pour commencer !"
+
+#: src/views/track_entry.rs:109
+msgid "Play {track_title}"
+msgstr "Lire {track_title}"
+
+#: src/views/track_entry.rs:110
+msgid "Add {track_title} to Playlist"
+msgstr "Ajouter {track_title} à la liste de lecture"
+
+#: src/views/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Général"
+
+#: src/views/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Afficher les raccourcis"
+
+#: src/views/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitter"
+
+#: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:149
+msgid "Previous Track"
+msgstr "Piste précédente"
+
+#: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:179
+msgid "Next Track"
+msgstr "Piste suivante"
+
+#: src/views/ui/control_bar.ui:452
+msgid "Loop Queue"
+msgstr "Jouer la file d’attente en boucle"
+
+#: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:230
+msgid "Loop Current Track"
+msgstr "Jouer la piste actuelle en boucle"
+
+#: src/views/ui/control_bar.ui:474
+msgid "Shuffle Queue"
+msgstr "Mélanger la file d’attente"
+
+#: src/views/ui/album_card.ui:96
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:56
+#: src/views/pages/albums/ui/album_grid_child.ui:56
+#: src/views/pages/albums/ui/album_sidebar.ui:98
+msgid "Play Album"
+msgstr "Lire l’album"
+
+#: src/views/ui/album_card.ui:116
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:76
+#: src/views/pages/albums/ui/album_grid_child.ui:76
+#: src/views/pages/albums/ui/album_sidebar.ui:116
+msgid "Add Album to Queue"
+msgstr "Ajouter l’album à la file d’attente"
+
+#: src/views/ui/album_card.ui:227
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:109
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:298
+#: src/views/pages/albums/ui/album_detail_page.ui:110
+#: src/views/pages/albums/ui/album_detail_page.ui:245
+#: src/views/pages/albums/ui/album_sidebar.ui:254
+msgid "Play Playlist"
+msgstr "Lire la liste de lecture"
+
+#: src/views/ui/album_card.ui:244
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:129
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:315
+#: src/views/pages/albums/ui/album_detail_page.ui:127
+#: src/views/pages/albums/ui/album_detail_page.ui:262
+#: src/views/pages/albums/ui/album_sidebar.ui:271
+msgid "Add Playlist to Queue"
+msgstr "Ajouter la liste de lecture à la file d’attente"
+
+#: src/views/ui/preferences_window.ui:13
+msgid "UI"
+msgstr "Interface"
+
+#: src/views/ui/preferences_window.ui:23
+msgid "All"
+msgstr "Tout"
+
+#: src/views/ui/preferences_window.ui:27 src/views/ui/preferences_window.ui:59
+#: src/views/ui/preferences_window.ui:91 src/views/ui/preferences_window.ui:168
+#: src/views/ui/preferences_window.ui:241
+#: src/views/ui/preferences_window.ui:276
+#: src/views/ui/preferences_window.ui:331
+#: src/views/ui/preferences_window.ui:459
+#: src/views/ui/preferences_window.ui:550
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: src/views/ui/preferences_window.ui:33
+msgid "Full Page Back Buttons"
+msgstr "Boutons retour en pleine page"
+
+#: src/views/ui/preferences_window.ui:55 src/views/ui/window.ui:313
+msgid "Queue"
+msgstr "File d’attente"
+
+#: src/views/ui/preferences_window.ui:65
+msgid "Queue Opens By Default"
+msgstr "La file d’attente s’ouvre par défaut"
+
+#: src/views/ui/preferences_window.ui:87
+msgid "Album Grid Page"
+msgstr "Page de la grille des albums"
+
+#: src/views/ui/preferences_window.ui:97 src/views/ui/preferences_window.ui:174
+msgid "Default sort"
+msgstr "Tri par défaut"
+
+#: src/views/ui/preferences_window.ui:103
+#: src/views/ui/preferences_window.ui:181
+#: src/views/ui/preferences_window.ui:308
+#: src/views/ui/preferences_window.ui:363
+#: src/views/pages/tracks/ui/track_page.ui:139
+#: src/views/pages/artists/ui/artist_detail_page.ui:164
+#: src/views/pages/albums/ui/album_grid_page.ui:106
+#: src/views/pages/genres/ui/genre_detail_page.ui:164
+msgid "Sort by Album Title"
+msgstr "Trier par titre d’album"
+
+#: src/views/ui/preferences_window.ui:104
+#: src/views/ui/preferences_window.ui:182
+#: src/views/ui/preferences_window.ui:288
+#: src/views/ui/preferences_window.ui:364
+#: src/views/pages/tracks/ui/track_page.ui:145
+#: src/views/pages/artists/ui/artist_grid_page.ui:64
+#: src/views/pages/albums/ui/album_grid_page.ui:111
+#: src/views/pages/genres/ui/genre_detail_page.ui:169
+msgid "Sort by Artist Name"
+msgstr "Trier par nom d’artiste"
+
+#: src/views/ui/preferences_window.ui:105
+#: src/views/ui/preferences_window.ui:184
+#: src/views/pages/tracks/ui/track_page.ui:151
+#: src/views/pages/albums/ui/album_grid_page.ui:116
+msgid "Sort by Genre"
+msgstr "Trier par genre"
+
+#: src/views/ui/preferences_window.ui:106
+#: src/views/ui/preferences_window.ui:183
+#: src/views/ui/preferences_window.ui:309
+#: src/views/ui/preferences_window.ui:365
+#: src/views/pages/tracks/ui/track_page.ui:157
+#: src/views/pages/artists/ui/artist_detail_page.ui:170
+#: src/views/pages/albums/ui/album_grid_page.ui:121
+#: src/views/pages/genres/ui/genre_detail_page.ui:174
+msgid "Sort by Release Date"
+msgstr "Trier par date de sortie"
+
+#: src/views/ui/preferences_window.ui:107
+#: src/views/ui/preferences_window.ui:310
+#: src/views/ui/preferences_window.ui:366
+#: src/views/pages/artists/ui/artist_detail_page.ui:176
+#: src/views/pages/albums/ui/album_grid_page.ui:126
+#: src/views/pages/genres/ui/genre_detail_page.ui:179
+msgid "Sort by Total Duration"
+msgstr "Trier par durée totale"
+
+#: src/views/ui/preferences_window.ui:108
+#: src/views/ui/preferences_window.ui:256
+#: src/views/ui/preferences_window.ui:290
+#: src/views/ui/preferences_window.ui:311
+#: src/views/ui/preferences_window.ui:345
+#: src/views/ui/preferences_window.ui:367
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:76
+#: src/views/pages/artists/ui/artist_grid_page.ui:74
+#: src/views/pages/artists/ui/artist_detail_page.ui:182
+#: src/views/pages/albums/ui/album_grid_page.ui:131
+#: src/views/pages/genres/ui/genre_grid_page.ui:145
+#: src/views/pages/genres/ui/genre_detail_page.ui:184
+msgid "Sort by Track Count"
+msgstr "Trier par nombre de pistes"
+
+#: src/views/ui/preferences_window.ui:121
+msgid "Display Album Name and Artist Labels by Default"
+msgstr "Afficher les étiquettes du nom de l’album et de l’artiste par défaut"
+
+#: src/views/ui/preferences_window.ui:122
+msgid ""
+"If disabled, these labels are only shown when searching on the album grid "
+"page."
+msgstr ""
+"Si cette option est désactivée, ces étiquettes n’apparaîtront que lors de la "
+"recherche sur la page de la grille des albums."
+
+#: src/views/ui/preferences_window.ui:139
+msgid "Disable Album Flap"
+msgstr "Désactiver le volet Album"
+
+#: src/views/ui/preferences_window.ui:140
+msgid "Selecting an album will take you straight to the album detail page."
+msgstr ""
+"Sélectionner un album vous emmènera directement à la page des détails de "
+"l’album."
+
+#: src/views/ui/preferences_window.ui:164
+msgid "Track Page"
+msgstr "Page des pistes"
+
+#: src/views/ui/preferences_window.ui:180
+#: src/views/pages/tracks/ui/track_page.ui:133
+msgid "Sort by Track Title"
+msgstr "Trier par titre de piste"
+
+#: src/views/ui/preferences_window.ui:197
+msgid "Search Bar Open by Default"
+msgstr "Barre de rechercher ouverte par défaut"
+
+#: src/views/ui/preferences_window.ui:214
+msgid "Display Additional Labels by Default"
+msgstr "Afficher les étiquettes additionnelles par défaut"
+
+#: src/views/ui/preferences_window.ui:215
+msgid ""
+"If disabled, track entries only display genre and date labels when searching"
+msgstr ""
+"Si cette option est désactivée, les entrées des pistes n’afficheront que les "
+"balises de genre et la date lors de la recherche"
+
+#: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
+msgid "Playlists"
+msgstr "Listes de lecture"
+
+#: src/views/ui/preferences_window.ui:247
+msgid "Playlist Grid Default Sort"
+msgstr "Ordre de tri par défaut de la grille des listes de lecture"
+
+#: src/views/ui/preferences_window.ui:253
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:61
+msgid "Sort by Playlist Title"
+msgstr "Trier par titre de liste de lecture"
+
+#: src/views/ui/preferences_window.ui:254
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:66
+msgid "Sort by Last Modified"
+msgstr "Trier par dernière modification"
+
+#: src/views/ui/preferences_window.ui:255
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:71
+#: src/views/pages/tracks/ui/track_page.ui:163
+msgid "Sort by Duration"
+msgstr "Trier par durée"
+
+#: src/views/ui/preferences_window.ui:272 src/views/ui/window.ui:405
+msgid "Artists"
+msgstr "Artistes"
+
+#: src/views/ui/preferences_window.ui:282
+msgid "Artist Grid Default Sort"
+msgstr "Ordre de tri par défaut de la grille des artistes"
+
+#: src/views/ui/preferences_window.ui:289
+#: src/views/ui/preferences_window.ui:344
+#: src/views/pages/artists/ui/artist_grid_page.ui:69
+#: src/views/pages/genres/ui/genre_grid_page.ui:140
+msgid "Sort by Album Count"
+msgstr "Trier par nombre d’albums"
+
+#: src/views/ui/preferences_window.ui:302
+msgid "Artist Detail Default Sort"
+msgstr "Tri par défaut des détails des artistes"
+
+#: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
+msgid "Genres"
+msgstr "Genres"
+
+#: src/views/ui/preferences_window.ui:337
+msgid "Genre Grid Default Sort"
+msgstr "Tri par défaut de la grille des genres"
+
+#: src/views/ui/preferences_window.ui:343
+#: src/views/pages/genres/ui/genre_grid_page.ui:135
+msgid "Sort by Genre Name"
+msgstr "Trier par nom de genre"
+
+#: src/views/ui/preferences_window.ui:357
+msgid "Genre Detail Default Sort"
+msgstr "Tri par défaut des détails des genres"
+
+#: src/views/ui/preferences_window.ui:455
+msgid "Playback Settings"
+msgstr "Paramètres de lecture"
+
+#: src/views/ui/preferences_window.ui:467
+msgid "Default Volume"
+msgstr "Volume par défaut"
+
+#: src/views/ui/preferences_window.ui:484
+msgid "Shuffle Mode Loops at End"
+msgstr "Le mode mélangé fonctionne en boucle"
+
+#: src/views/ui/preferences_window.ui:485
+msgid ""
+"If disabled, shuffle mode will end after last song, like the normal playback "
+"mode"
+msgstr ""
+"Si cette option est désactivée, la lecture mélangée s’achèvera après la "
+"dernière piste, comme le mode de lecture classique"
+
+#: src/views/ui/preferences_window.ui:504
+msgid "Last.fm"
+msgstr "Last.fm"
+
+#: src/views/ui/preferences_window.ui:508
+msgid "Last.fm Enabled"
+msgstr "Activer Last.fm"
+
+#: src/views/ui/preferences_window.ui:525
+msgid "Threshold for Scrobble"
+msgstr "Seuil pour le Scrobble Last.fm"
+
+#: src/views/ui/preferences_window.ui:526
+msgid "The percentage of the song that must play before scrobbled"
+msgstr ""
+"Pourcentage de la piste qui doit être écouté avant ajout sur votre profil"
+
+#: src/views/ui/preferences_window.ui:545
+msgid "Discord"
+msgstr "Discord"
+
+#: src/views/ui/preferences_window.ui:557
+msgid "Discord Rich Presence Enabled"
+msgstr "Activer Discord Rich Presence"
+
+#: src/views/ui/preferences_window.ui:582
+msgid "Folder(s)"
+msgstr "Dossier(s)"
+
+#: src/views/ui/preferences_window.ui:596
+msgid "Add Folder"
+msgstr "Ajouter un dossier"
+
+#: src/views/ui/preferences_window.ui:611
+msgid "Add Music Directory"
+msgstr "Ajouter un répertoire de musique"
+
+#: src/views/ui/preferences_window.ui:626
+#: data/io.github.nate_xyz.Resonance.gschema.xml:6
+#: data/io.github.nate_xyz.Resonance.gschema.xml:7
+msgid "Music Folders"
+msgstr "Dossiers de musique"
+
+#: src/views/ui/window.ui:170
+msgid "Add Music"
+msgstr "Ajouter de la musique"
+
+#: src/views/ui/window.ui:257
+msgid "Go Back"
+msgstr "Retour"
+
+#: src/views/ui/window.ui:268
+msgid "Sort"
+msgstr "Trier"
+
+#: src/views/ui/window.ui:277 src/views/pages/queue/ui/queue_sidebar.ui:109
+msgid "Search"
+msgstr "Rechercher"
+
+#: src/views/ui/window.ui:325
+msgid "Albums"
+msgstr "Albums"
+
+#: src/views/ui/window.ui:358
+msgid "Tracks"
+msgstr "Pistes"
+
+#: src/views/ui/window.ui:509
+msgid "_Preferences"
+msgstr "_Préférences"
+
+#: src/views/ui/window.ui:517
+msgid "_About Resonance"
+msgstr "À_propos de Résonance"
+
+#. <property name="hexpand">true</property>
+#. <property name="halign">fill</property>
+#: src/views/ui/album_track_entry.ui:29
+msgid "Play Track"
+msgstr "Lire la piste"
+
+#: src/views/dialog/rename_playlist_dialog.rs:105
+msgid "Cannot rename playlist, no name entered."
+msgstr "Impossible de renommer la liste de lecture, aucun nom saisi."
+
+#: src/views/dialog/save_playlist_dialog.rs:110
+msgid "Playlist #{new_playlist_number}"
+msgstr "Liste de lecture #{new_playlist_number}"
+
+#: src/views/dialog/add_tracks_to_playlist_dialog.rs:133
+msgid "Unable to add tracks to playlist, no playlist selected"
+msgstr ""
+"Impossible d’ajouter des pistes à la liste de lecture, aucune liste de "
+"lecture sélectionnée"
+
+#: src/views/dialog/alpha_dialog.rs:70
+msgid ""
+"Resonance is early alpha stage software, there will be bugs.\n"
+"If you find a bug or would like to request a feature, please open an issue "
+"on the github repo:\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/"
+"resonance/issues</a>"
+msgstr ""
+"Résonance est en phase de développement précoce, il y aura des bogues.\n"
+"Si vous trouvez un bogue ou souhaitez demander une fonctionnalité, veuillez "
+"ouvrir un signalement sur la page github :\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/"
+"resonance/issues</a>"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:6
+msgid "Remove Music Folder?"
+msgstr "Supprimer le dossier de musique"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:14
+msgid ""
+"Are you sure you want to remove this music folder from your database? You "
+"will be unable to access the music within the folder unless you add it again."
+msgstr ""
+"Êtes-vous sûr⋅e de vouloir supprimer ce dossier de musique de votre base de "
+"données ? Vous ne pourrez plus accéder à la musique qu’il contient, à moins "
+"de l’ajouter à nouveau."
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:26
+msgid "_Remove"
+msgstr "_Supprimer"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:6
+msgid "Delete Playlist?"
+msgstr "Supprimer la liste de lecture ?"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:7
+msgid ""
+"Are you sure you want to permanently delete this playlist? You will be "
+"unable to access it again after deletion."
+msgstr ""
+"Êtes-vous sûr⋅e de vouloir supprimer définitivement cette liste de lecture ? "
+"Vous ne pourrez plus y accéder après la suppression."
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:12
+msgid "_Delete"
+msgstr "_Supprimer"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:6
+msgid "Confirm Duplication"
+msgstr "Confirmer la duplication"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:7
+msgid "Are you sure you want to duplicate this playlist?"
+msgstr "Êtes-vous sûr⋅e de vouloir dupliquer cette liste de lecture ?"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:12
+msgid "_Duplicate"
+msgstr "_Dupliquer"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:6
+msgid "Rename Playlist?"
+msgstr "Renommer la liste de lecture ?"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:13
+msgid "_Rename"
+msgstr "_Renommer"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:22
+#: src/views/pages/queue/ui/queue_sidebar.ui:34
+msgid "Playlist"
+msgstr "Liste de lecture"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:6
+msgid "Save Playlist?"
+msgstr "Enregistrer la liste de lecture ?"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:13
+msgid "_Save"
+msgstr "_Enregistrer"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:24
+msgid "Playlist Title"
+msgstr "Titre de la liste de lecture"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:31
+msgid "Playlist Description (Optional)"
+msgstr "Description de la liste de lecture (optionnel)"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:6
+msgid "Select Playlist"
+msgstr "Sélectionnez une liste de lecture"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:11
+msgid "_Add"
+msgstr "_Ajouter"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:6
+msgid "Modify Playlist?"
+msgstr "Modifier la liste de lecture ?"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:7
+msgid "Confirm these changes."
+msgstr "Confirmer ces changements."
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:12
+msgid "_Change"
+msgstr "_Changer"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:28
+msgid "Modified Title"
+msgstr "Titre modifié"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:67
+msgid "Modified Description"
+msgstr "Description modifiée"
+
+#: src/views/dialog/ui/alpha_dialog.ui:6
+msgid "Early Software Warning ⚠️"
+msgstr "Avertisseur de développement ⚠️"
+
+#: src/views/dialog/ui/alpha_dialog.ui:10
+msgid "Don't Show Again"
+msgstr "Ne plus afficher"
+
+#: src/views/dialog/ui/alpha_dialog.ui:11
+msgid "Ok!"
+msgstr "D’accord !"
+
+#: src/views/pages/queue/queue_sidebar.rs:264
+msgid "{time_remaining} remaining"
+msgstr "{time_remaining} restante(s)"
+
+#: src/views/pages/queue/ui/queue_page.ui:201
+msgid "Toggle Playlist Sidebar"
+msgstr "Afficher / Masquer la barre latérale de la liste de lecture"
+
+#: src/views/pages/queue/ui/queue_page.ui:218
+msgid "Loop Playlist"
+msgstr "Jouer la liste de lecture en boucle"
+
+#: src/views/pages/queue/ui/queue_page.ui:242
+msgid "Shuffle Playlist"
+msgstr "Mélanger la liste de lecture"
+
+#: src/views/pages/queue/ui/queue_sidebar_track_entry.ui:105
+msgid "Remove Track From Queue"
+msgstr "Supprimer la piste de la file d’attente"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:47
+msgid "time remaining"
+msgstr "temps restant"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:70
+msgid "Clear Queue"
+msgstr "Effacer la file d’attente"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:90
+msgid "Edit Queue"
+msgstr "Modifier la liste d’attente"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:98
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:711
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:442
+msgid "Edit Playlist"
+msgstr "Modifier la liste de lecture"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:723
+msgid "Finish Edit Playlist"
+msgstr "Terminer les modifications"
+
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:59
+msgid "Sort Playlist Grid"
+msgstr "Trier la grille des listes de lecture"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:183
+#: src/views/pages/tracks/ui/track_page_row.ui:165
+msgid "Add Track to Queue"
+msgstr "Ajouter la piste à la file d’attente"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:208
+msgid "Remove Track From Playlist"
+msgstr "Supprimer la piste de la liste de lecture"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:408
+msgid "Delete Playlist"
+msgstr "Supprimer la liste de lecture"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:425
+msgid "Duplicate Playlist"
+msgstr "Dupliquer la liste de lecture"
+
+#: src/views/pages/tracks/ui/track_page.ui:31
+msgid "Scroll to Top"
+msgstr "Défiler vers le haut"
+
+#: src/views/pages/tracks/ui/track_page.ui:43
+msgid "Scroll to Bottom"
+msgstr "Défiler vers le bas"
+
+#: src/views/pages/tracks/ui/track_page.ui:74
+msgid "Title, Album, & Artist"
+msgstr "Titre, Album, & Artiste"
+
+#: src/views/pages/tracks/ui/track_page.ui:75
+msgid "Track Title"
+msgstr "Titre de la piste"
+
+#: src/views/pages/tracks/ui/track_page.ui:76
+#: src/views/pages/albums/ui/album_grid_page.ui:39
+msgid "Album Title"
+msgstr "Titre de l’album"
+
+#: src/views/pages/tracks/ui/track_page.ui:77
+#: src/views/pages/albums/ui/album_grid_page.ui:40
+msgid "Artist"
+msgstr "Artiste"
+
+#: src/views/pages/tracks/ui/track_page.ui:78
+#: src/views/pages/albums/ui/album_grid_page.ui:41
+msgid "Genre"
+msgstr "Genre"
+
+#: src/views/pages/tracks/ui/track_page.ui:79
+#: src/views/pages/albums/ui/album_grid_page.ui:42
+msgid "Release Date"
+msgstr "Date de sortie"
+
+#: src/views/pages/tracks/ui/track_page.ui:131
+msgid "Sort Track List"
+msgstr "Trier la liste des pistes"
+
+#: src/views/pages/artists/ui/artist_grid_page.ui:62
+msgid "Sort Artist Grid"
+msgstr "Trier la grille des artistes"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:97
+msgid "Play all Artist Albums"
+msgstr "Lire tous les albums de l’artiste"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:109
+msgid "Add all Artist Albums to Queue"
+msgstr "Ajouter tous les albums de l’artiste à la file d’attente"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:162
+msgid "Sort Artist Albums"
+msgstr "Trier les albums de l’artiste"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:33
+msgid "Close Album Sidebar"
+msgstr "Fermer la barre latérale de l’album"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:135
+#: src/views/pages/albums/ui/album_sidebar.ui:289
+msgid "View Album Page"
+msgstr "Voir la page de l’album"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:38
+msgid "Title & Artist"
+msgstr "Titre & Artiste"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:104
+msgid "Sort Album Grid"
+msgstr "Trier la grille des albums"
+
+#: src/views/pages/genres/ui/genre_grid_page.ui:133
+msgid "Sort Genre Grid"
+msgstr "Trier la grille des genres"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:95
+msgid "Play all Genre Albums"
+msgstr "Lire tous les albums du genre"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:107
+msgid "Add all Genre Albums to Queue"
+msgstr "Ajouter tous les albums du genre à la file d’attente"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:162
+msgid "Sort Genre Albums"
+msgstr "Tirer les albums du genre"
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:3
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:6
+msgid "Resonance"
+msgstr "Résonance"
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:4
+msgid "Music Player"
+msgstr "Lecteur de musique"
+
+#. Translators: Search terms to find this application. Do not translate or localize the semicolons! The list must also end with a semicolon.
+#: data/io.github.nate_xyz.Resonance.desktop.in:11
+msgid "music;sound;player;media;audio;playlist;"
+msgstr "musique;son;lecteur;média;audio;playlist;liste de lecture;"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:7
+msgid "Harmonize your listening experience"
+msgstr "Harmonisez votre expérience d’écoute"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:8
+msgid "nate-xyz"
+msgstr "nate-xyz"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:10
+msgid ""
+"Resonance is an intuitive music player application written in Rust and "
+"Python, with a clean user interface built using the GTK4 / Libadwaita "
+"framework. Resonance lets you effortlessly manage and play your music "
+"collection, with support for all the common music file formats."
+msgstr ""
+"Résonance est une lecteur de musique intuitif, codé avec Rust et Python, "
+"avec une interface soignée utilisant le framework GTK4 / Libadwaita. "
+"Résonance vous permet de gérer et jouer votre collection musicale "
+"facilement, avec une prise en charge des formats de fichiers musicaux les "
+"plus répandus."
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:11
+msgid "Features:"
+msgstr "Fonctionnalités :"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:13
+msgid "UI updates to reflect currently playing track's cover art colors"
+msgstr ""
+"Interface adaptative pour refléter les couleurs de la pochette de la piste "
+"en cours de lecture"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:14
+msgid "Playlist creation and modification"
+msgstr "Création et modification de liste de lectures"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:15
+msgid "Control the player through MPRIS"
+msgstr "Contrôle du lecteur avec MPRIS"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:16
+msgid "Discord Rich Presence integration"
+msgstr "Intégration de Discord Rich Presence"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:17
+msgid "Last.fm scrobbling"
+msgstr "Scrobbling Last.fm"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:18
+msgid "Import tags with the Mutagen library"
+msgstr "Importation de balises avec la bibliothèque Mutagen"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:19
+msgid ""
+"No tag editing (intentionally out of scope to keep Resonance a music player "
+"only)"
+msgstr ""
+"Pas d’édition des balises (intentionnellement exclu pour faire de Résonance "
+"un lecteur de musique uniquement)"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:21
+msgid ""
+"⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE "
+"OPEN ISSUES) ⚠️"
+msgstr ""
+"⚠️ RÉSONANCE EST EN PHASE DE DÉVELOPPEMENT PRÉCOCE (IL Y AURA DES BOGUES, "
+"MERCI DE LES SIGNALER) ⚠️"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:35
+msgid "MPRIS bugfix"
+msgstr "Correction d’un bogue MPRIS"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:36
+msgid "Dark mode by default"
+msgstr "Mode sombre par défaut"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:37
+msgid "Various UI improvements"
+msgstr "Diverses améliorations d’interface"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:44
+msgid "Add Last.fm support"
+msgstr "Prise en charge de Last.fm ajoutée"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:51
+msgid "Use album cover art if track cover art empty"
+msgstr ""
+"Utilisation de la couverture de l’album s’il n’y a pas de couverture pour le "
+"titre"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:52
+msgid "URI encoding for player pipeline bugfix"
+msgstr "Correction d’un bogue pour l’encodage URI du pipeline lecteur"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:53
+msgid "UI improvements"
+msgstr "Améliorations de l’interface"
