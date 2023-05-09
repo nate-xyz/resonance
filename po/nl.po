@@ -1,0 +1,1048 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the resonance package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resonance\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-12 11:49-0400\n"
+"PO-Revision-Date: 2023-05-09 14:49+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
+#. One name per line, please do not remove previous names.
+#: src/app.rs:136
+msgid "translator-credits"
+msgstr "Heimen Stoffels <vistausss@fastmail.com>"
+
+#: src/database.rs:198
+msgid "Added Folder:"
+msgstr "Toegevoegde map:"
+
+#: src/database.rs:202
+msgid "Unable to add music folder."
+msgstr "De muziekmap kan niet worden toegevoegd."
+
+#. Translators: do not replace {number_of_artists}
+#: src/database.rs:211
+msgid "Added Images!"
+msgstr "Foto's toegevoegd!"
+
+#: src/database.rs:211
+msgid "Added {number_of_artists} Artist Images."
+msgstr "Er zijn {number_of_artists} artiestenfoto's toegevoegd."
+
+#. Translators: do not replace {playlist_title}
+#: src/database.rs:221
+msgid "Added Playlist!"
+msgstr "Afspeellijst toegevoegd!"
+
+#: src/database.rs:221
+msgid "Playlist «{playlist_title}» has been created!"
+msgstr "De afspeellijst «{playlist_title}» is aangemaakt!"
+
+#: src/database.rs:225
+msgid "Unable to add playlist."
+msgstr "De afspeellijst kan niet worden toegevoegd."
+
+#: src/database.rs:232
+msgid "Duplicated!"
+msgstr "Gekloond!"
+
+#: src/database.rs:232
+msgid "Copied playlist successfully."
+msgstr "De afspeellijst is gekloond."
+
+#: src/database.rs:236
+msgid "Unable to duplicate playlist."
+msgstr "De afspeellijst kan niet worden gekloond."
+
+#. Translators: do not replace {old_title} or {new_title}
+#: src/database.rs:244
+msgid "Renamed!"
+msgstr "Naam gewijzigd!"
+
+#: src/database.rs:244
+msgid "Playlist has been renamed from {old_title} to {new_title}!"
+msgstr "De afspeellijstnaam is gewijzigd van {old_title} naar {new_title}!"
+
+#: src/database.rs:248
+msgid "Unable to rename playlist."
+msgstr "De afspeellijstnaam kan niet worden gewijzigd."
+
+#. Translators: do not replace {removed_directory}
+#: src/database.rs:256
+msgid "Removed:"
+msgstr "Verwijderd:"
+
+#: src/database.rs:256
+msgid "{removed_directory} has been removed from the database."
+msgstr "{removed_directory} is uit de databank verwijderd."
+
+#: src/database.rs:260
+msgid "Unable to remove directory."
+msgstr "De map kan niet worden verwijderd."
+
+#: src/database.rs:268
+msgid "Deleted."
+msgstr "Verwijderd."
+
+#: src/database.rs:268
+msgid "Removed playlist successfully!"
+msgstr "De afspeellijst is verwijderd!"
+
+#: src/database.rs:272
+msgid "Unable to remove playlist."
+msgstr "De afspeellijstnaam kan niet worden verwijderd."
+
+#: src/database.rs:280
+msgid "Modified."
+msgstr "Bewerkt."
+
+#: src/database.rs:280
+msgid "Changed playlist successfully!"
+msgstr "De afspeellijst is aangepast!"
+
+#: src/database.rs:284
+msgid "Unable to modify playlist."
+msgstr "De afspeellijstnaam kan niet worden aangepast."
+
+#: src/database.rs:291
+msgid "Added"
+msgstr "Toegevoegd:"
+
+#: src/database.rs:291
+msgid " tracks to {playlist_title}!"
+msgstr " nummers aan {playlist_title}!"
+
+#: src/database.rs:295
+msgid "Unable to add track to playlist."
+msgstr "Het nummer kan niet worden toegevoegd."
+
+#: src/database.rs:302
+msgid "Removed"
+msgstr "Verwijderd:"
+
+#: src/database.rs:302
+msgid " track from playlist."
+msgstr " nummer van de afspeellijst."
+
+#: src/database.rs:307
+msgid "Unable to remove track from playlist."
+msgstr "Het nummer kan niet worden verwijderd."
+
+#: src/database.rs:318
+msgid "Unable to reorder playlist."
+msgstr "De afspeellijst kan niet worden herordend."
+
+#: src/database.rs:392
+msgid "Unable to load music folders."
+msgstr "De muziekmappen kunnen niet worden geladen."
+
+#: src/database.rs:839
+msgid "Tried to add track(s) to playlist that does not exist."
+msgstr ""
+"Er werd getracht een of meerdere nummers toe te voegen aan een niet-"
+"bestaande afspeellijst."
+
+#. Translators: Only replace "Error!". Reorder if necessary
+#: src/toasts.rs:67
+msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
+msgstr "<span foreground={ERROR_RED}>Foutmelding!</span> {error_msg}"
+
+#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
+msgid "Pause"
+msgstr "Pauzeren"
+
+#: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328
+#: src/views/pages/queue/queue_page.rs:247
+#: src/views/pages/queue/ui/queue_page.ui:167
+msgid "Play"
+msgstr "Afspelen"
+
+#: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
+msgid "Toggle Play Pause"
+msgstr "Afspelen/Pauzeren"
+
+#: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
+msgid "Previous"
+msgstr "Vorige"
+
+#: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
+msgid "Next"
+msgstr "Volgende"
+
+#: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
+msgid "End Queue"
+msgstr "Einde van wachtrij"
+
+#: src/views/control_bar.rs:521 src/views/ui/preferences_window.ui:446
+msgid "Playback"
+msgstr "Afspelen"
+
+#: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
+msgid "Go to Queue"
+msgstr "Ga naar wachtrij"
+
+#: src/views/control_bar.rs:530
+msgid "Navigate"
+msgstr "Navigatie"
+
+#: src/views/generic_flowbox_child.rs:154
+#: src/views/generic_flowbox_child.rs:186
+msgid "{number_of_albums} albums"
+msgstr "{number_of_albums} albums"
+
+#: src/views/generic_flowbox_child.rs:155
+#: src/views/generic_flowbox_child.rs:187 src/views/album_card.rs:297
+#: src/views/pages/playlists/playlist_grid_child.rs:235
+#: src/views/pages/playlists/playlist_detail_page.rs:595
+#: src/views/pages/albums/album_grid_child.rs:260
+#: src/views/pages/albums/album_detail_page.rs:307
+msgid "{number_of_tracks} tracks"
+msgstr "{number_of_tracks} nummers"
+
+#: src/views/disc_button.rs:67
+msgid "{album_title}, Disc {disc_number}"
+msgstr "{album_title}, schijf {disc_number}"
+
+#: src/views/disc_button.rs:92
+msgid "Play Disc {disc_number} of {album_title}"
+msgstr "Schijf {disc_number} van {album_title} afspelen"
+
+#. Translators: only replace "Disc "
+#: src/views/disc_button.rs:98
+msgid "<span weight=\"ultralight\">Disc {disc_number}</span>"
+msgstr "<span weight=\"ultralight\">Schijf {disc_number}</span>"
+
+#: src/views/album_card.rs:295
+#: src/views/pages/playlists/playlist_detail_page.rs:593
+#: src/views/pages/albums/album_detail_page.rs:305
+msgid "1 track"
+msgstr "1 nummer"
+
+#: src/views/preferences_window.rs:430 src/views/window.rs:299
+msgid "_Add Music"
+msgstr "Muziek t_oevoegen"
+
+#: src/views/preferences_window.rs:431 src/views/window.rs:300
+#: src/views/dialog/ui/remove_directory_dialog.ui:25
+#: src/views/dialog/ui/delete_playlist_dialog.ui:11
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:11
+#: src/views/dialog/ui/rename_playlist_dialog.ui:12
+#: src/views/dialog/ui/save_playlist_dialog.ui:12
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:10
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:11
+msgid "_Cancel"
+msgstr "_Annuleren"
+
+#: src/views/preferences_window.rs:433 src/views/window.rs:302
+msgid "Select Music Library"
+msgstr "Kies een muziekmap"
+
+#: src/views/window.rs:321
+msgid "Unable to add music folder, not a valid directory."
+msgstr "Deze map is ongeldig en kan daarom niet worden toegevoegd."
+
+#: src/views/window.rs:330
+msgid "Importing Music Folder..."
+msgstr "Bezig met importeren van muziek…"
+
+#: src/views/window.rs:369 src/views/ui/window.ui:94
+msgid "Welcome to Resonance"
+msgstr "Welkom in Resonance"
+
+#: src/views/window.rs:370 src/views/ui/window.ui:95
+msgid "Add your music library to get started!"
+msgstr "Voeg uw muziek toe om aan de slag te gaan!"
+
+#: src/views/track_entry.rs:109
+msgid "Play {track_title}"
+msgstr "{track_title} afspelen"
+
+#: src/views/track_entry.rs:110
+msgid "Add {track_title} to Playlist"
+msgstr "{track_title} toevoegen aan afspeellijst"
+
+#: src/views/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: src/views/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Sneltoetsen tonen"
+
+#: src/views/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:149
+msgid "Previous Track"
+msgstr "Vorig nummer"
+
+#: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:179
+msgid "Next Track"
+msgstr "Volgend nummer"
+
+#: src/views/ui/control_bar.ui:452
+msgid "Loop Queue"
+msgstr "Wachtrij herhalen"
+
+#: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:230
+msgid "Loop Current Track"
+msgstr "Huidig nummer herhalen"
+
+#: src/views/ui/control_bar.ui:474
+msgid "Shuffle Queue"
+msgstr "Wachtrij willekeurig afspelen"
+
+#: src/views/ui/album_card.ui:96
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:56
+#: src/views/pages/albums/ui/album_grid_child.ui:56
+#: src/views/pages/albums/ui/album_sidebar.ui:98
+msgid "Play Album"
+msgstr "Album afspelen"
+
+#: src/views/ui/album_card.ui:116
+#: src/views/pages/playlists/ui/playlist_grid_child.ui:76
+#: src/views/pages/albums/ui/album_grid_child.ui:76
+#: src/views/pages/albums/ui/album_sidebar.ui:116
+msgid "Add Album to Queue"
+msgstr "Album toevoegen aan wachtrij"
+
+#: src/views/ui/album_card.ui:227
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:109
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:298
+#: src/views/pages/albums/ui/album_detail_page.ui:110
+#: src/views/pages/albums/ui/album_detail_page.ui:245
+#: src/views/pages/albums/ui/album_sidebar.ui:254
+msgid "Play Playlist"
+msgstr "Afspeellijst afspelen"
+
+#: src/views/ui/album_card.ui:244
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:129
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:315
+#: src/views/pages/albums/ui/album_detail_page.ui:127
+#: src/views/pages/albums/ui/album_detail_page.ui:262
+#: src/views/pages/albums/ui/album_sidebar.ui:271
+msgid "Add Playlist to Queue"
+msgstr "Afspeellijst toevoegen aan wachtrij"
+
+#: src/views/ui/preferences_window.ui:13
+msgid "UI"
+msgstr "Vormgeving"
+
+#: src/views/ui/preferences_window.ui:23
+msgid "All"
+msgstr "Alles"
+
+#: src/views/ui/preferences_window.ui:27 src/views/ui/preferences_window.ui:59
+#: src/views/ui/preferences_window.ui:91 src/views/ui/preferences_window.ui:168
+#: src/views/ui/preferences_window.ui:241
+#: src/views/ui/preferences_window.ui:276
+#: src/views/ui/preferences_window.ui:331
+#: src/views/ui/preferences_window.ui:459
+#: src/views/ui/preferences_window.ui:550
+msgid "Reset"
+msgstr "Standaardwaarden"
+
+#: src/views/ui/preferences_window.ui:33
+msgid "Full Page Back Buttons"
+msgstr "Paginaterugknoppen"
+
+#: src/views/ui/preferences_window.ui:55 src/views/ui/window.ui:313
+msgid "Queue"
+msgstr "Wachtrij"
+
+#: src/views/ui/preferences_window.ui:65
+msgid "Queue Opens By Default"
+msgstr "Wachtrij tonen na opstarten"
+
+#: src/views/ui/preferences_window.ui:87
+msgid "Album Grid Page"
+msgstr "Albumrooster"
+
+#: src/views/ui/preferences_window.ui:97 src/views/ui/preferences_window.ui:174
+msgid "Default sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:103
+#: src/views/ui/preferences_window.ui:181
+#: src/views/ui/preferences_window.ui:308
+#: src/views/ui/preferences_window.ui:363
+#: src/views/pages/tracks/ui/track_page.ui:139
+#: src/views/pages/artists/ui/artist_detail_page.ui:164
+#: src/views/pages/albums/ui/album_grid_page.ui:106
+#: src/views/pages/genres/ui/genre_detail_page.ui:164
+msgid "Sort by Album Title"
+msgstr "Sorteren op albumnaam"
+
+#: src/views/ui/preferences_window.ui:104
+#: src/views/ui/preferences_window.ui:182
+#: src/views/ui/preferences_window.ui:288
+#: src/views/ui/preferences_window.ui:364
+#: src/views/pages/tracks/ui/track_page.ui:145
+#: src/views/pages/artists/ui/artist_grid_page.ui:64
+#: src/views/pages/albums/ui/album_grid_page.ui:111
+#: src/views/pages/genres/ui/genre_detail_page.ui:169
+msgid "Sort by Artist Name"
+msgstr "Sorteren op artiestennaam"
+
+#: src/views/ui/preferences_window.ui:105
+#: src/views/ui/preferences_window.ui:184
+#: src/views/pages/tracks/ui/track_page.ui:151
+#: src/views/pages/albums/ui/album_grid_page.ui:116
+msgid "Sort by Genre"
+msgstr "Sorteren op genre"
+
+#: src/views/ui/preferences_window.ui:106
+#: src/views/ui/preferences_window.ui:183
+#: src/views/ui/preferences_window.ui:309
+#: src/views/ui/preferences_window.ui:365
+#: src/views/pages/tracks/ui/track_page.ui:157
+#: src/views/pages/artists/ui/artist_detail_page.ui:170
+#: src/views/pages/albums/ui/album_grid_page.ui:121
+#: src/views/pages/genres/ui/genre_detail_page.ui:174
+msgid "Sort by Release Date"
+msgstr "Sorteren op uitgavedatum"
+
+#: src/views/ui/preferences_window.ui:107
+#: src/views/ui/preferences_window.ui:310
+#: src/views/ui/preferences_window.ui:366
+#: src/views/pages/artists/ui/artist_detail_page.ui:176
+#: src/views/pages/albums/ui/album_grid_page.ui:126
+#: src/views/pages/genres/ui/genre_detail_page.ui:179
+msgid "Sort by Total Duration"
+msgstr "Sorteren op totaalduur"
+
+#: src/views/ui/preferences_window.ui:108
+#: src/views/ui/preferences_window.ui:256
+#: src/views/ui/preferences_window.ui:290
+#: src/views/ui/preferences_window.ui:311
+#: src/views/ui/preferences_window.ui:345
+#: src/views/ui/preferences_window.ui:367
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:76
+#: src/views/pages/artists/ui/artist_grid_page.ui:74
+#: src/views/pages/artists/ui/artist_detail_page.ui:182
+#: src/views/pages/albums/ui/album_grid_page.ui:131
+#: src/views/pages/genres/ui/genre_grid_page.ui:145
+#: src/views/pages/genres/ui/genre_detail_page.ui:184
+msgid "Sort by Track Count"
+msgstr "Sorteren op nummeraantal"
+
+#: src/views/ui/preferences_window.ui:121
+msgid "Display Album Name and Artist Labels by Default"
+msgstr "Album- en artiestennamen tonen"
+
+#: src/views/ui/preferences_window.ui:122
+msgid ""
+"If disabled, these labels are only shown when searching on the album grid "
+"page."
+msgstr ""
+"Schakel uit om deze labels alleen tijdens het doorzoeken van het "
+"albumrooster te tonen."
+
+#: src/views/ui/preferences_window.ui:139
+msgid "Disable Album Flap"
+msgstr "Albumhoezen niet aanklikbaar maken"
+
+#: src/views/ui/preferences_window.ui:140
+msgid "Selecting an album will take you straight to the album detail page."
+msgstr ""
+"Schakel uit om albuminformatie te bekijken door op een albumhoes te klikken."
+
+#: src/views/ui/preferences_window.ui:164
+msgid "Track Page"
+msgstr "Nummerpagina"
+
+#: src/views/ui/preferences_window.ui:180
+#: src/views/pages/tracks/ui/track_page.ui:133
+msgid "Sort by Track Title"
+msgstr "Sorteren op nummernaam"
+
+#: src/views/ui/preferences_window.ui:197
+msgid "Search Bar Open by Default"
+msgstr "Zoekvak altijd tonen"
+
+#: src/views/ui/preferences_window.ui:214
+msgid "Display Additional Labels by Default"
+msgstr "Altijd aanvullende labels tonen"
+
+#: src/views/ui/preferences_window.ui:215
+msgid ""
+"If disabled, track entries only display genre and date labels when searching"
+msgstr ""
+"Schakel uit om items tijdens het doorzoeken alleen te voorzien van genre- en "
+"datumlabels."
+
+#: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
+msgid "Playlists"
+msgstr "Afspeellijsten"
+
+#: src/views/ui/preferences_window.ui:247
+msgid "Playlist Grid Default Sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:253
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:61
+msgid "Sort by Playlist Title"
+msgstr "Sorteren op afspeellijstnaam"
+
+#: src/views/ui/preferences_window.ui:254
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:66
+msgid "Sort by Last Modified"
+msgstr "Sorteren op wijzigingsdatum"
+
+#: src/views/ui/preferences_window.ui:255
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:71
+#: src/views/pages/tracks/ui/track_page.ui:163
+msgid "Sort by Duration"
+msgstr "Sorteren op duur"
+
+#: src/views/ui/preferences_window.ui:272 src/views/ui/window.ui:405
+msgid "Artists"
+msgstr "Artiesten"
+
+#: src/views/ui/preferences_window.ui:282
+msgid "Artist Grid Default Sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:289
+#: src/views/ui/preferences_window.ui:344
+#: src/views/pages/artists/ui/artist_grid_page.ui:69
+#: src/views/pages/genres/ui/genre_grid_page.ui:140
+msgid "Sort by Album Count"
+msgstr "Sorteren op albumaantal"
+
+#: src/views/ui/preferences_window.ui:302
+msgid "Artist Detail Default Sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
+msgid "Genres"
+msgstr "Genres"
+
+#: src/views/ui/preferences_window.ui:337
+msgid "Genre Grid Default Sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:343
+#: src/views/pages/genres/ui/genre_grid_page.ui:135
+msgid "Sort by Genre Name"
+msgstr "Sorteren op genrenaam"
+
+#: src/views/ui/preferences_window.ui:357
+msgid "Genre Detail Default Sort"
+msgstr "Standaard sorteervolgorde"
+
+#: src/views/ui/preferences_window.ui:455
+msgid "Playback Settings"
+msgstr "Afspeelvoorkeuren"
+
+#: src/views/ui/preferences_window.ui:467
+msgid "Default Volume"
+msgstr "Standaard volumeniveau"
+
+#: src/views/ui/preferences_window.ui:484
+msgid "Shuffle Mode Loops at End"
+msgstr "Willekeurige modus na einde herhalen"
+
+#: src/views/ui/preferences_window.ui:485
+msgid ""
+"If disabled, shuffle mode will end after last song, like the normal playback "
+"mode"
+msgstr ""
+"Schakel uit om de willekeurige modus na het laatste nummer uit te schakelen, "
+"zoals in de normale afspeelmodus."
+
+#: src/views/ui/preferences_window.ui:504
+msgid "Last.fm"
+msgstr "Last.fm"
+
+#: src/views/ui/preferences_window.ui:508
+msgid "Last.fm Enabled"
+msgstr "Last.fm gebruiken"
+
+#: src/views/ui/preferences_window.ui:525
+msgid "Threshold for Scrobble"
+msgstr "Scrobble-drempelwaarde"
+
+#: src/views/ui/preferences_window.ui:526
+msgid "The percentage of the song that must play before scrobbled"
+msgstr ""
+"Het percentage van het nummer dat dient te zijn afgespeeld alvorens te "
+"scrobbelen."
+
+#: src/views/ui/preferences_window.ui:545
+msgid "Discord"
+msgstr "Discord"
+
+#: src/views/ui/preferences_window.ui:557
+msgid "Discord Rich Presence Enabled"
+msgstr "Discord-aanwezigheid tonen"
+
+#: src/views/ui/preferences_window.ui:582
+msgid "Folder(s)"
+msgstr "Map(pen)"
+
+#: src/views/ui/preferences_window.ui:596
+msgid "Add Folder"
+msgstr "Map toevoegen"
+
+#: src/views/ui/preferences_window.ui:611
+msgid "Add Music Directory"
+msgstr "Muziekmap toevoegen"
+
+#: src/views/ui/preferences_window.ui:626
+#: data/io.github.nate_xyz.Resonance.gschema.xml:6
+#: data/io.github.nate_xyz.Resonance.gschema.xml:7
+msgid "Music Folders"
+msgstr "Muziekmappen"
+
+#: src/views/ui/window.ui:170
+msgid "Add Music"
+msgstr "Muziek toevoegen"
+
+#: src/views/ui/window.ui:257
+msgid "Go Back"
+msgstr "Ga terug"
+
+#: src/views/ui/window.ui:268
+msgid "Sort"
+msgstr "Sorteren"
+
+#: src/views/ui/window.ui:277 src/views/pages/queue/ui/queue_sidebar.ui:109
+msgid "Search"
+msgstr "Zoeken"
+
+#: src/views/ui/window.ui:325
+msgid "Albums"
+msgstr "Albums"
+
+#: src/views/ui/window.ui:358
+msgid "Tracks"
+msgstr "Nummers"
+
+#: src/views/ui/window.ui:509
+msgid "_Preferences"
+msgstr "_Voorkeuren"
+
+#: src/views/ui/window.ui:517
+msgid "_About Resonance"
+msgstr "Over Reson_ance"
+
+#. <property name="hexpand">true</property>
+#. <property name="halign">fill</property>
+#: src/views/ui/album_track_entry.ui:29
+msgid "Play Track"
+msgstr "Nummer afspelen"
+
+#: src/views/dialog/rename_playlist_dialog.rs:105
+msgid "Cannot rename playlist, no name entered."
+msgstr "Er is geen naam ingevoerd."
+
+#: src/views/dialog/save_playlist_dialog.rs:110
+msgid "Playlist #{new_playlist_number}"
+msgstr "Afspeellijst #{new_playlist_number}"
+
+#: src/views/dialog/add_tracks_to_playlist_dialog.rs:133
+msgid "Unable to add tracks to playlist, no playlist selected"
+msgstr "Er is geen afspeellijst gekozen."
+
+#: src/views/dialog/alpha_dialog.rs:70
+msgid ""
+"Resonance is early alpha stage software, there will be bugs.\n"
+"If you find a bug or would like to request a feature, please open an issue "
+"on the github repo:\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/"
+"resonance/issues</a>"
+msgstr ""
+"Let op: Resonance is alfasoftware, dus bugs zijn zeer zeker te verwachten.\n"
+"Als u een bug tegenkomt of een idee wilt delen, open dan een ‘issue’ in de "
+"GitHub-repo:\n"
+"<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/"
+"resonance/issues</a>"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:6
+msgid "Remove Music Folder?"
+msgstr "Muziekmap verwijderen?"
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:14
+msgid ""
+"Are you sure you want to remove this music folder from your database? You "
+"will be unable to access the music within the folder unless you add it again."
+msgstr ""
+"Weet u zeker dat u deze muziekmap uit de databank wilt verwijderen? U heeft "
+"hierdoor geen toegang tot de muziek meer, tenzij u de map opnieuw toevoegt."
+
+#: src/views/dialog/ui/remove_directory_dialog.ui:26
+msgid "_Remove"
+msgstr "Ve_rwijderen"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:6
+msgid "Delete Playlist?"
+msgstr "Afspeellijst verwijderen?"
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:7
+msgid ""
+"Are you sure you want to permanently delete this playlist? You will be "
+"unable to access it again after deletion."
+msgstr ""
+"Weet u zeker dat u deze afspeellijst permanent wilt verwijderen? U heeft "
+"hierdoor geen toegang tot de afspeellijst meer."
+
+#: src/views/dialog/ui/delete_playlist_dialog.ui:12
+msgid "_Delete"
+msgstr "Verwij_deren"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:6
+msgid "Confirm Duplication"
+msgstr "Klonen bevestigen"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:7
+msgid "Are you sure you want to duplicate this playlist?"
+msgstr "Weet u zeker dat u deze afspeellijst wilt klonen?"
+
+#: src/views/dialog/ui/duplicate_playlist_dialog.ui:12
+msgid "_Duplicate"
+msgstr "_Klonen"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:6
+msgid "Rename Playlist?"
+msgstr "Afspeellijstnaam wijzigen?"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:13
+msgid "_Rename"
+msgstr "Naam _wijzigen"
+
+#: src/views/dialog/ui/rename_playlist_dialog.ui:22
+#: src/views/pages/queue/ui/queue_sidebar.ui:34
+msgid "Playlist"
+msgstr "Afspeellijst"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:6
+msgid "Save Playlist?"
+msgstr "Afspeellijst opslaan?"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:13
+msgid "_Save"
+msgstr "Op_slaan"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:24
+msgid "Playlist Title"
+msgstr "Afspeellijstnaam"
+
+#: src/views/dialog/ui/save_playlist_dialog.ui:31
+msgid "Playlist Description (Optional)"
+msgstr "Afspeellijstbeschrijving (optioneel)"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:6
+msgid "Select Playlist"
+msgstr "Kies een afspeellijst"
+
+#: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:11
+msgid "_Add"
+msgstr "_Toevoegen"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:6
+msgid "Modify Playlist?"
+msgstr "Afspeellijst bewerken?"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:7
+msgid "Confirm these changes."
+msgstr "Bevestig de aanpassingen."
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:12
+msgid "_Change"
+msgstr "_Aanpassen"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:28
+msgid "Modified Title"
+msgstr "Gewijzigde naam"
+
+#: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:67
+msgid "Modified Description"
+msgstr "Gewijzigde beschrijving"
+
+#: src/views/dialog/ui/alpha_dialog.ui:6
+msgid "Early Software Warning ⚠️"
+msgstr "Waarschuwing: vroegtijdig uitgebrachte software ⚠️"
+
+#: src/views/dialog/ui/alpha_dialog.ui:10
+msgid "Don't Show Again"
+msgstr "Niet meer tonen"
+
+#: src/views/dialog/ui/alpha_dialog.ui:11
+msgid "Ok!"
+msgstr "Oké!"
+
+#: src/views/pages/queue/queue_sidebar.rs:264
+msgid "{time_remaining} remaining"
+msgstr "{time_remaining} resterend"
+
+#: src/views/pages/queue/ui/queue_page.ui:201
+msgid "Toggle Playlist Sidebar"
+msgstr "Afspeellijstzijbalk tonen/verbergen"
+
+#: src/views/pages/queue/ui/queue_page.ui:218
+msgid "Loop Playlist"
+msgstr "Afspeellijst herhalen"
+
+#: src/views/pages/queue/ui/queue_page.ui:242
+msgid "Shuffle Playlist"
+msgstr "Afspeellijst willekeurig afspelen"
+
+#: src/views/pages/queue/ui/queue_sidebar_track_entry.ui:105
+msgid "Remove Track From Queue"
+msgstr "Nummer verwijderen uit wachtrij"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:47
+msgid "time remaining"
+msgstr "resterende tijd"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:70
+msgid "Clear Queue"
+msgstr "Wachtrij wissen"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:90
+msgid "Edit Queue"
+msgstr "Wachtrij bewerken"
+
+#: src/views/pages/queue/ui/queue_sidebar.ui:98
+msgid "Save"
+msgstr "Opslaan"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:711
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:442
+msgid "Edit Playlist"
+msgstr "Afspeellijst bewerken"
+
+#: src/views/pages/playlists/playlist_detail_page.rs:723
+msgid "Finish Edit Playlist"
+msgstr "Bewerken afronden"
+
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:59
+msgid "Sort Playlist Grid"
+msgstr "Afspeellijstrooster sorteren"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:183
+#: src/views/pages/tracks/ui/track_page_row.ui:165
+msgid "Add Track to Queue"
+msgstr "Nummer toevoegen aan wachtrij"
+
+#: src/views/pages/playlists/ui/playlist_detail_row.ui:208
+msgid "Remove Track From Playlist"
+msgstr "Nummer verwijderen van afspeellijst"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:408
+msgid "Delete Playlist"
+msgstr "Afspeellijst verwijderen"
+
+#: src/views/pages/playlists/ui/playlist_detail_page.ui:425
+msgid "Duplicate Playlist"
+msgstr "Afspeellijst klonen"
+
+#: src/views/pages/tracks/ui/track_page.ui:31
+msgid "Scroll to Top"
+msgstr "Naar bovenkant schuiven"
+
+#: src/views/pages/tracks/ui/track_page.ui:43
+msgid "Scroll to Bottom"
+msgstr "Naar onderkant schuiven"
+
+#: src/views/pages/tracks/ui/track_page.ui:74
+msgid "Title, Album, & Artist"
+msgstr "Titel, album, artiest"
+
+#: src/views/pages/tracks/ui/track_page.ui:75
+msgid "Track Title"
+msgstr "Nummernaam"
+
+#: src/views/pages/tracks/ui/track_page.ui:76
+#: src/views/pages/albums/ui/album_grid_page.ui:39
+msgid "Album Title"
+msgstr "Albumnaam"
+
+#: src/views/pages/tracks/ui/track_page.ui:77
+#: src/views/pages/albums/ui/album_grid_page.ui:40
+msgid "Artist"
+msgstr "Artiest"
+
+#: src/views/pages/tracks/ui/track_page.ui:78
+#: src/views/pages/albums/ui/album_grid_page.ui:41
+msgid "Genre"
+msgstr "Genre"
+
+#: src/views/pages/tracks/ui/track_page.ui:79
+#: src/views/pages/albums/ui/album_grid_page.ui:42
+msgid "Release Date"
+msgstr "Uitgavedatum"
+
+#: src/views/pages/tracks/ui/track_page.ui:131
+msgid "Sort Track List"
+msgstr "Nummerlijst sorteren"
+
+#: src/views/pages/artists/ui/artist_grid_page.ui:62
+msgid "Sort Artist Grid"
+msgstr "Artiestenrooster sorteren"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:97
+msgid "Play all Artist Albums"
+msgstr "Alle albums afspelen"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:109
+msgid "Add all Artist Albums to Queue"
+msgstr "Alle albums toevoegen aan wachtrij"
+
+#: src/views/pages/artists/ui/artist_detail_page.ui:162
+msgid "Sort Artist Albums"
+msgstr "Albums sorteren"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:33
+msgid "Close Album Sidebar"
+msgstr "Albumzijbalk verbergen"
+
+#: src/views/pages/albums/ui/album_sidebar.ui:135
+#: src/views/pages/albums/ui/album_sidebar.ui:289
+msgid "View Album Page"
+msgstr "Albumpagina bekijken"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:38
+msgid "Title & Artist"
+msgstr "Titel, artiest"
+
+#: src/views/pages/albums/ui/album_grid_page.ui:104
+msgid "Sort Album Grid"
+msgstr "Albumrooster sorteren"
+
+#: src/views/pages/genres/ui/genre_grid_page.ui:133
+msgid "Sort Genre Grid"
+msgstr "Genrerooster sorteren"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:95
+msgid "Play all Genre Albums"
+msgstr "Alle albums afspelen"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:107
+msgid "Add all Genre Albums to Queue"
+msgstr "Alle albums toevoegen aan wachtrij"
+
+#: src/views/pages/genres/ui/genre_detail_page.ui:162
+msgid "Sort Genre Albums"
+msgstr "Albums sorteren"
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:3
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:6
+msgid "Resonance"
+msgstr "Resonance"
+
+#: data/io.github.nate_xyz.Resonance.desktop.in:4
+msgid "Music Player"
+msgstr "Muziekspeler"
+
+#. Translators: Search terms to find this application. Do not translate or localize the semicolons! The list must also end with a semicolon.
+#: data/io.github.nate_xyz.Resonance.desktop.in:11
+msgid "music;sound;player;media;audio;playlist;"
+msgstr "muziek;geluid;speler;media;audio;afspeellijst;playlist;"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:7
+msgid "Harmonize your listening experience"
+msgstr "Geniet van alle harmonieën"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:8
+msgid "nate-xyz"
+msgstr "nate-xyz"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:10
+msgid ""
+"Resonance is an intuitive music player application written in Rust and "
+"Python, with a clean user interface built using the GTK4 / Libadwaita "
+"framework. Resonance lets you effortlessly manage and play your music "
+"collection, with support for all the common music file formats."
+msgstr ""
+"Resonance is een intuïtieve muziekspeler, gemaakt met Rust en Python. De "
+"vormgeving is eenvoudig van opzet, met dank aan het GTK4-/Libadwaita-"
+"framework. Met Resonance kunt u uw muziekverzameling moeiteloos beheren en "
+"afspelen. Alle gangbare muziekformaten worden ondersteund."
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:11
+msgid "Features:"
+msgstr "Kenmerken:"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:13
+msgid "UI updates to reflect currently playing track's cover art colors"
+msgstr "De toepassing past zich aan aan de kleuren van de huidige nummerhoes"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:14
+msgid "Playlist creation and modification"
+msgstr "Maak en bewerk afspeellijsten"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:15
+msgid "Control the player through MPRIS"
+msgstr "Bedien de speler met behulp van MPRIS"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:16
+msgid "Discord Rich Presence integration"
+msgstr "Discord-aanwezigheid"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:17
+msgid "Last.fm scrobbling"
+msgstr "Last.fm-scrobbelen"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:18
+msgid "Import tags with the Mutagen library"
+msgstr "Importeer tags met behulp van de Mutagen-bibliotheek"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:19
+msgid ""
+"No tag editing (intentionally out of scope to keep Resonance a music player "
+"only)"
+msgstr "Tags kunnen niet worden bewerkt (Resonance is alléén een muziekspeler)"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:21
+msgid ""
+"⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE "
+"OPEN ISSUES) ⚠️"
+msgstr ""
+"⚠️ RESONANCE IS VROEGTIJDIG UITGEBRACHTE ALFASOFTWARE (BUGS ZIJN AANWEZIG - "
+"MELD DEZE) ⚠️"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:35
+msgid "MPRIS bugfix"
+msgstr "Opgelost: bug omtrent MPRIS"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:36
+msgid "Dark mode by default"
+msgstr "Nieuw: standaard wordt het donkere thema gebruikt"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:37
+msgid "Various UI improvements"
+msgstr "Verbeterd: vormgeving"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:44
+msgid "Add Last.fm support"
+msgstr "Nieuw: Last.fm-ondersteuning"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:51
+msgid "Use album cover art if track cover art empty"
+msgstr "Nieuw: de albumhoes wordt gebruikt als er geen nummerhoes is"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:52
+msgid "URI encoding for player pipeline bugfix"
+msgstr "Opgelost: bug omtrent uri-encodering"
+
+#: data/io.github.nate_xyz.Resonance.appdata.xml.in:53
+msgid "UI improvements"
+msgstr "Verbeterd: vormgeving"
