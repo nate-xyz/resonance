@@ -661,7 +661,7 @@ msgstr ""
 "Si encuentras un error o quieres solicitar una funcionalidad, por favor envía un mensaje "
 "en el repositorio de Github:\n"
 "<a href=\"https://github.com/nate-xyz/resonance/issues\">github.com/nate-xyz/"
-"resonance/issues</a>
+"resonance/issues</a>"
 
 #: src/views/dialog/ui/remove_directory_dialog.ui:6
 msgid "Remove Music Folder?"
