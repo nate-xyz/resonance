@@ -145,7 +145,10 @@ impl Importer {
                 }
                 Ok(())
             });
-            from_python.unwrap();
+            match from_python {
+                Ok(_) => debug!("done extracting folder"),
+                Err(e) => error!("Failed to extract tags from music files: {e}"),
+            }
         });
     }
 
