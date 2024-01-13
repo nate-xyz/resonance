@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.nate_xyz.Resonance\n"
 "Report-Msgid-Bugs-To: https://github.com/nate-xyz/resonance\n"
-"POT-Creation-Date: 2023-04-12 11:49-0400\n"
-"PO-Revision-Date: 2023-04-29 04:23+0300\n"
+"POT-Creation-Date: 2023-10-08 11:16+0300\n"
+"PO-Revision-Date: 2023-10-08 11:17+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
 #. One name per line, please do not remove previous names.
@@ -163,41 +163,45 @@ msgstr "Olmayan çalma listesine parça(lar) eklenmeye çalışıldı."
 msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
 msgstr "<span foreground={ERROR_RED}>Hata!</span> {error_msg}"
 
-#: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
+#: src/importer.rs:104
+msgid "Extracting tags from music files."
+msgstr "Müzik dosyalarından etiketler çıkarılıyor."
+
+#: src/views/control_bar.rs:296 src/views/pages/queue/queue_page.rs:249
 msgid "Pause"
 msgstr "Duraklat"
 
-#: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328
-#: src/views/pages/queue/queue_page.rs:247
+#: src/views/control_bar.rs:300 src/views/ui/control_bar.ui:328
+#: src/views/pages/queue/queue_page.rs:253
 #: src/views/pages/queue/ui/queue_page.ui:167
 msgid "Play"
 msgstr "Çal"
 
-#: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
+#: src/views/control_bar.rs:488 src/views/pages/queue/queue_page.rs:404
 msgid "Toggle Play Pause"
 msgstr "Çal/Duraklat"
 
-#: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
+#: src/views/control_bar.rs:492 src/views/pages/queue/queue_page.rs:408
 msgid "Previous"
 msgstr "Önceki"
 
-#: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
+#: src/views/control_bar.rs:496 src/views/pages/queue/queue_page.rs:412
 msgid "Next"
 msgstr "Sonraki"
 
-#: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
+#: src/views/control_bar.rs:500 src/views/pages/queue/queue_page.rs:416
 msgid "End Queue"
 msgstr "Kuyruğu Sonlandır"
 
-#: src/views/control_bar.rs:521 src/views/ui/preferences_window.ui:446
+#: src/views/control_bar.rs:504 src/views/ui/preferences_window.ui:446
 msgid "Playback"
 msgstr "Oynatma"
 
-#: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
+#: src/views/control_bar.rs:508 src/views/ui/control_bar.ui:505
 msgid "Go to Queue"
 msgstr "Kuyruğa Git"
 
-#: src/views/control_bar.rs:530
+#: src/views/control_bar.rs:512
 msgid "Navigate"
 msgstr "Gezin"
 
@@ -234,11 +238,11 @@ msgstr "<span weight=\"ultralight\">Disk {disc_number}</span>"
 msgid "1 track"
 msgstr "1 parça"
 
-#: src/views/preferences_window.rs:430 src/views/window.rs:299
+#: src/views/preferences_window.rs:437 src/views/window.rs:299
 msgid "_Add Music"
 msgstr "Müzik _Ekle"
 
-#: src/views/preferences_window.rs:431 src/views/window.rs:300
+#: src/views/preferences_window.rs:438 src/views/window.rs:300
 #: src/views/dialog/ui/remove_directory_dialog.ui:25
 #: src/views/dialog/ui/delete_playlist_dialog.ui:11
 #: src/views/dialog/ui/duplicate_playlist_dialog.ui:11
@@ -249,7 +253,7 @@ msgstr "Müzik _Ekle"
 msgid "_Cancel"
 msgstr "İptal _Et"
 
-#: src/views/preferences_window.rs:433 src/views/window.rs:302
+#: src/views/preferences_window.rs:440 src/views/window.rs:302
 msgid "Select Music Library"
 msgstr "Müzik Kütüphanesi Seç"
 
@@ -269,11 +273,11 @@ msgstr "Resonanceʼa Hoşgeldiniz"
 msgid "Add your music library to get started!"
 msgstr "Başlamak için müzik kitaplığınızı ekleyin!"
 
-#: src/views/track_entry.rs:109
+#: src/views/track_entry.rs:151
 msgid "Play {track_title}"
 msgstr "{track_title} parçasını çal"
 
-#: src/views/track_entry.rs:110
+#: src/views/track_entry.rs:152
 msgid "Add {track_title} to Playlist"
 msgstr "{track_title} Parçasını Çalma Listesine Ekle"
 
@@ -358,7 +362,7 @@ msgstr "Tüm"
 #: src/views/ui/preferences_window.ui:276
 #: src/views/ui/preferences_window.ui:331
 #: src/views/ui/preferences_window.ui:459
-#: src/views/ui/preferences_window.ui:550
+#: src/views/ui/preferences_window.ui:570
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -386,10 +390,10 @@ msgstr "Öntanımlı sıralama"
 #: src/views/ui/preferences_window.ui:181
 #: src/views/ui/preferences_window.ui:308
 #: src/views/ui/preferences_window.ui:363
-#: src/views/pages/tracks/ui/track_page.ui:139
-#: src/views/pages/artists/ui/artist_detail_page.ui:164
-#: src/views/pages/albums/ui/album_grid_page.ui:106
-#: src/views/pages/genres/ui/genre_detail_page.ui:164
+#: src/views/pages/tracks/ui/track_page.ui:194
+#: src/views/pages/artists/ui/artist_detail_page.ui:171
+#: src/views/pages/albums/ui/album_grid_page.ui:113
+#: src/views/pages/genres/ui/genre_detail_page.ui:169
 msgid "Sort by Album Title"
 msgstr "Albüm Başlığına Göre Sırala"
 
@@ -397,17 +401,17 @@ msgstr "Albüm Başlığına Göre Sırala"
 #: src/views/ui/preferences_window.ui:182
 #: src/views/ui/preferences_window.ui:288
 #: src/views/ui/preferences_window.ui:364
-#: src/views/pages/tracks/ui/track_page.ui:145
-#: src/views/pages/artists/ui/artist_grid_page.ui:64
-#: src/views/pages/albums/ui/album_grid_page.ui:111
-#: src/views/pages/genres/ui/genre_detail_page.ui:169
+#: src/views/pages/tracks/ui/track_page.ui:200
+#: src/views/pages/artists/ui/artist_grid_page.ui:71
+#: src/views/pages/albums/ui/album_grid_page.ui:118
+#: src/views/pages/genres/ui/genre_detail_page.ui:174
 msgid "Sort by Artist Name"
 msgstr "Sanatçı Adına Göre Sırala"
 
 #: src/views/ui/preferences_window.ui:105
 #: src/views/ui/preferences_window.ui:184
-#: src/views/pages/tracks/ui/track_page.ui:151
-#: src/views/pages/albums/ui/album_grid_page.ui:116
+#: src/views/pages/tracks/ui/track_page.ui:206
+#: src/views/pages/albums/ui/album_grid_page.ui:123
 msgid "Sort by Genre"
 msgstr "Türe Göre Sırala"
 
@@ -415,19 +419,19 @@ msgstr "Türe Göre Sırala"
 #: src/views/ui/preferences_window.ui:183
 #: src/views/ui/preferences_window.ui:309
 #: src/views/ui/preferences_window.ui:365
-#: src/views/pages/tracks/ui/track_page.ui:157
-#: src/views/pages/artists/ui/artist_detail_page.ui:170
-#: src/views/pages/albums/ui/album_grid_page.ui:121
-#: src/views/pages/genres/ui/genre_detail_page.ui:174
+#: src/views/pages/tracks/ui/track_page.ui:212
+#: src/views/pages/artists/ui/artist_detail_page.ui:177
+#: src/views/pages/albums/ui/album_grid_page.ui:128
+#: src/views/pages/genres/ui/genre_detail_page.ui:179
 msgid "Sort by Release Date"
 msgstr "Yayınlanma Tarihine Göre Sırala"
 
 #: src/views/ui/preferences_window.ui:107
 #: src/views/ui/preferences_window.ui:310
 #: src/views/ui/preferences_window.ui:366
-#: src/views/pages/artists/ui/artist_detail_page.ui:176
-#: src/views/pages/albums/ui/album_grid_page.ui:126
-#: src/views/pages/genres/ui/genre_detail_page.ui:179
+#: src/views/pages/artists/ui/artist_detail_page.ui:183
+#: src/views/pages/albums/ui/album_grid_page.ui:133
+#: src/views/pages/genres/ui/genre_detail_page.ui:184
 msgid "Sort by Total Duration"
 msgstr "Toplam Süreye Göre Sırala"
 
@@ -437,12 +441,12 @@ msgstr "Toplam Süreye Göre Sırala"
 #: src/views/ui/preferences_window.ui:311
 #: src/views/ui/preferences_window.ui:345
 #: src/views/ui/preferences_window.ui:367
-#: src/views/pages/playlists/ui/playlist_grid_page.ui:76
-#: src/views/pages/artists/ui/artist_grid_page.ui:74
-#: src/views/pages/artists/ui/artist_detail_page.ui:182
-#: src/views/pages/albums/ui/album_grid_page.ui:131
-#: src/views/pages/genres/ui/genre_grid_page.ui:145
-#: src/views/pages/genres/ui/genre_detail_page.ui:184
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:83
+#: src/views/pages/artists/ui/artist_grid_page.ui:81
+#: src/views/pages/artists/ui/artist_detail_page.ui:189
+#: src/views/pages/albums/ui/album_grid_page.ui:138
+#: src/views/pages/genres/ui/genre_grid_page.ui:151
+#: src/views/pages/genres/ui/genre_detail_page.ui:189
 msgid "Sort by Track Count"
 msgstr "Parça Sayısına Göre Sırala"
 
@@ -471,7 +475,7 @@ msgid "Track Page"
 msgstr "Parça Sayfası"
 
 #: src/views/ui/preferences_window.ui:180
-#: src/views/pages/tracks/ui/track_page.ui:133
+#: src/views/pages/tracks/ui/track_page.ui:188
 msgid "Sort by Track Title"
 msgstr "Parça Başlığına Göre Sırala"
 
@@ -499,18 +503,18 @@ msgid "Playlist Grid Default Sort"
 msgstr "Çalma Listesi Izgarası Öntanımlı Sıralama"
 
 #: src/views/ui/preferences_window.ui:253
-#: src/views/pages/playlists/ui/playlist_grid_page.ui:61
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:68
 msgid "Sort by Playlist Title"
 msgstr "Çalma Listesi Başlığına Göre Sırala"
 
 #: src/views/ui/preferences_window.ui:254
-#: src/views/pages/playlists/ui/playlist_grid_page.ui:66
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:73
 msgid "Sort by Last Modified"
 msgstr "Son Değiştirme Tarihine Göre Sırala"
 
 #: src/views/ui/preferences_window.ui:255
-#: src/views/pages/playlists/ui/playlist_grid_page.ui:71
-#: src/views/pages/tracks/ui/track_page.ui:163
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:78
+#: src/views/pages/tracks/ui/track_page.ui:218
 msgid "Sort by Duration"
 msgstr "Süreye Göre Sırala"
 
@@ -524,8 +528,8 @@ msgstr "Sanatçı Izgarazı Öntanımlı Sıralama"
 
 #: src/views/ui/preferences_window.ui:289
 #: src/views/ui/preferences_window.ui:344
-#: src/views/pages/artists/ui/artist_grid_page.ui:69
-#: src/views/pages/genres/ui/genre_grid_page.ui:140
+#: src/views/pages/artists/ui/artist_grid_page.ui:76
+#: src/views/pages/genres/ui/genre_grid_page.ui:146
 msgid "Sort by Album Count"
 msgstr "Albüm Sayısına Göre Sırala"
 
@@ -542,7 +546,7 @@ msgid "Genre Grid Default Sort"
 msgstr "Türler Izgarası Öntanımlı Sıralama"
 
 #: src/views/ui/preferences_window.ui:343
-#: src/views/pages/genres/ui/genre_grid_page.ui:135
+#: src/views/pages/genres/ui/genre_grid_page.ui:141
 msgid "Sort by Genre Name"
 msgstr "Tür Adına Göre Sırala"
 
@@ -558,11 +562,11 @@ msgstr "Oynatma Ayarları"
 msgid "Default Volume"
 msgstr "Öntanımlı ses"
 
-#: src/views/ui/preferences_window.ui:484
+#: src/views/ui/preferences_window.ui:485
 msgid "Shuffle Mode Loops at End"
 msgstr "Sonunda Karıştırma Kipi Döngüleri"
 
-#: src/views/ui/preferences_window.ui:485
+#: src/views/ui/preferences_window.ui:486
 msgid ""
 "If disabled, shuffle mode will end after last song, like the normal playback "
 "mode"
@@ -570,45 +574,59 @@ msgstr ""
 "Devre dışı bırakılırsa, karıştırma kipi, normal çalma kipinde olduğu gibi "
 "son şarkıdan sonra sona erer"
 
+#: src/views/ui/preferences_window.ui:503
+msgid "Album from Track"
+msgstr "Parçadan Albüm"
+
 #: src/views/ui/preferences_window.ui:504
+msgid ""
+"If enabled, playing a track within the album sidebar, detail, or card UI "
+"will play or add the album from the selected track. Otherwise, only the "
+"selected track will be played."
+msgstr ""
+"Etkinleştirilirse, albüm kenar çubuğu, ayrıntı veya kart kullanıcı "
+"arayüzünde bir parçayı çalmak, albümü seçilen parçadan çalar veya ekler. "
+"Aksi takdirde, yalnızca seçili parça çalınır."
+
+#: src/views/ui/preferences_window.ui:524
 msgid "Last.fm"
 msgstr "Last.fm"
 
-#: src/views/ui/preferences_window.ui:508
+#: src/views/ui/preferences_window.ui:528
 msgid "Last.fm Enabled"
 msgstr "Last.fm Etkinleştirildi"
 
-#: src/views/ui/preferences_window.ui:525
+#: src/views/ui/preferences_window.ui:545
 msgid "Threshold for Scrobble"
 msgstr "Scrobble Eşiği"
 
-#: src/views/ui/preferences_window.ui:526
+#: src/views/ui/preferences_window.ui:546
 msgid "The percentage of the song that must play before scrobbled"
 msgstr "Scrobbled öncesi çalması gereken şarkı yüzdesi"
 
-#: src/views/ui/preferences_window.ui:545
+#: src/views/ui/preferences_window.ui:565
 msgid "Discord"
 msgstr "Discord"
 
-#: src/views/ui/preferences_window.ui:557
+#: src/views/ui/preferences_window.ui:577
 msgid "Discord Rich Presence Enabled"
 msgstr "Discord Zengin Varlık Etkinleştirildi"
 
-#: src/views/ui/preferences_window.ui:582
+#: src/views/ui/preferences_window.ui:602
 msgid "Folder(s)"
 msgstr "Klasör(ler)"
 
-#: src/views/ui/preferences_window.ui:596
+#: src/views/ui/preferences_window.ui:616
 msgid "Add Folder"
 msgstr "Klasör Ekle"
 
-#: src/views/ui/preferences_window.ui:611
+#: src/views/ui/preferences_window.ui:631
 msgid "Add Music Directory"
 msgstr "Müzik Dizini Ekle"
 
-#: src/views/ui/preferences_window.ui:626
-#: data/io.github.nate_xyz.Resonance.gschema.xml:6
-#: data/io.github.nate_xyz.Resonance.gschema.xml:7
+#: src/views/ui/preferences_window.ui:646
+#: data/io.github.nate_xyz.Resonance.gschema.xml:18
+#: data/io.github.nate_xyz.Resonance.gschema.xml:19
 msgid "Music Folders"
 msgstr "Müzik Klasörü"
 
@@ -834,7 +852,7 @@ msgstr "Çalma Listesini Düzenle"
 msgid "Finish Edit Playlist"
 msgstr "Çalma Listesini Düzenlemeyi Bitir"
 
-#: src/views/pages/playlists/ui/playlist_grid_page.ui:59
+#: src/views/pages/playlists/ui/playlist_grid_page.ui:66
 msgid "Sort Playlist Grid"
 msgstr "Çalma Listesi Izgarasını Sırala"
 
@@ -863,39 +881,49 @@ msgstr "Üste Kaydır"
 msgid "Scroll to Bottom"
 msgstr "En Alta Kaydır"
 
-#: src/views/pages/tracks/ui/track_page.ui:74
+#: src/views/pages/tracks/ui/track_page.ui:82
 msgid "Title, Album, & Artist"
 msgstr "Başlık, Albüm ve Sanatçı"
 
-#: src/views/pages/tracks/ui/track_page.ui:75
+#: src/views/pages/tracks/ui/track_page.ui:83
 msgid "Track Title"
 msgstr "Parça Başlığı"
 
-#: src/views/pages/tracks/ui/track_page.ui:76
+#: src/views/pages/tracks/ui/track_page.ui:84
 #: src/views/pages/albums/ui/album_grid_page.ui:39
 msgid "Album Title"
 msgstr "Albüm Başlığı"
 
-#: src/views/pages/tracks/ui/track_page.ui:77
+#: src/views/pages/tracks/ui/track_page.ui:85
 #: src/views/pages/albums/ui/album_grid_page.ui:40
 msgid "Artist"
 msgstr "Sanatçı"
 
-#: src/views/pages/tracks/ui/track_page.ui:78
+#: src/views/pages/tracks/ui/track_page.ui:86
 #: src/views/pages/albums/ui/album_grid_page.ui:41
 msgid "Genre"
 msgstr "Tür"
 
-#: src/views/pages/tracks/ui/track_page.ui:79
+#: src/views/pages/tracks/ui/track_page.ui:87
 #: src/views/pages/albums/ui/album_grid_page.ui:42
 msgid "Release Date"
 msgstr "Yayınlanma Tarihi"
 
-#: src/views/pages/tracks/ui/track_page.ui:131
+#: src/views/pages/tracks/ui/track_page.ui:119
+#: src/views/pages/tracks/ui/track_page.ui:122
+msgid "Play All"
+msgstr "Tümünü Çal"
+
+#: src/views/pages/tracks/ui/track_page.ui:136
+#: src/views/pages/tracks/ui/track_page.ui:139
+msgid "Shuffle All"
+msgstr "Tümünü Karıştır"
+
+#: src/views/pages/tracks/ui/track_page.ui:186
 msgid "Sort Track List"
 msgstr "Parça Listesini Sırala"
 
-#: src/views/pages/artists/ui/artist_grid_page.ui:62
+#: src/views/pages/artists/ui/artist_grid_page.ui:69
 msgid "Sort Artist Grid"
 msgstr "Sanatçı Izgarasını Sırala"
 
@@ -907,7 +935,7 @@ msgstr "Tüm Sanatçı ALbümlerini Çal"
 msgid "Add all Artist Albums to Queue"
 msgstr "Tüm Sanatçı Albümlerini Kuyruğa Ekle"
 
-#: src/views/pages/artists/ui/artist_detail_page.ui:162
+#: src/views/pages/artists/ui/artist_detail_page.ui:169
 msgid "Sort Artist Albums"
 msgstr "Sanatçı Albümlerini Sırala"
 
@@ -924,11 +952,11 @@ msgstr "Albüm Sayfasını Görüntüle"
 msgid "Title & Artist"
 msgstr "Başlık ve Sanatçı"
 
-#: src/views/pages/albums/ui/album_grid_page.ui:104
+#: src/views/pages/albums/ui/album_grid_page.ui:111
 msgid "Sort Album Grid"
 msgstr "Albüm Izgarasını Sırala"
 
-#: src/views/pages/genres/ui/genre_grid_page.ui:133
+#: src/views/pages/genres/ui/genre_grid_page.ui:139
 msgid "Sort Genre Grid"
 msgstr "Tür Izgarasını Sırala"
 
@@ -940,7 +968,7 @@ msgstr "Tüm Tür Albümlerini Çal"
 msgid "Add all Genre Albums to Queue"
 msgstr "Tüm Tür Albümlerini Kuyruğa Ekle"
 
-#: src/views/pages/genres/ui/genre_detail_page.ui:162
+#: src/views/pages/genres/ui/genre_detail_page.ui:167
 msgid "Sort Genre Albums"
 msgstr "Tür Albümlerini Sırala"
 
