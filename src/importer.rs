@@ -16,6 +16,7 @@ use chrono::{DateTime, Utc};
 use regex::Regex;
 
 use super::database::DatabaseAction;
+use super::i18n::{i18n};
 use super::util;
 use std::time::{Duration, Instant};
 
@@ -101,7 +102,7 @@ impl Importer {
                 let window = util::window();
 
                 if let Some(w) = window {
-                    w.set_import_message("Extracting tags from music files.");
+                    w.set_import_message(&i18n("Extracting tags from music files."));
                 
                     let code_main = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/src/python/main.py"));
                     let code_extracting = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/src/python/extracting.py"));
