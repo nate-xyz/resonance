@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>io.github.nate_xyz.Resonance.desktop</id>
+	<id>io.github.nate_xyz.Resonance</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 	<name>Resonance</name>
 	<summary>Harmonize your listening experience</summary>
-	<developer_name>nate-xyz</developer_name>
+	<developer_name translatable="no">nate-xyz</developer_name>
 	<description>
 	  <p>Resonance is an intuitive music player application written in Rust and Python, with a clean user interface built using the GTK4 / Libadwaita framework. Resonance lets you effortlessly manage and play your music collection, with support for all the common music file formats.</p>
     <p>Features:</p>
@@ -21,16 +21,21 @@
     <p>⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE OPEN ISSUES) ⚠️</p>
 
   </description>
-	<provides>io.github.nate_xyz.Resonance.desktop</provides>
+  <provides>
+    <id>io.github.nate_xyz.Resonance.desktop</id>
+  </provides>
   <launchable type="desktop-id">io.github.nate_xyz.Resonance.desktop</launchable>
+  <translation type="gettext">resonance</translation>
 
-	<url type="homepage">https://github.com/nate-xyz/resonance</url>
+  <url type="homepage">https://github.com/nate-xyz/resonance</url>
   <url type="bugtracker">https://github.com/nate-xyz/resonance/issues</url>
+  <url type="vcs-browser">https://github.com/nate-xyz/resonance</url>
+  <url type="translate">https://github.com/nate-xyz/resonance</url>
   <url type="donation">https://ko-fi.com/natexyz</url>
 
 	<releases>
     <release version="0.1.3" date="2023-04-09">
-      <description>
+      <description translatable="no">
         <ul>
           <li>MPRIS bugfix</li>
           <li>Dark mode by default</li>
@@ -39,14 +44,14 @@
       </description>
     </release>
     <release version="0.1.2" date="2023-04-06">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Add Last.fm support</li>
         </ul>
       </description>
     </release>
     <release version="0.1.1" date="2023-04-04">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Use album cover art if track cover art empty</li>
           <li>URI encoding for player pipeline bugfix</li>
@@ -57,20 +62,11 @@
     <release version="0.1.0" date="2023-03-30"/>
   </releases>
 
-	<translation type="gettext">resonance</translation>
   <kudos>
     <kudo>ModernToolkit</kudo>
     <kudo>HiDpiIcon</kudo>
   </kudos>
-  <custom>
-    <value key="Purism::form_factor">workstation</value>
-  </custom>
   <content_rating type="oars-1.1"/>
-
-	<categories>
-    <category>Audio</category>
-		<category>Music</category>
-  </categories>
 
 	<screenshots>
     <screenshot>
