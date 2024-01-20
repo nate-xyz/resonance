@@ -187,16 +187,16 @@ msgstr "Přehrávání"
 
 #: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
 msgid "Go to Queue"
-msgstr ""
+msgstr "Přejít do fronty"
 
 #: src/views/control_bar.rs:530
 msgid "Navigate"
-msgstr ""
+msgstr "Navigace na"
 
 #: src/views/generic_flowbox_child.rs:154
 #: src/views/generic_flowbox_child.rs:186
 msgid "{number_of_albums} albums"
-msgstr ""
+msgstr "{number_of_albums} alb"
 
 #: src/views/generic_flowbox_child.rs:155
 #: src/views/generic_flowbox_child.rs:187 src/views/album_card.rs:297
@@ -205,30 +205,30 @@ msgstr ""
 #: src/views/pages/albums/album_grid_child.rs:260
 #: src/views/pages/albums/album_detail_page.rs:307
 msgid "{number_of_tracks} tracks"
-msgstr ""
+msgstr "{number_of_tracks} skladeb"
 
 #: src/views/disc_button.rs:67
 msgid "{album_title}, Disc {disc_number}"
-msgstr ""
+msgstr "{album_title}, Disk {disc_number}"
 
 #: src/views/disc_button.rs:92
 msgid "Play Disc {disc_number} of {album_title}"
-msgstr ""
+msgstr "Přehrát disk {disc_number} z {album_title}"
 
 #. Translators: only replace "Disc "
 #: src/views/disc_button.rs:98
 msgid "<span weight=\"ultralight\">Disc {disc_number}</span>"
-msgstr ""
+msgstr "<span weight=\"ultralight\">Disc {disc_number}</span>"
 
 #: src/views/album_card.rs:295
 #: src/views/pages/playlists/playlist_detail_page.rs:593
 #: src/views/pages/albums/album_detail_page.rs:305
 msgid "1 track"
-msgstr ""
+msgstr "1 skladba"
 
 #: src/views/preferences_window.rs:430 src/views/window.rs:299
 msgid "_Add Music"
-msgstr ""
+msgstr "_Přidat hudbu"
 
 #: src/views/preferences_window.rs:431 src/views/window.rs:300
 #: src/views/dialog/ui/remove_directory_dialog.ui:25
@@ -239,84 +239,84 @@ msgstr ""
 #: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:10
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:11
 msgid "_Cancel"
-msgstr ""
+msgstr "_Zrušit"
 
 #: src/views/preferences_window.rs:433 src/views/window.rs:302
 msgid "Select Music Library"
-msgstr ""
+msgstr "Vybrat hudební knihovnu"
 
 #: src/views/window.rs:321
 msgid "Unable to add music folder, not a valid directory."
-msgstr ""
+msgstr "Nelze přidat složku s hudbou, není to platný adresář."
 
 #: src/views/window.rs:330
 msgid "Importing Music Folder..."
-msgstr ""
+msgstr "Import složky s hudbou..."
 
 #: src/views/window.rs:369 src/views/ui/window.ui:94
 msgid "Welcome to Resonance"
-msgstr ""
+msgstr "Vítejte v Resonance"
 
 #: src/views/window.rs:370 src/views/ui/window.ui:95
 msgid "Add your music library to get started!"
-msgstr ""
+msgstr "Přidejte svou hudební knihovnu a začněte!"
 
 #: src/views/track_entry.rs:109
 msgid "Play {track_title}"
-msgstr ""
+msgstr "Přehrávání {track_title}"
 
 #: src/views/track_entry.rs:110
 msgid "Add {track_title} to Playlist"
-msgstr ""
+msgstr "Přidat {track_title} do seznamu skladeb"
 
 #: src/views/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: src/views/ui/help-overlay.ui:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Zobrazit zkratky"
 
 #: src/views/ui/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: src/views/ui/control_bar.ui:307 src/views/pages/queue/ui/queue_page.ui:149
 msgid "Previous Track"
-msgstr ""
+msgstr "Předchozí skladba"
 
 #: src/views/ui/control_bar.ui:338 src/views/pages/queue/ui/queue_page.ui:179
 msgid "Next Track"
-msgstr ""
+msgstr "Další skladba"
 
 #: src/views/ui/control_bar.ui:452
 msgid "Loop Queue"
-msgstr ""
+msgstr "Smyčka fronty"
 
 #: src/views/ui/control_bar.ui:462 src/views/pages/queue/ui/queue_page.ui:230
 msgid "Loop Current Track"
-msgstr ""
+msgstr "Smyčka aktuální stopy"
 
 #: src/views/ui/control_bar.ui:474
 msgid "Shuffle Queue"
-msgstr ""
+msgstr "Náhodný výběr fronty"
 
 #: src/views/ui/album_card.ui:96
 #: src/views/pages/playlists/ui/playlist_grid_child.ui:56
 #: src/views/pages/albums/ui/album_grid_child.ui:56
 #: src/views/pages/albums/ui/album_sidebar.ui:98
 msgid "Play Album"
-msgstr ""
+msgstr "Přehrát album"
 
 #: src/views/ui/album_card.ui:116
 #: src/views/pages/playlists/ui/playlist_grid_child.ui:76
 #: src/views/pages/albums/ui/album_grid_child.ui:76
 #: src/views/pages/albums/ui/album_sidebar.ui:116
 msgid "Add Album to Queue"
-msgstr ""
+msgstr "Přidat album do fronty"
 
 #: src/views/ui/album_card.ui:227
 #: src/views/pages/playlists/ui/playlist_detail_page.ui:109
@@ -325,7 +325,7 @@ msgstr ""
 #: src/views/pages/albums/ui/album_detail_page.ui:245
 #: src/views/pages/albums/ui/album_sidebar.ui:254
 msgid "Play Playlist"
-msgstr ""
+msgstr "Přehrát seznam skladeb"
 
 #: src/views/ui/album_card.ui:244
 #: src/views/pages/playlists/ui/playlist_detail_page.ui:129
@@ -334,15 +334,15 @@ msgstr ""
 #: src/views/pages/albums/ui/album_detail_page.ui:262
 #: src/views/pages/albums/ui/album_sidebar.ui:271
 msgid "Add Playlist to Queue"
-msgstr ""
+msgstr "Přidání seznamu skladeb do fronty"
 
 #: src/views/ui/preferences_window.ui:13
 msgid "UI"
-msgstr ""
+msgstr "UI"
 
 #: src/views/ui/preferences_window.ui:23
 msgid "All"
-msgstr ""
+msgstr "Vše"
 
 #: src/views/ui/preferences_window.ui:27 src/views/ui/preferences_window.ui:59
 #: src/views/ui/preferences_window.ui:91 src/views/ui/preferences_window.ui:168
@@ -352,27 +352,27 @@ msgstr ""
 #: src/views/ui/preferences_window.ui:459
 #: src/views/ui/preferences_window.ui:550
 msgid "Reset"
-msgstr ""
+msgstr "Obnovení"
 
 #: src/views/ui/preferences_window.ui:33
 msgid "Full Page Back Buttons"
-msgstr ""
+msgstr "Tlačítka pro návrat na celou stránku"
 
 #: src/views/ui/preferences_window.ui:55 src/views/ui/window.ui:313
 msgid "Queue"
-msgstr ""
+msgstr "Fronta"
 
 #: src/views/ui/preferences_window.ui:65
 msgid "Queue Opens By Default"
-msgstr ""
+msgstr "Fronta se otevře ve výchozím nastavení"
 
 #: src/views/ui/preferences_window.ui:87
 msgid "Album Grid Page"
-msgstr ""
+msgstr "Stránka s mřížkou alba"
 
 #: src/views/ui/preferences_window.ui:97 src/views/ui/preferences_window.ui:174
 msgid "Default sort"
-msgstr ""
+msgstr "Výchozí řazení"
 
 #: src/views/ui/preferences_window.ui:103
 #: src/views/ui/preferences_window.ui:181
@@ -383,7 +383,7 @@ msgstr ""
 #: src/views/pages/albums/ui/album_grid_page.ui:106
 #: src/views/pages/genres/ui/genre_detail_page.ui:164
 msgid "Sort by Album Title"
-msgstr ""
+msgstr "Seřadit podle názvu alba"
 
 #: src/views/ui/preferences_window.ui:104
 #: src/views/ui/preferences_window.ui:182
@@ -394,14 +394,14 @@ msgstr ""
 #: src/views/pages/albums/ui/album_grid_page.ui:111
 #: src/views/pages/genres/ui/genre_detail_page.ui:169
 msgid "Sort by Artist Name"
-msgstr ""
+msgstr "Seřadit podle jména umělce"
 
 #: src/views/ui/preferences_window.ui:105
 #: src/views/ui/preferences_window.ui:184
 #: src/views/pages/tracks/ui/track_page.ui:151
 #: src/views/pages/albums/ui/album_grid_page.ui:116
 msgid "Sort by Genre"
-msgstr ""
+msgstr "Třídit podle žánru"
 
 #: src/views/ui/preferences_window.ui:106
 #: src/views/ui/preferences_window.ui:183
@@ -412,7 +412,7 @@ msgstr ""
 #: src/views/pages/albums/ui/album_grid_page.ui:121
 #: src/views/pages/genres/ui/genre_detail_page.ui:174
 msgid "Sort by Release Date"
-msgstr ""
+msgstr "Seřadit podle data vydání"
 
 #: src/views/ui/preferences_window.ui:107
 #: src/views/ui/preferences_window.ui:310
@@ -421,7 +421,7 @@ msgstr ""
 #: src/views/pages/albums/ui/album_grid_page.ui:126
 #: src/views/pages/genres/ui/genre_detail_page.ui:179
 msgid "Sort by Total Duration"
-msgstr ""
+msgstr "Seřadit podle celkové doby trvání"
 
 #: src/views/ui/preferences_window.ui:108
 #: src/views/ui/preferences_window.ui:256
@@ -436,191 +436,194 @@ msgstr ""
 #: src/views/pages/genres/ui/genre_grid_page.ui:145
 #: src/views/pages/genres/ui/genre_detail_page.ui:184
 msgid "Sort by Track Count"
-msgstr ""
+msgstr "Řazení podle počtu stop"
 
 #: src/views/ui/preferences_window.ui:121
 msgid "Display Album Name and Artist Labels by Default"
-msgstr ""
+msgstr "Zobrazení názvu alba a štítků umělců ve výchozím nastavení"
 
 #: src/views/ui/preferences_window.ui:122
 msgid ""
 "If disabled, these labels are only shown when searching on the album grid "
 "page."
-msgstr ""
+msgstr "Pokud jsou tyto štítky vypnuty, zobrazí se pouze při "
+"vyhledávání na stránce mřížky alba."
 
 #: src/views/ui/preferences_window.ui:139
 msgid "Disable Album Flap"
-msgstr ""
+msgstr "Zakázat klapku alba"
 
 #: src/views/ui/preferences_window.ui:140
 msgid "Selecting an album will take you straight to the album detail page."
-msgstr ""
+msgstr "Výběrem alba se dostanete přímo na stránku s podrobnostmi o albu."
 
 #: src/views/ui/preferences_window.ui:164
 msgid "Track Page"
-msgstr ""
+msgstr "Stránka se stopami"
 
 #: src/views/ui/preferences_window.ui:180
 #: src/views/pages/tracks/ui/track_page.ui:133
 msgid "Sort by Track Title"
-msgstr ""
+msgstr "Seřadit podle názvu skladby"
 
 #: src/views/ui/preferences_window.ui:197
 msgid "Search Bar Open by Default"
-msgstr ""
+msgstr "Výchozí otevření vyhledávacího panelu"
 
 #: src/views/ui/preferences_window.ui:214
 msgid "Display Additional Labels by Default"
-msgstr ""
+msgstr "Zobrazení dalších štítků ve výchozím nastavení"
 
 #: src/views/ui/preferences_window.ui:215
 msgid ""
 "If disabled, track entries only display genre and date labels when searching"
 msgstr ""
+"Pokud je vypnuto, zobrazí se při vyhledávání u záznamů stop pouze označení žánru a data."
 
 #: src/views/ui/preferences_window.ui:237 src/views/ui/window.ui:371
 msgid "Playlists"
-msgstr ""
+msgstr "Seznamy skladeb"
 
 #: src/views/ui/preferences_window.ui:247
 msgid "Playlist Grid Default Sort"
-msgstr ""
+msgstr "Výchozí řazení mřížky seznamu skladeb"
 
 #: src/views/ui/preferences_window.ui:253
 #: src/views/pages/playlists/ui/playlist_grid_page.ui:61
 msgid "Sort by Playlist Title"
-msgstr ""
+msgstr "Řazení podle názvu seznamu skladeb"
 
 #: src/views/ui/preferences_window.ui:254
 #: src/views/pages/playlists/ui/playlist_grid_page.ui:66
 msgid "Sort by Last Modified"
-msgstr ""
+msgstr "Seřadit podle poslední změny"
 
 #: src/views/ui/preferences_window.ui:255
 #: src/views/pages/playlists/ui/playlist_grid_page.ui:71
 #: src/views/pages/tracks/ui/track_page.ui:163
 msgid "Sort by Duration"
-msgstr ""
+msgstr "Třídit podle doby trvání"
 
 #: src/views/ui/preferences_window.ui:272 src/views/ui/window.ui:405
 msgid "Artists"
-msgstr ""
+msgstr "Umělci"
 
 #: src/views/ui/preferences_window.ui:282
 msgid "Artist Grid Default Sort"
-msgstr ""
+msgstr "Výchozí třídění mřížky umělců"
 
 #: src/views/ui/preferences_window.ui:289
 #: src/views/ui/preferences_window.ui:344
 #: src/views/pages/artists/ui/artist_grid_page.ui:69
 #: src/views/pages/genres/ui/genre_grid_page.ui:140
 msgid "Sort by Album Count"
-msgstr ""
+msgstr "Seřadit podle počtu alb"
 
 #: src/views/ui/preferences_window.ui:302
 msgid "Artist Detail Default Sort"
-msgstr ""
+msgstr "Výchozí třídění detailů umělce"
 
 #: src/views/ui/preferences_window.ui:327 src/views/ui/window.ui:440
 msgid "Genres"
-msgstr ""
+msgstr "Žánry"
 
 #: src/views/ui/preferences_window.ui:337
 msgid "Genre Grid Default Sort"
-msgstr ""
+msgstr "Výchozí třídění mřížky žánrů"
 
 #: src/views/ui/preferences_window.ui:343
 #: src/views/pages/genres/ui/genre_grid_page.ui:135
 msgid "Sort by Genre Name"
-msgstr ""
+msgstr "Seřadit podle názvu žánru"
 
 #: src/views/ui/preferences_window.ui:357
 msgid "Genre Detail Default Sort"
-msgstr ""
+msgstr "Výchozí třídění detailu žánrů"
 
 #: src/views/ui/preferences_window.ui:455
 msgid "Playback Settings"
-msgstr ""
+msgstr "Nastavení přehrávání"
 
 #: src/views/ui/preferences_window.ui:467
 msgid "Default Volume"
-msgstr ""
+msgstr "Výchozí hlasitost"
 
 #: src/views/ui/preferences_window.ui:484
 msgid "Shuffle Mode Loops at End"
-msgstr ""
+msgstr "Smyčky v režimu náhodného přehrávání na konci"
 
 #: src/views/ui/preferences_window.ui:485
 msgid ""
 "If disabled, shuffle mode will end after last song, like the normal playback "
 "mode"
-msgstr ""
+msgstr "Pokud je režim náhodného přehrávání vypnut, skončí po poslední"
+"skladbě stejně jako v běžném režimu přehrávání"
 
 #: src/views/ui/preferences_window.ui:504
 msgid "Last.fm"
-msgstr ""
+msgstr "Last.fm"
 
 #: src/views/ui/preferences_window.ui:508
 msgid "Last.fm Enabled"
-msgstr ""
+msgstr "Last.fm Zapnuto"
 
 #: src/views/ui/preferences_window.ui:525
 msgid "Threshold for Scrobble"
-msgstr ""
+msgstr "Prahová hodnota pro Scrobble"
 
 #: src/views/ui/preferences_window.ui:526
 msgid "The percentage of the song that must play before scrobbled"
-msgstr ""
+msgstr "Procento skladby, které musí být přehráno před scrobbledem."
 
 #: src/views/ui/preferences_window.ui:545
 msgid "Discord"
-msgstr ""
+msgstr "Discord"
 
 #: src/views/ui/preferences_window.ui:557
 msgid "Discord Rich Presence Enabled"
-msgstr ""
+msgstr "Povolena bohatá přítomnost Discord"
 
 #: src/views/ui/preferences_window.ui:582
 msgid "Folder(s)"
-msgstr ""
+msgstr "Složka (složky)"
 
 #: src/views/ui/preferences_window.ui:596
 msgid "Add Folder"
-msgstr ""
+msgstr "Přidat složku"
 
 #: src/views/ui/preferences_window.ui:611
 msgid "Add Music Directory"
-msgstr ""
+msgstr "Přidat hudební adresář"
 
 #: src/views/ui/preferences_window.ui:626
 #: data/io.github.nate_xyz.Resonance.gschema.xml:6
 #: data/io.github.nate_xyz.Resonance.gschema.xml:7
 msgid "Music Folders"
-msgstr ""
+msgstr "Hudební složky"
 
 #: src/views/ui/window.ui:170
 msgid "Add Music"
-msgstr ""
+msgstr "Přidat hudbu"
 
 #: src/views/ui/window.ui:257
 msgid "Go Back"
-msgstr ""
+msgstr "Vrátit se zpět"
 
 #: src/views/ui/window.ui:268
 msgid "Sort"
-msgstr ""
+msgstr "Třídit"
 
 #: src/views/ui/window.ui:277 src/views/pages/queue/ui/queue_sidebar.ui:109
 msgid "Search"
-msgstr ""
+msgstr "Vyhledávání"
 
 #: src/views/ui/window.ui:325
 msgid "Albums"
-msgstr ""
+msgstr "Alba"
 
 #: src/views/ui/window.ui:358
 msgid "Tracks"
-msgstr ""
+msgstr "Skladby"
 
 #: src/views/ui/window.ui:509
 msgid "_Preferences"
