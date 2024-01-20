@@ -1,7 +1,7 @@
  Balvín# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the resonance package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Petr Balví <petrbalvin@petalmail.com, petrbalvin@yandex.com>, 2024.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-12 11:49-0400\n"
 "PO-Revision-Date: 2024-01-2O HO:MI+ZONE\n"
-"Last-Translator: Petr Balví <petrbalvin@petalmail.com, petrbalvin@yandex.com\n"
+"Last-Translator: Petr Balví <petrbalvin@petalmail.com, petrbalvin@yandex.com>\n"
 "Language-Team: Czech <LL@li.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -24,107 +24,107 @@ msgstr ""
 
 #: src/database.rs:198
 msgid "Added Folder:"
-msgstr ""
+msgstr "Přidána složka:"
 
 #: src/database.rs:202
 msgid "Unable to add music folder."
-msgstr ""
+msgstr "Nelze přidat složku s hudbou."
 
 #. Translators: do not replace {number_of_artists}
 #: src/database.rs:211
 msgid "Added Images!"
-msgstr ""
+msgstr "Přidány obrázky!"
 
 #: src/database.rs:211
 msgid "Added {number_of_artists} Artist Images."
-msgstr ""
+msgstr "Přidáno {number_of_artists} obrázků umělců."
 
 #. Translators: do not replace {playlist_title}
 #: src/database.rs:221
 msgid "Added Playlist!"
-msgstr ""
+msgstr "Přidán seznam skladeb!"
 
 #: src/database.rs:221
 msgid "Playlist «{playlist_title}» has been created!"
-msgstr ""
+msgstr "Seznam skladeb «{playlist_title}» byl vytvořen!"
 
 #: src/database.rs:225
 msgid "Unable to add playlist."
-msgstr ""
+msgstr "Nelze přidat seznam skladeb."
 
 #: src/database.rs:232
 msgid "Duplicated!"
-msgstr ""
+msgstr "Duplikováno!"
 
 #: src/database.rs:232
 msgid "Copied playlist successfully."
-msgstr ""
+msgstr "Seznam skladeb byl úspěšně zkopírován."
 
 #: src/database.rs:236
 msgid "Unable to duplicate playlist."
-msgstr ""
+msgstr "Nelze zkopírovat seznam skladeb."
 
 #. Translators: do not replace {old_title} or {new_title}
 #: src/database.rs:244
 msgid "Renamed!"
-msgstr ""
+msgstr "Přejmenováno!"
 
 #: src/database.rs:244
 msgid "Playlist has been renamed from {old_title} to {new_title}!"
-msgstr ""
+msgstr "Seznam skladeb byl přejmenován ze {old_title} na {new_title}!"
 
 #: src/database.rs:248
 msgid "Unable to rename playlist."
-msgstr ""
+msgstr "Nelze přejmenovat seznam skladeb."
 
 #. Translators: do not replace {removed_directory}
 #: src/database.rs:256
 msgid "Removed:"
-msgstr ""
+msgstr "Odstraněno:"
 
 #: src/database.rs:256
 msgid "{removed_directory} has been removed from the database."
-msgstr ""
+msgstr "{removed_directory} byl odstraněn z databáze."
 
 #: src/database.rs:260
 msgid "Unable to remove directory."
-msgstr ""
+msgstr "Nelze odstranit adresář."
 
 #: src/database.rs:268
 msgid "Deleted."
-msgstr ""
+msgstr "Vymazáno."
 
 #: src/database.rs:268
 msgid "Removed playlist successfully!"
-msgstr ""
+msgstr "Úspěšně odstraněn seznam skladeb!"
 
 #: src/database.rs:272
 msgid "Unable to remove playlist."
-msgstr ""
+msgstr "Nelze odebrat seznam skladeb."
 
 #: src/database.rs:280
 msgid "Modified."
-msgstr ""
+msgstr "Upraveno."
 
 #: src/database.rs:280
 msgid "Changed playlist successfully!"
-msgstr ""
+msgstr "Úspěšně změněn seznam skladeb!"
 
 #: src/database.rs:284
 msgid "Unable to modify playlist."
-msgstr ""
+msgstr "Nelze upravit seznam skladeb."
 
 #: src/database.rs:291
 msgid "Added"
-msgstr ""
+msgstr "Přidáno"
 
 #: src/database.rs:291
 msgid " tracks to {playlist_title}!"
-msgstr ""
+msgstr " skladby do {playlist_title}!"
 
 #: src/database.rs:295
 msgid "Unable to add track to playlist."
-msgstr ""
+msgstr "Nelze přidat skladbu do seznamu skladeb."
 
 #: src/database.rs:302
 msgid "Removed"
