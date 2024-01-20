@@ -627,29 +627,29 @@ msgstr "Skladby"
 
 #: src/views/ui/window.ui:509
 msgid "_Preferences"
-msgstr ""
+msgstr "_Nastavení"
 
 #: src/views/ui/window.ui:517
 msgid "_About Resonance"
-msgstr ""
+msgstr "_O Rsonance"
 
 #. <property name="hexpand">true</property>
 #. <property name="halign">fill</property>
 #: src/views/ui/album_track_entry.ui:29
 msgid "Play Track"
-msgstr ""
+msgstr "Přehrát skladbu"
 
 #: src/views/dialog/rename_playlist_dialog.rs:105
 msgid "Cannot rename playlist, no name entered."
-msgstr ""
+msgstr "Nelze přejmenovat seznam skladeb, není zadán žádný název."
 
 #: src/views/dialog/save_playlist_dialog.rs:110
 msgid "Playlist #{new_playlist_number}"
-msgstr ""
+msgstr "Seznam skladeb #{new_playlist_number}"
 
 #: src/views/dialog/add_tracks_to_playlist_dialog.rs:133
 msgid "Unable to add tracks to playlist, no playlist selected"
-msgstr ""
+msgstr "Nelze přidat skladby do seznamu skladeb, není vybrán žádný seznam skladeb"
 
 #: src/views/dialog/alpha_dialog.rs:70
 msgid ""
@@ -662,100 +662,102 @@ msgstr ""
 
 #: src/views/dialog/ui/remove_directory_dialog.ui:6
 msgid "Remove Music Folder?"
-msgstr ""
+msgstr "Odstranění složky s hudbou?"
 
 #: src/views/dialog/ui/remove_directory_dialog.ui:14
 msgid ""
 "Are you sure you want to remove this music folder from your database? You "
 "will be unable to access the music within the folder unless you add it again."
-msgstr ""
+msgstr "Jste si jisti, že chcete tuto hudební složku z databáze odstranit? "
+"Pokud ji znovu nepřidáte, nebudete mít k hudbě v této složce přístup."
 
 #: src/views/dialog/ui/remove_directory_dialog.ui:26
 msgid "_Remove"
-msgstr ""
+msgstr "_Odebrat"
 
 #: src/views/dialog/ui/delete_playlist_dialog.ui:6
 msgid "Delete Playlist?"
-msgstr ""
+msgstr "Smazat seznam skladeb?"
 
 #: src/views/dialog/ui/delete_playlist_dialog.ui:7
 msgid ""
 "Are you sure you want to permanently delete this playlist? You will be "
 "unable to access it again after deletion."
-msgstr ""
+msgstr "Opravdu chcete tento seznam skladeb trvale odstranit? "
+"po smazání k němu nebude možné znovu přistupovat."
 
 #: src/views/dialog/ui/delete_playlist_dialog.ui:12
 msgid "_Delete"
-msgstr ""
+msgstr "_Smazat"
 
 #: src/views/dialog/ui/duplicate_playlist_dialog.ui:6
 msgid "Confirm Duplication"
-msgstr ""
+msgstr "Potvrzení duplikace"
 
 #: src/views/dialog/ui/duplicate_playlist_dialog.ui:7
 msgid "Are you sure you want to duplicate this playlist?"
-msgstr ""
+msgstr "Opravdu chcete tento seznam skladeb duplikovat?"
 
 #: src/views/dialog/ui/duplicate_playlist_dialog.ui:12
 msgid "_Duplicate"
-msgstr ""
+msgstr "_Duplikovat"
 
 #: src/views/dialog/ui/rename_playlist_dialog.ui:6
 msgid "Rename Playlist?"
-msgstr ""
+msgstr "Přejmenování seznamu skladeb?"
 
 #: src/views/dialog/ui/rename_playlist_dialog.ui:13
 msgid "_Rename"
-msgstr ""
+msgstr "_Přejmenovat"
 
 #: src/views/dialog/ui/rename_playlist_dialog.ui:22
 #: src/views/pages/queue/ui/queue_sidebar.ui:34
 msgid "Playlist"
-msgstr ""
+msgstr "Seznam skladeb"
 
 #: src/views/dialog/ui/save_playlist_dialog.ui:6
 msgid "Save Playlist?"
-msgstr ""
+msgstr "Uložit seznam skladeb?"
 
 #: src/views/dialog/ui/save_playlist_dialog.ui:13
 msgid "_Save"
-msgstr ""
+msgstr "_Uložit"
 
 #: src/views/dialog/ui/save_playlist_dialog.ui:24
 msgid "Playlist Title"
-msgstr ""
+msgstr "Název seznamu skladeb"
 
 #: src/views/dialog/ui/save_playlist_dialog.ui:31
 msgid "Playlist Description (Optional)"
-msgstr ""
+msgstr "Popis seznamu skladeb (volitelné)"
 
 #: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:6
 msgid "Select Playlist"
-msgstr ""
+msgstr "Vybrat seznam skladeb"
 
 #: src/views/dialog/ui/add_tracks_to_playlist_dialog.ui:11
 msgid "_Add"
-msgstr ""
+msgstr "_Přidat"
 
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:6
 msgid "Modify Playlist?"
-msgstr ""
+msgstr "Upravit seznam skladeb?"
 
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:7
 msgid "Confirm these changes."
-msgstr ""
+msgstr "Potvrďte tyto změny."
 
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:12
 msgid "_Change"
-msgstr ""
+msgstr "_Změnit"
 
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:28
 msgid "Modified Title"
-msgstr ""
+msgstr "Upravený název"
 
 #: src/views/dialog/ui/confirm_rename_playlist_dialog.ui:67
 msgid "Modified Description"
-msgstr ""
+msgstr "Upravený popis"
 
 #: src/views/dialog/ui/alpha_dialog.ui:6
 msgid "Early Software Warning ⚠️"
@@ -763,188 +765,188 @@ msgstr ""
 
 #: src/views/dialog/ui/alpha_dialog.ui:10
 msgid "Don't Show Again"
-msgstr ""
+msgstr "Znovu se neukázat"
 
 #: src/views/dialog/ui/alpha_dialog.ui:11
 msgid "Ok!"
-msgstr ""
+msgstr "Dobře"
 
 #: src/views/pages/queue/queue_sidebar.rs:264
 msgid "{time_remaining} remaining"
-msgstr ""
+msgstr "{time_remaining} zbývá"
 
 #: src/views/pages/queue/ui/queue_page.ui:201
 msgid "Toggle Playlist Sidebar"
-msgstr ""
+msgstr "Přepnutí postranního panelu seznamu skladeb"
 
 #: src/views/pages/queue/ui/queue_page.ui:218
 msgid "Loop Playlist"
-msgstr ""
+msgstr "Seznam skladeb ve smyčce"
 
 #: src/views/pages/queue/ui/queue_page.ui:242
 msgid "Shuffle Playlist"
-msgstr ""
+msgstr "Náhodný seznam skladeb"
 
 #: src/views/pages/queue/ui/queue_sidebar_track_entry.ui:105
 msgid "Remove Track From Queue"
-msgstr ""
+msgstr "Odebrání skladby z fronty"
 
 #: src/views/pages/queue/ui/queue_sidebar.ui:47
 msgid "time remaining"
-msgstr ""
+msgstr "zbývající čas"
 
 #: src/views/pages/queue/ui/queue_sidebar.ui:70
 msgid "Clear Queue"
-msgstr ""
+msgstr "Vymazat frontu"
 
 #: src/views/pages/queue/ui/queue_sidebar.ui:90
 msgid "Edit Queue"
-msgstr ""
+msgstr "Upravit frontu"
 
 #: src/views/pages/queue/ui/queue_sidebar.ui:98
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: src/views/pages/playlists/playlist_detail_page.rs:711
 #: src/views/pages/playlists/ui/playlist_detail_page.ui:442
 msgid "Edit Playlist"
-msgstr ""
+msgstr "Upravit seznam skladeb"
 
 #: src/views/pages/playlists/playlist_detail_page.rs:723
 msgid "Finish Edit Playlist"
-msgstr ""
+msgstr "Dokončit úpravu seznamu skladeb"
 
 #: src/views/pages/playlists/ui/playlist_grid_page.ui:59
 msgid "Sort Playlist Grid"
-msgstr ""
+msgstr "Seřadit mřížku seznamu skladeb"
 
 #: src/views/pages/playlists/ui/playlist_detail_row.ui:183
 #: src/views/pages/tracks/ui/track_page_row.ui:165
 msgid "Add Track to Queue"
-msgstr ""
+msgstr "Přidání skladby do fronty"
 
 #: src/views/pages/playlists/ui/playlist_detail_row.ui:208
 msgid "Remove Track From Playlist"
-msgstr ""
+msgstr "Odstranění skladby ze seznamu skladeb"
 
 #: src/views/pages/playlists/ui/playlist_detail_page.ui:408
 msgid "Delete Playlist"
-msgstr ""
+msgstr "Odstranění seznamu skladeb"
 
 #: src/views/pages/playlists/ui/playlist_detail_page.ui:425
 msgid "Duplicate Playlist"
-msgstr ""
+msgstr "Duplicitní seznam skladeb"
 
 #: src/views/pages/tracks/ui/track_page.ui:31
 msgid "Scroll to Top"
-msgstr ""
+msgstr "Přejděte na začátek"
 
 #: src/views/pages/tracks/ui/track_page.ui:43
 msgid "Scroll to Bottom"
-msgstr ""
+msgstr "Přejděte na spodní část"
 
 #: src/views/pages/tracks/ui/track_page.ui:74
 msgid "Title, Album, & Artist"
-msgstr ""
+msgstr "Název, album a interpret"
 
 #: src/views/pages/tracks/ui/track_page.ui:75
 msgid "Track Title"
-msgstr ""
+msgstr "Název skladby"
 
 #: src/views/pages/tracks/ui/track_page.ui:76
 #: src/views/pages/albums/ui/album_grid_page.ui:39
 msgid "Album Title"
-msgstr ""
+msgstr "Název alba"
 
 #: src/views/pages/tracks/ui/track_page.ui:77
 #: src/views/pages/albums/ui/album_grid_page.ui:40
 msgid "Artist"
-msgstr ""
+msgstr "Umělec"
 
 #: src/views/pages/tracks/ui/track_page.ui:78
 #: src/views/pages/albums/ui/album_grid_page.ui:41
 msgid "Genre"
-msgstr ""
+msgstr "Žánr"
 
 #: src/views/pages/tracks/ui/track_page.ui:79
 #: src/views/pages/albums/ui/album_grid_page.ui:42
 msgid "Release Date"
-msgstr ""
+msgstr "Datum vydání"
 
 #: src/views/pages/tracks/ui/track_page.ui:131
 msgid "Sort Track List"
-msgstr ""
+msgstr "Seřadit seznam skladeb"
 
 #: src/views/pages/artists/ui/artist_grid_page.ui:62
 msgid "Sort Artist Grid"
-msgstr ""
+msgstr "Třídit mřížku umělců"
 
 #: src/views/pages/artists/ui/artist_detail_page.ui:97
 msgid "Play all Artist Albums"
-msgstr ""
+msgstr "Přehrát všechna alba umělce"
 
 #: src/views/pages/artists/ui/artist_detail_page.ui:109
 msgid "Add all Artist Albums to Queue"
-msgstr ""
+msgstr "Přidání všech alb umělce do fronty"
 
 #: src/views/pages/artists/ui/artist_detail_page.ui:162
 msgid "Sort Artist Albums"
-msgstr ""
+msgstr "Třídit alba umělce"
 
 #: src/views/pages/albums/ui/album_sidebar.ui:33
 msgid "Close Album Sidebar"
-msgstr ""
+msgstr "Zavřít postranní panel alba"
 
 #: src/views/pages/albums/ui/album_sidebar.ui:135
 #: src/views/pages/albums/ui/album_sidebar.ui:289
 msgid "View Album Page"
-msgstr ""
+msgstr "Zobrazit stránku alba"
 
 #: src/views/pages/albums/ui/album_grid_page.ui:38
 msgid "Title & Artist"
-msgstr ""
+msgstr "Název a umělec"
 
 #: src/views/pages/albums/ui/album_grid_page.ui:104
 msgid "Sort Album Grid"
-msgstr ""
+msgstr "Třídit mřížku alb"
 
 #: src/views/pages/genres/ui/genre_grid_page.ui:133
 msgid "Sort Genre Grid"
-msgstr ""
+msgstr "Třídit mřížku žánrů"
 
 #: src/views/pages/genres/ui/genre_detail_page.ui:95
 msgid "Play all Genre Albums"
-msgstr ""
+msgstr "Přehrát alba všech žánrů"
 
 #: src/views/pages/genres/ui/genre_detail_page.ui:107
 msgid "Add all Genre Albums to Queue"
-msgstr ""
+msgstr "Přidat alba všech žánrů do fronty"
 
 #: src/views/pages/genres/ui/genre_detail_page.ui:162
 msgid "Sort Genre Albums"
-msgstr ""
+msgstr "Třídit žánrová alba"
 
 #: data/io.github.nate_xyz.Resonance.desktop.in:3
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:6
 msgid "Resonance"
-msgstr ""
+msgstr "Resonance"
 
 #: data/io.github.nate_xyz.Resonance.desktop.in:4
 msgid "Music Player"
-msgstr ""
+msgstr "Hudební přehrávač"
 
 #. Translators: Search terms to find this application. Do not translate or localize the semicolons! The list must also end with a semicolon.
 #: data/io.github.nate_xyz.Resonance.desktop.in:11
 msgid "music;sound;player;media;audio;playlist;"
-msgstr ""
+msgstr "music;sound;player;media;audio;playlist;"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:7
 msgid "Harmonize your listening experience"
-msgstr ""
+msgstr "Harmonizujte svůj poslech"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:8
 msgid "nate-xyz"
-msgstr ""
+msgstr "nate-xyz"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:10
 msgid ""
@@ -956,19 +958,19 @@ msgstr ""
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:11
 msgid "Features:"
-msgstr ""
+msgstr "Vlastnosti:"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:13
 msgid "UI updates to reflect currently playing track's cover art colors"
-msgstr ""
+msgstr "Aktualizace uživatelského rozhraní pro zohlednění barev obalu aktuálně přehrávané skladby"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:14
 msgid "Playlist creation and modification"
-msgstr ""
+msgstr "Vytváření a úprava seznamů skladeb"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:15
 msgid "Control the player through MPRIS"
-msgstr ""
+msgstr "Ovládání přehrávače prostřednictvím MPRIS"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:16
 msgid "Discord Rich Presence integration"
@@ -980,44 +982,46 @@ msgstr ""
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:18
 msgid "Import tags with the Mutagen library"
-msgstr ""
+msgstr "Import značek pomocí knihovny Mutagen"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:19
 msgid ""
 "No tag editing (intentionally out of scope to keep Resonance a music player "
 "only)"
-msgstr ""
+msgstr "Žádné úpravy tagů (záměrně mimo rozsah, aby Resonance zůstal pouze "
+"hudebním přehrávačem)"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:21
 msgid ""
 "⚠️ RESONANCE IS EARLY STAGE ALPHA RELEASE SOFTWARE (THERE ARE BUGS, PLEASE "
 "OPEN ISSUES) ⚠️"
-msgstr ""
+msgstr "⚠️ RESONANCE JE SOFTWARE V RANÉ FÁZI VÝVOJE "
+"(POČÍTEJTE PROSÍM S MOŽNÝMI PROBLÉMY)⚠️"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:35
 msgid "MPRIS bugfix"
-msgstr ""
+msgstr "Oprava chyby MPRIS"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:36
 msgid "Dark mode by default"
-msgstr ""
+msgstr "Tmavý režim ve výchozím nastavení"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:37
 msgid "Various UI improvements"
-msgstr ""
+msgstr "Různá vylepšení uživatelského rozhraní"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:44
 msgid "Add Last.fm support"
-msgstr ""
+msgstr "Přidání podpory služby Last.fm"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:51
 msgid "Use album cover art if track cover art empty"
-msgstr ""
+msgstr "Použít obal alba, pokud je obal skladby prázdný"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:52
 msgid "URI encoding for player pipeline bugfix"
-msgstr ""
+msgstr "Oprava kódování URI pro pipeline přehrávače"
 
 #: data/io.github.nate_xyz.Resonance.appdata.xml.in:53
 msgid "UI improvements"
-msgstr ""
+msgstr "Vylepšení uživatelského rozhraní"
