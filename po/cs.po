@@ -128,62 +128,62 @@ msgstr "Nelze přidat skladbu do seznamu skladeb."
 
 #: src/database.rs:302
 msgid "Removed"
-msgstr ""
+msgstr "Odstraněno"
 
 #: src/database.rs:302
 msgid " track from playlist."
-msgstr ""
+msgstr " skladbu ze seznamu skladeb."
 
 #: src/database.rs:307
 msgid "Unable to remove track from playlist."
-msgstr ""
+msgstr "Nelze odebrat skladbu ze seznamu skladeb."
 
 #: src/database.rs:318
 msgid "Unable to reorder playlist."
-msgstr ""
+msgstr "Nelze změnit pořadí seznamu skladeb."
 
 #: src/database.rs:392
 msgid "Unable to load music folders."
-msgstr ""
+msgstr "Nelze načíst hudební složky."
 
 #: src/database.rs:839
 msgid "Tried to add track(s) to playlist that does not exist."
-msgstr ""
+msgstr "Pokus o přidání skladby (skladeb) do neexistujícího seznamu skladeb."
 
 #. Translators: Only replace "Error!". Reorder if necessary
 #: src/toasts.rs:67
 msgid "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
-msgstr ""
+msgstr "<span foreground={ERROR_RED}>Error!</span> {error_msg}"
 
 #: src/views/control_bar.rs:283 src/views/pages/queue/queue_page.rs:243
 msgid "Pause"
-msgstr ""
+msgstr "Pauza"
 
 #: src/views/control_bar.rs:287 src/views/ui/control_bar.ui:328
 #: src/views/pages/queue/queue_page.rs:247
 #: src/views/pages/queue/ui/queue_page.ui:167
 msgid "Play"
-msgstr ""
+msgstr "Přehrát"
 
 #: src/views/control_bar.rs:504 src/views/pages/queue/queue_page.rs:398
 msgid "Toggle Play Pause"
-msgstr ""
+msgstr "Přepínání pozastavení přehrávání"
 
 #: src/views/control_bar.rs:508 src/views/pages/queue/queue_page.rs:402
 msgid "Previous"
-msgstr ""
+msgstr "Předchozí"
 
 #: src/views/control_bar.rs:512 src/views/pages/queue/queue_page.rs:406
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 #: src/views/control_bar.rs:516 src/views/pages/queue/queue_page.rs:410
 msgid "End Queue"
-msgstr ""
+msgstr "Ukončení fronty"
 
 #: src/views/control_bar.rs:521 src/views/ui/preferences_window.ui:446
 msgid "Playback"
-msgstr ""
+msgstr "Přehrávání"
 
 #: src/views/control_bar.rs:526 src/views/ui/control_bar.ui:505
 msgid "Go to Queue"
